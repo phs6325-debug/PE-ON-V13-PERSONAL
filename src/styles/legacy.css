@@ -1,0 +1,90 @@
+/* PE-ON 분류가 애매한 기존 보정 스타일: 삭제하지 말고 유지 */
+
+/* PE-ON v5.0 Build 007: 기기 동기화 안정화 */
+.sync-info-box{
+  padding:10px 12px;
+  border-radius:14px;
+  background:#ecfdf5;
+  border:1px solid #a7f3d0;
+  color:#047857;
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+/* PE-ON V10.0 LTS Final Stable polish */
+.peon-v9-version-only .peon-v9-teacher-img{display:none!important}
+.peon-v9-version-only{gap:8px!important;text-align:center!important}
+
+.class-share-clean-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:16px}
+.manwol-direct-card{padding:0!important;overflow:hidden}
+.manwol-embed-frame{width:100%;height:calc(100vh - 220px);min-height:680px;border:0;background:#fff;border-radius:18px}
+
+.settings-page>h2{margin-bottom:8px}
+.settings-numbered-list{display:flex;flex-direction:column;gap:14px}
+.settings-numbered-row{display:flex!important;align-items:flex-start;gap:16px;padding:16px 18px!important}
+.settings-number-label{flex:0 0 42px;width:42px;height:42px;border-radius:14px;background:#eef4ff;color:#2563eb;font-weight:900;font-size:22px;display:flex;align-items:center;justify-content:center}
+.settings-number-content{flex:1;min-width:0}
+.settings-numbered-row .shared-file-card{box-shadow:none!important;border:0!important;padding:0!important;margin:0!important;background:transparent!important}
+.settings-numbered-row .shared-file-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0!important}
+.settings-numbered-row .shared-file-header h3{margin:0 0 4px!important;font-size:20px!important}
+.settings-numbered-row .shared-file-header p{margin:0!important;color:#526072!important;font-size:14px!important}
+.settings-numbered-row .shared-sync-status{margin:10px 0!important;padding:9px 12px!important}
+.settings-numbered-row .shared-file-list{margin-top:10px!important}
+.settings-numbered-row .assessment-guide-box{margin-top:10px!important;padding:12px!important}
+.settings-simple-row{align-items:center!important}
+.settings-simple-main{flex:1;min-width:0}
+.settings-simple-main h3{margin:0 0 4px!important;font-size:20px!important}
+.settings-simple-main p{margin:0!important;color:#526072!important}
+.settings-inline-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-top:10px}
+.settings-simple-row .settings-inline-actions{margin-top:0}
+
+.roster-page>.shared-file-card,.roster-page>.upload-card{display:none!important}
+.assessment-page .shared-file-card,.paps-page .shared-file-card,.paps-page .paps-import-card{display:none!important}
+.roster-table th:last-child,.roster-table td:last-child{display:none!important}
+.roster-table th:nth-child(1){width:80px}.roster-table th:nth-child(2){width:160px}.roster-table th:nth-child(3){width:90px}.roster-table th:nth-child(5){width:140px}
+.assessment-page .student-table th:last-child,.assessment-page .student-table td:last-child,.paps-page .paps-manage-col,.paps-page td.paps-manage-col{display:none!important}
+.student-table th:first-child,.student-table td:first-child{width:52px;text-align:center;white-space:nowrap}
+.student-table th:first-child{font-size:0!important}.student-table th:first-child input,.student-table td:first-child input{font-size:initial!important}
+
+.student-records-page .card:first-of-type{padding:14px 18px!important;min-height:auto!important}
+.student-records-page .card:first-of-type h3,.student-records-page .card:first-of-type h2{margin:0 0 4px!important;font-size:24px!important}
+.student-records-page .card:first-of-type p{margin:0!important}
+.records-keyword-panel,.keyword-panel{max-height:120px!important;overflow:auto!important}
+
+.student-card-backdrop{align-items:center!important;justify-content:center!important;overflow:hidden!important}
+.student-card-clean{position:relative!important;width:min(960px,92vw)!important;max-height:88vh!important;overflow:auto!important;padding:26px 30px 96px!important;border-radius:22px!important}
+.student-card-clean .card-close-fixed{position:absolute!important;right:22px!important;top:18px!important;z-index:10!important;width:44px!important;height:44px!important;border-radius:50%!important}
+.student-card-title-row{padding-right:62px!important;margin-bottom:18px!important}
+.student-card-clean-body{display:grid;grid-template-columns:300px 1fr;gap:26px;align-items:start}
+.student-card-photo-column{display:flex;flex-direction:column;align-items:center}
+.student-card-clean .student-photo-large{width:300px!important;height:390px!important;border-radius:18px!important;overflow:hidden!important;background:#f6f8fb!important}
+.student-card-clean .student-photo-large img{width:100%;height:100%;object-fit:cover!important;transform:translate(var(--photo-x,0),var(--photo-y,0)) scale(var(--photo-scale,1));transform-origin:center center}
+.student-card-name-under-photo{display:none!important}
+.student-card-info-column{min-width:0;display:flex;flex-direction:column;gap:16px}
+.student-card-basic-box{margin:0!important;padding:22px!important}
+.student-card-info-list{display:flex;flex-direction:column;gap:0;border-top:1px solid #e5ebf5;margin-top:12px}
+.student-card-info-list>div{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid #e5ebf5;align-items:center}
+.student-card-info-list span{font-weight:800;color:#526072}
+.student-card-info-list strong{font-weight:900;color:#101827;word-break:break-word}
+.student-card-summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.student-card-bottom-actions{position:absolute;right:30px;bottom:22px;display:flex;gap:10px;justify-content:flex-end}
+.student-card-bottom-actions button{min-width:120px;height:50px}
+
+.photo-studio-toolbar .photo-studio-upload-line.compact{display:flex!important;align-items:center!important;gap:10px!important;flex-wrap:wrap!important}
+.photo-studio-toolbar .photo-studio-class-select-row{display:grid!important;grid-template-columns:1fr auto;gap:12px;align-items:end}
+.photo-studio-toolbar .photo-studio-class-select-row label{display:grid!important;grid-template-columns:90px 1fr;align-items:center;gap:10px}
+.photo-studio-toolbar .photo-studio-class-mini-status{min-width:220px;text-align:center}
+
+@media (max-width: 900px){
+  .class-share-clean-head{flex-direction:column}.manwol-embed-actions{width:100%;justify-content:flex-start}.manwol-embed-frame{height:78vh;min-height:560px}
+  .settings-numbered-row,.settings-simple-row{flex-direction:column!important;align-items:stretch!important}.settings-number-label{width:38px;height:38px}.settings-inline-actions{justify-content:flex-start!important}
+  .student-card-clean{width:94vw!important;padding:20px 18px 92px!important}
+  .student-card-clean-body{grid-template-columns:1fr!important}.student-card-clean .student-photo-large{width:min(260px,72vw)!important;height:min(340px,90vw)!important;margin:0 auto}
+  .student-card-summary-grid{grid-template-columns:1fr!important}.student-card-bottom-actions{left:18px;right:18px;bottom:18px}.student-card-bottom-actions button{flex:1;min-width:0}
+  .photo-studio-toolbar .photo-studio-class-select-row{grid-template-columns:1fr!important}.photo-studio-toolbar .photo-studio-class-select-row label{grid-template-columns:1fr!important}.photo-studio-toolbar .photo-studio-class-mini-status{text-align:left}
+}
+
+@media (max-width: 640px){
+  .settings-numbered-row .shared-file-header{flex-direction:column;align-items:stretch}.settings-numbered-row .shared-file-actions,.shared-file-actions{flex-wrap:wrap}.shared-file-row{flex-direction:column;align-items:stretch!important}
+  .student-card-info-list>div{grid-template-columns:82px 1fr}.student-card-clean .student-photo-file-top{display:none!important}
+}

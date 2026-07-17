@@ -1,0 +1,108 @@
+/* PE-ON 버튼/폼/드롭다운 공통 스타일 */
+
+/* 공통 */
+.title-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+
+.button-row{
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  margin-top:12px;
+}
+
+.cancel-btn{
+  background:#e5e7eb;
+  color:#374151;
+  padding:8px 16px;
+  border-radius:8px;
+  font-weight:600;
+}
+
+.save-btn{
+  background:#2563eb;
+  color:white;
+  padding:8px 16px;
+  border-radius:8px;
+  font-weight:600;
+}
+
+.delete-btn,
+.danger{
+  background:#ef4444;
+  color:white;
+  padding:8px 14px;
+  border-radius:10px;
+  font-weight:700;
+}
+
+/* 하단 메뉴 */
+.bottom-nav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height:70px;
+  background:white;
+  border-top:1px solid #ddd;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  z-index:999;
+  max-width:1400px;
+  margin:0 auto;
+}
+
+.bottom-nav button{
+  background:white;
+  color:#555;
+  font-size:18px;
+}
+
+.bottom-nav .active{
+  color:#2563eb;
+  font-weight:800;
+}
+
+/* 드롭다운 선택 글자 가운데 느낌 */
+.student-table select{
+  text-align-last:center;
+}
+
+/* PE-ON v7.9: 학생사진 드래그 실제 작동 + 매칭 안전 모드 */
+.adjustable-photo-frame{
+  position:relative !important;
+  overflow:hidden !important;
+  touch-action:none !important;
+  user-select:none !important;
+  cursor:grab !important;
+}
+.adjustable-photo-frame:active{ cursor:grabbing !important; }
+.adjustable-photo-frame img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  transform:translate3d(var(--photo-x, 0px), var(--photo-y, 0px), 0) scale(var(--photo-scale, 1.08)) !important;
+  transform-origin:center center !important;
+  pointer-events:none !important;
+  user-select:none !important;
+  -webkit-user-drag:none !important;
+  transition:none !important;
+}
+.photo-adjust-panel::before{
+  content:"사진 위를 직접 눌러 마우스나 손가락으로 끌어 위치를 맞춘 뒤 저장하세요." !important;
+}
+
+/* ===== PE-ON V10.0 LTS FINAL INTEGRATION LOCK ===== */
+:root{--peon-top-offset:72px;--peon-sidebar-w:152px;--peon-sidebar-w-collapsed:96px;}
+.peon-v9-sidebar{width:var(--peon-sidebar-w);}
+.sidebar-collapsed .peon-v9-sidebar{width:var(--peon-sidebar-w-collapsed);}
+.peon-v9-menu button{min-height:56px;gap:10px;}
+.peon-v9-menu-label{white-space:nowrap;}
+.peon-v9-version-only img,.peon-v9-teacher-card img{display:none!important;}
+.peon-v9-content{min-width:0;}
+.peon-v9-main{min-width:0;overflow:visible;}

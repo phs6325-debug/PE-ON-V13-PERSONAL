@@ -1,0 +1,53 @@
+/* PE-ON 팝업/모달 공통 스타일 */
+
+/* 엑셀 다운로드 팝업 헤더 + X 닫기 버튼 */
+.excel-check-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:4px 4px 12px;
+  margin-bottom:8px;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.excel-check-header strong{
+  font-size:18px;
+  font-weight:900;
+  color:#111827;
+}
+
+.excel-popup-close{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background:white;
+  color:#ef4444;
+  border:1px solid #fecaca;
+  font-size:24px;
+  font-weight:900;
+  line-height:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.excel-popup-close:hover{
+  background:#fee2e2;
+  transform:scale(1.03);
+}
+
+/* 팝업 X는 항상 팝업 내부 오른쪽 상단 */
+.modal,
+.peon-popup-modal,
+.student-card-modal{
+  position:relative !important;
+}
+.modal-close-x,
+.card-close-fixed{
+  position:sticky !important;
+  top:10px !important;
+  right:10px !important;
+  margin-left:auto !important;
+  z-index:10000 !important;
+}

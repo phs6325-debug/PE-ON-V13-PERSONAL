@@ -1,0 +1,3718 @@
+/* PE-ON 사진등록센터/Photo Studio 스타일 */
+
+/* PE-ON v8.0: 사진 자동등록 센터 + 드래그 편집기 */
+.photo-center-v8 .photo-upload-header{align-items:flex-start!important;}
+.photo-upload-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;}
+.photo-upload-actions .shared-file-upload-btn input{display:none!important;}
+.photo-status-board{margin-top:16px;display:flex;flex-direction:column;gap:12px;}
+.photo-status-board-title{display:flex;align-items:center;gap:8px;justify-content:space-between;flex-wrap:wrap;padding:10px 12px;border-radius:14px;background:#f8fafc;border:1px solid #e2e8f0;}
+.setting-btn.small{min-height:30px!important;padding:0 10px!important;font-size:12px!important;border-radius:10px!important;}
+.photo-class-status{border:1px solid #dbeafe;border-radius:18px;background:#fff;overflow:hidden;box-shadow:0 8px 20px rgba(15,23,42,.05);}
+.photo-class-summary{width:100%;border:0;background:#eff6ff;display:grid;grid-template-columns:80px 1fr 1.6fr 76px;gap:10px;align-items:center;text-align:left;padding:12px 14px;cursor:pointer;color:#0f172a;}
+.photo-class-summary b{font-size:18px;color:#1d4ed8;font-weight:950;}
+.photo-class-summary span{font-weight:900;}
+.photo-class-summary em{font-style:normal;color:#475569;font-size:13px;}
+.photo-class-summary strong{font-size:13px;color:#2563eb;text-align:right;}
+.photo-review-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;padding:12px;background:#fff;}
+.photo-review-card{border:1px solid #e2e8f0;border-radius:16px;background:#ffffff;padding:10px;display:flex;flex-direction:column;gap:8px;box-shadow:0 6px 14px rgba(15,23,42,.05);}
+.photo-review-card.saved{border-color:#bbf7d0;background:#f0fdf4;}
+.photo-review-image{width:100%;aspect-ratio:3/4;border-radius:14px;overflow:hidden;background:#e5e7eb;border:1px solid #dbeafe;display:flex;align-items:center;justify-content:center;}
+.photo-review-image img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;}
+.photo-review-info{display:flex;flex-direction:column;gap:2px;text-align:center;}
+.photo-review-info strong{font-size:16px;color:#1d4ed8;font-weight:950;}
+.photo-review-info b{font-size:18px;color:#0f172a;font-weight:950;}
+.photo-review-info span{font-size:12px;color:#64748b;}
+.photo-review-info em{font-style:normal;font-size:12px;font-weight:900;color:#16a34a;}
+.photo-review-actions{display:flex;gap:6px;}
+.photo-review-actions button{flex:1;border:1px solid #cbd5e1;border-radius:10px;background:#fff;min-height:34px;font-weight:900;cursor:pointer;color:#1e3a8a;}
+.photo-review-actions button.save{background:#2563eb;color:#fff;border-color:#2563eb;}
+.photo-editor-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:9999;display:flex;align-items:center;justify-content:center;padding:18px;touch-action:none;}
+.photo-editor-modal{width:min(520px,96vw);background:#fff;border-radius:24px;padding:16px;box-shadow:0 24px 80px rgba(15,23,42,.25);}
+.photo-editor-header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px;}
+.photo-editor-header strong{font-size:20px;font-weight:950;color:#0f172a;}
+.photo-editor-header button{width:34px;height:34px;border:0;border-radius:50%;background:#f1f5f9;font-weight:950;cursor:pointer;color:#334155;}
+.photo-editor-stage{position:relative;width:min(360px,80vw);aspect-ratio:3/4;margin:0 auto;border-radius:18px;overflow:hidden;background:#e5e7eb;border:2px solid #93c5fd;cursor:grab;touch-action:none;user-select:none;}
+.photo-editor-stage:active{cursor:grabbing;}
+.photo-editor-stage img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transform-origin:center center;pointer-events:none;user-select:none;}
+.photo-center-guide{position:absolute;background:rgba(37,99,235,.55);pointer-events:none;z-index:2;}
+.photo-center-guide.horizontal{left:0;right:0;top:50%;height:1px;}
+.photo-center-guide.vertical{top:0;bottom:0;left:50%;width:1px;}
+.photo-center-dot{position:absolute;left:50%;top:50%;width:10px;height:10px;border:2px solid #2563eb;border-radius:50%;transform:translate(-50%,-50%);background:rgba(255,255,255,.5);z-index:3;pointer-events:none;}
+.photo-editor-controls{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px;}
+.photo-editor-controls button{min-height:38px;padding:0 14px;border-radius:12px;border:1px solid #cbd5e1;background:#fff;font-weight:900;cursor:pointer;color:#1e3a8a;}
+.photo-editor-controls button.save{background:#2563eb;color:#fff;border-color:#2563eb;}
+.photo-editor-modal p{text-align:center;color:#64748b;font-size:13px;line-height:1.5;margin:10px 0 0;}
+
+/* PE-ON v8.2.2 Photo Studio PDF viewer size/scroll fix */
+.photo-studio-page .photo-studio-title{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px;}
+.photo-studio-page .photo-studio-title h2{margin:0 0 6px;font-size:28px;font-weight:950;color:#0f172a;}
+.photo-studio-page .photo-studio-title p{margin:0;color:#475569;font-weight:700;line-height:1.5;}
+.photo-studio-page .photo-studio-toolbar{position:sticky;top:0;z-index:30;background:#fff;}
+.photo-studio-page .photo-studio-class-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:12px;}
+.photo-studio-page .photo-studio-class-tabs button{border:0;border-radius:16px;padding:14px 10px;background:#e5e7eb;color:#0f172a;font-size:18px;font-weight:950;cursor:pointer;}
+.photo-studio-page .photo-studio-class-tabs button.active{background:#2563eb;color:#fff;}
+.photo-studio-page .photo-studio-class-tabs small{display:block;font-size:12px;opacity:.8;margin-top:3px;}
+.photo-studio-page .photo-studio-upload-line{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.photo-studio-page .photo-studio-upload-line span{font-weight:800;color:#334155;}
+.photo-studio-page .photo-studio-message{margin-top:10px;padding:10px 12px;border-radius:14px;background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8;font-weight:800;}
+.photo-studio-page .photo-studio-layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:16px;align-items:start;margin-top:16px;}
+.photo-studio-page .photo-studio-students{position:sticky;top:150px;max-height:calc(100vh - 170px);overflow:auto;}
+.photo-studio-page .photo-studio-fold{width:100%;border:0;border-radius:14px;background:#eef2ff;color:#1e3a8a;font-weight:950;padding:12px;cursor:pointer;margin-bottom:10px;}
+.photo-studio-page .photo-studio-student-list{display:flex;flex-direction:column;gap:8px;}
+.photo-studio-page .photo-studio-student-list button{display:grid;grid-template-columns:28px 56px 1fr;align-items:center;gap:6px;width:100%;border:1px solid #dbeafe;border-radius:14px;background:#fff;padding:10px;cursor:pointer;text-align:left;color:#0f172a;}
+.photo-studio-page .photo-studio-student-list button.active{border-color:#2563eb;background:#eff6ff;box-shadow:0 0 0 2px rgba(37,99,235,.12);}
+.photo-studio-page .photo-studio-student-list button.saved{background:#f0fdf4;border-color:#bbf7d0;}
+.photo-studio-page .photo-studio-workspace{min-width:0;}
+.photo-studio-page .photo-studio-current{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px;}
+.photo-studio-page .photo-studio-current span{display:block;color:#64748b;font-weight:800;margin-bottom:4px;}
+.photo-studio-page .photo-studio-current strong{font-size:22px;color:#0f172a;font-weight:950;}
+.photo-studio-page .photo-studio-current-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.photo-studio-page .photo-studio-crop-row{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:16px;align-items:start;}
+.photo-studio-page .photo-studio-pdf-panel{min-width:0;}
+.photo-studio-page .photo-studio-canvas-wrap{position:relative;width:100%;height:calc(100vh - 300px);min-height:520px;overflow:auto;border:2px solid #bfdbfe;border-radius:18px;background:#f8fafc;cursor:crosshair;touch-action:none;box-shadow:inset 0 0 0 1px rgba(15,23,42,.04);}
+.photo-studio-page .photo-studio-canvas-wrap canvas{display:block;max-width:none!important;max-height:none!important;background:#fff;box-shadow:0 10px 30px rgba(15,23,42,.12);margin:18px;}
+.photo-studio-page .photo-studio-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#64748b;font-weight:900;font-size:18px;padding:30px;}
+.photo-studio-page .photo-studio-selection{position:absolute;border:3px solid #2563eb;background:rgba(37,99,235,.12);box-shadow:0 0 0 9999px rgba(15,23,42,.08);pointer-events:none;z-index:5;}
+.photo-studio-page .photo-studio-selection span::before,.photo-studio-page .photo-studio-selection span::after{content:"";position:absolute;background:rgba(37,99,235,.55);}
+.photo-studio-page .photo-studio-selection span::before{left:50%;top:0;bottom:0;width:1px;}
+.photo-studio-page .photo-studio-selection span::after{top:50%;left:0;right:0;height:1px;}
+.photo-studio-page .photo-studio-help{font-size:14px;color:#475569;font-weight:800;line-height:1.5;margin:10px 2px 0;}
+.photo-studio-page .photo-studio-preview-panel{position:sticky;top:150px;border:1px solid #dbeafe;border-radius:18px;background:#fff;padding:14px;}
+.photo-studio-page .photo-studio-preview-panel h3{margin:0 0 10px;font-size:18px;font-weight:950;color:#0f172a;}
+.photo-studio-page .photo-studio-preview-box{width:100%;aspect-ratio:3/4;border:1px dashed #93c5fd;border-radius:16px;background:#f8fafc;display:flex;align-items:center;justify-content:center;overflow:hidden;text-align:center;color:#64748b;font-weight:800;}
+.photo-studio-page .photo-studio-preview-box img{width:100%;height:100%;object-fit:cover;}
+.photo-studio-page .photo-studio-nudge{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0;}
+.photo-studio-page .photo-studio-nudge button{border:1px solid #cbd5e1;background:#f8fafc;border-radius:12px;padding:9px;font-weight:900;cursor:pointer;}
+.photo-studio-page .photo-studio-save{width:100%;justify-content:center;margin:6px 0 8px;}
+.photo-studio-page .photo-studio-preview-panel p{font-size:13px;color:#64748b;line-height:1.45;margin:0;}
+@media(max-width:1024px){.photo-studio-page .photo-studio-layout{grid-template-columns:1fr}.photo-studio-page .photo-studio-students,.photo-studio-page .photo-studio-preview-panel{position:static;max-height:none}.photo-studio-page .photo-studio-crop-row{grid-template-columns:1fr}.photo-studio-page .photo-studio-canvas-wrap{height:62vh;min-height:420px}.photo-studio-page .photo-studio-class-tabs{display:flex;overflow-x:auto}.photo-studio-page .photo-studio-class-tabs button{min-width:110px}.photo-studio-page .photo-studio-toolbar{top:0}}
+@media(max-width:640px){.photo-studio-page .photo-studio-title h2{font-size:24px}.photo-studio-page .photo-studio-upload-line>*{flex:1 1 120px}.photo-studio-page .photo-studio-canvas-wrap{height:58vh;min-height:360px}.photo-studio-page .photo-studio-current strong{font-size:20px}}
+
+/* v8.2.3 Photo Studio side-confirm + per-class PDF UX */
+.photo-studio-class-tabs button em{
+  display:inline-flex;align-items:center;justify-content:center;margin-left:6px;padding:2px 6px;border-radius:999px;background:#dcfce7;color:#047857;font-size:10px;font-style:normal;font-weight:950;
+}
+.photo-studio-status-grid{
+  display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:8px;
+}
+.photo-studio-status-grid button{
+  border:1px solid #dbeafe;background:#f8fafc;border-radius:14px;padding:10px 12px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:3px;
+}
+.photo-studio-status-grid button.active{border-color:#2563eb;background:#eff6ff;box-shadow:0 6px 14px rgba(37,99,235,.12);}
+.photo-studio-status-grid strong{font-size:15px;color:#0f172a;font-weight:950;}
+.photo-studio-status-grid span{font-size:13px;color:#1d4ed8;font-weight:900;}
+.photo-studio-status-grid i{font-size:12px;color:#64748b;font-style:normal;font-weight:800;}
+.photo-studio-layout-wide{grid-template-columns:250px minmax(0,1fr)!important;}
+.photo-studio-crop-row-wide{grid-template-columns:minmax(620px,1fr) 320px!important;}
+.photo-studio-canvas-wrap{width:100%;max-height:72vh;overflow:auto!important;touch-action:none;}
+.photo-studio-canvas-wrap canvas{width:auto!important;max-width:none!important;height:auto!important;}
+.photo-studio-side-confirm{position:sticky;top:138px;}
+.photo-studio-target-card{border:1px solid #bfdbfe;background:#eff6ff;border-radius:16px;padding:12px;margin-bottom:12px;text-align:center;}
+.photo-studio-target-card span{display:block;color:#64748b;font-size:12px;font-weight:900;margin-bottom:3px;}
+.photo-studio-target-card strong{display:block;color:#1d4ed8;font-size:19px;font-weight:950;margin-bottom:2px;}
+.photo-studio-target-card b{display:block;color:#020617;font-size:24px;font-weight:950;}
+.photo-studio-student-box-list button{border-radius:14px;min-height:48px;}
+.photo-studio-student-box-list button.active{outline:3px solid rgba(37,99,235,.14);}
+.photo-studio-save{font-size:15px!important;font-weight:950!important;}
+@media (max-width:1100px){
+  .photo-studio-status-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .photo-studio-layout-wide{grid-template-columns:1fr!important;}
+  .photo-studio-crop-row-wide{grid-template-columns:1fr!important;}
+  .photo-studio-side-confirm{position:static;max-width:420px;margin:0 auto;width:100%;}
+}
+@media (max-width:640px){
+  .photo-studio-status-grid{grid-template-columns:1fr;}
+  .photo-studio-canvas-wrap{max-height:56vh;}
+  .photo-studio-target-card b{font-size:20px;}
+}
+
+/* PE-ON v8.3.2 photo studio focus mode */
+.photo-studio-settings-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+.photo-studio-settings-head h3{margin-top:0;}
+.photo-studio-settings-actions{margin:0!important;align-items:center;}
+body.peon-photo-focus{overflow:hidden;}
+body.peon-photo-focus .bottom-nav{display:none!important;}
+body.peon-photo-focus .page.settings-photo-focus{padding:0!important;margin:0!important;max-width:none!important;}
+body.peon-photo-focus .settings-photo-focus > h2{display:none!important;}
+body.peon-photo-focus .settings-photo-focus > .settings-card:not(.photo-studio-settings-card){display:none!important;}
+body.peon-photo-focus .photo-studio-settings-card{position:fixed!important;inset:0!important;z-index:9999!important;margin:0!important;border-radius:0!important;overflow:auto!important;padding:18px!important;background:#f8fafc!important;}
+body.peon-photo-focus .photo-studio-settings-card > .photo-studio-settings-head{position:sticky;top:0;z-index:80;background:rgba(248,250,252,.96);backdrop-filter:blur(8px);padding:8px 0 12px;margin-bottom:8px;border-bottom:1px solid #dbeafe;}
+body.peon-photo-focus .photo-studio-page{padding:0!important;margin:0!important;max-width:none!important;}
+body.peon-photo-focus .photo-studio-page .photo-studio-title{display:none!important;}
+body.peon-photo-focus .photo-studio-page .photo-studio-toolbar{top:76px!important;z-index:70;}
+body.peon-photo-focus .photo-studio-page .photo-studio-layout{grid-template-columns:220px minmax(0,1fr)!important;gap:12px!important;}
+body.peon-photo-focus .photo-studio-page .photo-studio-students{top:190px!important;max-height:calc(100vh - 210px)!important;}
+body.peon-photo-focus .photo-studio-page .photo-studio-crop-row{grid-template-columns:minmax(720px,1fr) 340px!important;gap:12px!important;}
+body.peon-photo-focus .photo-studio-page .photo-studio-canvas-wrap{height:calc(100vh - 250px)!important;min-height:620px!important;max-height:none!important;}
+body.peon-photo-focus .photo-studio-page .photo-studio-preview-panel{top:190px!important;}
+body.peon-photo-focus .photo-studio-page .photo-studio-current-actions.photo-studio-fixed-save-actions{top:88px!important;}
+@media(max-width:1100px){
+  body.peon-photo-focus .photo-studio-page .photo-studio-layout{grid-template-columns:1fr!important;}
+  body.peon-photo-focus .photo-studio-page .photo-studio-crop-row{grid-template-columns:1fr!important;}
+  body.peon-photo-focus .photo-studio-page .photo-studio-preview-panel{position:static!important;max-width:none!important;}
+  body.peon-photo-focus .photo-studio-page .photo-studio-canvas-wrap{height:62vh!important;min-height:460px!important;}
+}
+@media(max-width:640px){
+  .photo-studio-settings-head{display:block;}
+  .photo-studio-settings-actions{display:grid!important;grid-template-columns:1fr 1fr;gap:8px!important;}
+  body.peon-photo-focus .photo-studio-settings-card{padding:10px!important;}
+  body.peon-photo-focus .photo-studio-page .photo-studio-toolbar{top:94px!important;}
+  body.peon-photo-focus .photo-studio-page .photo-studio-canvas-wrap{height:58vh!important;min-height:380px!important;}
+}
+
+/* ===== PE-ON V10.0 LTS final usability lock ===== */
+.peon-v9-content,.peon-v9-main,.page,.card{overflow:visible;}
+.assessment-main-tabs,
+.assessment-tabs,
+.class-tabs,
+.paps-sticky-controls,
+.records-toolbar-sticky,
+.records-class-keyword-panel,
+.records-summary-sticky,
+.photo-studio-status,
+.photo-pdf-toolbar{
+  position:sticky !important;
+  z-index:900 !important;
+  background:#f8fafc !important;
+  backdrop-filter: blur(6px);
+}
+.assessment-main-tabs{top:74px !important;padding-top:10px !important;padding-bottom:10px !important;}
+.assessment-tabs,.class-tabs,.paps-sticky-controls,.records-toolbar-sticky,.photo-studio-status{top:132px !important;padding-top:10px !important;padding-bottom:10px !important;}
+.records-class-keyword-panel{top:74px !important;z-index:880 !important;}
+.records-summary-sticky{top:74px !important;z-index:920 !important;}
+.records-class-keyword-panel:not(.collapsed)+.records-summary-sticky{top:210px !important;}
+.photo-pdf-toolbar{top:132px !important;}
+
+/* Photo register center: 3-pane workflow */
+.photo-studio-layout{display:grid !important;grid-template-columns:220px minmax(420px,1fr) 260px !important;gap:16px !important;align-items:start !important;}
+.photo-studio-sidebar{position:sticky;top:180px;max-height:calc(100vh - 200px);overflow:auto;background:#fff;border:1px solid #dbe4ef;border-radius:18px;padding:12px;}
+.photo-student-list{display:grid;gap:8px;max-height:none !important;}
+.photo-student-list button{height:44px;display:grid;grid-template-columns:26px 46px 1fr;align-items:center;text-align:left;border:1px solid #dbe4ef;border-radius:12px;background:#fff;padding:0 10px;}
+.photo-student-list button.active{background:#ecfdf5;border-color:#86efac;box-shadow:0 0 0 3px #d1fae5;}
+.photo-current-student{display:none !important;}
+.photo-pdf-workspace{min-width:0;background:#fff;border:1px solid #dbe4ef;border-radius:18px;padding:14px;}
+.photo-canvas-wrap{max-height:calc(100vh - 310px);overflow:auto !important;background:#f8fafc;border-radius:14px;}
+.photo-studio-preview-panel{position:sticky;top:180px;background:#fff;border:1px solid #dbe4ef;border-radius:18px;padding:14px;box-shadow:0 10px 30px rgba(15,23,42,.08);}
+.photo-studio-preview-panel h3{margin:0 0 10px;font-size:20px;}
+.photo-preview-student{padding:10px 12px;margin-bottom:12px;border-radius:12px;background:#eff6ff;color:#1d4ed8;font-weight:900;text-align:center;}
+.photo-preview-box{margin-bottom:12px;}
+.photo-preview-box span{display:block;margin-bottom:6px;font-weight:900;color:#334155;}
+.photo-preview-box img,.photo-preview-empty{width:100%;aspect-ratio:3/4;border:1px solid #dbe4ef;border-radius:14px;background:#f8fafc;object-fit:cover;display:flex;align-items:center;justify-content:center;text-align:center;color:#64748b;font-weight:800;}
+.photo-studio-preview-panel .full{width:100%;height:44px;margin-top:8px;}
+
+/* PE-ON V10.0 LTS final fix: universal sticky tabs, records table, photo studio dropdown */
+.page .sticky-section-tabs,
+.assessment-main-tabs.sticky-section-tabs,
+.paps-page .assessment-main-tabs.sticky-section-tabs,
+.assessment-page .assessment-main-tabs.sticky-section-tabs,
+.class-tabs,
+.roster-sticky-class-tabs,
+.assessment-tabs,
+.paps-sticky-controls,
+.records-toolbar-sticky,
+.records-summary-sticky,
+.photo-studio-toolbar.peon-sticky-toolbar{
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 900 !important;
+  background: rgba(243,245,248,.98) !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 22px rgba(15,23,42,.08) !important;
+}
+
+.assessment-tabs,
+.class-tabs,
+.paps-sticky-controls,
+.records-summary-sticky{
+  top: 70px !important;
+}
+
+.records-toolbar-sticky{
+  top: 0 !important;
+}
+
+.records-summary-sticky{
+  border-radius: 18px !important;
+}
+
+.records-class-table th:nth-child(6),
+.records-class-table td:nth-child(6){
+  min-width: 560px !important;
+  width: 48vw !important;
+}
+.records-class-table th:nth-child(4),
+.records-class-table td:nth-child(4){
+  min-width: 190px !important;
+  max-width: 220px !important;
+}
+.records-class-table th:nth-child(5),
+.records-class-table td:nth-child(5){
+  min-width: 220px !important;
+  max-width: 260px !important;
+}
+.record-result-textarea{
+  min-height: 135px !important;
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+}
+.record-evidence-cell strong{
+  font-size: 18px !important;
+  line-height: 1.35 !important;
+}
+.record-evidence-cell div{
+  font-size: 12px !important;
+  color:#64748b !important;
+  line-height:1.35 !important;
+}
+
+.photo-studio-class-select-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+.photo-studio-class-select-row label{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex:1 1 420px;
+}
+.photo-studio-class-select-row label span{
+  font-weight:950;
+  color:#1e3a8a;
+  white-space:nowrap;
+}
+.photo-studio-class-select-row select{
+  flex:1;
+  min-width:220px;
+  height:48px;
+  border:1px solid #cbd5e1;
+  border-radius:14px;
+  background:#fff;
+  padding:0 14px;
+  font-weight:900;
+  font-size:16px;
+}
+.photo-studio-class-mini-status{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:16px;
+  background:#eff6ff;
+  color:#1d4ed8;
+  font-weight:900;
+}
+.photo-studio-class-mini-status strong{font-size:18px;color:#0f172a;}
+.photo-studio-class-mini-status em{font-style:normal;color:#64748b;}
+.photo-studio-status,
+.photo-studio-class-tabs,
+.photo-studio-status-grid{
+  display:none !important;
+}
+.photo-studio-layout,
+.photo-studio-layout-wide{
+  display:grid !important;
+  grid-template-columns: 210px minmax(0,1fr) !important;
+  gap:14px !important;
+  align-items:start !important;
+}
+.photo-studio-sidebar,
+.photo-studio-students{
+  position: sticky !important;
+  top: 150px !important;
+  max-height: calc(100vh - 170px) !important;
+  overflow:auto !important;
+}
+.photo-studio-crop-row,
+.photo-studio-crop-row-wide{
+  display:grid !important;
+  grid-template-columns: minmax(520px,1fr) 300px !important;
+  gap:14px !important;
+  align-items:start !important;
+}
+.photo-studio-preview-panel,
+.photo-studio-side-confirm{
+  position: sticky !important;
+  top: 150px !important;
+  max-height: calc(100vh - 170px) !important;
+  overflow:auto !important;
+}
+.photo-studio-preview-label{
+  margin:10px 0 6px;
+  font-size:13px;
+  font-weight:950;
+  color:#1d4ed8;
+}
+.photo-studio-preview-box{
+  aspect-ratio: 3 / 4 !important;
+  min-height: 170px !important;
+  margin-bottom:8px !important;
+}
+.photo-studio-upload-line.compact{
+  gap:8px !important;
+}
+.photo-studio-upload-line.compact span{
+  max-width:360px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+@media(max-width:900px){
+  .assessment-tabs,.class-tabs,.paps-sticky-controls,.records-summary-sticky{top:54px!important;}
+  .records-class-table th:nth-child(6),.records-class-table td:nth-child(6){min-width:420px!important;width:420px!important;}
+  .photo-studio-layout,.photo-studio-layout-wide{display:flex!important;flex-direction:column!important;}
+  .photo-studio-sidebar,.photo-studio-students,.photo-studio-preview-panel,.photo-studio-side-confirm{position:static!important;max-height:none!important;width:100%!important;}
+  .photo-studio-crop-row,.photo-studio-crop-row-wide{display:flex!important;flex-direction:column!important;}
+}
+
+/* PE-ON V10.0 LTS 긴급 수정: 사진등록센터 겹침 방지 + 저장/보기 안정화 */
+.peon-v9-main .photo-studio-page .photo-studio-sidebar,
+.peon-v9-main .photo-studio-page .photo-studio-preview-panel{
+  position: static !important;
+  top: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-layout{
+  display: grid !important;
+  grid-template-columns: 240px minmax(520px,1fr) 300px !important;
+  gap: 16px !important;
+  align-items: start !important;
+  overflow: visible !important;
+}
+.peon-v9-main .photo-student-list{
+  max-height: 66vh !important;
+  overflow: auto !important;
+  padding-right: 4px !important;
+}
+.peon-v9-main .photo-student-list button{
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  width: 100% !important;
+  margin: 0 !important;
+  z-index: auto !important;
+  box-sizing: border-box !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-class-select-row{
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 2400 !important;
+  background: rgba(248,250,252,.98) !important;
+  padding: 12px 0 !important;
+  margin-bottom: 12px !important;
+}
+.peon-v9-main .photo-pdf-file-box{
+  margin-bottom: 12px !important;
+}
+.peon-v9-main .photo-pdf-file-main strong,
+.peon-v9-main .photo-pdf-file-main small{
+  max-width: 760px !important;
+}
+.peon-v9-main .photo-pdf-workspace{
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+.peon-v9-main .photo-canvas-wrap{
+  max-height: 70vh !important;
+  overflow: auto !important;
+}
+.peon-v9-main .photo-studio-preview-panel{
+  align-self: start !important;
+}
+@media (max-width: 1100px){
+  .peon-v9-main .photo-studio-page .photo-studio-layout{
+    grid-template-columns: 220px minmax(420px,1fr) !important;
+  }
+  .peon-v9-main .photo-studio-preview-panel{
+    grid-column: 1 / -1 !important;
+  }
+}
+@media (max-width: 900px){
+  .peon-v9-main .photo-studio-page .photo-studio-layout{
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .peon-v9-main .photo-student-list{
+    max-height: 320px !important;
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+/* PE-ON V10.0 LTS PhotoStudio persistence/overlap final fix */
+.photo-studio-settings-card{
+  overflow: visible !important;
+  contain: layout paint;
+}
+.photo-studio-settings-card .photo-studio-page{
+  isolation: isolate;
+}
+.photo-studio-settings-card .photo-studio-students,
+.photo-studio-settings-card .photo-studio-preview-panel,
+.photo-studio-settings-card .photo-studio-side-confirm{
+  position: static !important;
+  top: auto !important;
+  z-index: 1 !important;
+  max-height: none !important;
+}
+.photo-studio-settings-card .photo-studio-student-list,
+.photo-studio-settings-card .photo-student-list{
+  position: relative !important;
+  z-index: 1 !important;
+  max-height: 520px !important;
+  overflow: auto !important;
+}
+.photo-studio-settings-card .photo-studio-student-list button,
+.photo-studio-settings-card .photo-student-list button{
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  z-index: auto !important;
+  width: 100% !important;
+}
+.photo-studio-upload-line.compact .save-btn,
+.photo-studio-upload-line.compact .setting-btn,
+.photo-studio-upload-line.compact .delete-btn{
+  white-space: nowrap;
+}
+@media (min-width: 1101px){
+  .photo-studio-settings-card .photo-studio-layout-wide{
+    display: grid !important;
+    grid-template-columns: 230px minmax(620px,1fr) !important;
+    gap: 16px !important;
+    align-items: start !important;
+  }
+}
+
+/* sticky common: keep top tabs and class tabs reachable */
+.sticky-section-tabs,
+.assessment-main-tabs,
+.roster-tabs,
+.class-tabs,
+.assessment-tabs.sticky,
+.records-toolbar-sticky,
+.records-class-keyword-panel,
+.records-summary-sticky,
+.photo-studio-toolbar,
+.photo-register-sticky,
+.class-share-sticky{
+  position:sticky!important;
+  top:0!important;
+  z-index:80!important;
+  background:rgba(248,250,252,.96)!important;
+  backdrop-filter:blur(10px);
+  box-shadow:0 8px 18px rgba(15,23,42,.06);
+}
+.records-class-keyword-panel{top:74px!important;z-index:78!important;}
+.records-summary-sticky{top:160px!important;z-index:77!important;}
+
+/* 사진등록센터 내부는 3단 작업판으로만 정렬 */
+.photo-studio-page .photo-studio-layout,
+.photo-studio-page .photo-studio-layout-wide,
+.photo-studio-page .photo-register-layout,
+.photo-studio-page .photo-workspace,
+.photo-studio-page .photo-register-workspace {
+  display: grid !important;
+  grid-template-columns: 240px minmax(520px, 1fr) 300px !important;
+  gap: 16px !important;
+  align-items: start !important;
+  overflow: visible !important;
+}
+
+/* 학생목록은 절대 화면 위에 떠다니지 않고, 자기 칸 안에서만 스크롤 */
+.photo-studio-page .photo-studio-students,
+.photo-studio-page .photo-student-sidebar,
+.photo-studio-page .photo-student-list,
+.photo-studio-page .photo-studio-student-list {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  z-index: 1 !important;
+  max-height: 520px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  transform: none !important;
+  contain: layout paint !important;
+}
+
+/* 학생 버튼도 목록 안에서만 표시 */
+.photo-studio-page .photo-student-list button,
+.photo-studio-page .photo-studio-student-list button,
+.photo-studio-page .photo-student-item,
+.photo-studio-page .photo-studio-student-item {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 0 8px 0 !important;
+  transform: none !important;
+}
+
+/* PDF/미리보기 영역이 학생목록 아래로 깔리지 않도록 분리 */
+.photo-studio-page .photo-pdf-area,
+.photo-studio-page .photo-pdf-panel,
+.photo-studio-page .photo-pdf-workspace,
+.photo-studio-page .photo-studio-pdf-panel,
+.photo-studio-page .photo-studio-preview-panel,
+.photo-studio-page .photo-side-preview,
+.photo-studio-page .photo-studio-side-confirm {
+  position: relative !important;
+  z-index: 1 !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  transform: none !important;
+}
+
+/* === Photo Studio Compact Toolbar (safe CSS only) === */
+.photo-studio-page .pdf-toolbar,
+.photo-studio-page .photo-toolbar,
+.photo-studio-page .pdf-controls{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px!important;
+  align-items:center;
+}
+.photo-studio-page .pdf-toolbar button,
+.photo-studio-page .photo-toolbar button,
+.photo-studio-page .pdf-controls button{
+  min-height:34px!important;
+  padding:6px 10px!important;
+  font-size:14px!important;
+}
+.photo-studio-page .info-banner{
+  padding:8px 12px!important;
+  min-height:unset!important;
+}
+
+/* PE-ON v9.0.3 final targeted polish: PhotoStudio side tools, assessment modal, health records, checkbox */
+input[type="checkbox"]{
+  width:18px !important;
+  height:18px !important;
+  min-width:18px !important;
+  min-height:18px !important;
+  accent-color:#2563eb;
+  cursor:pointer;
+}
+
+.photo-studio-page .photo-studio-toolbar.peon-sticky-toolbar{
+  position:sticky !important;
+  top:0 !important;
+  z-index:45 !important;
+  padding:12px 14px !important;
+  margin-bottom:12px !important;
+}
+.photo-studio-page .photo-studio-layout-with-tools{
+  display:grid !important;
+  grid-template-columns:150px 220px minmax(0,1fr) !important;
+  gap:12px !important;
+  align-items:start !important;
+}
+.photo-studio-page .photo-studio-pdf-tools-panel{
+  position:sticky !important;
+  top:150px !important;
+  z-index:20 !important;
+  padding:10px !important;
+  border-radius:18px !important;
+  background:#fff !important;
+  border:1px solid #dbeafe !important;
+  box-shadow:0 10px 24px rgba(15,23,42,.06) !important;
+}
+.photo-studio-page .photo-studio-tools-toggle{
+  width:100% !important;
+  border:0 !important;
+  border-radius:14px !important;
+  background:#e5e7eb !important;
+  color:#0f172a !important;
+  font-weight:950 !important;
+  padding:11px 8px !important;
+  cursor:pointer !important;
+  margin-bottom:8px !important;
+}
+.photo-studio-page .photo-studio-upload-line-side{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:stretch !important;
+  gap:7px !important;
+}
+.photo-studio-page .photo-studio-upload-line-side .save-btn,
+.photo-studio-page .photo-studio-upload-line-side .setting-btn,
+.photo-studio-page .photo-studio-upload-line-side .delete-btn,
+.photo-studio-page .photo-studio-upload-line-side .local-pdf-select{
+  min-height:36px !important;
+  height:36px !important;
+  padding:0 8px !important;
+  font-size:14px !important;
+  border-radius:12px !important;
+  justify-content:center !important;
+  white-space:nowrap !important;
+}
+.photo-studio-page .photo-studio-tool-grid{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:6px !important;
+}
+.photo-studio-page .photo-studio-tool-status{
+  border-radius:12px !important;
+  background:#eff6ff !important;
+  color:#1d4ed8 !important;
+  border:1px solid #bfdbfe !important;
+  padding:8px 6px !important;
+  font-weight:900 !important;
+  font-size:13px !important;
+  text-align:center !important;
+  line-height:1.25 !important;
+}
+.photo-studio-page .photo-studio-tool-file{
+  display:block !important;
+  max-width:100% !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+  white-space:nowrap !important;
+  color:#64748b !important;
+  font-weight:800 !important;
+  font-size:12px !important;
+}
+.photo-studio-page .photo-studio-message-side{
+  margin-top:8px !important;
+  padding:8px 9px !important;
+  font-size:13px !important;
+  line-height:1.35 !important;
+  max-height:140px !important;
+  overflow:auto !important;
+}
+.photo-studio-page .photo-studio-layout-with-tools .photo-studio-students{
+  position:sticky !important;
+  top:150px !important;
+  max-height:calc(100vh - 170px) !important;
+}
+.photo-studio-page .photo-studio-layout-with-tools .photo-studio-workspace{
+  min-width:0 !important;
+}
+.photo-studio-page .photo-studio-layout-with-tools .photo-studio-crop-row-wide{
+  grid-template-columns:minmax(560px,1fr) 300px !important;
+}
+body.peon-photo-focus .photo-studio-page .photo-studio-layout-with-tools{
+  grid-template-columns:150px 210px minmax(0,1fr) !important;
+  gap:10px !important;
+}
+body.peon-photo-focus .photo-studio-page .photo-studio-pdf-tools-panel,
+body.peon-photo-focus .photo-studio-page .photo-studio-students{
+  top:112px !important;
+  max-height:calc(100vh - 132px) !important;
+}
+body.peon-photo-focus .photo-studio-page .photo-studio-crop-row-wide{
+  grid-template-columns:minmax(620px,1fr) 320px !important;
+}
+@media (max-width:1280px){
+  .photo-studio-page .photo-studio-layout-with-tools,
+  body.peon-photo-focus .photo-studio-page .photo-studio-layout-with-tools{
+    grid-template-columns:140px 190px minmax(0,1fr) !important;
+  }
+  .photo-studio-page .photo-studio-layout-with-tools .photo-studio-crop-row-wide,
+  body.peon-photo-focus .photo-studio-page .photo-studio-crop-row-wide{
+    grid-template-columns:minmax(480px,1fr) 280px !important;
+  }
+}
+@media (max-width:1024px){
+  .photo-studio-page .photo-studio-layout-with-tools,
+  body.peon-photo-focus .photo-studio-page .photo-studio-layout-with-tools{
+    display:flex !important;
+    flex-direction:column !important;
+  }
+  .photo-studio-page .photo-studio-pdf-tools-panel,
+  .photo-studio-page .photo-studio-layout-with-tools .photo-studio-students,
+  body.peon-photo-focus .photo-studio-page .photo-studio-pdf-tools-panel,
+  body.peon-photo-focus .photo-studio-page .photo-studio-students{
+    position:static !important;
+    width:100% !important;
+    max-height:none !important;
+  }
+  .photo-studio-page .photo-studio-upload-line-side{
+    display:grid !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  }
+  .photo-studio-page .photo-studio-tool-status,
+  .photo-studio-page .photo-studio-tool-file,
+  .photo-studio-page .photo-studio-message-side{
+    grid-column:1 / -1 !important;
+  }
+  .photo-studio-page .photo-studio-tool-grid{
+    grid-column:1 / -1 !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  }
+}
+@media (max-width:640px){
+  .photo-studio-page .photo-studio-upload-line-side{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+/* PE-ON v9.1 Photo Studio: 반 선택/PDF 불러오기 영역 초소형 고정 */
+.photo-studio-page .photo-studio-toolbar.peon-sticky-toolbar{
+  padding:6px 10px !important;
+  margin-bottom:8px !important;
+  min-height:unset !important;
+}
+.photo-studio-page .photo-studio-class-select-row{
+  display:grid !important;
+  grid-template-columns:140px minmax(90px,auto) 150px !important;
+  gap:8px !important;
+  align-items:end !important;
+  justify-content:start !important;
+}
+.photo-studio-page .photo-studio-class-select-row label{
+  margin:0 !important;
+  display:grid !important;
+  gap:2px !important;
+}
+.photo-studio-page .photo-studio-class-select-row label > span{
+  font-size:12px !important;
+  line-height:1.1 !important;
+  font-weight:900 !important;
+  color:#475569 !important;
+}
+.photo-studio-page .photo-studio-class-select-row select{
+  width:140px !important;
+  min-width:140px !important;
+  max-width:140px !important;
+  height:34px !important;
+  min-height:34px !important;
+  padding:0 30px 0 10px !important;
+  border-radius:10px !important;
+  font-size:14px !important;
+  font-weight:950 !important;
+  line-height:34px !important;
+}
+.photo-studio-page .photo-studio-top-mini-status{
+  height:34px !important;
+  min-height:34px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 10px !important;
+  border-radius:10px !important;
+  background:#f8fafc !important;
+  border:1px solid #e2e8f0 !important;
+  color:#475569 !important;
+  font-size:12px !important;
+  font-weight:900 !important;
+  white-space:nowrap !important;
+}
+.photo-studio-page .photo-studio-managed-load-btn{
+  width:150px !important;
+  min-width:150px !important;
+  height:34px !important;
+  min-height:34px !important;
+  padding:0 12px !important;
+  border-radius:10px !important;
+  font-size:14px !important;
+  font-weight:950 !important;
+  white-space:nowrap !important;
+}
+@media (min-width:768px) and (max-width:1180px){
+  .photo-studio-page .photo-studio-class-select-row{
+    grid-template-columns:112px minmax(80px,auto) 126px !important;
+    gap:6px !important;
+  }
+  .photo-studio-page .photo-studio-class-select-row select{
+    width:112px !important;
+    min-width:112px !important;
+    max-width:112px !important;
+    height:32px !important;
+    min-height:32px !important;
+    font-size:13px !important;
+  }
+  .photo-studio-page .photo-studio-top-mini-status,
+  .photo-studio-page .photo-studio-managed-load-btn{
+    height:32px !important;
+    min-height:32px !important;
+    font-size:12px !important;
+  }
+  .photo-studio-page .photo-studio-managed-load-btn{
+    width:126px !important;
+    min-width:126px !important;
+  }
+}
+@media (max-width:767px){
+  .photo-studio-page .photo-studio-class-select-row{
+    grid-template-columns:96px 1fr 116px !important;
+    gap:6px !important;
+    width:100% !important;
+  }
+  .photo-studio-page .photo-studio-class-select-row select{
+    width:96px !important;
+    min-width:96px !important;
+    max-width:96px !important;
+  }
+  .photo-studio-page .photo-studio-top-mini-status{
+    min-width:0 !important;
+    padding:0 6px !important;
+    font-size:11px !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+  }
+  .photo-studio-page .photo-studio-managed-load-btn{
+    width:116px !important;
+    min-width:116px !important;
+    padding:0 8px !important;
+    font-size:12px !important;
+  }
+}
+
+/* PE-ON v9.1 emergency fix: Photo Studio final 3-column layout */
+.photo-studio-page .photo-studio-title{
+  display:none !important;
+}
+.photo-studio-page .photo-studio-toolbar.peon-sticky-toolbar{
+  padding:6px 10px !important;
+  margin:0 0 8px !important;
+  min-height:0 !important;
+  top:0 !important;
+}
+.photo-studio-page .photo-studio-class-select-row{
+  display:grid !important;
+  grid-template-columns:auto 86px auto 120px !important;
+  gap:6px !important;
+  align-items:center !important;
+  justify-content:start !important;
+}
+.photo-studio-page .photo-studio-class-select-row label{
+  display:contents !important;
+  margin:0 !important;
+}
+.photo-studio-page .photo-studio-class-select-row label > span{
+  font-size:14px !important;
+  font-weight:950 !important;
+  white-space:nowrap !important;
+}
+.photo-studio-page .photo-studio-class-select-row select{
+  width:86px !important;
+  min-width:86px !important;
+  max-width:86px !important;
+  height:32px !important;
+  min-height:32px !important;
+  padding:0 24px 0 10px !important;
+  font-size:15px !important;
+  border-radius:9px !important;
+}
+.photo-studio-page .photo-studio-top-mini-status{
+  height:32px !important;
+  min-height:32px !important;
+  padding:0 8px !important;
+  font-size:12px !important;
+  border-radius:9px !important;
+  white-space:nowrap !important;
+}
+.photo-studio-page .photo-studio-managed-load-btn{
+  width:120px !important;
+  min-width:120px !important;
+  height:32px !important;
+  min-height:32px !important;
+  padding:0 10px !important;
+  font-size:13px !important;
+  border-radius:9px !important;
+}
+.photo-studio-page .photo-studio-message,
+.photo-studio-page .photo-studio-message-side,
+.photo-studio-page .photo-studio-help,
+.photo-studio-page .photo-studio-tool-status,
+.photo-studio-page .photo-studio-tool-file{
+  display:none !important;
+}
+.photo-studio-page .photo-studio-final-layout,
+.photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{
+  display:grid !important;
+  grid-template-columns:112px minmax(0,1fr) 300px !important;
+  gap:10px !important;
+  align-items:start !important;
+  margin-top:8px !important;
+}
+.photo-studio-page .photo-studio-final-tools{
+  position:sticky !important;
+  top:82px !important;
+  width:auto !important;
+  min-width:0 !important;
+  padding:8px !important;
+}
+.photo-studio-page .photo-studio-final-tools .photo-studio-tools-toggle{
+  min-height:32px !important;
+  padding:6px 4px !important;
+  margin-bottom:6px !important;
+  font-size:12px !important;
+  border-radius:10px !important;
+}
+.photo-studio-page .photo-studio-final-tools .photo-studio-upload-line-side{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:6px !important;
+}
+.photo-studio-page .photo-studio-final-tools .save-btn,
+.photo-studio-page .photo-studio-final-tools .setting-btn,
+.photo-studio-page .photo-studio-final-tools .delete-btn,
+.photo-studio-page .photo-studio-final-tools .local-pdf-select{
+  width:100% !important;
+  min-width:0 !important;
+  min-height:32px !important;
+  height:32px !important;
+  padding:0 4px !important;
+  font-size:12px !important;
+  border-radius:10px !important;
+}
+.photo-studio-page .photo-studio-final-center{
+  min-width:0 !important;
+  padding:10px !important;
+  overflow:hidden !important;
+}
+.photo-studio-page .photo-studio-final-students{
+  position:relative !important;
+  top:auto !important;
+  width:100% !important;
+  max-height:none !important;
+  overflow:visible !important;
+  padding:0 !important;
+  box-shadow:none !important;
+  border:0 !important;
+  background:transparent !important;
+}
+.photo-studio-page .photo-studio-final-students .photo-studio-student-list{
+  max-height:118px !important;
+  overflow:auto !important;
+  display:grid !important;
+  grid-template-columns:repeat(auto-fill,minmax(96px,1fr)) !important;
+  gap:6px !important;
+  margin-bottom:8px !important;
+}
+.photo-studio-page .photo-studio-final-students .photo-studio-student-list button{
+  min-height:34px !important;
+  padding:5px 6px !important;
+  margin:0 !important;
+  font-size:12px !important;
+  border-radius:10px !important;
+}
+.photo-studio-page .photo-studio-final-current{
+  padding:7px 9px !important;
+  margin:0 0 8px !important;
+  min-height:0 !important;
+}
+.photo-studio-page .photo-studio-final-current strong{
+  font-size:15px !important;
+}
+.photo-studio-page .photo-studio-final-pdf-panel .photo-studio-canvas-wrap{
+  min-height:calc(100vh - 300px) !important;
+  height:calc(100vh - 300px) !important;
+  max-height:calc(100vh - 300px) !important;
+  overflow:auto !important;
+}
+.photo-studio-page .photo-studio-final-preview{
+  position:sticky !important;
+  top:82px !important;
+  width:auto !important;
+  padding:10px !important;
+  overflow:visible !important;
+}
+.photo-studio-page .photo-studio-preview-compare-final{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:8px !important;
+  margin-top:8px !important;
+}
+.photo-studio-page .photo-studio-preview-compare-final .photo-studio-preview-box{
+  min-height:145px !important;
+  aspect-ratio:3/4 !important;
+}
+.photo-studio-page .photo-studio-final-preview .photo-studio-save{
+  width:100% !important;
+  margin-top:8px !important;
+}
+@media (min-width:768px) and (max-width:1180px){
+  .photo-studio-page .photo-studio-final-layout,
+  .photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{
+    display:grid !important;
+    grid-template-columns:96px minmax(0,1fr) 250px !important;
+    gap:8px !important;
+  }
+  .photo-studio-page .photo-studio-final-tools,
+  .photo-studio-page .photo-studio-final-preview{
+    top:76px !important;
+  }
+  .photo-studio-page .photo-studio-final-pdf-panel .photo-studio-canvas-wrap{
+    min-height:calc(100vh - 270px) !important;
+    height:calc(100vh - 270px) !important;
+    max-height:calc(100vh - 270px) !important;
+  }
+}
+@media (max-width:767px){
+  .photo-studio-page .photo-studio-class-select-row{
+    grid-template-columns:auto 78px 1fr 104px !important;
+  }
+  .photo-studio-page .photo-studio-class-select-row select{
+    width:78px !important;
+    min-width:78px !important;
+    max-width:78px !important;
+  }
+  .photo-studio-page .photo-studio-managed-load-btn{
+    width:104px !important;
+    min-width:104px !important;
+  }
+  .photo-studio-page .photo-studio-final-layout,
+  .photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{
+    display:flex !important;
+    flex-direction:column !important;
+  }
+  .photo-studio-page .photo-studio-final-tools,
+  .photo-studio-page .photo-studio-final-preview{
+    position:static !important;
+    width:100% !important;
+  }
+  .photo-studio-page .photo-studio-final-tools .photo-studio-upload-line-side{
+    display:grid !important;
+    grid-template-columns:repeat(3,1fr) !important;
+  }
+  .photo-studio-page .photo-studio-final-pdf-panel .photo-studio-canvas-wrap{
+    min-height:420px !important;
+    height:58vh !important;
+    max-height:58vh !important;
+  }
+}
+
+/* PE-ON v9.1 Photo Studio final polish: topbar white space removal + student list position + PDF status font */
+.photo-studio-page .photo-studio-toolbar.peon-sticky-toolbar{
+  width:fit-content !important;
+  max-width:100% !important;
+  display:block !important;
+  padding:8px 10px !important;
+  margin:0 0 8px 0 !important;
+  border-radius:16px !important;
+  box-sizing:border-box !important;
+}
+.photo-studio-page .photo-studio-class-select-row{
+  width:fit-content !important;
+  max-width:100% !important;
+  display:grid !important;
+  grid-template-columns:auto 96px auto 136px !important;
+  gap:8px !important;
+  align-items:center !important;
+  justify-content:start !important;
+}
+.photo-studio-page .photo-studio-class-select-row label{display:contents !important;}
+.photo-studio-page .photo-studio-class-select-row label > span{
+  font-size:15px !important;
+  font-weight:950 !important;
+  color:#1e3a8a !important;
+  white-space:nowrap !important;
+}
+.photo-studio-page .photo-studio-class-select-row select{
+  width:96px !important;
+  min-width:96px !important;
+  max-width:96px !important;
+  height:36px !important;
+  min-height:36px !important;
+  font-size:17px !important;
+  font-weight:950 !important;
+  padding:0 28px 0 12px !important;
+}
+.photo-studio-page .photo-studio-top-mini-status{
+  height:36px !important;
+  min-height:36px !important;
+  padding:0 12px !important;
+  font-size:15px !important;
+  font-weight:950 !important;
+  color:#334155 !important;
+  background:#f8fafc !important;
+  border:1px solid #dbe3ef !important;
+  border-radius:10px !important;
+  white-space:nowrap !important;
+}
+.photo-studio-page .photo-studio-managed-load-btn{
+  width:136px !important;
+  min-width:136px !important;
+  height:36px !important;
+  min-height:36px !important;
+  font-size:15px !important;
+  font-weight:950 !important;
+  padding:0 12px !important;
+}
+.photo-studio-page .photo-studio-final-layout,
+.photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{
+  display:grid !important;
+  grid-template-columns:116px minmax(0,1fr) 300px !important;
+  gap:10px !important;
+  align-items:start !important;
+  margin-top:8px !important;
+}
+.photo-studio-page .photo-studio-final-tools{grid-column:1 !important;grid-row:1 !important;}
+.photo-studio-page .photo-studio-final-center{grid-column:2 !important;grid-row:1 !important;}
+.photo-studio-page .photo-studio-final-preview{grid-column:3 !important;grid-row:1 !important;}
+.photo-studio-page .photo-studio-final-students{
+  display:block !important;
+  margin:0 0 8px 0 !important;
+  padding:0 !important;
+  position:relative !important;
+  width:100% !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+.photo-studio-page .photo-studio-final-students .photo-studio-fold{
+  width:100% !important;
+  min-height:34px !important;
+  margin:0 0 6px 0 !important;
+  border-radius:10px !important;
+}
+.photo-studio-page .photo-studio-final-students .photo-studio-student-list{
+  max-height:116px !important;
+  overflow:auto !important;
+  display:grid !important;
+  grid-template-columns:repeat(auto-fill,minmax(96px,1fr)) !important;
+  gap:6px !important;
+}
+@media (min-width:768px) and (max-width:1180px){
+  .photo-studio-page .photo-studio-toolbar.peon-sticky-toolbar{padding:7px 9px !important;}
+  .photo-studio-page .photo-studio-class-select-row{grid-template-columns:auto 86px auto 124px !important;gap:6px !important;}
+  .photo-studio-page .photo-studio-class-select-row select{width:86px !important;min-width:86px !important;max-width:86px !important;height:34px !important;min-height:34px !important;font-size:16px !important;}
+  .photo-studio-page .photo-studio-top-mini-status{height:34px !important;min-height:34px !important;font-size:14px !important;padding:0 10px !important;}
+  .photo-studio-page .photo-studio-managed-load-btn{width:124px !important;min-width:124px !important;height:34px !important;min-height:34px !important;font-size:14px !important;}
+  .photo-studio-page .photo-studio-final-layout,
+  .photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{grid-template-columns:100px minmax(0,1fr) 250px !important;}
+}
+@media (max-width:767px){
+  .photo-studio-page .photo-studio-toolbar.peon-sticky-toolbar{width:100% !important;}
+  .photo-studio-page .photo-studio-class-select-row{width:100% !important;grid-template-columns:auto 80px 1fr 108px !important;gap:6px !important;}
+  .photo-studio-page .photo-studio-class-select-row select{width:80px !important;min-width:80px !important;max-width:80px !important;font-size:15px !important;}
+  .photo-studio-page .photo-studio-top-mini-status{font-size:13px !important;padding:0 7px !important;overflow:hidden !important;text-overflow:ellipsis !important;}
+  .photo-studio-page .photo-studio-managed-load-btn{width:108px !important;min-width:108px !important;font-size:13px !important;}
+  .photo-studio-page .photo-studio-final-layout,
+  .photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{display:flex !important;flex-direction:column !important;}
+}
+
+/* =========================================================
+   PE-ON v9.1 Photo Studio CLEAN FINAL
+   - 반 선택 줄: 사진등록센터 닫기 줄 아래 왼쪽, 고정 해제
+   - 학생명단: 위로 올림 + 글자 확대
+   - 선택틀/선택취소: 학생명단 덮지 않게 sticky 완전 해제
+   ========================================================= */
+.photo-studio-page .photo-studio-toolbar,
+.photo-studio-page .photo-studio-toolbar.peon-sticky-toolbar,
+body.peon-photo-focus .photo-studio-page .photo-studio-toolbar,
+body.peon-photo-focus .photo-studio-page .photo-studio-toolbar.peon-sticky-toolbar{
+  position:relative !important;
+  top:auto !important;
+  left:auto !important;
+  right:auto !important;
+  z-index:1 !important;
+  width:fit-content !important;
+  max-width:100% !important;
+  margin:0 0 6px 0 !important;
+  padding:6px 8px !important;
+  border-radius:14px !important;
+  box-shadow:0 8px 18px rgba(15,23,42,.06) !important;
+}
+
+.photo-studio-page .photo-studio-class-select-row{
+  width:fit-content !important;
+  display:grid !important;
+  grid-template-columns:auto 92px auto 126px !important;
+  gap:7px !important;
+  align-items:center !important;
+  justify-content:start !important;
+}
+.photo-studio-page .photo-studio-class-select-row label{display:contents !important;}
+.photo-studio-page .photo-studio-class-select-row label > span{
+  font-size:16px !important;
+  font-weight:950 !important;
+  color:#1e3a8a !important;
+  white-space:nowrap !important;
+}
+.photo-studio-page .photo-studio-class-select-row select{
+  width:92px !important;
+  min-width:92px !important;
+  max-width:92px !important;
+  height:36px !important;
+  min-height:36px !important;
+  padding:0 28px 0 12px !important;
+  font-size:18px !important;
+  font-weight:950 !important;
+  border-radius:12px !important;
+}
+.photo-studio-page .photo-studio-top-mini-status{
+  height:36px !important;
+  min-height:36px !important;
+  padding:0 12px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  font-size:16px !important;
+  font-weight:950 !important;
+  color:#334155 !important;
+  background:#f8fafc !important;
+  border:1px solid #dbe3ef !important;
+  border-radius:11px !important;
+  white-space:nowrap !important;
+}
+.photo-studio-page .photo-studio-managed-load-btn{
+  width:126px !important;
+  min-width:126px !important;
+  height:36px !important;
+  min-height:36px !important;
+  padding:0 10px !important;
+  font-size:16px !important;
+  font-weight:950 !important;
+  border-radius:12px !important;
+}
+
+.photo-studio-page .photo-studio-final-layout,
+.photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{
+  margin-top:4px !important;
+  gap:8px !important;
+  align-items:start !important;
+}
+.photo-studio-page .photo-studio-final-center{
+  padding-top:0 !important;
+}
+.photo-studio-page .photo-studio-final-students{
+  margin-top:0 !important;
+  margin-bottom:6px !important;
+  padding-top:0 !important;
+}
+.photo-studio-page .photo-studio-final-students .photo-studio-fold{
+  min-height:38px !important;
+  height:38px !important;
+  padding:0 12px !important;
+  margin:0 0 6px 0 !important;
+  font-size:17px !important;
+  font-weight:950 !important;
+  border-radius:10px !important;
+}
+.photo-studio-page .photo-studio-final-students .photo-studio-student-list{
+  max-height:128px !important;
+  overflow:auto !important;
+  display:grid !important;
+  grid-template-columns:repeat(auto-fill,minmax(118px,1fr)) !important;
+  gap:7px !important;
+  margin:0 !important;
+}
+.photo-studio-page .photo-studio-final-students .photo-studio-student-list button{
+  min-height:44px !important;
+  padding:7px 8px !important;
+  font-size:15px !important;
+  font-weight:900 !important;
+  border-radius:12px !important;
+}
+.photo-studio-page .photo-studio-final-students .photo-studio-student-list button strong,
+.photo-studio-page .photo-studio-final-students .photo-studio-student-list button b{
+  font-size:15px !important;
+  font-weight:950 !important;
+}
+
+.photo-studio-page .photo-studio-current-actions,
+.photo-studio-page .photo-studio-current-actions.photo-studio-fixed-save-actions,
+body.peon-photo-focus .photo-studio-page .photo-studio-current-actions.photo-studio-fixed-save-actions{
+  position:static !important;
+  top:auto !important;
+  z-index:auto !important;
+  box-shadow:none !important;
+  background:transparent !important;
+  padding:0 !important;
+  margin:0 !important;
+}
+.photo-studio-page .photo-studio-final-current{
+  margin:0 0 6px 0 !important;
+  padding:6px 8px !important;
+}
+.photo-studio-page .photo-studio-final-current strong{
+  font-size:18px !important;
+}
+
+@media (min-width:768px) and (max-width:1180px){
+  .photo-studio-page .photo-studio-class-select-row{
+    grid-template-columns:auto 88px auto 120px !important;
+    gap:6px !important;
+  }
+  .photo-studio-page .photo-studio-class-select-row select{width:88px !important;min-width:88px !important;max-width:88px !important;font-size:17px !important;}
+  .photo-studio-page .photo-studio-top-mini-status{font-size:15px !important;padding:0 10px !important;}
+  .photo-studio-page .photo-studio-managed-load-btn{width:120px !important;min-width:120px !important;font-size:15px !important;}
+  .photo-studio-page .photo-studio-final-students .photo-studio-student-list{grid-template-columns:repeat(auto-fill,minmax(108px,1fr)) !important;max-height:122px !important;}
+}
+@media (max-width:767px){
+  .photo-studio-page .photo-studio-toolbar,
+  .photo-studio-page .photo-studio-toolbar.peon-sticky-toolbar{width:100% !important;margin-bottom:6px !important;}
+  .photo-studio-page .photo-studio-class-select-row{
+    width:100% !important;
+    grid-template-columns:auto 78px 1fr 106px !important;
+    gap:6px !important;
+  }
+  .photo-studio-page .photo-studio-class-select-row label > span{font-size:14px !important;}
+  .photo-studio-page .photo-studio-class-select-row select{width:78px !important;min-width:78px !important;max-width:78px !important;height:34px !important;min-height:34px !important;font-size:16px !important;}
+  .photo-studio-page .photo-studio-top-mini-status{height:34px !important;min-height:34px !important;font-size:13px !important;padding:0 6px !important;overflow:hidden !important;text-overflow:ellipsis !important;}
+  .photo-studio-page .photo-studio-managed-load-btn{width:106px !important;min-width:106px !important;height:34px !important;min-height:34px !important;font-size:13px !important;}
+  .photo-studio-page .photo-studio-final-students .photo-studio-fold{font-size:15px !important;}
+  .photo-studio-page .photo-studio-final-students .photo-studio-student-list{grid-template-columns:repeat(auto-fill,minmax(96px,1fr)) !important;max-height:118px !important;}
+  .photo-studio-page .photo-studio-final-students .photo-studio-student-list button{font-size:14px !important;min-height:42px !important;}
+}
+
+/* =========================================================
+   PE-ON v9.1.1 verified fix - 사진등록센터 위치/크기/팝업 가림 최종 보정
+   2026-07-07
+   ========================================================= */
+.settings-page.settings-photo-focus .settings-numbered-list,
+.settings-page .settings-numbered-list{
+  overflow:visible !important;
+}
+.settings-page .photo-center-actions{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  gap:8px !important;
+  margin:0 0 6px 0 !important;
+  position:relative !important;
+  top:auto !important;
+  z-index:2 !important;
+}
+.photo-studio-page,
+.photo-studio-page.photo-studio-focus-inner{
+  margin-top:0 !important;
+  padding-top:0 !important;
+  overflow:visible !important;
+}
+.photo-studio-page .photo-studio-title{
+  display:none !important;
+}
+.photo-studio-page .photo-studio-toolbar,
+.photo-studio-page .photo-studio-toolbar.peon-sticky-toolbar,
+.peon-v9-main .photo-studio-page .photo-studio-toolbar.peon-sticky-toolbar,
+body.peon-photo-focus .photo-studio-page .photo-studio-toolbar,
+body.peon-photo-focus .photo-studio-page .photo-studio-toolbar.peon-sticky-toolbar{
+  position:relative !important;
+  inset:auto !important;
+  top:auto !important;
+  left:auto !important;
+  right:auto !important;
+  bottom:auto !important;
+  transform:none !important;
+  z-index:1 !important;
+  display:block !important;
+  width:fit-content !important;
+  max-width:100% !important;
+  margin:0 0 6px 0 !important;
+  padding:4px 6px !important;
+  background:#fff !important;
+  border-radius:12px !important;
+  box-shadow:none !important;
+}
+.photo-studio-page .photo-studio-class-select-row{
+  display:grid !important;
+  width:fit-content !important;
+  max-width:100% !important;
+  grid-template-columns:auto 94px auto 128px !important;
+  gap:6px !important;
+  align-items:center !important;
+  justify-content:start !important;
+  margin:0 !important;
+}
+.photo-studio-page .photo-studio-class-select-row label{display:contents !important;}
+.photo-studio-page .photo-studio-class-select-row label > span{
+  font-size:16px !important;
+  font-weight:950 !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+}
+.photo-studio-page .photo-studio-class-select-row select{
+  width:94px !important;
+  min-width:94px !important;
+  max-width:94px !important;
+  height:36px !important;
+  min-height:36px !important;
+  font-size:18px !important;
+  font-weight:950 !important;
+  padding:0 28px 0 10px !important;
+}
+.photo-studio-page .photo-studio-top-mini-status{
+  height:36px !important;
+  min-height:36px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 10px !important;
+  font-size:15px !important;
+  font-weight:950 !important;
+  white-space:nowrap !important;
+}
+.photo-studio-page .photo-studio-managed-load-btn{
+  width:128px !important;
+  min-width:128px !important;
+  height:36px !important;
+  min-height:36px !important;
+  padding:0 10px !important;
+  font-size:15px !important;
+  font-weight:950 !important;
+}
+.photo-studio-page .photo-studio-final-layout,
+.photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{
+  display:grid !important;
+  grid-template-columns:108px minmax(0,1fr) 288px !important;
+  gap:8px !important;
+  margin-top:2px !important;
+  align-items:start !important;
+}
+.photo-studio-page .photo-studio-final-center{
+  padding:6px 8px 8px !important;
+  min-width:0 !important;
+  overflow:visible !important;
+}
+.photo-studio-page .photo-studio-final-students{
+  position:relative !important;
+  inset:auto !important;
+  top:auto !important;
+  width:100% !important;
+  margin:0 0 8px 0 !important;
+  padding:0 !important;
+  border:0 !important;
+  box-shadow:none !important;
+  background:transparent !important;
+  overflow:visible !important;
+}
+.photo-studio-page .photo-studio-final-students .photo-studio-fold{
+  height:42px !important;
+  min-height:42px !important;
+  width:100% !important;
+  margin:0 0 7px 0 !important;
+  padding:0 14px !important;
+  font-size:19px !important;
+  font-weight:950 !important;
+  border-radius:12px !important;
+}
+.photo-studio-page .photo-studio-final-students .photo-studio-student-list{
+  display:grid !important;
+  grid-template-columns:repeat(auto-fill,minmax(126px,1fr)) !important;
+  gap:8px !important;
+  max-height:168px !important;
+  overflow:auto !important;
+  margin:0 !important;
+  padding:2px 2px 4px !important;
+}
+.photo-studio-page .photo-studio-final-students .photo-studio-student-list button{
+  min-height:50px !important;
+  padding:8px 10px !important;
+  font-size:16px !important;
+  font-weight:900 !important;
+  border-radius:14px !important;
+}
+.photo-studio-page .photo-studio-final-students .photo-studio-student-list button strong,
+.photo-studio-page .photo-studio-final-students .photo-studio-student-list button b{
+  font-size:16px !important;
+  font-weight:950 !important;
+}
+.photo-studio-page .photo-studio-final-current{
+  margin:0 0 6px 0 !important;
+  padding:7px 9px !important;
+  position:relative !important;
+  z-index:1 !important;
+}
+.photo-studio-page .photo-studio-current-actions,
+.photo-studio-page .photo-studio-current-actions.photo-studio-fixed-save-actions{
+  position:static !important;
+  inset:auto !important;
+  z-index:auto !important;
+}
+.photo-studio-page .photo-studio-final-pdf-panel .photo-studio-canvas-wrap{
+  min-height:calc(100vh - 330px) !important;
+  height:calc(100vh - 330px) !important;
+  max-height:calc(100vh - 330px) !important;
+}
+.photo-studio-page .photo-studio-final-tools,
+.photo-studio-page .photo-studio-final-preview{
+  top:70px !important;
+}
+.modal-bg,
+.progress-modal-overlay,
+.roster-health-modal-bg,
+.student-card-backdrop{
+  align-items:center !important;
+  justify-content:center !important;
+  padding:16px !important;
+  z-index:99990 !important;
+}
+.modal,
+.peon-popup-modal,
+.student-card-modal,
+.progress-modal.peon-popup-modal{
+  position:relative !important;
+  top:auto !important;
+  margin:auto !important;
+  max-height:calc(100dvh - 32px) !important;
+  overflow:auto !important;
+  padding-top:22px !important;
+}
+.modal-close-x,
+.student-card-modal .modal-close-x,
+.student-card-close{
+  position:absolute !important;
+  top:10px !important;
+  right:10px !important;
+  float:none !important;
+  z-index:20 !important;
+}
+.progress-modal.peon-popup-modal .modal-close-x{
+  position:absolute !important;
+  top:10px !important;
+  right:10px !important;
+}
+@media (min-width:768px) and (max-width:1180px){
+  .photo-studio-page .photo-studio-final-layout,
+  .photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{grid-template-columns:96px minmax(0,1fr) 244px !important;}
+  .photo-studio-page .photo-studio-final-students .photo-studio-student-list{grid-template-columns:repeat(auto-fill,minmax(116px,1fr)) !important;max-height:150px !important;}
+  .photo-studio-page .photo-studio-final-students .photo-studio-student-list button{min-height:48px !important;font-size:15px !important;}
+}
+@media (max-width:767px){
+  .photo-studio-page .photo-studio-toolbar,
+  .photo-studio-page .photo-studio-toolbar.peon-sticky-toolbar{width:100% !important;}
+  .photo-studio-page .photo-studio-class-select-row{width:100% !important;grid-template-columns:auto 80px 1fr 110px !important;}
+  .photo-studio-page .photo-studio-class-select-row select{width:80px !important;min-width:80px !important;max-width:80px !important;font-size:16px !important;}
+  .photo-studio-page .photo-studio-top-mini-status{font-size:13px !important;overflow:hidden !important;text-overflow:ellipsis !important;}
+  .photo-studio-page .photo-studio-managed-load-btn{width:110px !important;min-width:110px !important;font-size:13px !important;}
+  .photo-studio-page .photo-studio-final-layout,
+  .photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{display:flex !important;flex-direction:column !important;}
+  .photo-studio-page .photo-studio-final-students .photo-studio-fold{font-size:16px !important;}
+  .photo-studio-page .photo-studio-final-students .photo-studio-student-list{grid-template-columns:repeat(auto-fill,minmax(96px,1fr)) !important;max-height:140px !important;}
+  .photo-studio-page .photo-studio-final-pdf-panel .photo-studio-canvas-wrap{height:56vh !important;max-height:56vh !important;min-height:380px !important;}
+}
+
+/* 2026-07 one-line text cleanup for Photo Studio */
+.photo-studio-page .photo-studio-final-students .photo-studio-student-list{
+  grid-template-columns:repeat(auto-fill,minmax(170px,1fr)) !important;
+}
+.photo-studio-page .photo-studio-final-students .photo-studio-student-list button{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  gap:10px !important;
+  white-space:nowrap !important;
+  word-break:keep-all !important;
+  overflow:hidden !important;
+}
+.photo-studio-page .photo-studio-final-students .photo-studio-student-list button strong,
+.photo-studio-page .photo-studio-final-students .photo-studio-student-list button b{
+  display:inline-flex !important;
+  align-items:center !important;
+  white-space:nowrap !important;
+  word-break:keep-all !important;
+  line-height:1.1 !important;
+}
+.photo-studio-page .photo-studio-final-students .photo-studio-student-list button b{
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+  min-width:0 !important;
+}
+.photo-studio-page .photo-studio-preview-box,
+.photo-studio-page .photo-studio-preview-box span,
+.photo-preview-empty{
+  white-space:nowrap !important;
+  word-break:keep-all !important;
+  line-height:1.2 !important;
+}
+.photo-studio-page .photo-studio-target-card,
+.photo-studio-page .photo-studio-target-card *{
+  word-break:keep-all !important;
+}
+@media (min-width:768px) and (max-width:1180px){
+  .photo-studio-page .photo-studio-final-students .photo-studio-student-list{grid-template-columns:repeat(auto-fill,minmax(158px,1fr)) !important;}
+}
+@media (max-width:767px){
+  .photo-studio-page .photo-studio-final-students .photo-studio-student-list{grid-template-columns:repeat(auto-fill,minmax(142px,1fr)) !important;}
+}
+
+/* PE-ON v9.0.3 사진등록센터 학생명단 완전 고정 패치
+   - 학생명단은 PDF 영역과 별도 패널로 고정
+   - 학생 카드 목록만 내부 스크롤
+   - PDF 캔버스 스크롤/이동 시 학생명단이 같이 밀리지 않도록 분리 */
+.photo-studio-page .photo-studio-layout{
+  display:grid !important;
+  grid-template-columns:320px minmax(0, 1fr) 300px !important;
+  gap:16px !important;
+  align-items:start !important;
+  overflow:visible !important;
+}
+
+.photo-studio-page .photo-studio-sidebar{
+  position:sticky !important;
+  top:104px !important;
+  align-self:start !important;
+  width:100% !important;
+  max-height:calc(100vh - 122px) !important;
+  overflow:hidden !important;
+  display:flex !important;
+  flex-direction:column !important;
+  background:#fff !important;
+  border:1px solid #bfdbfe !important;
+  border-radius:20px !important;
+  padding:12px !important;
+  z-index:120 !important;
+  box-shadow:0 10px 30px rgba(15,23,42,.10) !important;
+  transform:none !important;
+}
+
+.photo-studio-page .photo-studio-sidebar-title{
+  flex:0 0 auto !important;
+  position:relative !important;
+  top:auto !important;
+  z-index:125 !important;
+  background:#eef2ff !important;
+  border-radius:14px !important;
+  padding:12px !important;
+  margin-bottom:10px !important;
+}
+
+.photo-studio-page .photo-student-list{
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  max-height:360px !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  overscroll-behavior:contain !important;
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:8px !important;
+  padding-right:4px !important;
+  background:#fff !important;
+  border-radius:14px !important;
+  z-index:124 !important;
+  transform:none !important;
+}
+
+.photo-studio-page .photo-student-list button{
+  width:100% !important;
+  min-height:48px !important;
+  height:auto !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  gap:10px !important;
+  padding:10px 12px !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-align:left !important;
+}
+
+.photo-studio-page .photo-student-list button span,
+.photo-studio-page .photo-student-list button b,
+.photo-studio-page .photo-student-list button strong{
+  flex:0 0 auto !important;
+  white-space:nowrap !important;
+  word-break:keep-all !important;
+  line-height:1.15 !important;
+}
+
+.photo-studio-page .photo-current-student{
+  flex:0 0 auto !important;
+  margin-top:10px !important;
+  background:#f8fafc !important;
+  border-radius:16px !important;
+  z-index:124 !important;
+}
+
+.photo-studio-page .photo-pdf-workspace,
+.photo-studio-page .photo-canvas-wrap,
+.photo-studio-page .photo-canvas-stage{
+  min-width:0 !important;
+  z-index:1 !important;
+  transform:none !important;
+}
+
+@media (min-width:768px) and (max-width:1180px){
+  .photo-studio-page .photo-studio-layout{
+    grid-template-columns:300px minmax(420px, 1fr) 280px !important;
+    gap:14px !important;
+  }
+  .photo-studio-page .photo-studio-sidebar{
+    top:92px !important;
+    max-height:calc(100vh - 108px) !important;
+  }
+  .photo-studio-page .photo-student-list{
+    max-height:320px !important;
+  }
+  .photo-studio-page .photo-current-student img{
+    max-height:110px !important;
+    object-fit:cover !important;
+  }
+}
+
+@media (max-width:767px){
+  .photo-studio-page .photo-studio-layout{
+    display:flex !important;
+    flex-direction:column !important;
+  }
+  .photo-studio-page .photo-studio-sidebar{
+    position:sticky !important;
+    top:74px !important;
+    max-height:50vh !important;
+    width:100% !important;
+  }
+  .photo-studio-page .photo-student-list{
+    max-height:190px !important;
+  }
+}
+
+/* PE-ON V10.0 LTS: 사진등록센터 학생명단 화면 고정 최종 보정 */
+.peon-v9-main .photo-studio-page .photo-studio-layout{
+  align-items: start !important;
+  overflow: visible !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-sidebar{
+  position: sticky !important;
+  top: 112px !important;
+  align-self: start !important;
+  z-index: 120 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  max-height: calc(100vh - 132px) !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  transform: none !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-sidebar-title{
+  flex: 0 0 auto !important;
+  position: relative !important;
+  z-index: 2 !important;
+  background: #eef2ff !important;
+}
+.peon-v9-main .photo-studio-page .photo-student-list{
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding: 8px 4px 8px 0 !important;
+  overscroll-behavior: contain !important;
+}
+.peon-v9-main .photo-studio-page .photo-pdf-workspace,
+.peon-v9-main .photo-studio-page .photo-studio-preview-panel{
+  align-self: start !important;
+}
+@media (pointer: coarse) and (min-width: 768px) and (max-width: 1366px){
+  .peon-v9-main .photo-studio-page .photo-studio-layout{
+    display: grid !important;
+    grid-template-columns: minmax(300px, 0.72fr) minmax(520px, 1.28fr) minmax(280px, 0.8fr) !important;
+    gap: 14px !important;
+  }
+  .peon-v9-main .photo-studio-page .photo-studio-sidebar{
+    position: sticky !important;
+    top: 104px !important;
+    max-height: calc(100vh - 124px) !important;
+  }
+  .peon-v9-main .photo-studio-page .photo-student-list{
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+}
+@media (max-width: 767px){
+  .peon-v9-main .photo-studio-page .photo-studio-sidebar{
+    position: relative !important;
+    top: auto !important;
+    max-height: 340px !important;
+  }
+}
+
+/* 2026-07-08 FINAL 구조 수정: 사진등록센터 학생명단을 PDF 스크롤에서 완전 분리 */
+.photo-studio-page .photo-studio-final-layout,
+.photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{
+  display:grid !important;
+  grid-template-columns:104px 330px minmax(0,1fr) 300px !important;
+  gap:10px !important;
+  align-items:stretch !important;
+  height:calc(100dvh - 168px) !important;
+  min-height:560px !important;
+  max-height:calc(100dvh - 168px) !important;
+  overflow:hidden !important;
+}
+.photo-studio-page .photo-studio-final-tools{
+  grid-column:1 !important;
+  height:100% !important;
+  max-height:100% !important;
+  overflow-y:auto !important;
+  position:relative !important;
+  top:auto !important;
+}
+.photo-studio-page .photo-studio-fixed-student-panel,
+.photo-studio-page .photo-studio-students.photo-studio-final-students.photo-studio-fixed-student-panel{
+  grid-column:2 !important;
+  grid-row:1 !important;
+  position:relative !important;
+  top:auto !important;
+  inset:auto !important;
+  height:100% !important;
+  max-height:100% !important;
+  min-height:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  overflow:hidden !important;
+  width:auto !important;
+  margin:0 !important;
+  padding:10px !important;
+  background:#fff !important;
+  border:1px solid #dbeafe !important;
+  border-radius:18px !important;
+  box-shadow:0 10px 24px rgba(15,23,42,.10) !important;
+  z-index:5 !important;
+}
+.photo-studio-page .photo-studio-fixed-student-panel .photo-studio-fold{
+  flex:0 0 auto !important;
+  width:100% !important;
+  height:46px !important;
+  min-height:46px !important;
+  margin:0 0 10px 0 !important;
+  font-size:18px !important;
+  white-space:nowrap !important;
+}
+.photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list{
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  height:auto !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  overscroll-behavior:contain !important;
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  align-content:start !important;
+  gap:8px !important;
+  padding:2px !important;
+  margin:0 !important;
+}
+.photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list button{
+  width:100% !important;
+  min-height:54px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  gap:12px !important;
+  padding:10px 14px !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+}
+.photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list button b{
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+.photo-studio-page .photo-studio-pdf-only-center,
+.photo-studio-page .photo-studio-final-center.photo-studio-pdf-only-center{
+  grid-column:3 !important;
+  grid-row:1 !important;
+  height:100% !important;
+  max-height:100% !important;
+  min-height:0 !important;
+  overflow:hidden !important;
+  display:flex !important;
+  flex-direction:column !important;
+  padding:10px !important;
+}
+.photo-studio-page .photo-studio-pdf-only-center .photo-studio-final-current{
+  flex:0 0 auto !important;
+  position:relative !important;
+  top:auto !important;
+  margin:0 0 10px 0 !important;
+  z-index:3 !important;
+}
+.photo-studio-page .photo-studio-pdf-only-center .photo-studio-final-pdf-panel{
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  height:auto !important;
+  overflow:hidden !important;
+}
+.photo-studio-page .photo-studio-pdf-only-center .photo-studio-canvas-wrap,
+.photo-studio-page .photo-studio-final-pdf-panel .photo-studio-canvas-wrap{
+  height:100% !important;
+  min-height:0 !important;
+  max-height:none !important;
+  overflow:auto !important;
+  overscroll-behavior:contain !important;
+}
+.photo-studio-page .photo-studio-final-preview{
+  grid-column:4 !important;
+  grid-row:1 !important;
+  height:100% !important;
+  max-height:100% !important;
+  min-height:0 !important;
+  overflow-y:auto !important;
+  position:relative !important;
+  top:auto !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+.photo-studio-page .photo-studio-preview-compare-final{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:10px !important;
+  width:100% !important;
+  min-width:0 !important;
+}
+.photo-studio-page .photo-studio-preview-compare-final > div{
+  min-width:0 !important;
+}
+.photo-studio-page .photo-studio-preview-box{
+  width:100% !important;
+  min-width:0 !important;
+  max-width:100% !important;
+  aspect-ratio:3 / 4 !important;
+  height:auto !important;
+  min-height:150px !important;
+  overflow:hidden !important;
+  box-sizing:border-box !important;
+}
+.photo-studio-page .photo-studio-preview-box img{
+  max-width:100% !important;
+  max-height:100% !important;
+  object-fit:contain !important;
+}
+.photo-studio-page .photo-studio-preview-box span{
+  white-space:normal !important;
+  word-break:keep-all !important;
+  text-align:center !important;
+}
+
+/* PE-ON v9.1.2 사진등록센터 레이아웃 재구성 FINAL
+   기존 3열/폭 조정 패치가 4열 사진등록센터를 덮어쓰던 문제를 마지막에 강제 보정합니다.
+   구조: PDF도구 | 학생명단(좁게) | PDF창(넓게) | 사진저장 */
+.photo-studio-page .photo-studio-layout.photo-studio-final-layout,
+.photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout,
+.photo-studio-page .photo-studio-layout-wide.photo-studio-final-layout{
+  display:grid !important;
+  grid-template-columns:96px 260px minmax(520px, 1fr) 300px !important;
+  grid-template-rows:minmax(620px, calc(100dvh - 170px)) !important;
+  gap:12px !important;
+  align-items:stretch !important;
+  width:100% !important;
+  max-width:none !important;
+  overflow-x:auto !important;
+  overflow-y:visible !important;
+  padding:0 !important;
+}
+
+.photo-studio-page .photo-studio-final-tools{
+  grid-column:1 !important;
+  grid-row:1 !important;
+  width:96px !important;
+  min-width:96px !important;
+  max-width:96px !important;
+  height:100% !important;
+  max-height:100% !important;
+  overflow-y:auto !important;
+  position:relative !important;
+  top:auto !important;
+  padding:8px !important;
+}
+.photo-studio-page .photo-studio-final-tools button,
+.photo-studio-page .photo-studio-final-tools .setting-btn,
+.photo-studio-page .photo-studio-final-tools .save-btn,
+.photo-studio-page .photo-studio-final-tools .delete-btn,
+.photo-studio-page .photo-studio-final-tools label{
+  width:100% !important;
+  min-width:0 !important;
+  height:38px !important;
+  min-height:38px !important;
+  padding-left:4px !important;
+  padding-right:4px !important;
+  font-size:12px !important;
+  white-space:nowrap !important;
+}
+
+.photo-studio-page .photo-studio-students.photo-studio-final-students.photo-studio-fixed-student-panel,
+.photo-studio-page .photo-studio-final-students.photo-studio-fixed-student-panel,
+.photo-studio-page .photo-studio-fixed-student-panel{
+  grid-column:2 !important;
+  grid-row:1 !important;
+  width:260px !important;
+  min-width:260px !important;
+  max-width:260px !important;
+  height:100% !important;
+  max-height:100% !important;
+  min-height:0 !important;
+  overflow:hidden !important;
+  position:relative !important;
+  top:auto !important;
+  transform:none !important;
+  padding:8px !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+.photo-studio-page .photo-studio-fixed-student-panel .photo-studio-fold{
+  flex:0 0 44px !important;
+  height:44px !important;
+  min-height:44px !important;
+  padding:0 8px !important;
+  font-size:16px !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+.photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list,
+.photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-box-list{
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  height:auto !important;
+  max-height:none !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:7px !important;
+  padding:0 4px 0 0 !important;
+}
+.photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list button,
+.photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-box-list button{
+  width:100% !important;
+  min-width:0 !important;
+  max-width:100% !important;
+  height:44px !important;
+  min-height:44px !important;
+  padding:6px 8px !important;
+  display:grid !important;
+  grid-template-columns:24px 44px minmax(0, 1fr) !important;
+  align-items:center !important;
+  gap:5px !important;
+  border-radius:13px !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+}
+.photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list button span,
+.photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list button strong,
+.photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list button b,
+.photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-box-list button span,
+.photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-box-list button strong,
+.photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-box-list button b{
+  min-width:0 !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+  white-space:nowrap !important;
+  font-size:14px !important;
+  line-height:1.1 !important;
+}
+
+.photo-studio-page .photo-studio-final-center.photo-studio-pdf-only-center,
+.photo-studio-page .photo-studio-pdf-only-center{
+  grid-column:3 !important;
+  grid-row:1 !important;
+  width:100% !important;
+  min-width:520px !important;
+  max-width:none !important;
+  height:100% !important;
+  max-height:100% !important;
+  min-height:0 !important;
+  overflow:hidden !important;
+  position:relative !important;
+  top:auto !important;
+  padding:8px !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+.photo-studio-page .photo-studio-final-current{
+  flex:0 0 auto !important;
+  min-height:86px !important;
+  margin-bottom:8px !important;
+}
+.photo-studio-page .photo-studio-final-pdf-panel{
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  height:auto !important;
+  overflow:hidden !important;
+}
+.photo-studio-page .photo-studio-final-pdf-panel .photo-studio-canvas-wrap,
+.photo-studio-page .photo-studio-pdf-only-center .photo-studio-canvas-wrap{
+  width:100% !important;
+  height:100% !important;
+  min-height:0 !important;
+  max-height:none !important;
+  overflow:auto !important;
+  overscroll-behavior:contain !important;
+}
+
+.photo-studio-page .photo-studio-preview-panel.photo-studio-final-preview,
+.photo-studio-page .photo-studio-final-preview{
+  grid-column:4 !important;
+  grid-row:1 !important;
+  width:300px !important;
+  min-width:300px !important;
+  max-width:300px !important;
+  height:100% !important;
+  max-height:100% !important;
+  min-height:0 !important;
+  overflow-y:auto !important;
+  position:relative !important;
+  top:auto !important;
+  padding:10px !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+.photo-studio-page .photo-studio-preview-compare-final{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:8px !important;
+}
+.photo-studio-page .photo-studio-preview-box{
+  width:100% !important;
+  min-width:0 !important;
+  max-width:100% !important;
+  min-height:140px !important;
+  aspect-ratio:3/4 !important;
+  overflow:hidden !important;
+}
+.photo-studio-page .photo-studio-side-confirm .photo-studio-save,
+.photo-studio-page .photo-studio-final-preview .photo-studio-save{
+  width:100% !important;
+  min-width:0 !important;
+}
+
+@media (min-width:1400px){
+  .photo-studio-page .photo-studio-layout.photo-studio-final-layout,
+  .photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout,
+  .photo-studio-page .photo-studio-layout-wide.photo-studio-final-layout{
+    grid-template-columns:100px 280px minmax(720px, 1fr) 330px !important;
+    gap:14px !important;
+  }
+  .photo-studio-page .photo-studio-final-tools{width:100px !important;min-width:100px !important;max-width:100px !important;}
+  .photo-studio-page .photo-studio-students.photo-studio-final-students.photo-studio-fixed-student-panel,
+  .photo-studio-page .photo-studio-final-students.photo-studio-fixed-student-panel,
+  .photo-studio-page .photo-studio-fixed-student-panel{width:280px !important;min-width:280px !important;max-width:280px !important;}
+  .photo-studio-page .photo-studio-final-center.photo-studio-pdf-only-center,
+  .photo-studio-page .photo-studio-pdf-only-center{min-width:720px !important;}
+  .photo-studio-page .photo-studio-preview-panel.photo-studio-final-preview,
+  .photo-studio-page .photo-studio-final-preview{width:330px !important;min-width:330px !important;max-width:330px !important;}
+}
+
+@media (min-width:768px) and (max-width:1180px){
+  .photo-studio-page .photo-studio-layout.photo-studio-final-layout,
+  .photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout,
+  .photo-studio-page .photo-studio-layout-wide.photo-studio-final-layout{
+    grid-template-columns:78px 188px minmax(420px, 1fr) 224px !important;
+    grid-template-rows:minmax(540px, calc(100dvh - 150px)) !important;
+    gap:8px !important;
+  }
+  .photo-studio-page .photo-studio-final-tools{width:78px !important;min-width:78px !important;max-width:78px !important;padding:6px !important;}
+  .photo-studio-page .photo-studio-students.photo-studio-final-students.photo-studio-fixed-student-panel,
+  .photo-studio-page .photo-studio-final-students.photo-studio-fixed-student-panel,
+  .photo-studio-page .photo-studio-fixed-student-panel{width:188px !important;min-width:188px !important;max-width:188px !important;padding:6px !important;}
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-fold{height:38px !important;min-height:38px !important;font-size:13px !important;padding:0 5px !important;}
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list button,
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-box-list button{height:38px !important;min-height:38px !important;grid-template-columns:20px 32px minmax(0,1fr) !important;padding:5px 6px !important;gap:4px !important;}
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list button span,
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list button strong,
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list button b,
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-box-list button span,
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-box-list button strong,
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-box-list button b{font-size:12px !important;}
+  .photo-studio-page .photo-studio-final-center.photo-studio-pdf-only-center,
+  .photo-studio-page .photo-studio-pdf-only-center{min-width:420px !important;padding:6px !important;}
+  .photo-studio-page .photo-studio-preview-panel.photo-studio-final-preview,
+  .photo-studio-page .photo-studio-final-preview{width:224px !important;min-width:224px !important;max-width:224px !important;padding:8px !important;}
+  .photo-studio-page .photo-studio-preview-compare-final{grid-template-columns:1fr !important;}
+  .photo-studio-page .photo-studio-preview-box{min-height:100px !important;max-height:130px !important;aspect-ratio:4/3 !important;}
+}
+
+/* PE-ON v9.2 photo center real grid rebuild - last override */
+.peon-v9-main .photo-studio-page{max-width:1720px!important;width:100%!important;}
+.peon-v9-main .photo-studio-page .photo-studio-card{overflow:visible!important;max-width:none!important;width:100%!important;}
+.peon-v9-main .photo-studio-page .photo-studio-final-layout{
+  display:grid!important;
+  grid-template-columns:96px 210px minmax(760px,1fr) 300px!important;
+  gap:12px!important;
+  align-items:stretch!important;
+  width:100%!important;
+  max-width:100%!important;
+  overflow-x:auto!important;
+  padding-bottom:8px!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-tools,
+.peon-v9-main .photo-studio-page .photo-studio-final-students,
+.peon-v9-main .photo-studio-page .photo-studio-final-center,
+.peon-v9-main .photo-studio-page .photo-studio-final-preview{
+  position:sticky!important;
+  top:110px!important;
+  height:calc(100vh - 140px)!important;
+  max-height:calc(100vh - 140px)!important;
+  min-height:620px!important;
+  box-sizing:border-box!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-tools{
+  width:96px!important;min-width:96px!important;max-width:96px!important;
+  overflow-y:auto!important;background:#fff!important;border:1px solid #dbe4ef!important;border-radius:18px!important;padding:8px!important;
+  display:flex!important;flex-direction:column!important;gap:7px!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-tools button,
+.peon-v9-main .photo-studio-page .photo-studio-final-tools label{
+  width:100%!important;min-width:0!important;height:38px!important;min-height:38px!important;padding:0 4px!important;
+  font-size:12px!important;font-weight:900!important;white-space:nowrap!important;border-radius:10px!important;display:flex!important;align-items:center!important;justify-content:center!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students{
+  width:210px!important;min-width:210px!important;max-width:210px!important;
+  overflow:hidden!important;background:#fff!important;border:1px solid #dbe4ef!important;border-radius:18px!important;padding:10px!important;
+  display:flex!important;flex-direction:column!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-sidebar-title{
+  flex:0 0 auto!important;min-height:40px!important;margin-bottom:8px!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-sidebar-title strong{font-size:14px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-sidebar-title .setting-btn{height:32px!important;min-height:32px!important;font-size:12px!important;padding:0 8px!important;}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list{
+  flex:1 1 auto!important;min-height:0!important;max-height:none!important;overflow-y:auto!important;overflow-x:hidden!important;
+  display:flex!important;flex-direction:column!important;gap:6px!important;padding-right:3px!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list button{
+  width:100%!important;height:39px!important;min-height:39px!important;padding:5px 7px!important;
+  display:grid!important;grid-template-columns:22px 35px minmax(0,1fr)!important;gap:4px!important;align-items:center!important;
+  border-radius:12px!important;white-space:nowrap!important;overflow:hidden!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list button span,
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list button b,
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list button strong{
+  font-size:12px!important;line-height:1!important;min-width:0!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-current-student{display:none!important;}
+.peon-v9-main .photo-studio-page .photo-studio-final-center{
+  min-width:760px!important;max-width:none!important;width:100%!important;
+  overflow:hidden!important;background:#fff!important;border:1px solid #dbe4ef!important;border-radius:18px!important;padding:10px!important;
+  display:flex!important;flex-direction:column!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-center .photo-pdf-toolbar{flex:0 0 auto!important;min-height:34px!important;margin-bottom:8px!important;}
+.peon-v9-main .photo-studio-page .photo-studio-final-center .photo-canvas-wrap{
+  flex:1 1 auto!important;height:auto!important;min-height:0!important;max-height:none!important;width:100%!important;overflow:auto!important;
+  border-radius:16px!important;background:#f8fafc!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-center .photo-canvas-stage{min-width:max-content!important;min-height:max-content!important;}
+.peon-v9-main .photo-studio-page .photo-studio-final-center canvas{max-width:none!important;max-height:none!important;}
+.peon-v9-main .photo-studio-page .photo-studio-final-center .photo-save-bar{flex:0 0 auto!important;margin-top:8px!important;}
+.peon-v9-main .photo-studio-page .photo-studio-final-preview{
+  width:300px!important;min-width:300px!important;max-width:300px!important;
+  overflow-y:auto!important;background:#fff!important;border:1px solid #dbe4ef!important;border-radius:18px!important;padding:12px!important;
+  display:flex!important;flex-direction:column!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-preview .photo-preview-box{min-height:145px!important;margin-bottom:10px!important;}
+.peon-v9-main .photo-studio-page .photo-studio-final-preview .full{width:100%!important;min-width:0!important;}
+@media (min-width:1500px){
+  .peon-v9-main .photo-studio-page .photo-studio-final-layout{grid-template-columns:100px 220px minmax(900px,1fr) 320px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-tools{width:100px!important;min-width:100px!important;max-width:100px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-students{width:220px!important;min-width:220px!important;max-width:220px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-center{min-width:900px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-preview{width:320px!important;min-width:320px!important;max-width:320px!important;}
+}
+@media (min-width:768px) and (max-width:1180px){
+  .peon-v9-main .photo-studio-page .photo-studio-final-layout{grid-template-columns:76px 160px minmax(470px,1fr) 220px!important;gap:8px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-tools{width:76px!important;min-width:76px!important;max-width:76px!important;padding:6px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-students{width:160px!important;min-width:160px!important;max-width:160px!important;padding:6px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-center{min-width:470px!important;padding:8px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-preview{width:220px!important;min-width:220px!important;max-width:220px!important;padding:8px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list button{height:36px!important;min-height:36px!important;grid-template-columns:18px 30px minmax(0,1fr)!important;padding:4px 5px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list button span,
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list button b,
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list button strong{font-size:11px!important;}
+}
+@media (max-width:767px){
+  .peon-v9-main .photo-studio-page .photo-studio-final-layout{display:flex!important;flex-direction:column!important;overflow:visible!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-tools,
+  .peon-v9-main .photo-studio-page .photo-studio-final-students,
+  .peon-v9-main .photo-studio-page .photo-studio-final-center,
+  .peon-v9-main .photo-studio-page .photo-studio-final-preview{position:static!important;width:100%!important;min-width:0!important;max-width:none!important;height:auto!important;min-height:0!important;max-height:none!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-tools{display:grid!important;grid-template-columns:repeat(3,1fr)!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list{max-height:260px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-center .photo-canvas-wrap{height:58vh!important;min-height:420px!important;}
+}
+
+/* PE-ON v9.2.1 photo center preferred layout - final teacher requested shape */
+.peon-v9-main .photo-studio-page .photo-studio-final-layout{
+  display:grid!important;
+  grid-template-columns:92px 180px minmax(720px,1fr) 300px!important;
+  gap:12px!important;
+  align-items:stretch!important;
+  width:100%!important;
+  overflow-x:auto!important;
+  padding-bottom:10px!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-tools{
+  width:92px!important;min-width:92px!important;max-width:92px!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students{
+  width:180px!important;min-width:180px!important;max-width:180px!important;
+  padding:8px!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-sidebar-title{
+  min-height:34px!important;margin-bottom:6px!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-sidebar-title strong{
+  font-size:12px!important;letter-spacing:-.04em!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list{
+  gap:5px!important;padding-right:2px!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list button{
+  height:32px!important;min-height:32px!important;
+  grid-template-columns:18px 28px minmax(0,1fr)!important;
+  padding:3px 5px!important;gap:3px!important;border-radius:9px!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list button span,
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list button b,
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list button strong{
+  font-size:11px!important;font-weight:900!important;line-height:1!important;
+  white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-current-student{display:none!important;}
+.peon-v9-main .photo-studio-page .photo-studio-final-center{
+  min-width:720px!important;width:100%!important;max-width:none!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-preview.photo-exchange-panel,
+.peon-v9-main .photo-studio-page .photo-studio-final-preview{
+  width:300px!important;min-width:300px!important;max-width:300px!important;
+  padding:12px!important;gap:10px!important;
+}
+.peon-v9-main .photo-studio-page .photo-exchange-panel h3{
+  margin:0!important;padding:10px 12px!important;border-radius:12px!important;background:#eef4ff!important;color:#123a8a!important;font-size:15px!important;text-align:left!important;
+}
+.peon-v9-main .photo-studio-page .photo-selected-student-line{
+  display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;
+  padding:8px 2px!important;font-size:13px!important;color:#40536f!important;
+}
+.peon-v9-main .photo-studio-page .photo-selected-student-line b{color:#0b3ec4!important;font-size:14px!important;white-space:nowrap!important;}
+.peon-v9-main .photo-studio-page .photo-exchange-panel .photo-preview-box{
+  min-height:150px!important;aspect-ratio:auto!important;margin:0!important;padding:10px!important;
+  border:1px dashed #9dc1ff!important;border-radius:14px!important;background:#f8fbff!important;
+}
+.peon-v9-main .photo-studio-page .photo-exchange-panel .photo-preview-box span{
+  display:block!important;margin-bottom:6px!important;color:#1551c8!important;font-size:13px!important;font-weight:900!important;
+}
+.peon-v9-main .photo-studio-page .photo-exchange-panel .photo-preview-box img{
+  width:100%!important;height:130px!important;object-fit:contain!important;border-radius:10px!important;background:#fff!important;
+}
+.peon-v9-main .photo-studio-page .photo-exchange-panel .photo-preview-empty{
+  height:118px!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;
+  color:#66758a!important;font-size:12px!important;font-weight:800!important;line-height:1.35!important;
+}
+.peon-v9-main .photo-studio-page .photo-save-new-btn,
+.peon-v9-main .photo-studio-page .photo-delete-current-btn,
+.peon-v9-main .photo-studio-page .photo-reset-btn{
+  height:44px!important;min-height:44px!important;border-radius:12px!important;font-size:14px!important;font-weight:900!important;margin:0!important;
+}
+.peon-v9-main .photo-studio-page .photo-delete-current-btn{
+  background:#e9edf3!important;color:#111827!important;border:0!important;
+}
+@media (min-width:1500px){
+  .peon-v9-main .photo-studio-page .photo-studio-final-layout{grid-template-columns:96px 190px minmax(900px,1fr) 320px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-tools{width:96px!important;min-width:96px!important;max-width:96px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-students{width:190px!important;min-width:190px!important;max-width:190px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-center{min-width:900px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-preview{width:320px!important;min-width:320px!important;max-width:320px!important;}
+}
+@media (min-width:768px) and (max-width:1180px){
+  .peon-v9-main .photo-studio-page .photo-studio-final-layout{grid-template-columns:72px 142px minmax(440px,1fr) 210px!important;gap:7px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-tools{width:72px!important;min-width:72px!important;max-width:72px!important;padding:5px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-students{width:142px!important;min-width:142px!important;max-width:142px!important;padding:5px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-center{min-width:440px!important;padding:7px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-preview{width:210px!important;min-width:210px!important;max-width:210px!important;padding:7px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list button{height:30px!important;min-height:30px!important;grid-template-columns:16px 26px minmax(0,1fr)!important;padding:3px 4px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list button span,
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list button b,
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-student-list button strong{font-size:10.5px!important;}
+  .peon-v9-main .photo-studio-page .photo-exchange-panel .photo-preview-box{min-height:120px!important;padding:7px!important;}
+  .peon-v9-main .photo-studio-page .photo-exchange-panel .photo-preview-box img{height:98px!important;}
+  .peon-v9-main .photo-studio-page .photo-exchange-panel .photo-preview-empty{height:88px!important;font-size:11px!important;}
+  .peon-v9-main .photo-studio-page .photo-save-new-btn,
+  .peon-v9-main .photo-studio-page .photo-delete-current-btn,
+  .peon-v9-main .photo-studio-page .photo-reset-btn{height:38px!important;min-height:38px!important;font-size:12px!important;}
+}
+
+/* PE-ON v9.2.2 사진등록센터 사용성 최종 재구성
+   - 실제 Settings의 PhotoStudio 컴포넌트 기준
+   - 명단과 PDF창 겹침 제거: 모든 패널을 grid column에 고정하고 sticky 해제
+   - 학생명단 폭 축소 / PDF창 확대 / 우측 현재·새사진을 한 화면에 표시 */
+.peon-v9-main .settings-page .photo-studio-layout.photo-studio-final-layout,
+.peon-v9-main .photo-studio-page .photo-studio-layout.photo-studio-final-layout,
+.peon-v9-main .photo-studio-page .photo-studio-layout-wide.photo-studio-final-layout,
+.peon-v9-main .photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{
+  display:grid !important;
+  grid-template-columns:86px 160px minmax(680px, 1fr) 300px !important;
+  grid-template-rows:calc(100dvh - 184px) !important;
+  gap:10px !important;
+  align-items:stretch !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  overflow-x:auto !important;
+  overflow-y:hidden !important;
+  padding:0 0 8px 0 !important;
+  box-sizing:border-box !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-layout > *{
+  position:relative !important;
+  top:auto !important;
+  left:auto !important;
+  right:auto !important;
+  bottom:auto !important;
+  transform:none !important;
+  z-index:1 !important;
+  margin:0 !important;
+  box-sizing:border-box !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-tools{
+  grid-column:1 !important;
+  grid-row:1 !important;
+  width:86px !important;
+  min-width:86px !important;
+  max-width:86px !important;
+  height:100% !important;
+  min-height:0 !important;
+  max-height:100% !important;
+  overflow-y:auto !important;
+  padding:7px !important;
+  border-radius:14px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-tools .photo-studio-upload-line-side{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:7px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-tools button,
+.peon-v9-main .photo-studio-page .photo-studio-final-tools label,
+.peon-v9-main .photo-studio-page .photo-studio-final-tools .setting-btn,
+.peon-v9-main .photo-studio-page .photo-studio-final-tools .save-btn,
+.peon-v9-main .photo-studio-page .photo-studio-final-tools .delete-btn{
+  width:100% !important;
+  min-width:0 !important;
+  height:36px !important;
+  min-height:36px !important;
+  padding:0 3px !important;
+  border-radius:10px !important;
+  font-size:12px !important;
+  line-height:1.1 !important;
+  white-space:nowrap !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students{
+  grid-column:2 !important;
+  grid-row:1 !important;
+  width:160px !important;
+  min-width:160px !important;
+  max-width:160px !important;
+  height:100% !important;
+  min-height:0 !important;
+  max-height:100% !important;
+  overflow:hidden !important;
+  display:flex !important;
+  flex-direction:column !important;
+  padding:7px !important;
+  border-radius:14px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-fold{
+  flex:0 0 36px !important;
+  height:36px !important;
+  min-height:36px !important;
+  width:100% !important;
+  padding:0 6px !important;
+  border-radius:10px !important;
+  font-size:12px !important;
+  letter-spacing:-.04em !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+  margin:0 0 6px 0 !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-student-list,
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-student-box-list{
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  height:auto !important;
+  max-height:none !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:5px !important;
+  padding:0 2px 0 0 !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-student-list button,
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-student-box-list button{
+  width:100% !important;
+  min-width:0 !important;
+  max-width:100% !important;
+  height:30px !important;
+  min-height:30px !important;
+  display:grid !important;
+  grid-template-columns:16px 28px minmax(0,1fr) !important;
+  align-items:center !important;
+  gap:3px !important;
+  padding:3px 5px !important;
+  border-radius:9px !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-student-list button span,
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-student-list button strong,
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-student-list button b,
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-student-box-list button span,
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-student-box-list button strong,
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-student-box-list button b{
+  min-width:0 !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+  white-space:nowrap !important;
+  font-size:10.5px !important;
+  font-weight:900 !important;
+  line-height:1 !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-center{
+  grid-column:3 !important;
+  grid-row:1 !important;
+  width:100% !important;
+  min-width:680px !important;
+  max-width:none !important;
+  height:100% !important;
+  min-height:0 !important;
+  max-height:100% !important;
+  overflow:hidden !important;
+  display:flex !important;
+  flex-direction:column !important;
+  padding:10px !important;
+  border-radius:14px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-center .photo-studio-final-current{
+  display:none !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-pdf-title-bar{
+  flex:0 0 38px !important;
+  min-height:38px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:10px !important;
+  padding:0 12px !important;
+  margin:0 0 8px 0 !important;
+  border-radius:12px !important;
+  background:#eef4ff !important;
+  color:#163d8f !important;
+  font-weight:900 !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-pdf-title-bar span{
+  color:#66758a !important;
+  font-size:12px !important;
+  white-space:nowrap !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-pdf-panel{
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  height:auto !important;
+  overflow:hidden !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-center .photo-studio-canvas-wrap{
+  width:100% !important;
+  height:100% !important;
+  min-height:0 !important;
+  max-height:100% !important;
+  overflow:auto !important;
+  background:#f8fafc !important;
+  border:1px solid #cfe2ff !important;
+  border-radius:14px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-center .photo-studio-canvas-stage{
+  min-width:max-content !important;
+  min-height:max-content !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-center canvas{
+  max-width:none !important;
+  max-height:none !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-preview{
+  grid-column:4 !important;
+  grid-row:1 !important;
+  width:300px !important;
+  min-width:300px !important;
+  max-width:300px !important;
+  height:100% !important;
+  min-height:0 !important;
+  max-height:100% !important;
+  overflow:hidden !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:8px !important;
+  padding:10px !important;
+  border-radius:14px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-preview-heading{
+  flex:0 0 auto !important;
+  margin:0 !important;
+  padding:9px 10px !important;
+  border-radius:11px !important;
+  background:#eef4ff !important;
+  color:#123a8a !important;
+  font-size:14px !important;
+  font-weight:900 !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-selected-line{
+  flex:0 0 auto !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:6px !important;
+  font-size:12px !important;
+  color:#475569 !important;
+  padding:0 2px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-selected-line strong{
+  color:#0b4bd3 !important;
+  font-size:13px !important;
+  white-space:nowrap !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-preview .photo-studio-current-actions{
+  flex:0 0 auto !important;
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:6px !important;
+  margin:0 !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-preview .photo-studio-current-actions button{
+  height:34px !important;
+  min-height:34px !important;
+  padding:0 6px !important;
+  border-radius:10px !important;
+  font-size:12px !important;
+  white-space:nowrap !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-preview-stack-final{
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  display:grid !important;
+  grid-template-rows:1fr 1fr !important;
+  gap:8px !important;
+  overflow:hidden !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-preview-stack-final > div{
+  min-height:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-preview-label{
+  flex:0 0 auto !important;
+  font-size:12px !important;
+  color:#1551c8 !important;
+  font-weight:900 !important;
+  margin:0 0 5px 0 !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-preview-stack-final .photo-studio-preview-box{
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  height:auto !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:8px !important;
+  border:1px dashed #9dc1ff !important;
+  border-radius:12px !important;
+  background:#f8fbff !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-preview-stack-final .photo-studio-preview-box img{
+  width:100% !important;
+  height:100% !important;
+  max-height:100% !important;
+  object-fit:contain !important;
+  border-radius:9px !important;
+  background:#fff !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-preview-stack-final .photo-studio-preview-box span{
+  font-size:12px !important;
+  color:#64748b !important;
+  font-weight:800 !important;
+  text-align:center !important;
+  line-height:1.35 !important;
+  word-break:keep-all !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-save-new-final,
+.peon-v9-main .photo-studio-page .photo-studio-delete-current-final{
+  flex:0 0 42px !important;
+  height:42px !important;
+  min-height:42px !important;
+  width:100% !important;
+  min-width:0 !important;
+  border-radius:12px !important;
+  font-size:13px !important;
+  font-weight:900 !important;
+  margin:0 !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-delete-current-final{
+  background:#e9edf3 !important;
+  color:#111827 !important;
+  border:0 !important;
+}
+@media (min-width:1500px){
+  .peon-v9-main .settings-page .photo-studio-layout.photo-studio-final-layout,
+  .peon-v9-main .photo-studio-page .photo-studio-layout.photo-studio-final-layout,
+  .peon-v9-main .photo-studio-page .photo-studio-layout-wide.photo-studio-final-layout,
+  .peon-v9-main .photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{
+    grid-template-columns:90px 170px minmax(820px, 1fr) 310px !important;
+  }
+  .peon-v9-main .photo-studio-page .photo-studio-final-tools{width:90px !important;min-width:90px !important;max-width:90px !important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-students{width:170px !important;min-width:170px !important;max-width:170px !important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-center{min-width:820px !important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-preview{width:310px !important;min-width:310px !important;max-width:310px !important;}
+}
+@media (min-width:768px) and (max-width:1180px){
+  .peon-v9-main .settings-page .photo-studio-layout.photo-studio-final-layout,
+  .peon-v9-main .photo-studio-page .photo-studio-layout.photo-studio-final-layout,
+  .peon-v9-main .photo-studio-page .photo-studio-layout-wide.photo-studio-final-layout,
+  .peon-v9-main .photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{
+    grid-template-columns:70px 132px minmax(430px,1fr) 205px !important;
+    grid-template-rows:calc(100dvh - 158px) !important;
+    gap:7px !important;
+  }
+  .peon-v9-main .photo-studio-page .photo-studio-final-tools{width:70px !important;min-width:70px !important;max-width:70px !important;padding:5px !important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-students{width:132px !important;min-width:132px !important;max-width:132px !important;padding:5px !important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-center{min-width:430px !important;padding:6px !important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-preview{width:205px !important;min-width:205px !important;max-width:205px !important;padding:6px !important;gap:6px !important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-fold{height:32px !important;min-height:32px !important;font-size:11px !important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-student-list button,
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-student-box-list button{height:28px !important;min-height:28px !important;grid-template-columns:15px 24px minmax(0,1fr) !important;padding:2px 4px !important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-student-list button span,
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-student-list button strong,
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-student-list button b{font-size:10px !important;}
+  .peon-v9-main .photo-studio-page .photo-studio-pdf-title-bar{height:32px !important;min-height:32px !important;flex-basis:32px !important;font-size:13px !important;}
+  .peon-v9-main .photo-studio-page .photo-studio-preview-heading{font-size:12px !important;padding:7px 8px !important;}
+  .peon-v9-main .photo-studio-page .photo-studio-selected-line,
+  .peon-v9-main .photo-studio-page .photo-studio-preview-label{font-size:11px !important;}
+  .peon-v9-main .photo-studio-page .photo-studio-save-new-final,
+  .peon-v9-main .photo-studio-page .photo-studio-delete-current-final{height:36px !important;min-height:36px !important;flex-basis:36px !important;font-size:12px !important;}
+}
+@media (max-width:767px){
+  .peon-v9-main .settings-page .photo-studio-layout.photo-studio-final-layout,
+  .peon-v9-main .photo-studio-page .photo-studio-layout.photo-studio-final-layout,
+  .peon-v9-main .photo-studio-page .photo-studio-layout-wide.photo-studio-final-layout,
+  .peon-v9-main .photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{
+    display:flex !important;
+    flex-direction:column !important;
+    height:auto !important;
+    max-height:none !important;
+    overflow:visible !important;
+  }
+  .peon-v9-main .photo-studio-page .photo-studio-final-tools,
+  .peon-v9-main .photo-studio-page .photo-studio-final-students,
+  .peon-v9-main .photo-studio-page .photo-studio-final-center,
+  .peon-v9-main .photo-studio-page .photo-studio-final-preview{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:none !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+  }
+  .peon-v9-main .photo-studio-page .photo-studio-final-tools{display:grid !important;grid-template-columns:repeat(3,1fr) !important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-student-list{max-height:260px !important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-center .photo-studio-canvas-wrap{height:56dvh !important;min-height:360px !important;}
+  .peon-v9-main .photo-studio-page .photo-studio-preview-stack-final{min-height:380px !important;}
+}
+
+/* =========================================================
+   PE-ON v9 사진등록센터 최종 재배치 패치
+   - PDF도구 / 학생명단 / PDF미리보기 / 사진 등록·교체 4열 고정
+   - 학생명단 폭 축소, PDF와 사진 패널 한 화면 표시
+   - 학생명단 접기 시 PDF도구와 명단 함께 제거
+   ========================================================= */
+.peon-v9-main .photo-studio-page .photo-studio-card{
+  overflow: visible !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-layout{
+  display: grid !important;
+  grid-template-columns: 88px 158px minmax(560px, 1fr) 268px !important;
+  gap: 10px !important;
+  align-items: stretch !important;
+  width: 100% !important;
+  max-width: 1280px !important;
+  margin: 14px auto 0 !important;
+  height: calc(100dvh - 210px) !important;
+  min-height: 610px !important;
+  overflow: visible !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-layout.photo-list-collapsed{
+  grid-template-columns: minmax(720px, 1fr) 286px !important;
+  max-width: 1160px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-layout.photo-list-collapsed .photo-studio-final-tools,
+.peon-v9-main .photo-studio-page .photo-studio-final-layout.photo-list-collapsed .photo-studio-final-students{
+  display: none !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-layout.photo-list-collapsed .photo-studio-final-center{
+  grid-column: 1 !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-layout.photo-list-collapsed .photo-studio-final-preview{
+  grid-column: 2 !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-tools{
+  grid-column: 1 !important;
+  width: 88px !important;
+  min-width: 88px !important;
+  max-width: 88px !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  padding: 8px !important;
+  border: 1px solid #d9e7ff !important;
+  border-radius: 14px !important;
+  background: #fff !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-tools .save-btn,
+.peon-v9-main .photo-studio-page .photo-studio-final-tools .setting-btn,
+.peon-v9-main .photo-studio-page .photo-studio-final-tools .delete-btn{
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  padding: 0 4px !important;
+  border-radius: 10px !important;
+  font-size: 12px !important;
+  white-space: nowrap !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students{
+  grid-column: 2 !important;
+  width: 158px !important;
+  min-width: 158px !important;
+  max-width: 158px !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  padding: 8px !important;
+  border: 1px solid #d9e7ff !important;
+  border-radius: 14px !important;
+  background: #fff !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-sidebar-title{
+  height: 34px !important;
+  min-height: 34px !important;
+  padding: 0 4px !important;
+  border-radius: 10px !important;
+  background: #eef4ff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 4px !important;
+  margin-bottom: 8px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-sidebar-title strong{
+  font-size: 12px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-sidebar-title .setting-btn{
+  width: 42px !important;
+  height: 26px !important;
+  min-height: 26px !important;
+  padding: 0 !important;
+  font-size: 11px !important;
+  border-radius: 8px !important;
+}
+.peon-v9-main .photo-studio-page .photo-student-list{
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  padding: 0 2px 4px 0 !important;
+}
+.peon-v9-main .photo-studio-page .photo-student-list button{
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  max-height: 32px !important;
+  padding: 0 6px !important;
+  border-radius: 9px !important;
+  display: grid !important;
+  grid-template-columns: 18px 30px minmax(0, 1fr) !important;
+  gap: 3px !important;
+  align-items: center !important;
+  overflow: hidden !important;
+}
+.peon-v9-main .photo-studio-page .photo-student-list button span,
+.peon-v9-main .photo-studio-page .photo-student-list button b,
+.peon-v9-main .photo-studio-page .photo-student-list button strong{
+  font-size: 11px !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+.peon-v9-main .photo-studio-page .photo-student-list button span{
+  font-size: 12px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-center{
+  grid-column: 3 !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  padding: 10px !important;
+  border: 1px solid #d9e7ff !important;
+  border-radius: 14px !important;
+  background: #fff !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.peon-v9-main .photo-studio-page .photo-pdf-toolbar-compact{
+  flex: 0 0 34px !important;
+  height: 34px !important;
+  min-height: 34px !important;
+  padding: 0 10px !important;
+  margin: 0 0 8px 0 !important;
+  border-radius: 10px !important;
+  background: #eef4ff !important;
+}
+.peon-v9-main .photo-studio-page .photo-canvas-wrap{
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: auto !important;
+  border: 1px solid #bcd7ff !important;
+  border-radius: 12px !important;
+  background: #f8fafc !important;
+}
+.peon-v9-main .photo-studio-page .photo-canvas-stage{
+  min-width: 100% !important;
+  min-height: 100% !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+}
+.peon-v9-main .photo-studio-page .photo-save-bar,
+.peon-v9-main .photo-studio-page .photo-studio-tip{
+  display: none !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-preview{
+  grid-column: 4 !important;
+  width: 268px !important;
+  min-width: 268px !important;
+  max-width: 268px !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  padding: 10px !important;
+  border: 1px solid #d9e7ff !important;
+  border-radius: 14px !important;
+  background: #fff !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-final-preview h3{
+  flex: 0 0 34px !important;
+  height: 34px !important;
+  margin: 0 !important;
+  padding: 0 10px !important;
+  border-radius: 10px !important;
+  background: #eef4ff !important;
+  color: #123a8a !important;
+  display: flex !important;
+  align-items: center !important;
+  font-size: 14px !important;
+}
+.peon-v9-main .photo-studio-page .photo-selected-student-line{
+  flex: 0 0 28px !important;
+  min-height: 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+  font-size: 12px !important;
+  color: #475569 !important;
+}
+.peon-v9-main .photo-studio-page .photo-selected-student-line b{
+  color: #0b4bd3 !important;
+  font-size: 13px !important;
+  white-space: nowrap !important;
+}
+.peon-v9-main .photo-studio-page .photo-preview-box{
+  flex: 1 1 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 5px !important;
+}
+.peon-v9-main .photo-studio-page .photo-preview-box > span{
+  flex: 0 0 18px !important;
+  font-size: 12px !important;
+  color: #1551c8 !important;
+  font-weight: 900 !important;
+  margin: 0 !important;
+}
+.peon-v9-main .photo-studio-page .photo-preview-box img,
+.peon-v9-main .photo-studio-page .photo-preview-empty{
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  border: 1px dashed #9dc1ff !important;
+  border-radius: 12px !important;
+  background: #f8fbff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  color: #64748b !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  line-height: 1.35 !important;
+  padding: 8px !important;
+}
+.peon-v9-main .photo-studio-page .photo-save-new-btn,
+.peon-v9-main .photo-studio-page .photo-reset-btn,
+.peon-v9-main .photo-studio-page .photo-delete-current-btn{
+  flex: 0 0 38px !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  width: 100% !important;
+  border-radius: 10px !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  margin: 0 !important;
+}
+.peon-v9-main .photo-studio-page .photo-reset-btn{
+  display: none !important;
+}
+.peon-v9-main .photo-studio-page .photo-delete-current-btn{
+  background: #e9edf3 !important;
+  color: #111827 !important;
+  border: 0 !important;
+}
+@media (min-width: 1500px){
+  .peon-v9-main .photo-studio-page .photo-studio-final-layout{
+    grid-template-columns: 88px 158px minmax(700px, 1fr) 282px !important;
+    max-width: 1400px !important;
+  }
+  .peon-v9-main .photo-studio-page .photo-studio-final-preview{width:282px!important;min-width:282px!important;max-width:282px!important;}
+}
+@media (min-width: 768px) and (max-width: 1180px){
+  .peon-v9-main .photo-studio-page .photo-studio-final-layout{
+    grid-template-columns: 72px 132px minmax(390px, 1fr) 210px !important;
+    gap: 7px !important;
+    height: calc(100dvh - 175px) !important;
+    min-height: 560px !important;
+  }
+  .peon-v9-main .photo-studio-page .photo-studio-final-tools{width:72px!important;min-width:72px!important;max-width:72px!important;padding:5px!important;gap:6px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-students{width:132px!important;min-width:132px!important;max-width:132px!important;padding:5px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-preview{width:210px!important;min-width:210px!important;max-width:210px!important;padding:6px!important;gap:6px!important;}
+  .peon-v9-main .photo-studio-page .photo-student-list button{height:28px!important;min-height:28px!important;max-height:28px!important;grid-template-columns:15px 24px minmax(0,1fr)!important;padding:0 4px!important;}
+  .peon-v9-main .photo-studio-page .photo-student-list button span,
+  .peon-v9-main .photo-studio-page .photo-student-list button b,
+  .peon-v9-main .photo-studio-page .photo-student-list button strong{font-size:10px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-final-preview h3{height:30px!important;flex-basis:30px!important;font-size:12px!important;}
+  .peon-v9-main .photo-studio-page .photo-selected-student-line{height:24px!important;flex-basis:24px!important;font-size:11px!important;}
+  .peon-v9-main .photo-studio-page .photo-preview-box > span{font-size:11px!important;flex-basis:16px!important;}
+  .peon-v9-main .photo-studio-page .photo-save-new-btn,
+  .peon-v9-main .photo-studio-page .photo-delete-current-btn{height:34px!important;min-height:34px!important;flex-basis:34px!important;font-size:12px!important;}
+}
+@media (max-width: 767px){
+  .peon-v9-main .photo-studio-page .photo-studio-final-layout{
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-width: none !important;
+  }
+  .peon-v9-main .photo-studio-page .photo-studio-final-tools,
+  .peon-v9-main .photo-studio-page .photo-studio-final-students,
+  .peon-v9-main .photo-studio-page .photo-studio-final-center,
+  .peon-v9-main .photo-studio-page .photo-studio-final-preview{
+    width:100%!important;min-width:0!important;max-width:none!important;height:auto!important;
+  }
+  .peon-v9-main .photo-studio-page .photo-student-list{max-height:260px!important;}
+  .peon-v9-main .photo-studio-page .photo-canvas-wrap{min-height:360px!important;height:56dvh!important;}
+  .peon-v9-main .photo-studio-page .photo-preview-box{min-height:180px!important;}
+}
+
+/* PE-ON v9.2 Photo Studio V2: 사진등록센터 전면 재구성 */
+.peon-v9-main .photo-studio-page .photo-studio-v2-toolbar{
+  position: relative !important;
+  z-index: 5 !important;
+  padding: 10px 12px !important;
+  margin-bottom: 10px !important;
+  border-radius: 16px !important;
+  background: #ffffff !important;
+  border: 1px solid #dbeafe !important;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, .06) !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-class-row{
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-class-row label{
+  display:flex!important;
+  align-items:center!important;
+  gap:6px!important;
+  margin:0!important;
+  white-space:nowrap!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-class-row label span{font-weight:900!important;color:#334155!important;font-size:13px!important;}
+.peon-v9-main .photo-studio-page .photo-studio-v2-class-row select{
+  height: 34px !important;
+  min-height: 34px !important;
+  padding: 0 10px !important;
+  border-radius: 10px !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-status{
+  height: 34px !important;
+  min-height: 34px !important;
+  padding: 0 10px !important;
+  border-radius: 999px !important;
+  background:#eff6ff!important;
+  color:#1d4ed8!important;
+  display:flex!important;
+  align-items:center!important;
+  font-size:12px!important;
+  font-weight:900!important;
+  white-space:nowrap!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-class-row .save-btn,
+.peon-v9-main .photo-studio-page .photo-studio-v2-class-row .setting-btn{
+  height: 34px !important;
+  min-height: 34px !important;
+  padding: 0 10px !important;
+  border-radius: 10px !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+  white-space: nowrap !important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-layout{
+  width: 100% !important;
+  max-width: 1540px !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  grid-template-columns: 150px minmax(620px, 1fr) 286px !important;
+  gap: 10px !important;
+  align-items: stretch !important;
+  height: calc(100dvh - 245px) !important;
+  min-height: 600px !important;
+  overflow: hidden !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-students,
+.peon-v9-main .photo-studio-page .photo-studio-v2-pdf,
+.peon-v9-main .photo-studio-page .photo-studio-v2-preview{
+  position: relative !important;
+  inset: auto !important;
+  transform: none !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  background:#fff!important;
+  border:1px solid #dbeafe!important;
+  border-radius:18px!important;
+  box-shadow:0 10px 26px rgba(15,23,42,.06)!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-students{
+  padding: 8px !important;
+  display:flex!important;
+  flex-direction:column!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-students.collapsed{
+  width: 54px !important;
+  min-width: 54px !important;
+  max-width: 54px !important;
+  padding: 6px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-students.collapsed .photo-studio-v2-fold{
+  writing-mode: vertical-rl !important;
+  text-orientation: mixed !important;
+  height: 100% !important;
+  width: 42px !important;
+  padding: 10px 0 !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-fold{
+  flex:0 0 36px!important;
+  width:100%!important;
+  height:36px!important;
+  min-height:36px!important;
+  border:0!important;
+  border-radius:12px!important;
+  background:#eff6ff!important;
+  color:#1e40af!important;
+  font-size:12px!important;
+  font-weight:1000!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  cursor:pointer!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-student-list{
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding: 8px 2px 2px 0 !important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:5px!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-student-list button{
+  width: 100% !important;
+  height: 30px !important;
+  min-height: 30px !important;
+  max-height: 30px !important;
+  padding: 0 5px !important;
+  border-radius: 9px !important;
+  display: grid !important;
+  grid-template-columns: 16px 31px minmax(0,1fr) !important;
+  gap: 2px !important;
+  align-items: center !important;
+  border: 1px solid #e2e8f0 !important;
+  background:#fff!important;
+  color:#0f172a!important;
+  overflow:hidden!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-student-list button.active{
+  background:#2563eb!important;
+  border-color:#1d4ed8!important;
+  color:#fff!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-student-list button.saved:not(.active){
+  background:#f0fdf4!important;
+  border-color:#bbf7d0!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-student-list button span,
+.peon-v9-main .photo-studio-page .photo-studio-v2-student-list button strong,
+.peon-v9-main .photo-studio-page .photo-studio-v2-student-list button b{
+  min-width:0!important;
+  font-size: 11px !important;
+  line-height:1!important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-student-list button span{font-size:12px!important;}
+.peon-v9-main .photo-studio-page .photo-studio-v2-pdf{
+  padding: 10px !important;
+  display:flex!important;
+  flex-direction:column!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-pdf-head{
+  flex:0 0 36px!important;
+  height:36px!important;
+  min-height:36px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:10px!important;
+  padding:0 12px!important;
+  border-radius:12px!important;
+  background:#f8fafc!important;
+  border:1px solid #e2e8f0!important;
+  margin-bottom:8px!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-pdf-head strong{font-size:14px!important;color:#0f172a!important;}
+.peon-v9-main .photo-studio-page .photo-studio-v2-pdf-head span{font-size:12px!important;color:#64748b!important;font-weight:900!important;}
+.peon-v9-main .photo-studio-page .photo-studio-v2-pdf-body{
+  flex:1 1 auto!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  border-radius:14px!important;
+  border:1px solid #bfdbfe!important;
+  background:#f8fafc!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-canvas-wrap{
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: auto !important;
+  border:0!important;
+  border-radius:0!important;
+  background:#f8fafc!important;
+  display:block!important;
+  cursor:crosshair!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-canvas-wrap canvas{
+  display:block!important;
+  max-width:none!important;
+  margin:0!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-empty{
+  position:absolute!important;
+  inset:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  font-weight:900!important;
+  color:#64748b!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-preview{
+  padding: 10px !important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:7px!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-preview h3{
+  flex:0 0 34px!important;
+  height:34px!important;
+  min-height:34px!important;
+  margin:0!important;
+  padding:0 10px!important;
+  border-radius:12px!important;
+  background:#eff6ff!important;
+  color:#1e40af!important;
+  display:flex!important;
+  align-items:center!important;
+  font-size:14px!important;
+  font-weight:1000!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-selected{
+  flex:0 0 42px!important;
+  min-height:42px!important;
+  padding:6px 8px!important;
+  border-radius:12px!important;
+  background:#f8fafc!important;
+  border:1px solid #e2e8f0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  gap:2px!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-selected span{font-size:11px!important;color:#64748b!important;font-weight:900!important;}
+.peon-v9-main .photo-studio-page .photo-studio-v2-selected strong{font-size:13px!important;color:#0f172a!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
+.peon-v9-main .photo-studio-page .photo-studio-v2-small-actions{
+  flex:0 0 32px!important;
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  gap:6px!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-small-actions .setting-btn{
+  width:100%!important;
+  height:32px!important;
+  min-height:32px!important;
+  padding:0!important;
+  border-radius:10px!important;
+  font-size:12px!important;
+  font-weight:900!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-photo-pair{
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  display:grid!important;
+  grid-template-rows: minmax(0,1fr) minmax(0,1fr) !important;
+  gap:7px!important;
+  overflow:hidden!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-photo-box-wrap{
+  min-height:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:4px!important;
+  overflow:hidden!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-photo-box-wrap .photo-studio-preview-label{
+  flex:0 0 18px!important;
+  height:18px!important;
+  min-height:18px!important;
+  margin:0!important;
+  font-size:12px!important;
+  font-weight:1000!important;
+  color:#1d4ed8!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-photo-box{
+  flex:1 1 auto!important;
+  min-height:0!important;
+  width:100%!important;
+  height:100%!important;
+  max-height:none!important;
+  margin:0!important;
+  border:1px dashed #93c5fd!important;
+  border-radius:12px!important;
+  background:#f8fbff!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+  padding:6px!important;
+  color:#64748b!important;
+  font-size:12px!important;
+  font-weight:900!important;
+  text-align:center!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-photo-box img{
+  width:100%!important;
+  height:100%!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+  border:0!important;
+  border-radius:8px!important;
+  padding:0!important;
+  background:transparent!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-save{
+  flex:0 0 42px!important;
+  height:42px!important;
+  min-height:42px!important;
+  width:100%!important;
+  margin:0!important;
+  border-radius:12px!important;
+  font-size:14px!important;
+  font-weight:1000!important;
+}
+
+/* PE-ON v9.3 Photo Studio: 안정형 3열 레이아웃 최종 보정 */
+.peon-v9-main .settings-page:has(.photo-studio-v2-layout),
+.peon-v9-main .settings-photo-focus:has(.photo-studio-v2-layout){
+  max-width: none !important;
+}
+.peon-v9-main .photo-studio-page{
+  width: 100% !important;
+  max-width: none !important;
+  overflow: visible !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-toolbar{
+  width: 100% !important;
+  max-width: 1320px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 8px 10px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-class-row{
+  flex-wrap: wrap !important;
+  overflow: visible !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v3-hidden-file{
+  position:absolute !important;
+  width:1px !important;
+  height:1px !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+  overflow:hidden !important;
+}
+.peon-v9-main .photo-studio-page .local-pdf-select input,
+.peon-v9-main .photo-studio-page input[type="file"].photo-studio-v3-hidden-file{
+  display:block !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-layout{
+  width: 100% !important;
+  max-width: 1320px !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  grid-template-columns: 160px minmax(0, 1fr) 250px !important;
+  gap: 10px !important;
+  height: min(680px, calc(100dvh - 225px)) !important;
+  min-height: 560px !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-students,
+.peon-v9-main .photo-studio-page .photo-studio-v2-pdf,
+.peon-v9-main .photo-studio-page .photo-studio-v2-preview{
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  left:auto !important;
+  right:auto !important;
+  top:auto !important;
+  bottom:auto !important;
+  transform:none !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-students{
+  padding: 6px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-fold{
+  height: 32px !important;
+  min-height: 32px !important;
+  flex-basis: 32px !important;
+  font-size: 11px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-student-list{
+  gap: 4px !important;
+  padding: 6px 1px 1px 0 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-student-list button{
+  height: 28px !important;
+  min-height: 28px !important;
+  max-height: 28px !important;
+  padding: 0 4px !important;
+  grid-template-columns: 14px 26px minmax(0,1fr) !important;
+  gap: 2px !important;
+  border-radius: 8px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-student-list button span,
+.peon-v9-main .photo-studio-page .photo-studio-v2-student-list button strong,
+.peon-v9-main .photo-studio-page .photo-studio-v2-student-list button b{
+  font-size: 10px !important;
+  line-height: 1 !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-pdf{
+  padding: 8px !important;
+  overflow: hidden !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-pdf-head{
+  height: 34px !important;
+  min-height: 34px !important;
+  flex-basis: 34px !important;
+  margin-bottom: 7px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-pdf-body{
+  overflow: hidden !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-canvas-wrap{
+  width: 100% !important;
+  height: 100% !important;
+  overflow: auto !important;
+  background:#f8fafc !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-preview{
+  padding: 8px !important;
+  gap: 6px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  overflow:hidden !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-preview h3{
+  height: 32px !important;
+  min-height: 32px !important;
+  flex-basis: 32px !important;
+  font-size: 13px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-selected{
+  flex: 0 0 40px !important;
+  min-height: 40px !important;
+  height: 40px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-small-actions{
+  flex: 0 0 30px !important;
+  height: 30px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-small-actions .setting-btn{
+  height: 30px !important;
+  min-height: 30px !important;
+  font-size: 11px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-photo-pair{
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  display: grid !important;
+  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: 6px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-photo-box-wrap .photo-studio-preview-label{
+  height: 17px !important;
+  min-height: 17px !important;
+  flex-basis: 17px !important;
+  font-size: 11px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-photo-box{
+  min-height: 0 !important;
+  max-height: none !important;
+  padding: 5px !important;
+  font-size: 11px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-save{
+  flex: 0 0 40px !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  font-size: 13px !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-delete-current-final,
+.peon-v9-main .photo-studio-page .photo-delete-current-btn,
+.peon-v9-main .photo-studio-page .photo-studio-v2-preview .delete-btn{
+  display:none !important;
+}
+@media (min-width: 1500px){
+  .peon-v9-main .photo-studio-page .photo-studio-v2-toolbar,
+  .peon-v9-main .photo-studio-page .photo-studio-v2-layout{max-width: 1480px !important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-layout{grid-template-columns: 170px minmax(0, 1fr) 280px !important;}
+}
+@media (min-width: 768px) and (max-width: 1180px){
+  .peon-v9-main .photo-studio-page .photo-studio-v2-layout{
+    grid-template-columns: 138px minmax(0, 1fr) 210px !important;
+    gap: 7px !important;
+    height: min(640px, calc(100dvh - 205px)) !important;
+    min-height: 520px !important;
+  }
+  .peon-v9-main .photo-studio-page .photo-studio-v2-students{padding:5px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-student-list button{height:26px!important;min-height:26px!important;max-height:26px!important;grid-template-columns:13px 23px minmax(0,1fr)!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-preview{padding:6px!important;gap:5px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-photo-box{font-size:10px!important;}
+}
+@media (max-width: 900px){
+  .peon-v9-main .photo-studio-page .photo-studio-v2-layout{
+    grid-template-columns: 128px minmax(0, 1fr) 190px !important;
+    gap: 6px !important;
+  }
+}
+@media (max-width: 767px){
+  .peon-v9-main .photo-studio-page .photo-studio-v2-layout{
+    display:flex!important;
+    flex-direction:column!important;
+    height:auto!important;
+    min-height:0!important;
+    overflow:visible!important;
+  }
+  .peon-v9-main .photo-studio-page .photo-studio-v2-students,
+  .peon-v9-main .photo-studio-page .photo-studio-v2-pdf,
+  .peon-v9-main .photo-studio-page .photo-studio-v2-preview{height:auto!important;min-height:0!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-student-list{max-height:220px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-pdf-body{height:52dvh!important;min-height:330px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-preview{min-height:460px!important;}
+}
+
+
+/* 2026-07-11 사진등록센터 선택 학생 표시 겹침 방지 */
+.peon-v9-main .photo-studio-page .photo-studio-v2-selected{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  justify-content:flex-start !important;
+  gap:5px !important;
+  min-height:58px !important;
+  padding:9px 10px !important;
+  overflow:hidden !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-selected > span,
+.peon-v9-main .photo-studio-page .photo-studio-v2-selected > strong{
+  display:block !important;
+  position:static !important;
+  width:100% !important;
+  max-width:100% !important;
+  margin:0 !important;
+  line-height:1.25 !important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-selected > strong{
+  white-space:normal !important;
+  overflow-wrap:anywhere !important;
+  text-overflow:clip !important;
+}

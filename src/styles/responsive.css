@@ -1,0 +1,5984 @@
+/* PE-ON 모바일/태블릿 반응형 스타일 */
+
+/* 모바일 */
+@media(max-width:768px){
+  .app-header h1{
+    font-size:42px;
+  }
+
+  .app-main{
+    padding:12px;
+  }
+
+  .select-row,
+  .student-input-row,
+  .assessment-add-row,
+  .assessment-quick-row,
+  .rule-row,
+  .history-row{
+    grid-template-columns:1fr;
+  }
+
+  .class-tabs{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .class-grid{
+    grid-template-columns:1fr;
+  }
+
+  .student-table{
+    display:block;
+    overflow-x:auto;
+    white-space:nowrap;
+  }
+
+  .modal{
+    width:95%;
+  }
+
+  .date-card{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .date-card input{
+    width:100%;
+  }
+}
+
+/* 점수급간 버튼 가운데 */
+.student-table button{
+  margin:0 auto;
+}
+.setting-btn{
+  background:#e5e7eb;
+  color:#111827;
+  padding:8px 14px;
+  border-radius:10px;
+  font-weight:700;
+}
+.assessment-main-tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:20px;
+}
+
+.assessment-main-tabs button{
+  background:#e5e7eb;
+  color:#111827;
+  padding:14px;
+  border-radius:14px;
+  font-weight:800;
+  font-size:17px;
+}
+
+.assessment-main-tabs button.active{
+  background:#2563eb;
+  color:white;
+}
+
+.student-table small{
+  display:block;
+  margin-top:6px;
+  color:#2563eb;
+  font-weight:800;
+}
+.rule-row{
+  display:grid;
+  grid-template-columns:1fr 1fr 120px 80px;
+  gap:10px;
+  margin-bottom:8px;
+}
+
+@media(max-width:768px){
+  .rule-row{
+    grid-template-columns:1fr;
+  }
+}
+.rule-preset-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:14px;
+}
+
+.rule-preset-row button{
+  background:#2563eb;
+  color:white;
+  padding:8px 14px;
+  border-radius:10px;
+  font-weight:700;
+}
+.assessment-main-tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:20px;
+}
+
+.assessment-main-tabs button{
+  background:#e5e7eb;
+  color:#111827;
+  padding:14px;
+  border-radius:14px;
+  font-weight:800;
+  font-size:17px;
+}
+
+.assessment-main-tabs button.active{
+  background:#2563eb;
+  color:white;
+}
+
+.rule-preset-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:14px;
+}
+
+.rule-preset-row button{
+  background:#2563eb;
+  color:white;
+  padding:8px 14px;
+  border-radius:10px;
+  font-weight:700;
+}
+
+.student-table small{
+  display:block;
+  margin-top:6px;
+  color:#2563eb;
+  font-weight:800;
+}
+.student-table input,
+.student-table select{
+  text-align:center;
+}
+.student-table strong{
+  display:block;
+  text-align:center;
+}
+.assessment-main-tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:20px;
+}
+
+.assessment-main-tabs button{
+  background:#e5e7eb;
+  color:#111827;
+  padding:14px;
+  border-radius:14px;
+  font-weight:800;
+  font-size:17px;
+}
+
+.assessment-main-tabs button.active{
+  background:#2563eb;
+  color:white;
+}
+
+.student-table input,
+.student-table select{
+  text-align:center;
+}
+
+.student-table strong{
+  display:block;
+  text-align:center;
+}
+
+.student-table small{
+  display:block;
+  margin-top:6px;
+  color:#2563eb;
+  font-weight:800;
+  text-align:center;
+}
+.student-table small{
+  display:block;
+  margin-top:4px;
+  color:#2563eb;
+  font-weight:800;
+  text-align:center;
+  font-size:13px;
+}
+
+.student-table strong{
+  color:#111827;
+  font-size:18px;
+}
+.score-view-btn{
+  background:#10b981;
+  color:white;
+  padding:10px 16px;
+  border-radius:10px;
+  font-weight:700;
+}
+.score-view-btn{
+  background:#10b981;
+  color:white;
+  padding:10px 16px;
+  border-radius:10px;
+  font-weight:700;
+}
+.edit-notice{
+  background:#fff7ed;
+  color:#9a3412;
+  padding:12px 16px;
+  border-radius:12px;
+  margin:12px 0;
+  font-weight:700;
+}
+.rule-row{
+  display:grid !important;
+  grid-template-columns:1fr 1fr 120px 90px !important;
+  gap:10px !important;
+  align-items:center !important;
+  margin-bottom:10px !important;
+}
+
+.rule-row input{
+  width:100%;
+}
+
+.rule-row .delete-btn{
+  height:52px;
+  padding:0 14px;
+}
+
+@media(max-width:768px){
+  .rule-row{
+    grid-template-columns:1fr 1fr 100px 80px !important;
+  }
+}
+.assessment-input-header{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.assessment-input-header .assessment-add-row{
+  flex:1;
+  margin-bottom:0;
+}
+
+.excel-btn{
+  background:#10b981;
+  color:white;
+  padding:14px 20px;
+  border-radius:12px;
+  font-weight:800;
+  white-space:nowrap;
+}
+.assessment-main-tabs{
+  grid-template-columns:repeat(3,1fr);
+}
+
+.score-summary-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-bottom:16px;
+}
+
+.score-summary-row div{
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:14px;
+  text-align:center;
+  font-weight:800;
+}
+.title-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.card-close-btn{
+  width:48px;
+  height:48px;
+  border-radius:12px;
+  border:1px solid #dbe2ea;
+  background:white;
+  font-size:28px;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.card-close-btn:hover{
+  transform:scale(1.05);
+  background:#f8fafc;
+}
+.student-score-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 0;
+  border-bottom:1px solid #eee;
+}
+
+.student-score-total{
+  margin-top:12px;
+  text-align:right;
+  font-size:20px;
+  font-weight:700;
+}
+.progress-modal{
+  width:900px;
+}
+
+.progress-label{
+  display:block;
+  margin:18px 0 8px;
+  font-size:20px;
+  font-weight:800;
+  color:#111827;
+}
+
+.copy-title{
+  margin-top:22px;
+  margin-bottom:12px;
+}
+
+.copy-class-row{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.copy-class-box{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 18px;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  background:#f8fafc;
+  font-weight:700;
+}
+
+.copy-class-box input{
+  width:auto;
+}
+
+.progress-btn-row{
+  display:flex;
+  justify-content:flex-end;
+  gap:12px;
+  margin-top:28px;
+  flex-wrap:wrap;
+}
+
+.progress-btn-row button{
+  min-width:140px;
+  height:52px;
+  border-radius:14px;
+  font-size:17px;
+  font-weight:800;
+}
+
+.progress-cancel-btn{
+  background:#f3f4f6;
+  color:#111827;
+  border:1px solid #d1d5db;
+}
+
+.progress-save-btn{
+  background:white;
+  color:#2563eb;
+  border:1px solid #2563eb;
+}
+
+.progress-copy-btn{
+  background:#dbeafe;
+  color:#2563eb;
+}
+
+.progress-apply-btn{
+  background:#2563eb;
+  color:white;
+}
+
+@media(max-width:768px){
+  .progress-modal{
+    width:95%;
+  }
+
+  .progress-btn-row{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .progress-btn-row button{
+    width:100%;
+  }
+}
+.progress-note-preview{
+  display:block;
+  margin-top:4px;
+  color:#6b7280;
+  font-size:14px;
+  font-weight:500;
+}
+
+.progress-history-btns{
+  display:flex;
+  flex-direction:row;
+  gap:8px;
+  justify-content:flex-end;
+  align-items:center;
+}
+
+.progress-history-btns button{
+  width:76px;
+  height:44px;
+  padding:0;
+  white-space:nowrap;
+}
+
+.title-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.title-row input{
+  flex:1;
+}
+
+.title-row .setting-btn{
+  width:110px;
+  min-width:110px;
+  height:54px;
+  white-space:nowrap;
+}
+
+/* 명렬표 학생 수정 화면 정리 */
+.roster-edit-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.roster-edit-actions{
+  display:flex;
+  gap:10px;
+  justify-content:flex-end;
+  align-items:center;
+}
+
+.roster-edit-actions button{
+  min-width:110px;
+  height:46px;
+  border-radius:12px;
+  font-weight:800;
+}
+
+.roster-edit-notice{
+  display:inline-block;
+  width:auto;
+  background:#fff7ed;
+  color:#9a3412;
+  padding:10px 14px;
+  border-radius:12px;
+  margin:0 0 16px 0;
+  font-weight:800;
+}
+
+.roster-add-btn{
+  margin-top:8px;
+  min-width:110px;
+  height:46px;
+  border-radius:12px;
+  font-weight:800;
+}
+
+.roster-manage-btns{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  align-items:center;
+}
+
+.search-row{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:12px;
+}
+
+.search-row input{
+  flex:1;
+}
+
+.search-row .setting-btn{
+  width:110px;
+  min-width:110px;
+  height:54px;
+  white-space:nowrap;
+}
+
+@media(max-width:768px){
+  .roster-edit-header{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .roster-edit-actions{
+    justify-content:flex-end;
+  }
+}
+
+/* 기존 전체 입력 관리 팝업 관련 영역 숨김/무효화 안전장치 */
+.bulk-menu-panel,
+.bulk-menu-btn,
+.bulk-header,
+.bulk-close{
+  display:none;
+}
+
+@media(max-width:900px){
+  .assessment-input-header-clean{
+    grid-template-columns:1fr;
+  }
+
+  .assessment-class-select,
+  .assessment-activity-select,
+  .assessment-excel-select,
+  .assessment-input-header-clean .excel-btn{
+    width:100% !important;
+    min-width:0 !important;
+  }
+
+  .assessment-top-actions{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .assessment-top-actions button{
+    width:100%;
+  }
+}
+
+/* 수행평가 점수확인 통계/미입력 필터 최종 정리 */
+.score-summary-row-wide{
+  grid-template-columns:repeat(6,1fr) !important;
+}
+
+.score-summary-row-wide div:nth-child(1){
+  background:#eff6ff;
+  border-color:#bfdbfe;
+  color:#1e40af;
+}
+
+.score-summary-row-wide div:nth-child(2){
+  background:#ecfdf5;
+  border-color:#a7f3d0;
+  color:#047857;
+}
+
+.score-summary-row-wide div:nth-child(3){
+  background:#fef2f2;
+  border-color:#fecaca;
+  color:#b91c1c;
+}
+
+.missing-only-check{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  height:52px;
+  padding:0 16px;
+  border:1px solid #dbe2ea;
+  border-radius:14px;
+  background:#fff;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.missing-only-check input{
+  width:20px;
+  height:20px;
+  accent-color:#2563eb;
+}
+
+.check-input-header{
+  display:grid !important;
+  grid-template-columns:120px 220px 220px;
+  justify-content:start;
+}
+
+@media(max-width:768px){
+  .score-summary-row-wide{
+    grid-template-columns:repeat(2,1fr) !important;
+  }
+
+  .check-input-header{
+    grid-template-columns:1fr !important;
+  }
+}
+
+/* PAPS 이름 한 줄 정렬 */
+.paps-name-cell{
+  white-space:nowrap !important;
+  word-break:keep-all !important;
+  min-width:120px !important;
+  text-align:center !important;
+}
+
+.student-table th:nth-child(3),
+.student-table td:nth-child(3){
+  white-space:nowrap;
+  word-break:keep-all;
+}
+
+@media(max-width:900px){
+  .paps-upload-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+/* PE-ON 최종 기능: 업로드 / 백업 */
+.upload-card,
+.paps-import-card,
+.settings-card{
+  border:1px solid #e2e8f0;
+}
+
+.upload-title-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:14px;
+  margin-bottom:14px;
+}
+
+.upload-title-row p,
+.paps-help-text,
+.settings-card p{
+  margin-top:6px;
+  color:#475569;
+  font-weight:600;
+  line-height:1.5;
+}
+
+.roster-search-row{
+  display:grid;
+  grid-template-columns:1fr 110px;
+  gap:12px;
+}
+
+.assessment-row-actions{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.settings-button-row{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+
+.file-label-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:#10b981;
+  color:white;
+  padding:8px 16px;
+  border-radius:8px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.file-label-btn input{
+  display:none;
+}
+
+@media(max-width:768px){
+  .upload-title-row,
+  .settings-button-row{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .roster-search-row{
+    grid-template-columns:1fr;
+  }
+}
+
+/* PE-ON v2.3 모바일 UI 정리: 명렬표/PAPS 한 화면 정렬, PAPS 종목 컬럼 제거 대응, 상단 고정, 로그인/PWA */
+.email-login-form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin:18px 0 12px;
+}
+.email-login-form input{
+  height:54px;
+  border:1px solid #bfdbfe;
+  border-radius:14px;
+  padding:0 16px;
+  font-size:17px;
+  font-weight:700;
+}
+.login-create-btn,
+.secondary-login-btn{
+  width:100%;
+  margin-top:8px;
+}
+.secondary-login-btn{
+  background:#eef2ff !important;
+  color:#1d4ed8 !important;
+  border:1px solid #bfdbfe !important;
+}
+
+@media (max-width:768px){
+  .app-header{
+    padding-top:22px;
+    padding-bottom:14px;
+  }
+  .app-header h1{
+    font-size:44px !important;
+  }
+  .app-main{
+    padding:10px 8px 92px !important;
+  }
+  .page h2{
+    font-size:28px;
+    margin:10px 0 12px;
+  }
+  .card{
+    padding:14px !important;
+    border-radius:18px !important;
+  }
+
+/* 모바일 표 공통 */
+  .student-table{
+    width:100% !important;
+    table-layout:fixed !important;
+    border-collapse:collapse !important;
+    display:table !important;
+    white-space:normal !important;
+    overflow:visible !important;
+  }
+  .student-table th,
+  .student-table td{
+    height:40px !important;
+    min-height:40px !important;
+    padding:3px 2px !important;
+    font-size:12.5px !important;
+    line-height:1.1 !important;
+    text-align:center !important;
+    vertical-align:middle !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+  }
+  .student-table input{
+    width:100% !important;
+    max-width:40px !important;
+    height:30px !important;
+    padding:1px 2px !important;
+    font-size:13px !important;
+    text-align:center !important;
+    border-radius:7px !important;
+  }
+  .student-table button{
+    height:30px !important;
+    min-width:38px !important;
+    padding:3px 5px !important;
+    font-size:11.5px !important;
+    border-radius:8px !important;
+  }
+
+/* PE-ON v3.3 수행평가 평가기준 파일 관리 */
+.assessment-file-card{display:flex;flex-direction:column;gap:14px;}
+.assessment-file-header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;}
+.assessment-file-header p{margin-top:6px;color:#64748b;line-height:1.5;}
+.standard-file-upload-btn{background:#2563eb;color:#fff;padding:10px 14px;border-radius:12px;font-weight:800;white-space:nowrap;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;}
+.standard-file-upload-btn input{display:none;}
+.standard-file-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px;border:1px solid #dbeafe;border-radius:16px;background:#eff6ff;}
+.standard-file-info{display:flex;flex-direction:column;gap:4px;min-width:0;}
+.standard-file-info strong{color:#1e3a8a;word-break:break-all;}
+.standard-file-info span{color:#475569;font-size:13px;}
+.standard-file-actions{display:flex;gap:8px;flex-shrink:0;}
+@media(max-width:768px){
+  .assessment-file-header,.standard-file-row{flex-direction:column;align-items:stretch;}
+  .standard-file-actions{display:grid;grid-template-columns:1fr 1fr;}
+  .standard-file-upload-btn{width:100%;}
+}
+
+.standard-file-list{display:flex;flex-direction:column;gap:10px;}
+
+/* PE-ON v3.4.2 PAPS 중복 제거 + 엑셀 미리보기 */
+.shared-sheet-preview{
+  max-height:72vh;
+  min-height:420px;
+  overflow:auto;
+  background:#ffffff;
+  padding:10px;
+}
+
+.shared-sheet-preview table{
+  width:max-content;
+  min-width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+}
+
+.shared-sheet-preview th,
+.shared-sheet-preview td{
+  border:1px solid #cbd5e1;
+  padding:7px 9px;
+  text-align:center;
+  white-space:nowrap;
+}
+
+.shared-sheet-preview th{
+  background:#eff6ff;
+  color:#1e3a8a;
+  font-weight:800;
+  position:sticky;
+  top:0;
+  z-index:2;
+}
+
+@media(max-width:768px){
+  .shared-sheet-preview{
+    max-height:68vh;
+    min-height:360px;
+  }
+
+  .shared-sheet-preview table{
+    font-size:12px;
+  }
+
+  .shared-sheet-preview th,
+  .shared-sheet-preview td{
+    padding:6px 7px;
+  }
+}
+
+/* PAPS PC 화면 정렬 */
+.paps-page .student-table{
+  table-layout:fixed;
+  width:100%;
+}
+
+.paps-page .student-table th,
+.paps-page .student-table td{
+  vertical-align:middle;
+  text-align:center;
+}
+
+.paps-page .student-table input,
+.paps-page .student-table select{
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  box-sizing:border-box;
+}
+
+.paps-page .student-table th:first-child,
+.paps-page .student-table td:first-child{
+  width:58px;
+}
+
+.paps-page .student-table th:nth-child(2),
+.paps-page .student-table td:nth-child(2){
+  width:64px;
+}
+
+.paps-page .student-table th:nth-child(3),
+.paps-page .student-table td:nth-child(3){
+  width:130px;
+}
+
+.paps-page .student-table th:last-child,
+.paps-page .student-table td:last-child{
+  width:180px;
+}
+
+.paps-page .assessment-row-actions{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.paps-page .assessment-row-actions button{
+  min-width:70px;
+}
+
+@media(min-width:1025px){
+  .paps-page .student-table td{
+    height:86px;
+  }
+
+  .paps-page .student-table input{
+    height:48px;
+  }
+}
+
+@media(max-width:768px){
+  .shared-file-actions button{
+    min-width:0;
+  }
+
+  .paps-page .student-table{
+    min-width:760px;
+  }
+
+  .paps-page .card{
+    overflow-x:auto;
+  }
+
+  .paps-page .assessment-row-actions{
+    flex-direction:column;
+    gap:6px;
+  }
+
+  .paps-page .assessment-row-actions button{
+    width:100%;
+  }
+}
+
+/* PE-ON v3.5.1 수행평가 점수계산/입력 안정화 */
+.assessment-page .assessment-input-table td strong.assessment-score-result{
+  color:#2563eb;
+  font-weight:900;
+}
+
+.assessment-page .assessment-input-table select,
+.assessment-page .assessment-input-table input{
+  background:#ffffff;
+}
+
+.assessment-page .assessment-input-table .assessment-row-actions{
+  max-width:180px !important;
+}
+
+.assessment-page .assessment-input-table .assessment-row-actions button{
+  padding:6px 5px !important;
+  font-size:12px !important;
+}
+
+@media(max-width:768px){
+  .assessment-page .assessment-input-table{
+    min-width:680px !important;
+  }
+
+  .assessment-page .assessment-input-table .assessment-row-actions{
+    max-width:58px !important;
+  }
+}
+
+/* PE-ON v4.1 최종 다듬기: 학생카드 연동 + 반응형/관리버튼 */
+.assessment-page .assessment-row-actions{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:6px !important;
+  align-items:center !important;
+  justify-content:center !important;
+  max-width:150px !important;
+  margin:0 auto !important;
+}
+
+.assessment-page .assessment-row-actions .delete-btn{
+  grid-column:1 / -1 !important;
+}
+
+.assessment-page .assessment-row-actions button{
+  width:100% !important;
+  min-width:0 !important;
+  min-height:30px !important;
+  padding:6px 5px !important;
+  font-size:12px !important;
+  border-radius:9px !important;
+  line-height:1.1 !important;
+}
+
+.assessment-page .assessment-setting-table td:last-child,
+.assessment-page .assessment-input-table td:last-child{
+  text-align:center !important;
+  vertical-align:middle !important;
+}
+
+.assessment-page .assessment-setting-grid{
+  align-items:stretch !important;
+}
+
+.assessment-page .assessment-setting-grid button{
+  min-height:42px !important;
+  white-space:nowrap !important;
+}
+
+.assessment-page .assessment-input-card,
+.paps-page .paps-input-card{
+  overflow-x:hidden !important;
+}
+
+.assessment-page .assessment-input-table,
+.paps-page .paps-input-table{
+  width:100% !important;
+  table-layout:fixed !important;
+}
+
+.assessment-page .assessment-input-table input,
+.assessment-page .assessment-input-table select,
+.paps-page .paps-input-table input,
+.paps-page .paps-input-table select{
+  width:100% !important;
+  min-width:0 !important;
+  box-sizing:border-box !important;
+}
+
+/* 태블릿: 한 화면에 최대한 맞춤 */
+@media(max-width:1024px){
+  .assessment-page,
+  .paps-page{
+    padding-left:6px !important;
+    padding-right:6px !important;
+  }
+
+  .assessment-page .card,
+  .paps-page .card{
+    padding:10px 8px !important;
+  }
+
+  .assessment-page .assessment-input-table,
+  .paps-page .paps-input-table{
+    min-width:0 !important;
+  }
+
+  .assessment-page .assessment-input-table th,
+  .assessment-page .assessment-input-table td,
+  .paps-page .paps-input-table th,
+  .paps-page .paps-input-table td{
+    padding:5px 3px !important;
+    font-size:12px !important;
+  }
+
+  .assessment-page .assessment-input-table input,
+  .assessment-page .assessment-input-table select,
+  .paps-page .paps-input-table input,
+  .paps-page .paps-input-table select{
+    height:32px !important;
+    padding:3px !important;
+    font-size:12px !important;
+    border-radius:8px !important;
+  }
+
+  .assessment-page .assessment-row-actions,
+  .paps-page .assessment-row-actions{
+    max-width:64px !important;
+    gap:3px !important;
+    grid-template-columns:1fr !important;
+  }
+
+  .assessment-page .assessment-row-actions .delete-btn,
+  .paps-page .assessment-row-actions .delete-btn{
+    grid-column:auto !important;
+  }
+
+  .assessment-page .assessment-row-actions button,
+  .paps-page .assessment-row-actions button{
+    min-height:22px !important;
+    padding:3px 2px !important;
+    font-size:10.5px !important;
+    border-radius:6px !important;
+  }
+
+  .assessment-page .assessment-main-tabs button{
+    font-size:15px !important;
+    min-height:46px !important;
+  }
+}
+
+/* 모바일: 틀 깨짐 방지 */
+@media(max-width:768px){
+  .app-main{
+    padding-left:6px !important;
+    padding-right:6px !important;
+  }
+
+  .assessment-page .assessment-main-tabs,
+  .paps-page .assessment-main-tabs{
+    grid-template-columns:repeat(3, 1fr) !important;
+    gap:5px !important;
+  }
+
+  .assessment-page .assessment-main-tabs button,
+  .paps-page .assessment-main-tabs button{
+    font-size:13px !important;
+    min-height:42px !important;
+    padding:6px 2px !important;
+  }
+
+  .assessment-page .assessment-activity-card,
+  .assessment-page .assessment-setting-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .assessment-page .assessment-input-header-clean,
+  .paps-page .paps-sticky-controls{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:5px !important;
+  }
+
+  .assessment-page .assessment-top-actions,
+  .paps-page .assessment-top-actions{
+    grid-column:1 / -1 !important;
+    display:grid !important;
+    grid-template-columns:1fr 1fr 1fr !important;
+    gap:4px !important;
+  }
+
+  .assessment-page .assessment-top-actions button,
+  .paps-page .assessment-top-actions button{
+    min-width:0 !important;
+    padding:5px 2px !important;
+    font-size:10.5px !important;
+    border-radius:7px !important;
+  }
+
+  .assessment-page .assessment-input-table th,
+  .assessment-page .assessment-input-table td,
+  .paps-page .paps-input-table th,
+  .paps-page .paps-input-table td{
+    padding:3px 1px !important;
+    font-size:9.5px !important;
+  }
+
+  .assessment-page .assessment-input-table input,
+  .assessment-page .assessment-input-table select,
+  .paps-page .paps-input-table input,
+  .paps-page .paps-input-table select{
+    height:26px !important;
+    font-size:9.5px !important;
+    padding:1px !important;
+  }
+
+  .assessment-page .assessment-input-table input[type="checkbox"],
+  .paps-page .paps-input-table input[type="checkbox"]{
+    width:14px !important;
+    height:14px !important;
+  }
+
+  .assessment-page .assessment-input-table th:first-child,
+  .assessment-page .assessment-input-table td:first-child,
+  .paps-page .paps-input-table th:first-child,
+  .paps-page .paps-input-table td:first-child{
+    width:28px !important;
+  }
+
+  .assessment-page .assessment-input-table th:nth-child(2),
+  .assessment-page .assessment-input-table td:nth-child(2),
+  .paps-page .paps-input-table th:nth-child(2),
+  .paps-page .paps-input-table td:nth-child(2){
+    width:28px !important;
+  }
+
+  .assessment-page .assessment-input-table th:nth-child(3),
+  .assessment-page .assessment-input-table td:nth-child(3),
+  .paps-page .paps-input-table th:nth-child(3),
+  .paps-page .paps-input-table td:nth-child(3){
+    width:42px !important;
+  }
+
+  .assessment-page .assessment-input-table th:last-child,
+  .assessment-page .assessment-input-table td:last-child,
+  .paps-page .paps-input-table th:last-child,
+  .paps-page .paps-input-table td:last-child{
+    width:48px !important;
+  }
+
+  .assessment-page .assessment-row-actions,
+  .paps-page .assessment-row-actions{
+    max-width:44px !important;
+    gap:2px !important;
+  }
+
+  .assessment-page .assessment-row-actions button,
+  .paps-page .assessment-row-actions button{
+    min-height:18px !important;
+    font-size:8.8px !important;
+    padding:1px !important;
+  }
+}
+
+/* PE-ON v5.0 Build 003 FINAL: 수행평가 설정 관리 버튼 정렬 + 반응형 보호 */
+
+/* 태블릿 보호 */
+@media(max-width:1024px){
+  .assessment-page .assessment-setting-grid{
+    grid-template-columns:1fr 1fr 1fr !important;
+    gap:6px !important;
+  }
+
+  .assessment-page .assessment-setting-table th,
+  .assessment-page .assessment-setting-table td{
+    padding:6px 4px !important;
+    font-size:12px !important;
+    word-break:keep-all !important;
+  }
+
+  .assessment-page .assessment-setting-table th:nth-child(5),
+  .assessment-page .assessment-setting-table td:nth-child(5){
+    min-width:90px !important;
+  }
+
+  .assessment-page .assessment-setting-table td:last-child .assessment-row-actions{
+    max-width:92px !important;
+    grid-template-columns:1fr !important;
+    gap:4px !important;
+  }
+
+  .assessment-page .assessment-setting-table td:last-child .assessment-row-actions button{
+    height:26px !important;
+    min-height:26px !important;
+    padding:2px 4px !important;
+    font-size:11px !important;
+    border-radius:7px !important;
+  }
+}
+
+/* 모바일 보호: 틀 깨짐 방지 위해 표는 가로 스크롤 허용 */
+@media(max-width:768px){
+  .assessment-page{
+    overflow-x:hidden !important;
+  }
+
+  .assessment-page .assessment-setting-card{
+    overflow-x:auto !important;
+  }
+
+  .assessment-page .assessment-setting-grid{
+    grid-template-columns:1fr !important;
+    gap:6px !important;
+  }
+
+  .assessment-page .assessment-setting-table{
+    min-width:620px !important;
+  }
+
+  .assessment-page .assessment-setting-table th,
+  .assessment-page .assessment-setting-table td{
+    padding:5px 3px !important;
+    font-size:11px !important;
+  }
+
+  .assessment-page .assessment-setting-table td:last-child .assessment-row-actions{
+    max-width:58px !important;
+    grid-template-columns:1fr !important;
+    gap:3px !important;
+  }
+
+  .assessment-page .assessment-setting-table td:last-child .assessment-row-actions button{
+    height:22px !important;
+    min-height:22px !important;
+    padding:1px 2px !important;
+    font-size:9.5px !important;
+    border-radius:6px !important;
+  }
+
+  .assessment-page .assessment-input-card{
+    overflow-x:auto !important;
+  }
+
+  .assessment-page .assessment-input-table{
+    min-width:720px !important;
+  }
+}
+
+/* PE-ON v5.0 Build 005: 수행평가 점수 업로드 */
+.assessment-upload-box{
+  display:grid;
+  grid-template-columns:minmax(260px, 1fr) 320px;
+  gap:12px;
+  align-items:center;
+  margin:12px 0;
+  padding:14px;
+  border:1px solid #bfdbfe;
+  border-radius:16px;
+  background:#eff6ff;
+}
+
+.assessment-upload-box h3{
+  margin:0 0 4px;
+  color:#1e3a8a;
+}
+
+.assessment-upload-box p{
+  margin:2px 0;
+  color:#475569;
+  line-height:1.5;
+}
+
+.assessment-upload-guide{
+  color:#2563eb !important;
+  font-weight:800;
+  font-size:13px;
+}
+
+.assessment-upload-box input[type="file"]{
+  width:100%;
+  padding:12px;
+  border:1px solid #bfdbfe;
+  border-radius:14px;
+  background:#ffffff;
+  box-sizing:border-box;
+  font-weight:800;
+}
+
+@media(max-width:768px){
+  .assessment-upload-box{
+    grid-template-columns:1fr;
+    padding:10px;
+  }
+
+  .assessment-upload-box input[type="file"]{
+    padding:10px;
+  }
+}
+
+/* PE-ON v5.0 Build 006: PAPS 결과확인 전영역 */
+.paps-all-check-wrap{
+  width:100%;
+  overflow-x:auto;
+}
+
+.paps-all-check-table{
+  min-width:900px;
+  table-layout:fixed;
+}
+
+.paps-all-check-table th:first-child,
+.paps-all-check-table td:first-child{
+  width:58px;
+}
+
+.paps-all-check-table th:nth-child(2),
+.paps-all-check-table td:nth-child(2){
+  width:90px;
+}
+
+.paps-all-cell{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  align-items:center;
+  justify-content:center;
+}
+
+.paps-all-cell strong{
+  color:#1d4ed8;
+  font-weight:900;
+}
+
+.paps-all-cell span{
+  display:inline-flex;
+  padding:3px 6px;
+  border-radius:999px;
+  background:#eff6ff;
+  color:#1e40af;
+  font-size:11px;
+  font-weight:800;
+}
+
+@media(max-width:768px){
+  .paps-all-check-table{
+    min-width:780px;
+  }
+
+  .paps-all-cell span{
+    font-size:9.5px;
+    padding:2px 4px;
+  }
+}
+
+/* 팝업 닫기 버튼도 작게 */
+.excel-popup-close{
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 10px !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+}
+
+@media(max-width:768px){
+  .assessment-page .assessment-main-tabs.sticky-section-tabs,
+  .paps-page .assessment-main-tabs.sticky-section-tabs{
+    top:0 !important;
+    gap:8px !important;
+    padding:8px 0 10px !important;
+  }
+
+  .assessment-page .assessment-main-tabs.sticky-section-tabs button,
+  .paps-page .assessment-main-tabs.sticky-section-tabs button{
+    min-height:46px !important;
+    font-size:16px !important;
+    border-radius:14px !important;
+  }
+
+  .student-photo-large,
+  .student-card-modal .student-photo-large{
+    width: 128px !important;
+    height: 170px !important;
+    border-radius: 16px !important;
+  }
+
+  .card-close-fixed{
+    width:34px !important;
+    height:34px !important;
+    font-size:18px !important;
+  }
+
+  .record-byte-select{
+    min-width:82px !important;
+    height:32px !important;
+    font-size:13px !important;
+  }
+}
+
+/* v6.7 교과세특 키워드/바이트 마무리 정리 */
+.record-keyword-panel{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-top:10px;
+}
+.record-keyword-group{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.record-keyword-group-title{
+  min-width:62px;
+  height:30px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:999px;
+  background:#e2e8f0;
+  color:#334155;
+  font-size:.82rem;
+  font-weight:900;
+}
+.record-keyword-group .record-keyword-chips{
+  margin-top:0;
+  flex:1;
+}
+.record-custom-keyword-input{
+  width:min(720px,100%);
+  height:42px;
+  margin-top:10px;
+  border:1px solid #cbd5e1;
+  border-radius:14px;
+  padding:0 14px;
+  font-size:.94rem;
+}
+.record-card textarea{
+  line-height:1.75;
+}
+
+@media(max-width:768px){
+  .record-keyword-group{
+    gap:6px;
+  }
+  .record-keyword-group-title{
+    min-width:54px;
+    height:28px;
+    font-size:.78rem;
+  }
+  .record-custom-keyword-input{
+    height:40px;
+    font-size:.9rem;
+  }
+}
+
+/* PDF에서 이미 잘려 저장된 사진의 하단 글자 부분을 화면에서 최대한 숨김 */
+.student-card-modal .student-photo-large.photo-no-label,
+.student-card-modal .student-photo-large,
+.student-photo-large.photo-no-label{
+  width:220px !important;
+  height:250px !important;
+  border-radius:18px !important;
+  overflow:hidden !important;
+  background:#eef2f7 !important;
+}
+
+.student-card-modal .student-photo-large.photo-no-label img,
+.student-card-modal .student-photo-large img,
+.student-photo-large.photo-no-label img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center 18% !important;
+  transform:scale(1.18) translateY(-3.5%) !important;
+  transform-origin:center top !important;
+  border-radius:0 !important;
+}
+
+@media(max-width:768px){
+  .student-card-title-row{
+    padding-right:42px !important;
+    align-items:flex-start !important;
+  }
+  .student-photo-file-top{
+    min-height:34px !important;
+    padding:0 10px !important;
+    font-size:12px !important;
+    border-radius:10px !important;
+  }
+  .student-card-modal .student-photo-large.photo-no-label,
+  .student-card-modal .student-photo-large,
+  .student-photo-large.photo-no-label{
+    width:170px !important;
+    height:198px !important;
+  }
+  .student-card-name-under-photo{
+    width:min(220px,100%) !important;
+    padding:8px 10px !important;
+  }
+  .student-card-name-under-photo strong{font-size:18px !important;}
+  .student-card-name-under-photo b{font-size:22px !important;}
+}
+
+/* PE-ON v7.1: 세특 직접입력 인라인 + PC/태블릿/모바일 sticky 탭 강화 */
+.record-custom-inline-group .record-keyword-chips{
+  align-items:center !important;
+}
+.record-custom-inline-group .record-custom-keyword-input.inline{
+  flex:1 1 260px !important;
+  width:auto !important;
+  max-width:none !important;
+  min-width:220px !important;
+  height:42px !important;
+  margin:0 !important;
+  padding:0 14px !important;
+  border:1px solid #cbd5e1 !important;
+  border-radius:12px !important;
+  background:#fff !important;
+  font-size:14px !important;
+  font-weight:700 !important;
+  box-sizing:border-box !important;
+}
+.record-custom-inline-group .record-custom-keyword-input.inline:focus{
+  outline:none !important;
+  border-color:#60a5fa !important;
+  box-shadow:0 0 0 3px rgba(96,165,250,.18) !important;
+}
+.assessment-page .assessment-main-tabs.sticky-section-tabs,
+.paps-page .assessment-main-tabs.sticky-section-tabs{
+  position:sticky !important;
+  top:0 !important;
+  z-index:260 !important;
+  background:#f3f5f8 !important;
+  padding:10px 0 12px !important;
+  margin:0 0 12px !important;
+  box-shadow:0 10px 22px rgba(15,23,42,.08) !important;
+  border-radius:0 0 18px 18px !important;
+}
+.assessment-page .assessment-input-header,
+.paps-page .assessment-input-header,
+.paps-page .paps-sticky-controls{
+  position:sticky !important;
+  top:92px !important;
+  z-index:245 !important;
+  background:#f3f5f8 !important;
+  padding:10px 0 !important;
+  box-shadow:0 8px 18px rgba(15,23,42,.06) !important;
+}
+@media(max-width:1024px){
+  .record-keyword-panel{
+    grid-template-columns:1fr !important;
+  }
+  .record-custom-inline-group .record-custom-keyword-input.inline{
+    flex:1 1 320px !important;
+    min-width:260px !important;
+  }
+  .assessment-page .assessment-main-tabs.sticky-section-tabs,
+  .paps-page .assessment-main-tabs.sticky-section-tabs{
+    top:0 !important;
+    z-index:280 !important;
+    padding:8px 0 10px !important;
+    overflow-x:auto !important;
+    -webkit-overflow-scrolling:touch !important;
+  }
+  .assessment-page .assessment-input-header,
+  .paps-page .assessment-input-header,
+  .paps-page .paps-sticky-controls{
+    top:78px !important;
+    z-index:270 !important;
+  }
+}
+@media(max-width:768px){
+  .record-custom-inline-group .record-keyword-chips{
+    display:grid !important;
+    grid-template-columns:auto 1fr !important;
+    gap:8px !important;
+  }
+  .record-custom-inline-group .record-custom-keyword-input.inline{
+    flex:none !important;
+    min-width:0 !important;
+    width:100% !important;
+    height:40px !important;
+    font-size:13px !important;
+    padding:0 12px !important;
+  }
+  .assessment-page .assessment-main-tabs.sticky-section-tabs,
+  .paps-page .assessment-main-tabs.sticky-section-tabs{
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(96px,1fr)) !important;
+    gap:8px !important;
+    top:0 !important;
+    padding:8px 0 !important;
+    border-radius:0 0 14px 14px !important;
+  }
+  .assessment-page .assessment-main-tabs.sticky-section-tabs button,
+  .paps-page .assessment-main-tabs.sticky-section-tabs button{
+    min-height:42px !important;
+    font-size:15px !important;
+    border-radius:13px !important;
+  }
+  .assessment-page .assessment-input-header,
+  .paps-page .assessment-input-header,
+  .paps-page .paps-sticky-controls{
+    top:66px !important;
+    padding:8px 0 !important;
+  }
+}
+@media(max-width:480px){
+  .record-custom-inline-group .record-keyword-chips{
+    grid-template-columns:1fr !important;
+  }
+  .record-custom-inline-group .record-keyword-chips label{
+    width:max-content !important;
+  }
+  .assessment-page .assessment-main-tabs.sticky-section-tabs,
+  .paps-page .assessment-main-tabs.sticky-section-tabs{
+    grid-template-columns:1fr !important;
+  }
+}
+
+/* PE-ON v7.4: 학생카드 사진 얼굴 중앙 정렬 강화 */
+.student-card-modal .student-photo-large,
+.student-card-modal .student-photo-large.photo-no-label,
+.student-photo-large.photo-no-label{
+  width:260px !important;
+  height:320px !important;
+  max-width:82vw !important;
+  border-radius:22px !important;
+  overflow:hidden !important;
+  background:#f8fafc !important;
+  border:1px solid #dbeafe !important;
+  box-shadow:0 10px 28px rgba(15,23,42,.08) !important;
+}
+.student-card-modal .student-photo-large img,
+.student-card-modal .student-photo-large.photo-no-label img,
+.student-photo-large.photo-no-label img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  transform:none !important;
+  display:block !important;
+}
+.student-card-profile.compact-profile{
+  align-items:center !important;
+  gap:14px !important;
+}
+.student-card-name-under-photo{
+  margin-top:0 !important;
+  width:min(300px,90vw) !important;
+}
+@media(max-width:768px){
+  .student-card-modal .student-photo-large,
+  .student-card-modal .student-photo-large.photo-no-label,
+  .student-photo-large.photo-no-label{
+    width:220px !important;
+    height:280px !important;
+    border-radius:18px !important;
+  }
+}
+@media(max-width:480px){
+  .student-card-modal .student-photo-large,
+  .student-card-modal .student-photo-large.photo-no-label,
+  .student-photo-large.photo-no-label{
+    width:190px !important;
+    height:244px !important;
+  }
+}
+
+/* PE-ON v7.6: 학생사진 미세조정 + 모바일/태블릿 고정탭 보강 */
+.adjustable-photo-frame img{
+  transform-origin:center center;
+  transition:transform .14s ease;
+  will-change:transform;
+}
+.photo-adjust-panel{
+  width:min(520px, 100%);
+  margin:14px auto 2px;
+  padding:14px;
+  border:1px solid #dbeafe;
+  border-radius:18px;
+  background:#f8fbff;
+  text-align:left;
+}
+.photo-adjust-title{
+  font-size:14px;
+  font-weight:900;
+  color:#1d4ed8;
+  margin-bottom:10px;
+}
+.photo-adjust-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:8px;
+}
+.photo-adjust-grid button{
+  height:40px;
+  border:1px solid #cbd5e1;
+  border-radius:12px;
+  background:#fff;
+  color:#0f172a;
+  font-weight:900;
+  cursor:pointer;
+}
+.photo-adjust-grid button.save{
+  background:#2563eb;
+  color:#fff;
+  border-color:#2563eb;
+}
+.photo-adjust-message{
+  margin:8px 0 0;
+  color:#059669;
+  font-size:13px;
+  font-weight:800;
+  text-align:center;
+}
+.record-keyword-group:has(label input[value="balance"]),
+.record-keyword-chips label:has(input[value="balance"]){
+  display:none !important;
+}
+
+@media(max-width:1024px){
+  .assessment-page .assessment-main-tabs.sticky-section-tabs,
+  .paps-page .assessment-main-tabs.sticky-section-tabs{
+    position:sticky !important;
+    top:0 !important;
+    z-index:3000 !important;
+    background:#f1f4f8 !important;
+    padding:8px 4px !important;
+    margin:0 -4px 8px !important;
+    box-shadow:0 4px 12px rgba(15,23,42,.08) !important;
+  }
+  .assessment-page .assessment-main-tabs.sticky-section-tabs{
+    display:grid !important;
+    grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
+    gap:6px !important;
+  }
+  .paps-page .assessment-main-tabs.sticky-section-tabs{
+    display:grid !important;
+    grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
+    gap:6px !important;
+  }
+  .assessment-page .assessment-main-tabs.sticky-section-tabs button,
+  .paps-page .assessment-main-tabs.sticky-section-tabs button{
+    min-width:0 !important;
+    height:48px !important;
+    padding:6px 4px !important;
+    border-radius:14px !important;
+    font-size:16px !important;
+    white-space:nowrap !important;
+  }
+  .assessment-page .assessment-tabs,
+  .paps-page .paps-sticky-controls{
+    position:sticky !important;
+    top:64px !important;
+    z-index:2990 !important;
+    background:#f1f4f8 !important;
+    padding:8px 0 !important;
+    box-shadow:0 4px 10px rgba(15,23,42,.05) !important;
+  }
+  .photo-adjust-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media(max-width:640px){
+  .photo-adjust-panel{
+    padding:12px;
+    border-radius:16px;
+  }
+  .photo-adjust-grid button{
+    height:38px;
+    font-size:13px;
+  }
+  .student-card-modal .student-photo-large{
+    width:180px !important;
+    height:230px !important;
+    border-radius:18px !important;
+  }
+}
+
+/* PE-ON v7.8: 학생사진 드래그 미세조정 */
+.adjustable-photo-frame{
+  position:relative;
+  user-select:none;
+}
+.adjustable-photo-frame img{
+  transform:translate(var(--photo-x, 0px), var(--photo-y, 0px)) scale(var(--photo-scale, 1.08)) !important;
+  transform-origin:center center !important;
+  cursor:grab;
+  touch-action:none;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+.adjustable-photo-frame img:active{
+  cursor:grabbing;
+}
+.photo-adjust-panel::before{
+  content:"사진을 마우스나 손가락으로 끌어서 얼굴을 가운데에 맞춘 뒤 저장하세요.";
+  display:block;
+  margin:0 0 10px;
+  padding:9px 11px;
+  border-radius:12px;
+  background:#eff6ff;
+  color:#1d4ed8;
+  font-size:13px;
+  font-weight:800;
+  line-height:1.35;
+}
+@media(max-width:768px){
+  .photo-adjust-panel::before{
+    font-size:12px;
+  }
+  .photo-adjust-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* v8.0: 학생카드 드래그가 실제로 작동하도록 기존 고정 transform 제거 */
+.student-card-modal .student-photo-large.photo-no-label,
+.student-card-modal .student-photo-large,
+.student-photo-large.photo-no-label{touch-action:none!important;cursor:grab!important;user-select:none!important;}
+.student-card-modal .student-photo-large.photo-no-label:active,
+.student-card-modal .student-photo-large:active{cursor:grabbing!important;}
+.student-card-modal .student-photo-large.photo-no-label img,
+.student-card-modal .student-photo-large img,
+.student-photo-large.photo-no-label img{
+  object-position:center center!important;
+  transform:translate(var(--photo-x,0px), var(--photo-y,0px)) scale(var(--photo-scale,1.08))!important;
+  transform-origin:center center!important;
+  pointer-events:none!important;
+  user-select:none!important;
+}
+
+@media(max-width:768px){
+  .photo-class-summary{grid-template-columns:62px 1fr;gap:4px 8px;}
+  .photo-class-summary em,.photo-class-summary strong{grid-column:2;text-align:left;}
+  .photo-review-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:10px;}
+  .photo-review-info strong{font-size:14px;}.photo-review-info b{font-size:16px;}
+  .photo-upload-actions{justify-content:flex-start;width:100%;}
+  .photo-upload-actions .setting-btn,.photo-upload-actions .delete-btn,.photo-upload-actions .shared-file-upload-btn{flex:1 1 120px;text-align:center;justify-content:center;}
+}
+
+/* PE-ON v8.3.1 final polish */
+.photo-adjust-panel,.photo-adjust-grid,.photo-adjust-title,.photo-adjust-message{display:none!important;}
+.student-card-profile .adjustable-photo-frame{cursor:default!important;touch-action:auto!important;}
+.photo-studio-settings-card .photo-studio-page{margin-top:18px;padding:0;}
+.photo-studio-current-actions.photo-studio-fixed-save-actions{position:sticky;top:84px;z-index:25;align-items:center;background:rgba(255,255,255,.94);padding:8px;border-radius:16px;box-shadow:0 10px 22px rgba(15,23,42,.08);}
+.photo-studio-save-top{white-space:nowrap;min-height:44px;padding:0 18px!important;font-weight:950!important;}
+.photo-studio-preview-panel{position:sticky!important;top:150px!important;}
+.roster-sticky-class-tabs button{white-space:nowrap;text-align:center;}
+@media(max-width:640px){
+  .roster-sticky-class-tabs{display:flex!important;gap:8px!important;overflow-x:auto!important;padding-bottom:8px!important;}
+  .roster-sticky-class-tabs button{min-width:106px!important;font-size:16px!important;padding:12px 10px!important;white-space:nowrap!important;}
+  .photo-studio-page .photo-studio-class-tabs button{min-width:112px!important;font-size:15px!important;padding:11px 8px!important;}
+  .photo-studio-page .photo-studio-class-tabs small{display:inline!important;margin-left:3px;font-size:12px!important;}
+  .photo-studio-current-actions.photo-studio-fixed-save-actions{top:0;justify-content:stretch;}
+  .photo-studio-save-top{width:100%;}
+}
+
+/* =========================================================
+   PE-ON V10.0 LTS FINAL PATCH
+   - 원래 컴포넌트 스타일 유지
+   - 왼쪽 메뉴 슬림 정리
+   - 홈 빠른메뉴/수행점수 업로드 카드 추가
+   - 세특 키워드 카드 정렬 보정
+   ========================================================= */
+body{
+  background:#f8fafc!important;
+}
+.peon-v9-shell{
+  min-height:100vh;
+  display:flex;
+  background:#f8fafc;
+  color:#0f172a;
+}
+.peon-v9-sidebar{
+  position:sticky;
+  top:0;
+  width:152px;
+  min-width:152px;
+  height:100vh;
+  background:#fff;
+  border-right:1px solid #dbe4ef;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  z-index:30;
+}
+.peon-v9-side-top{
+  height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
+  border-bottom:1px solid #dbe4ef;
+}
+.peon-v9-mobile-toggle,
+.peon-v9-collapse{
+  width:44px;
+  height:44px;
+  padding:0;
+  border:1px solid transparent;
+  border-radius:12px;
+  background:#fff;
+  color:#0f172a;
+  font-size:28px;
+  display:grid;
+  place-items:center;
+  box-shadow:none;
+}
+.peon-v9-collapse{
+  border-color:#dbe4ef;
+  font-size:34px;
+  line-height:1;
+}
+.peon-v9-menu{
+  display:grid;
+  gap:10px;
+  padding:18px 16px 14px;
+}
+.peon-v9-menu button{
+  width:100%;
+  height:50px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:0 12px;
+  border:0;
+  border-radius:12px;
+  background:transparent;
+  color:#0f172a;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:none;
+}
+.peon-v9-menu button.active{
+  background:#eaf2ff;
+  color:#2563eb;
+}
+.peon-v9-menu-icon{
+  display:inline-grid;
+  place-items:center;
+  width:28px;
+  min-width:28px;
+  font-size:24px;
+}
+.peon-v9-menu-label{
+  white-space:nowrap;
+}
+.peon-v9-teacher-card{
+  margin-top:auto;
+  padding:14px 12px 22px;
+  text-align:center;
+  border-top:1px solid #dbe4ef;
+}
+.peon-v9-teacher-card img{
+  display:block;
+  width:96px;
+  max-width:100%;
+  margin:0 auto 8px;
+  object-fit:contain;
+}
+.peon-v9-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:88px;
+  padding:7px 10px;
+  margin:0 auto 8px;
+  border-radius:999px;
+  background:#ffe28a;
+  color:#7c3f00;
+  font-size:15px;
+  font-weight:900;
+}
+.peon-v9-teacher-card strong{
+  display:block;
+  font-size:15px;
+  color:#111827;
+}
+.peon-v9-content{
+  flex:1;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+}
+.peon-v9-topbar{
+  height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 28px;
+  background:#fff;
+  border-bottom:1px solid #dbe4ef;
+}
+.peon-v9-login-bar{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  font-weight:800;
+}
+.peon-v9-login-bar button{
+  padding:12px 18px;
+  border:1px solid #dbe4ef;
+  border-radius:14px;
+  background:#f8fafc;
+  color:#0f172a;
+}
+.peon-v9-main{
+  width:100%;
+  max-width: none;
+  padding:30px 34px 42px;
+}
+.peon-v9-main > .page{
+  width:100%;
+  max-width:1280px;
+  margin:0 auto;
+}
+.sidebar-collapsed .peon-v9-sidebar{
+  width:92px;
+  min-width:92px;
+}
+.sidebar-collapsed .peon-v9-side-top{
+  justify-content:center;
+  padding:0 8px;
+}
+.sidebar-collapsed .peon-v9-mobile-toggle,
+.sidebar-collapsed .peon-v9-menu-label,
+.sidebar-collapsed .peon-v9-teacher-card strong,
+.sidebar-collapsed .peon-v9-badge{
+  display:none;
+}
+.sidebar-collapsed .peon-v9-menu{
+  padding:18px 12px;
+}
+.sidebar-collapsed .peon-v9-menu button{
+  justify-content:center;
+  padding:0;
+}
+.sidebar-collapsed .peon-v9-teacher-card img{
+  width:58px;
+}
+.app-container{
+  max-width:none!important;
+  min-height:auto!important;
+  margin:0!important;
+  padding-bottom:0!important;
+}
+.app-header,
+.bottom-nav{
+  display:none!important;
+}
+.app-main{
+  padding:0!important;
+}
+.page > h2:first-child{
+  font-size:30px;
+  margin:0 0 14px;
+}
+.select-row{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px!important;
+  margin-bottom:20px!important;
+}
+.select-row select{
+  height:58px;
+  font-size:20px;
+  border-radius:14px;
+  background:#fff;
+}
+.date-card{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  min-height:90px;
+  margin-bottom:22px!important;
+}
+.date-card strong{
+  font-size:28px;
+}
+.date-card input{
+  width:220px;
+}
+.title-row h2{
+  font-size:28px;
+}
+.circle-btn{
+  width:58px!important;
+  height:58px!important;
+  border-radius:50%!important;
+  font-size:32px!important;
+  display:grid!important;
+  place-items:center!important;
+  padding:0!important;
+}
+.home-quick-cards{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:18px;
+  margin-top:22px;
+}
+.home-quick-card{
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:18px;
+  padding:24px 20px;
+  text-align:center;
+  box-shadow:0 8px 24px rgba(15,23,42,.06);
+}
+.home-quick-icon{
+  width:64px;
+  height:64px;
+  display:grid;
+  place-items:center;
+  margin:0 auto 12px;
+  border-radius:16px;
+  background:#ecfdf5;
+  font-size:34px;
+}
+.home-quick-card h3{
+  margin:0 0 10px;
+  color:#006241;
+  font-size:24px;
+}
+.home-quick-card p{
+  min-height:54px;
+  margin:0 0 16px;
+  color:#334155;
+  font-size:17px;
+  line-height:1.45;
+}
+.home-quick-card button{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid #10b981;
+  border-radius:10px;
+  background:#fff;
+  color:#059669;
+  font-size:18px;
+  font-weight:900;
+}
+.assessment-upload-box{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  margin:22px 0;
+  padding:22px 24px;
+  border:1px solid #bbf7d0;
+  border-radius:18px;
+  background:#f0fdf4;
+}
+.assessment-upload-box h3{
+  margin:0 0 8px;
+  color:#047857;
+  font-size:22px;
+}
+.assessment-upload-box p{
+  margin:4px 0;
+  color:#334155;
+  font-size:16px;
+}
+.assessment-upload-box input[type="file"]{
+  max-width:360px;
+  background:#fff;
+}
+.records-page .record-keyword-panel{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  align-items:start;
+}
+.records-page .record-keyword-group{
+  min-height:148px;
+  height:100%;
+}
+.records-page .record-custom-inline-group{
+  grid-column:1 / -1;
+  min-height:108px!important;
+  height:auto!important;
+}
+.records-page .record-custom-inline-group .record-keyword-chips{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:12px;
+  align-items:center;
+}
+.records-page .record-custom-keyword-input.inline{
+  min-width:0;
+  width:100%;
+}
+@media(max-width:1100px){
+  .home-quick-cards{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .records-page .record-keyword-panel{grid-template-columns:1fr;}
+}
+@media(max-width:760px){
+  .peon-v9-sidebar{
+    position:fixed;
+    transform:translateX(-105%);
+    transition:transform .22s ease;
+    box-shadow:10px 0 30px rgba(15,23,42,.18);
+  }
+  .peon-v9-shell.mobile-open .peon-v9-sidebar{
+    transform:translateX(0);
+  }
+  .peon-v9-backdrop{
+    display:block;
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.35);
+    opacity:0;
+    pointer-events:none;
+    z-index:20;
+  }
+  .peon-v9-shell.mobile-open .peon-v9-backdrop{
+    opacity:1;
+    pointer-events:auto;
+  }
+  .peon-v9-topbar{
+    padding:0 14px 0 70px;
+  }
+  .peon-v9-topbar::before{
+    content:'☰';
+    position:absolute;
+    left:14px;
+    top:14px;
+    width:46px;
+    height:46px;
+    display:grid;
+    place-items:center;
+    border:1px solid #dbe4ef;
+    border-radius:12px;
+    background:#fff;
+    color:#0f172a;
+    font-size:28px;
+  }
+  .peon-v9-main{padding:20px 14px 34px;}
+  .select-row{grid-template-columns:1fr!important;gap:10px!important;}
+  .date-card{align-items:flex-start!important;gap:14px;flex-direction:column;}
+  .date-card input{width:100%;}
+  .home-quick-cards{grid-template-columns:1fr;}
+  .assessment-upload-box{flex-direction:column;align-items:stretch;}
+  .assessment-upload-box input[type="file"]{max-width:none;}
+}
+.peon-v9-open-mobile{display:none;}
+@media(max-width:760px){
+  .peon-v9-topbar::before{display:none!important;}
+  .peon-v9-open-mobile{
+    display:grid!important;
+    place-items:center;
+    position:absolute;
+    left:14px;
+    top:14px;
+    width:46px;
+    height:46px;
+    padding:0;
+    border:1px solid #dbe4ef;
+    border-radius:12px;
+    background:#fff;
+    color:#0f172a;
+    font-size:28px;
+  }
+}
+
+/* =========================================================
+   PE-ON V10.0 LTS FINAL PATCH 2026-07-02
+   - 모든 팝업 우상단 X 닫기
+   - 모바일/태블릿 홈 바로가기 2x3
+   - 홈 상단 박쌤 이미지 + 문구 축소
+   - 수행점수 업로드 영역 겹침 방지
+   ========================================================= */
+html, body, #root{width:100%;min-height:100%;overflow-x:hidden;}
+
+.home-brand-hero{
+  display:flex!important;
+  align-items:center!important;
+  gap:16px!important;
+  margin:0 0 28px!important;
+}
+.home-brand-hero img{
+  width:78px!important;
+  height:78px!important;
+  object-fit:contain!important;
+  flex:0 0 auto!important;
+}
+.home-brand-hero h1{
+  margin:0!important;
+  color:#2563eb!important;
+  font-size:58px!important;
+  line-height:.95!important;
+  font-weight:900!important;
+  letter-spacing:-1.8px!important;
+}
+.home-brand-hero p{
+  margin:7px 0 0!important;
+  color:#475569!important;
+  font-size:20px!important;
+  line-height:1.25!important;
+  font-weight:800!important;
+}
+.home-quick-cards{
+  grid-template-columns:repeat(6,minmax(0,1fr))!important;
+}
+
+.modal{position:relative!important;}
+.peon-popup-modal{padding-top:54px!important;}
+.modal-close-x{
+  position:absolute!important;
+  top:12px!important;
+  right:12px!important;
+  z-index:20!important;
+  width:38px!important;
+  height:38px!important;
+  min-width:38px!important;
+  padding:0!important;
+  border:1px solid #cbd5e1!important;
+  border-radius:999px!important;
+  background:#fff!important;
+  color:#0f172a!important;
+  box-shadow:0 4px 14px rgba(15,23,42,.12)!important;
+  font-size:24px!important;
+  font-weight:900!important;
+  line-height:1!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.modal-close-x:hover,
+.card-close-fixed:hover{background:#ef4444!important;color:#fff!important;border-color:#ef4444!important;}
+.card-close-fixed{
+  position:absolute!important;
+  top:14px!important;
+  right:14px!important;
+  float:none!important;
+  width:38px!important;
+  height:38px!important;
+  border-radius:999px!important;
+  padding:0!important;
+  font-size:20px!important;
+  z-index:30!important;
+}
+.student-card-modal{padding-top:58px!important;}
+
+.assessment-page .assessment-input-card{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:18px!important;
+  padding:24px!important;
+  overflow:visible!important;
+}
+.assessment-page .assessment-input-header-clean{
+  position:static!important;
+  display:grid!important;
+  grid-template-columns:180px minmax(280px,1fr) auto!important;
+  gap:12px!important;
+  align-items:center!important;
+  margin:0!important;
+  padding:0!important;
+  background:transparent!important;
+  z-index:auto!important;
+}
+.assessment-page .assessment-input-header-clean select{
+  height:56px!important;
+  min-height:56px!important;
+  margin:0!important;
+}
+.assessment-page .assessment-top-actions{
+  position:static!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:8px!important;
+  white-space:nowrap!important;
+  margin:0!important;
+}
+.assessment-page .assessment-top-actions button{
+  min-height:56px!important;
+  height:56px!important;
+  padding:0 20px!important;
+  border-radius:14px!important;
+}
+.assessment-page .assessment-upload-box-fixed{
+  position:static!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(260px,360px)!important;
+  gap:18px!important;
+  align-items:center!important;
+  margin:0!important;
+  padding:20px 22px!important;
+  min-height:auto!important;
+  height:auto!important;
+  overflow:visible!important;
+  border:1px solid #86efac!important;
+  border-radius:18px!important;
+  background:#ecfdf5!important;
+}
+.assessment-page .assessment-upload-box-fixed h3{margin:0 0 8px!important;color:#047857!important;font-size:22px!important;line-height:1.25!important;}
+.assessment-page .assessment-upload-box-fixed p{margin:4px 0!important;color:#334155!important;font-size:16px!important;line-height:1.45!important;}
+.assessment-page .assessment-upload-guide{color:#1d4ed8!important;font-weight:900!important;}
+.assessment-page .assessment-upload-control{width:100%!important;position:relative!important;z-index:3!important;}
+.assessment-page .assessment-upload-input{
+  display:block!important;
+  width:100%!important;
+  height:56px!important;
+  min-height:56px!important;
+  opacity:1!important;
+  position:static!important;
+  pointer-events:auto!important;
+  border:1px solid #cbd5e1!important;
+  border-radius:14px!important;
+  background:#fff!important;
+  padding:12px!important;
+  color:#0f172a!important;
+  font-size:15px!important;
+}
+.assessment-page .assessment-guide-box.compact,
+.assessment-page .assessment-input-table,
+.assessment-page .assessment-all-input-table{position:relative!important;z-index:1!important;}
+
+@media(max-width:1100px){
+  .home-quick-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+}
+@media(max-width:900px){
+  .peon-v9-main{padding:18px 12px 34px!important;overflow-x:hidden!important;}
+  .peon-v9-main > .page{max-width:100%!important;min-width:0!important;}
+  .select-row{grid-template-columns:1fr!important;gap:10px!important;}
+  .home-brand-hero{gap:10px!important;margin:4px 0 18px!important;}
+  .home-brand-hero img{width:54px!important;height:54px!important;}
+  .home-brand-hero h1{font-size:40px!important;letter-spacing:-1px!important;}
+  .home-brand-hero p{font-size:14px!important;font-weight:800!important;}
+  .home-quick-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;}
+  .home-quick-card{padding:16px 12px!important;border-radius:16px!important;}
+  .home-quick-icon{width:48px!important;height:48px!important;font-size:26px!important;}
+  .home-quick-card h3{font-size:20px!important;margin-bottom:8px!important;}
+  .home-quick-card p{font-size:14px!important;line-height:1.35!important;min-height:42px!important;}
+  .home-quick-card button{font-size:15px!important;padding:10px!important;}
+  .date-card{flex-direction:column!important;align-items:flex-start!important;gap:12px!important;}
+  .date-card input{width:100%!important;}
+  .modal-bg{align-items:center!important;padding:10px!important;}
+  .modal{width:100%!important;max-width:calc(100vw - 20px)!important;max-height:86vh!important;border-radius:18px!important;}
+  .assessment-page .assessment-input-card{padding:14px!important;gap:14px!important;}
+  .assessment-page .assessment-input-header-clean{grid-template-columns:1fr!important;gap:10px!important;}
+  .assessment-page .assessment-top-actions{display:grid!important;grid-template-columns:repeat(3,1fr)!important;width:100%!important;}
+  .assessment-page .assessment-top-actions button{padding:0 8px!important;font-size:14px!important;}
+  .assessment-page .assessment-upload-box-fixed{grid-template-columns:1fr!important;padding:16px!important;}
+  .assessment-page .assessment-upload-input{height:auto!important;min-height:54px!important;}
+}
+
+/* =========================================================
+   PE-ON V10.0 LTS REAL FINAL LOCK
+   - 홈 바로가기 4개만
+   - 왼쪽 하단 박쌤 이미지 제거
+   - 상단 탭/반 선택 sticky 복구
+   - 세특 AI PRO
+   - 모바일 수행평가 입력 스크롤 보강
+   ========================================================= */
+.peon-v9-version-only{
+  padding:14px 8px !important;
+  gap:8px !important;
+  min-height:auto !important;
+}
+.peon-v9-version-only img{display:none !important;}
+.peon-v9-version-only .peon-v9-badge{margin:0 auto !important;}
+.home-quick-cards.home-quick-cards-four{
+  display:grid !important;
+  grid-template-columns:repeat(4, minmax(0, 1fr)) !important;
+  gap:18px !important;
+}
+.home-quick-cards.home-quick-cards-four .home-quick-card{
+  min-width:0 !important;
+}
+@media(max-width:900px){
+  .home-quick-cards.home-quick-cards-four{
+    grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+    gap:12px !important;
+  }
+}
+@media(max-width:420px){
+  .home-quick-cards.home-quick-cards-four{
+    grid-template-columns:1fr 1fr !important;
+  }
+  .home-quick-cards.home-quick-cards-four .home-quick-card p{
+    display:none !important;
+  }
+}
+
+/* 모바일 수행평가 입력은 화면 내부 스크롤 허용 */
+@media(max-width:768px){
+  .assessment-page,
+  .assessment-page .card,
+  .assessment-page .assessment-input-card{
+    min-width:0 !important;
+    max-width:100% !important;
+    overflow-x:auto !important;
+    -webkit-overflow-scrolling:touch !important;
+  }
+  .assessment-input-table,
+  .assessment-all-input-table,
+  .assessment-check-table,
+  .paps-check-table,
+  .paps-input-table{
+    min-width:760px !important;
+  }
+  .sticky-section-tabs,
+  .assessment-main-tabs,
+  .records-toolbar{
+    top:0 !important;
+    overflow-x:auto !important;
+    white-space:nowrap !important;
+  }
+  .assessment-input-header-clean,
+  .paps-sticky-controls{
+    top:58px !important;
+  }
+}
+
+/* modal X safe fixed */
+.modal-close,.student-card-close,.photo-modal-close,.close-btn,.dialog-close{
+  position:sticky !important;top:12px !important;right:12px !important;float:right !important;z-index:5000 !important;
+}
+
+@media (max-width:900px){
+  .assessment-main-tabs{top:0 !important;}
+  .assessment-tabs,.class-tabs,.paps-sticky-controls,.records-toolbar-sticky,.photo-studio-status{top:64px !important;}
+  .records-class-keyword-panel{top:0 !important;}
+  .records-summary-sticky{top:64px !important;overflow-x:auto;}
+  .records-class-keyword-panel:not(.collapsed)+.records-summary-sticky{top:160px !important;}
+  .records-action-bar{gap:12px !important;overflow-x:auto !important;white-space:nowrap !important;}
+  .records-action-buttons{margin-left:0;}
+  .record-keyword-group.keyword-row{grid-template-columns:86px 1fr;}
+  .photo-studio-layout{display:flex !important;flex-direction:column !important;}
+  .photo-studio-sidebar,.photo-studio-preview-panel{position:static;max-height:none;width:100%;}
+  .photo-student-list{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .photo-canvas-wrap{max-height:60vh;}
+}
+
+/* 테이블 헤더도 내부 스크롤에서 고정 */
+.records-table-wrap,
+.table-scroll,
+.paps-table-wrap,
+.assessment-table-wrap{
+  overflow:auto !important;
+  -webkit-overflow-scrolling:touch !important;
+}
+.records-class-table thead th,
+.student-table thead th,
+.paps-input-table thead th,
+.assessment-score-table thead th{
+  position:sticky !important;
+  top:0 !important;
+  z-index:80 !important;
+  background:#f8fafc !important;
+}
+
+@media(max-width:900px){
+  .peon-v9-topbar{flex-basis:60px !important;}
+  .peon-v9-main{height:calc(100vh - 60px) !important;padding:16px 10px 28px !important;scroll-padding-top:130px !important;}
+  .peon-v9-main .assessment-tabs,
+  .peon-v9-main .class-tabs,
+  .peon-v9-main .paps-sticky-controls,
+  .peon-v9-main .photo-pdf-toolbar{top:54px !important;}
+  .peon-v9-main .records-summary-sticky,
+  .peon-v9-main .records-action-bar{top:64px !important;overflow-x:auto !important;white-space:nowrap !important;}
+}
+
+/* V10.0 LTS - 사진등록센터 보관 PDF 보기 영역 */
+.photo-pdf-file-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  margin: 14px 0 16px;
+  border: 1px solid #bfdbfe;
+  border-radius: 18px;
+  background: #eff6ff;
+}
+.photo-pdf-file-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+.photo-pdf-file-main > span {
+  font-weight: 900;
+  color: #1d4ed8;
+  white-space: nowrap;
+}
+.photo-pdf-file-main div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.photo-pdf-file-main strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #0f172a;
+}
+.photo-pdf-file-main small { color: #64748b; font-weight: 700; }
+.photo-pdf-file-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.photo-pdf-file-actions button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+@media (max-width: 900px) {
+  .photo-pdf-file-box { align-items: stretch; flex-direction: column; }
+  .photo-pdf-file-main { align-items: flex-start; flex-direction: column; }
+  .photo-pdf-file-actions { width: 100%; }
+  .photo-pdf-file-actions button { flex: 1; }
+}
+
+/* Home quick cards: field use on mobile, management use on PC */
+.home-quick-cards-field{display:grid;grid-template-columns:repeat(6,minmax(140px,1fr));gap:18px;align-items:stretch;}
+.home-quick-cards-field .home-quick-card{min-width:0;}
+@media (min-width:901px){.home-quick-cards-field .pc-manage-card{display:block;}}
+@media (max-width:900px){
+  .home-brand-hero{align-items:center;gap:12px;}
+  .home-brand-hero img{width:64px;height:64px;object-fit:contain;}
+  .home-brand-hero h1{font-size:48px;}
+  .home-brand-hero p{font-size:20px;}
+  .home-quick-cards-field{grid-template-columns:1fr!important;gap:12px!important;}
+  .home-quick-cards-field .home-quick-card{display:grid;grid-template-columns:58px 1fr auto;align-items:center;text-align:left;padding:16px!important;min-height:96px;}
+  .home-quick-cards-field .home-quick-icon{grid-row:1 / span 2;margin:0!important;}
+  .home-quick-cards-field h3{margin:0;font-size:22px;}
+  .home-quick-cards-field p{margin:4px 0 0;font-size:15px;}
+  .home-quick-cards-field button{grid-column:3;grid-row:1 / span 2;min-width:92px;}
+}
+
+/* Photo register: dropdown and 3-panel comfortable work mode */
+.photo-register-center .photo-class-cards,
+.photo-register-center .photo-saved-class-cards{display:none!important;}
+.photo-register-layout,
+.photo-workspace,
+.photo-register-workspace{display:grid!important;grid-template-columns:260px minmax(420px,1fr) 300px;gap:18px;align-items:start;}
+.photo-student-list,.photo-student-sidebar{max-height:calc(100vh - 260px);overflow:auto;position:relative!important;z-index:1!important;}
+.photo-pdf-area,.photo-pdf-panel{min-width:0;overflow:auto;position:relative!important;z-index:1!important;}
+.photo-preview-panel,.photo-side-preview{position:sticky;top:96px;z-index:2;}
+.photo-register-center .class-select-row{display:grid;grid-template-columns:100px 1fr 260px;gap:14px;align-items:center;}
+.photo-register-center select{width:100%;}
+@media(max-width:1100px){.photo-register-layout,.photo-workspace,.photo-register-workspace{grid-template-columns:1fr!important}.photo-preview-panel,.photo-side-preview{position:relative;top:auto}.photo-student-list,.photo-student-sidebar{max-height:none;}}
+
+/* Mobile input-first optimization */
+@media(max-width:760px){
+  .peon-v9-sidebar{width:88px!important;}
+  .peon-v9-menu-label{font-size:13px;}
+  .assessment-main-tabs button,.sticky-section-tabs button{min-height:48px;font-size:16px;}
+  .assessment-input-header-clean{grid-template-columns:1fr!important;}
+  .assessment-top-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%;}
+  .assessment-upload-box-fixed{display:block!important;}
+}
+
+/* PE-ON V10.0 LTS final polish */
+.login-mascot-wrap{display:flex;justify-content:center;margin-bottom:10px;}
+.login-mascot-img{width:92px;height:92px;object-fit:cover;border-radius:24px;box-shadow:0 12px 28px rgba(15,23,42,.18);background:#fff;}
+.peon-v9-teacher-img{width:58px;height:58px;object-fit:cover;border-radius:18px;margin-bottom:8px;box-shadow:0 10px 24px rgba(15,23,42,.16);background:#fff;}
+.progress-btn-row-save-only{justify-content:flex-end;}
+.shared-file-row .shared-file-info span{line-height:1.45;}
+@media (max-width: 768px){
+  .login-mascot-img{width:82px;height:82px;border-radius:20px;}
+  .shared-file-actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;width:100%;}
+  .shared-file-actions button{width:100%;font-size:12px;padding:8px 4px;}
+}
+
+/* PE-ON V10.0 LTS - tablet/mobile field-use optimization */
+.roster-page > .shared-file-box,
+.roster-page > .upload-card,
+.roster-old-tabs-hidden,
+.roster-search-card-hidden{
+  display:none !important;
+}
+.roster-control-bar{
+  display:grid !important;
+  grid-template-columns: 260px 140px minmax(260px, 1fr) 160px !important;
+  gap:14px !important;
+  align-items:end !important;
+  padding:18px 20px !important;
+  margin:18px 0 12px !important;
+  z-index:120 !important;
+}
+.roster-sticky-control-bar{
+  position:sticky !important;
+  top:0 !important;
+}
+.roster-class-select-wrap{
+  display:grid !important;
+  gap:8px !important;
+  font-weight:900 !important;
+  color:#0f172a !important;
+}
+.roster-class-select-wrap select,
+.roster-inline-search{
+  height:52px !important;
+  border:1px solid #cbd8ea !important;
+  border-radius:14px !important;
+  padding:0 16px !important;
+  font-weight:800 !important;
+  font-size:16px !important;
+  background:#fff !important;
+}
+.roster-quick-add-btn,.roster-download-btn{height:52px !important;border-radius:14px !important;white-space:nowrap !important;}
+.roster-list-card{overflow:visible !important;}
+.roster-table{table-layout:fixed !important;width:100% !important;}
+.roster-table th:nth-child(1),.roster-table td:nth-child(1){width:74px !important;}
+.roster-table th:nth-child(2),.roster-table td:nth-child(2){width:150px !important;}
+.roster-table th:nth-child(3),.roster-table td:nth-child(3){width:82px !important;}
+.roster-table th:nth-child(4),.roster-table td:nth-child(4){width:auto !important;max-width:360px !important;overflow:hidden !important;text-overflow:ellipsis !important;white-space:nowrap !important;}
+.roster-table th:nth-child(5),.roster-table td:nth-child(5){width:110px !important;}
+.roster-table thead th{
+  position:sticky !important;
+  top:100px !important;
+  z-index:110 !important;
+  background:#f8fafc !important;
+}
+.roster-table td,.roster-table th{text-align:center !important;vertical-align:middle !important;}
+.roster-table .view-btn-female,.roster-table .view-btn-male{min-width:66px !important;height:40px !important;border-radius:12px !important;font-weight:900 !important;}
+
+.assessment-main-tabs.sticky-section-tabs{
+  position:sticky !important;
+  top:0 !important;
+  z-index:130 !important;
+  background:rgba(255,255,255,.96) !important;
+  backdrop-filter: blur(8px) !important;
+}
+.assessment-input-header-clean,
+.paps-sticky-controls{
+  position:sticky !important;
+  top:82px !important;
+  z-index:125 !important;
+  background:rgba(255,255,255,.98) !important;
+  backdrop-filter: blur(8px) !important;
+  border-radius:16px !important;
+}
+.assessment-input-table,
+.assessment-check-table,
+.paps-input-table,
+.paps-check-table{
+  table-layout:fixed !important;
+}
+.table-all-check{font-size:0 !important;display:inline-flex !important;justify-content:center !important;align-items:center !important;gap:0 !important;}
+.table-all-check input{width:24px !important;height:24px !important;}
+.student-select-checkbox{width:24px !important;height:24px !important;}
+.assessment-input-table .assessment-row-actions,
+.paps-input-table .assessment-row-actions,
+.paps-manage-col{
+  display:none !important;
+}
+.paps-col-manage{display:none !important;}
+.assessment-input-table input,
+.paps-input-table input,
+.assessment-input-table select,
+.paps-input-table select{
+  min-height:44px !important;
+  border-radius:12px !important;
+  font-size:16px !important;
+}
+
+/* Student card touch/mobile polish */
+.student-card-backdrop .student-card-clean{overscroll-behavior:contain !important;}
+.student-card-backdrop .student-photo-large{touch-action:none !important;}
+.student-card-backdrop .student-card-bottom-actions button{height:50px !important;border-radius:14px !important;font-weight:900 !important;}
+
+@media (max-width: 1199px){
+  .roster-control-bar{
+    grid-template-columns: 220px 126px minmax(220px, 1fr) 150px !important;
+    gap:10px !important;
+  }
+  .roster-table th:nth-child(4),.roster-table td:nth-child(4){width:180px !important;max-width:180px !important;}
+  .assessment-input-header-clean,
+  .paps-sticky-controls{
+    display:grid !important;
+    grid-template-columns: 180px minmax(260px,1fr) auto !important;
+    gap:10px !important;
+    align-items:center !important;
+    padding:12px !important;
+  }
+  .assessment-top-actions{display:flex !important;gap:8px !important;justify-content:flex-end !important;}
+  .assessment-top-actions button{height:48px !important;min-width:86px !important;padding:0 12px !important;}
+}
+
+@media (max-width: 900px){
+  .page.roster-page,.page.assessment-page,.page.paps-page,.page.student-records-page{padding-left:10px !important;padding-right:10px !important;}
+  .roster-control-bar{
+    grid-template-columns: 1fr 112px !important;
+    grid-template-areas:
+      "class add"
+      "search excel" !important;
+    gap:10px !important;
+    top:0 !important;
+    padding:12px !important;
+    margin:10px 0 !important;
+    border-radius:16px !important;
+  }
+  .roster-class-select-wrap{grid-area:class !important;}
+  .roster-quick-add-btn{grid-area:add !important;}
+  .roster-inline-search{grid-area:search !important;}
+  .roster-download-btn{grid-area:excel !important;font-size:14px !important;padding:0 10px !important;}
+  .roster-class-select-wrap span{font-size:14px !important;}
+  .roster-class-select-wrap select,.roster-inline-search,.roster-quick-add-btn,.roster-download-btn{height:48px !important;}
+  .roster-add-card{margin-top:8px !important;}
+  .roster-list-card{padding:0 !important;border-radius:16px !important;overflow:auto !important;}
+  .roster-table{min-width:0 !important;width:100% !important;font-size:15px !important;}
+  .roster-table th:nth-child(1),.roster-table td:nth-child(1){width:48px !important;}
+  .roster-table th:nth-child(2),.roster-table td:nth-child(2){width:auto !important;min-width:74px !important;}
+  .roster-table th:nth-child(3),.roster-table td:nth-child(3){width:46px !important;}
+  .roster-table th:nth-child(4),.roster-table td:nth-child(4){display:none !important;}
+  .roster-table th:nth-child(5),.roster-table td:nth-child(5){width:78px !important;}
+  .roster-table thead th{top:96px !important;height:44px !important;}
+  .roster-table td{height:56px !important;padding:7px 4px !important;}
+  .roster-table .view-btn-female,.roster-table .view-btn-male{width:58px !important;min-width:58px !important;height:38px !important;padding:0 !important;}
+
+  .assessment-main-tabs.sticky-section-tabs{top:0 !important;padding:6px !important;gap:6px !important;}
+  .assessment-main-tabs.sticky-section-tabs button{height:48px !important;border-radius:14px !important;font-size:15px !important;}
+  .assessment-input-header-clean,.paps-sticky-controls{
+    top:60px !important;
+    grid-template-columns: 1fr !important;
+    padding:10px !important;
+    gap:8px !important;
+  }
+  .assessment-class-select,.assessment-activity-select{width:100% !important;height:48px !important;font-size:16px !important;}
+  .assessment-top-actions{display:grid !important;grid-template-columns:repeat(3,1fr) !important;width:100% !important;gap:8px !important;}
+  .assessment-top-actions button{width:100% !important;min-width:0 !important;height:48px !important;padding:0 8px !important;font-size:14px !important;}
+  .assessment-upload-box,.paps-inline-upload-box{display:none !important;}
+  .assessment-guide-box.compact{font-size:14px !important;padding:10px 12px !important;}
+  .assessment-input-card,.paps-input-card,.paps-check-card{padding:10px !important;overflow:auto !important;}
+  .assessment-input-table,.assessment-check-table,.paps-input-table,.paps-check-table{font-size:15px !important;}
+  .assessment-input-table th,.assessment-input-table td,.paps-input-table th,.paps-input-table td{padding:8px 5px !important;height:56px !important;}
+  .assessment-input-table input,.paps-input-table input{width:100% !important;min-width:60px !important;padding:0 8px !important;}
+  .assessment-score-result,.assessment-total-cell strong,.paps-grade-cell strong{font-size:16px !important;}
+}
+
+@media (max-width: 640px){
+  .roster-control-bar{grid-template-columns:1fr 96px !important;}
+  .roster-download-btn{font-size:13px !important;}
+  .roster-table{font-size:14px !important;}
+  .roster-table th:nth-child(1),.roster-table td:nth-child(1){width:42px !important;}
+  .roster-table th:nth-child(3),.roster-table td:nth-child(3){display:none !important;}
+  .roster-table th:nth-child(5),.roster-table td:nth-child(5){width:68px !important;}
+  .student-card-backdrop{padding:6px !important;align-items:flex-start !important;}
+  .student-card-backdrop .student-card-modal,.student-card-backdrop .student-card-clean{
+    width:calc(100vw - 12px) !important;
+    max-height:calc(100vh - 12px) !important;
+    border-radius:18px !important;
+    padding:18px 14px 80px !important;
+  }
+  .student-card-backdrop .student-card-title-row h2{font-size:24px !important;}
+  .student-card-backdrop .card-close-fixed{top:10px !important;right:10px !important;width:42px !important;height:42px !important;}
+  .student-card-backdrop .student-card-clean .student-photo-large{width:min(230px,70vw) !important;height:min(300px,88vw) !important;}
+  .student-card-backdrop .student-card-info-list>div{grid-template-columns:74px 1fr !important;padding:11px 0 !important;}
+  .student-card-backdrop .student-card-summary-grid{gap:10px !important;}
+  .student-card-backdrop .student-card-bottom-actions{gap:8px !important;padding:10px 12px !important;margin:16px -14px -80px !important;}
+  .student-card-backdrop .student-card-bottom-actions button{height:46px !important;font-size:14px !important;}
+}
+
+/* PE-ON V10.0 LTS roster PC repair: 학생추가 중복 제거 + 학생카드 열 복구 */
+.roster-page .roster-add-card.collapsed,
+.roster-page .roster-search-card-hidden{
+  display:none !important;
+}
+.roster-page .roster-table th:last-child,
+.roster-page .roster-table td:last-child,
+.roster-page .roster-table th:nth-child(5),
+.roster-page .roster-table td:nth-child(5){
+  display:table-cell !important;
+  width:110px !important;
+  min-width:96px !important;
+  max-width:130px !important;
+  text-align:center !important;
+}
+.roster-page .roster-table .view-btn-male,
+.roster-page .roster-table .view-btn-female{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+@media (max-width: 900px){
+  .roster-page .roster-table th:nth-child(4),
+  .roster-page .roster-table td:nth-child(4){display:none !important;}
+  .roster-page .roster-table th:nth-child(5),
+  .roster-page .roster-table td:nth-child(5){display:table-cell !important;width:78px !important;min-width:68px !important;}
+}
+@media (max-width: 520px){
+  .roster-page .roster-table th:nth-child(3),
+  .roster-page .roster-table td:nth-child(3){display:none !important;}
+  .roster-page .roster-table th:nth-child(5),
+  .roster-page .roster-table td:nth-child(5){display:table-cell !important;width:68px !important;min-width:62px !important;}
+}
+
+/* PE-ON V10.0 LTS - roster mobile/tablet control bar final restore */
+@media (max-width: 900px){
+  .roster-page .roster-control-bar,
+  .roster-page .roster-sticky-control-bar{
+    display:grid !important;
+    grid-template-columns:minmax(112px, 132px) 82px minmax(112px, 1fr) !important;
+    grid-template-areas:"class add search" !important;
+    align-items:center !important;
+    gap:6px !important;
+    position:sticky !important;
+    top:0 !important;
+    z-index:500 !important;
+    padding:8px !important;
+    margin:8px 0 6px !important;
+    border-radius:14px !important;
+    background:rgba(255,255,255,.98) !important;
+    backdrop-filter:blur(8px) !important;
+  }
+  .roster-page .roster-class-select-wrap{
+    grid-area:class !important;
+    display:block !important;
+    min-width:0 !important;
+    width:100% !important;
+  }
+  .roster-page .roster-class-select-wrap span{
+    display:none !important;
+  }
+  .roster-page .roster-class-select-wrap select{
+    width:100% !important;
+    min-width:0 !important;
+    height:42px !important;
+    padding:0 8px !important;
+    border-radius:12px !important;
+    font-size:14px !important;
+    font-weight:900 !important;
+  }
+  .roster-page .roster-quick-add-btn{
+    grid-area:add !important;
+    width:100% !important;
+    min-width:0 !important;
+    height:42px !important;
+    padding:0 8px !important;
+    border-radius:12px !important;
+    font-size:13px !important;
+    font-weight:900 !important;
+    white-space:nowrap !important;
+  }
+  .roster-page .roster-inline-search{
+    grid-area:search !important;
+    width:100% !important;
+    min-width:0 !important;
+    height:42px !important;
+    padding:0 10px !important;
+    border-radius:12px !important;
+    font-size:14px !important;
+  }
+  .roster-page .roster-download-btn{
+    display:none !important;
+  }
+  .roster-page .roster-table thead th{
+    top:58px !important;
+  }
+}
+
+@media (max-width: 420px){
+  .roster-page .roster-control-bar,
+  .roster-page .roster-sticky-control-bar{
+    grid-template-columns:108px 68px minmax(118px, 1fr) !important;
+    gap:5px !important;
+    padding:7px !important;
+  }
+  .roster-page .roster-class-select-wrap select,
+  .roster-page .roster-quick-add-btn,
+  .roster-page .roster-inline-search{
+    height:40px !important;
+    font-size:13px !important;
+  }
+  .roster-page .roster-quick-add-btn{
+    padding:0 4px !important;
+    letter-spacing:-.03em !important;
+  }
+  .roster-page .roster-inline-search{
+    padding:0 8px !important;
+  }
+  .roster-page .roster-table thead th{
+    top:54px !important;
+  }
+}
+
+/* PE-ON V10.0 LTS field UX final: 세특/사진등록/홈/진도 반응형 마감 */
+.records-page .records-class-keyword-panel{
+  padding:12px 16px !important;
+  min-height:0 !important;
+  margin-bottom:8px !important;
+}
+.records-page .records-class-keyword-header.compact{
+  min-height:42px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:12px !important;
+}
+.records-page .records-class-keyword-header.compact h3{
+  margin:0 !important;
+  font-size:20px !important;
+  line-height:1.1 !important;
+}
+.records-page .records-class-keyword-header.compact p{
+  display:none !important;
+}
+.records-page .record-keyword-panel.class-wide.compact-lines{
+  padding:8px 0 0 !important;
+  display:grid !important;
+  gap:6px !important;
+}
+.records-page .record-keyword-group.keyword-row{
+  min-height:34px !important;
+  padding:4px 0 !important;
+  display:grid !important;
+  grid-template-columns:92px minmax(0,1fr) !important;
+  gap:8px !important;
+  align-items:center !important;
+}
+.records-page .record-keyword-group-title{
+  font-size:13px !important;
+  font-weight:900 !important;
+  white-space:nowrap !important;
+}
+.records-page .record-keyword-chips{
+  gap:6px !important;
+  display:flex !important;
+  flex-wrap:wrap !important;
+}
+.records-page .record-keyword-chips label{
+  padding:5px 8px !important;
+  font-size:12px !important;
+  border-radius:10px !important;
+}
+.records-page .records-action-bar{
+  top:var(--records-action-top, 72px) !important;
+}
+@media (max-width: 900px){
+  .records-page .records-class-keyword-panel{padding:10px 12px !important;}
+  .records-page .records-class-keyword-header.compact h3{font-size:18px !important;}
+  .records-page .record-keyword-group.keyword-row{grid-template-columns:78px minmax(0,1fr) !important;}
+}
+
+/* 사진등록센터: 관리탭 PDF를 불러오는 흐름만 선명하게 */
+.photo-studio-page .photo-studio-class-select-row{
+  display:grid !important;
+  grid-template-columns:minmax(220px,1fr) 150px !important;
+  gap:10px !important;
+  align-items:end !important;
+}
+.photo-studio-page .photo-studio-class-select-row > label{
+  display:grid !important;
+  grid-template-columns:82px minmax(0,1fr) !important;
+  align-items:center !important;
+  gap:8px !important;
+  margin:0 !important;
+}
+.photo-studio-page .photo-studio-class-select-row select{width:100% !important;}
+.photo-studio-page .photo-studio-upload-line.compact{
+  display:flex !important;
+  align-items:center !important;
+  gap:8px !important;
+  flex-wrap:wrap !important;
+  margin-top:10px !important;
+}
+.photo-studio-page .photo-studio-upload-line.compact .local-pdf-select{
+  display:none !important;
+}
+.photo-studio-page .photo-studio-managed-load-btn::before{content:"";}
+.photo-studio-page .photo-studio-message{
+  margin-top:8px !important;
+}
+@media (max-width: 700px){
+  .photo-studio-page .photo-studio-class-select-row{
+    grid-template-columns:1fr !important;
+  }
+  .photo-studio-page .photo-studio-class-select-row > label{
+    grid-template-columns:72px minmax(0,1fr) !important;
+  }
+  .photo-studio-page .photo-studio-managed-load-btn{width:100% !important;}
+  .photo-studio-page .photo-studio-upload-line.compact > *{flex:1 1 auto !important;}
+}
+
+/* 홈 바로가기: 모바일·태블릿에서는 한 줄 카드가 아닌 한 개씩 크게 */
+@media (max-width: 900px){
+  .home-page .home-quick-cards,
+  .home-page .home-quick-cards-field{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:10px !important;
+  }
+  .home-page .home-quick-card{
+    min-height:0 !important;
+    padding:14px !important;
+    display:grid !important;
+    grid-template-columns:46px minmax(0,1fr) auto !important;
+    grid-template-areas:"icon title button" "icon desc button" !important;
+    align-items:center !important;
+    gap:4px 10px !important;
+  }
+  .home-page .home-quick-icon{grid-area:icon !important;margin:0 !important;}
+  .home-page .home-quick-card h3{grid-area:title !important;margin:0 !important;font-size:18px !important;}
+  .home-page .home-quick-card p{grid-area:desc !important;margin:0 !important;font-size:13px !important;}
+  .home-page .home-quick-card button{grid-area:button !important;min-width:78px !important;height:42px !important;}
+}
+
+/* PE-ON mobile/tablet hard fix: 실제 모바일 viewport, 홈/진도/입력 UX */
+html, body, #root { width:100%; min-height:100%; overflow-x:hidden; }
+body { -webkit-text-size-adjust:100%; }
+@media (max-width: 900px){
+  .peon-v9-shell{display:block!important; min-height:100dvh!important;}
+  .peon-v9-content{width:100%!important; min-width:0!important;}
+  .peon-v9-topbar{height:52px!important; padding:0 10px 0 58px!important; position:sticky!important; top:0!important; z-index:80!important;}
+  .peon-v9-open-mobile{display:grid!important; left:8px!important; top:8px!important; width:36px!important; height:36px!important; font-size:22px!important;}
+  .peon-v9-login-bar{gap:6px!important; min-width:0!important; font-size:11px!important;}
+  .peon-v9-login-bar span{max-width:150px!important; overflow:hidden!important; text-overflow:ellipsis!important; white-space:nowrap!important;}
+  .peon-v9-login-bar button{padding:7px 10px!important; border-radius:10px!important; font-size:11px!important;}
+  .peon-v9-main{padding:14px 10px 28px!important; width:100%!important; overflow-x:hidden!important;}
+  .peon-v9-main>.page{max-width:100%!important; width:100%!important;}
+  .page>h2:first-child{font-size:22px!important; margin-bottom:10px!important;}
+  .card{padding:14px!important; border-radius:16px!important; margin-bottom:12px!important;}
+  input,select,textarea{font-size:16px!important; min-height:44px!important; padding:10px 12px!important; border-radius:12px!important;}
+  .home-brand-hero{display:grid!important; grid-template-columns:58px minmax(0,1fr)!important; gap:10px!important; align-items:center!important; margin-bottom:12px!important;}
+  .home-brand-hero img{width:58px!important; height:58px!important; object-fit:contain!important;}
+  .home-brand-hero h1{font-size:32px!important; line-height:1!important;}
+  .home-brand-hero p{font-size:13px!important; margin-top:4px!important;}
+  .select-row{grid-template-columns:1fr!important; gap:8px!important; margin-bottom:12px!important;}
+  .date-card{min-height:0!important; display:grid!important; grid-template-columns:1fr!important; gap:8px!important; align-items:stretch!important;}
+  .date-card strong{font-size:20px!important;}
+  .date-card input{width:100%!important;}
+  .title-row h2{font-size:20px!important;}
+  .todo-count{font-size:12px!important;}
+  .circle-btn{width:46px!important; height:46px!important; font-size:26px!important;}
+  .home-quick-cards,.home-quick-cards-field{display:grid!important; grid-template-columns:1fr!important; gap:10px!important; margin-top:12px!important;}
+  .home-quick-card{display:grid!important; grid-template-columns:46px minmax(0,1fr) 84px!important; grid-template-areas:'icon title button' 'icon desc button'!important; text-align:left!important; gap:2px 10px!important; min-height:0!important; padding:14px!important; border-radius:16px!important;}
+  .home-quick-icon{grid-area:icon!important; width:44px!important; height:44px!important; margin:0!important; font-size:25px!important;}
+  .home-quick-card h3{grid-area:title!important; margin:0!important; font-size:17px!important;}
+  .home-quick-card p{grid-area:desc!important; min-height:0!important; margin:0!important; font-size:12px!important; line-height:1.35!important;}
+  .home-quick-card button{grid-area:button!important; height:38px!important; padding:0 8px!important; font-size:12px!important; align-self:center!important;}
+
+  .progress-page .class-grid,.page:has(.class-grid) .class-grid{grid-template-columns:1fr!important; gap:8px!important;}
+  .progress-page .class-card,.page:has(.class-grid) .class-card{grid-template-columns:48px minmax(0,1fr)!important; min-height:56px!important; padding:12px 14px!important; gap:8px!important;}
+  .progress-page .class-card strong,.page:has(.class-grid) .class-card strong{font-size:17px!important;}
+  .progress-page .class-card span,.page:has(.class-grid) .class-card span{font-size:13px!important; white-space:nowrap!important; overflow:hidden!important; text-overflow:ellipsis!important;}
+  .progress-page .class-card small,.page:has(.class-grid) .class-card small{display:none!important;}
+  .history-row{grid-template-columns:64px minmax(0,1fr)!important; gap:6px!important;}
+  .progress-history-btns{grid-column:1 / -1!important; display:grid!important; grid-template-columns:1fr 1fr!important; gap:6px!important;}
+  .modal-bg{align-items:flex-end!important; padding:0!important;}
+  .modal,.progress-modal.peon-popup-modal{width:100%!important; max-width:100%!important; max-height:88dvh!important; border-radius:18px 18px 0 0!important; padding:16px!important; overflow:auto!important;}
+  .progress-modal.peon-popup-modal .modal-close-x{position:absolute!important; top:10px!important; right:10px!important; width:40px!important; height:40px!important; z-index:10!important;}
+  .progress-modal.peon-popup-modal h2{font-size:20px!important; padding-right:42px!important;}
+  .progress-modal.peon-popup-modal textarea{min-height:88px!important;}
+  .copy-class-row{display:grid!important; grid-template-columns:repeat(4,1fr)!important; gap:6px!important;}
+  .copy-class-box{height:42px!important; display:flex!important; align-items:center!important; justify-content:center!important; gap:4px!important; padding:0!important;}
+  .progress-modal.peon-popup-modal .progress-btn-row{position:sticky!important; bottom:-16px!important; padding:10px 0 12px!important; background:#fff!important; grid-template-columns:1fr!important; z-index:5!important;}
+  .progress-modal.peon-popup-modal .progress-btn-row button{height:44px!important; font-size:14px!important;}
+
+  .roster-page .roster-mobile-topbar,.roster-page .roster-action-row,.roster-page .roster-toolbar{position:sticky!important; top:52px!important; z-index:60!important; background:#fff!important; border-radius:14px!important; box-shadow:0 8px 20px rgba(15,23,42,.08)!important;}
+  .roster-page .roster-mobile-topbar,.roster-page .roster-action-row{display:grid!important; grid-template-columns:minmax(118px,1fr) 84px minmax(120px,1.4fr)!important; gap:6px!important; padding:8px!important; align-items:center!important;}
+  .roster-page .roster-mobile-topbar label,.roster-page .roster-action-row label{display:none!important;}
+  .roster-page .roster-mobile-topbar button,.roster-page .roster-action-row button{height:42px!important; padding:0 8px!important; font-size:13px!important; white-space:nowrap!important;}
+  .roster-page .roster-inline-search input,.roster-page .student-search-input{height:42px!important;}
+  .roster-page .roster-table{width:100%!important; min-width:0!important; table-layout:fixed!important;}
+  .roster-page .roster-table th,.roster-page .roster-table td{font-size:13px!important; padding:8px 4px!important;}
+  .roster-page .roster-table th:nth-child(1),.roster-page .roster-table td:nth-child(1){width:48px!important;}
+  .roster-page .roster-table th:nth-child(2),.roster-page .roster-table td:nth-child(2){width:90px!important;}
+  .roster-page .roster-table th:nth-child(3),.roster-page .roster-table td:nth-child(3){width:42px!important;}
+  .roster-page .roster-table th:nth-child(4),.roster-page .roster-table td:nth-child(4){display:none!important;}
+  .roster-page .roster-table th:nth-child(5),.roster-page .roster-table td:nth-child(5){width:70px!important;}
+  .roster-page .roster-table .view-btn,.roster-page .roster-table button{min-width:46px!important; height:34px!important; padding:0 8px!important; font-size:13px!important;}
+}
+
+@media (min-width: 901px) and (max-width: 1199px){
+  .home-quick-cards,.home-quick-cards-field{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+  .progress-page .class-grid,.page:has(.class-grid) .class-grid{grid-template-columns:1fr!important;}
+  .roster-page .roster-table th:nth-child(4),.roster-page .roster-table td:nth-child(4){max-width:220px!important;}
+}
+
+/* PE-ON V10.0 LTS - PAPS 결과확인 모바일/태블릿 최종 압축 UI */
+.paps-check-card .paps-check-compact-summary{
+  display:grid !important;
+  gap:8px !important;
+  margin:10px 0 12px !important;
+}
+.paps-check-card .paps-check-main-stats{
+  display:grid !important;
+  grid-template-columns:repeat(3, minmax(0,1fr)) !important;
+  gap:8px !important;
+}
+.paps-check-card .paps-check-main-stats span{
+  min-height:42px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:4px !important;
+  border:1px solid #dbeafe !important;
+  border-radius:14px !important;
+  background:#eff6ff !important;
+  color:#1e3a8a !important;
+  font-size:14px !important;
+  font-weight:800 !important;
+  white-space:nowrap !important;
+}
+.paps-check-card .paps-check-main-stats strong{
+  font-size:16px !important;
+  font-weight:950 !important;
+}
+.paps-check-card .paps-grade-toggle{
+  width:100% !important;
+  height:40px !important;
+  border:1px solid #c7d2fe !important;
+  border-radius:13px !important;
+  background:#eef2ff !important;
+  color:#3730a3 !important;
+  font-weight:900 !important;
+  cursor:pointer !important;
+}
+.paps-check-card .paps-grade-summary-list{
+  display:grid !important;
+  grid-template-columns:repeat(5, minmax(0,1fr)) !important;
+  gap:6px !important;
+}
+.paps-check-card .paps-grade-summary-list div{
+  min-height:38px !important;
+  border:1px solid #e5e7eb !important;
+  border-radius:12px !important;
+  background:#fff !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:4px !important;
+  font-size:13px !important;
+  font-weight:850 !important;
+  white-space:nowrap !important;
+}
+.paps-check-card .paps-grade-summary-list strong{font-weight:950 !important;color:#2563eb !important;}
+.paps-check-card .score-summary-row.paps-summary-row{display:none !important;}
+
+@media (max-width: 900px){
+  .paps-page .paps-check-card .paps-sticky-controls{
+    display:grid !important;
+    grid-template-columns:minmax(86px,1fr) minmax(110px,1.3fr) 44px !important;
+    gap:6px !important;
+    align-items:center !important;
+    padding:8px !important;
+  }
+  .paps-page .paps-check-card .assessment-class-select,
+  .paps-page .paps-check-card .assessment-activity-select{
+    height:42px !important;
+    min-height:42px !important;
+    padding:0 8px !important;
+    font-size:14px !important;
+    border-radius:12px !important;
+  }
+  .paps-page .paps-check-card .excel-check-wrap{
+    width:44px !important;
+    min-width:44px !important;
+  }
+  .paps-page .paps-check-card .excel-icon-only-btn{
+    width:44px !important;
+    height:42px !important;
+    min-width:44px !important;
+    padding:0 !important;
+    border-radius:12px !important;
+  }
+  .paps-check-card .paps-check-compact-summary{
+    margin:8px 0 10px !important;
+    gap:6px !important;
+  }
+  .paps-check-card .paps-check-main-stats{gap:6px !important;}
+  .paps-check-card .paps-check-main-stats span{
+    min-height:36px !important;
+    font-size:12px !important;
+    border-radius:12px !important;
+  }
+  .paps-check-card .paps-check-main-stats strong{font-size:13px !important;}
+  .paps-check-card .paps-grade-toggle{height:36px !important;font-size:13px !important;}
+  .paps-check-card .paps-grade-summary-list{
+    grid-template-columns:repeat(5, minmax(0,1fr)) !important;
+    gap:4px !important;
+  }
+  .paps-check-card .paps-grade-summary-list div{
+    min-height:34px !important;
+    border-radius:10px !important;
+    font-size:11px !important;
+    gap:2px !important;
+    padding:0 2px !important;
+  }
+}
+
+@media (max-width: 390px){
+  .paps-check-card .paps-grade-summary-list div{font-size:10px !important;}
+  .paps-check-card .paps-check-main-stats span{font-size:11px !important;}
+}
+
+/* PE-ON V10.0 LTS final navigation + tablet progress modal fix */
+.peon-v9-home-quick{
+  border:1px solid #d7e1ef;
+  background:#fff;
+  border-radius:14px;
+  padding:10px 14px;
+  font-weight:900;
+  color:#0f172a;
+  cursor:pointer;
+  min-height:44px;
+  white-space:nowrap;
+  box-shadow:0 4px 14px rgba(15,23,42,.05);
+}
+.peon-v9-home-quick:hover{background:#eff6ff;color:#2563eb;}
+.peon-v9-topbar{gap:12px!important;}
+.progress-modal.peon-popup-modal{display:flex;flex-direction:column;}
+.progress-modal.peon-popup-modal .progress-modal-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  background:#fff;
+  z-index:60;
+  padding:0 4px 12px 0;
+  border-bottom:1px solid #eef2f7;
+  margin-bottom:14px;
+}
+.progress-modal.peon-popup-modal .progress-modal-header h2{margin:0!important;}
+.progress-modal.peon-popup-modal .progress-modal-header .modal-close-x,
+.progress-modal.peon-popup-modal .modal-close-x{
+  position:static!important;
+  flex:0 0 auto!important;
+  width:44px!important;
+  height:44px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  border-radius:999px!important;
+  z-index:10000!important;
+}
+.progress-modal.peon-popup-modal .progress-modal-actions{
+  background:#fff;
+  border-top:1px solid #eef2f7;
+  margin-top:12px;
+}
+@media (min-width:768px) and (max-width:1366px){
+  .progress-modal-overlay{
+    align-items:flex-start!important;
+    justify-content:center!important;
+    padding-top:92px!important;
+    padding-bottom:18px!important;
+    overflow:hidden!important;
+  }
+  .progress-modal.peon-popup-modal{
+    width:min(720px, calc(100vw - 220px))!important;
+    max-width:720px!important;
+    max-height:calc(100dvh - 112px)!important;
+    overflow:auto!important;
+    border-radius:20px!important;
+    padding:18px 22px!important;
+  }
+  .progress-modal.peon-popup-modal .progress-modal-header{
+    position:sticky!important;
+    top:-18px!important;
+    padding-top:10px!important;
+    margin-left:-2px!important;
+    margin-right:-2px!important;
+  }
+  .progress-modal.peon-popup-modal textarea{min-height:104px!important;}
+  .progress-modal.peon-popup-modal .progress-modal-actions{
+    position:sticky!important;
+    bottom:-18px!important;
+    padding:12px 0 14px!important;
+    display:grid!important;
+    grid-template-columns:1fr 1fr 1fr!important;
+    gap:8px!important;
+  }
+  .progress-modal.peon-popup-modal .progress-modal-actions button{min-height:48px!important;}
+}
+@media (max-width:767px){
+  .peon-v9-home-quick{padding:8px 10px;min-height:38px;font-size:13px;}
+  .progress-modal.peon-popup-modal .progress-modal-header{
+    position:sticky!important;
+    top:-16px!important;
+    padding-top:8px!important;
+  }
+}
+
+/* PE-ON V10.0 LTS - tablet home quick cards final hardfix: 3 x 2 */
+@media (min-width: 768px) and (max-width: 1366px) {
+  .home-page .home-quick-cards,
+  .home-page .home-quick-cards-field {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    align-items: stretch !important;
+  }
+
+  .home-page .home-quick-card,
+  .home-page .home-quick-cards-field .home-quick-card,
+  .home-page .mobile-field-card,
+  .home-page .pc-manage-card {
+    min-height: 190px !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    text-align: center !important;
+    padding: 18px 14px !important;
+    overflow: visible !important;
+  }
+
+  .home-page .home-quick-icon {
+    width: 54px !important;
+    height: 54px !important;
+    min-width: 54px !important;
+    min-height: 54px !important;
+    margin: 0 auto 8px !important;
+    font-size: 28px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .home-page .home-quick-card h3 {
+    margin: 0 0 6px !important;
+    font-size: 19px !important;
+    line-height: 1.2 !important;
+  }
+
+  .home-page .home-quick-card p {
+    flex: 1 1 auto !important;
+    min-height: 42px !important;
+    margin: 0 0 12px !important;
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  .home-page .home-quick-card button {
+    display: flex !important;
+    width: 100% !important;
+    min-height: 42px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    position: static !important;
+    transform: none !important;
+  }
+
+  .peon-v9-version-only,
+  .peon-v9-teacher-card,
+  .peon-v9-badge {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* =========================================================
+   PE-ON V10.0 LTS 태블릿 현장용 강제 보정
+   - 갤럭시 탭 가로 화면은 CSS 폭이 1366px을 넘을 수 있어
+     pointer:coarse 조건으로 태블릿을 직접 잡습니다.
+   - 홈 바로가기 3 x 2, 버튼 항상 표시
+   - 진도 입력 팝업은 로그인바에 가리지 않도록 전체 팝업화
+   ========================================================= */
+@media (pointer: coarse) and (min-width: 768px) {
+  .home-page .home-quick-cards,
+  .home-page .home-quick-cards-field {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+    align-items: stretch !important;
+    overflow: visible !important;
+  }
+
+  .home-page .home-quick-card,
+  .home-page .home-quick-cards-field .home-quick-card,
+  .home-page .mobile-field-card,
+  .home-page .pc-manage-card {
+    min-height: 245px !important;
+    height: 245px !important;
+    max-height: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: center !important;
+    padding: 20px 16px !important;
+    overflow: visible !important;
+  }
+
+  .home-page .home-quick-icon {
+    width: 58px !important;
+    height: 58px !important;
+    min-width: 58px !important;
+    min-height: 58px !important;
+    margin: 0 auto 10px !important;
+    font-size: 30px !important;
+    display: grid !important;
+    place-items: center !important;
+  }
+
+  .home-page .home-quick-card h3 {
+    margin: 0 0 8px !important;
+    font-size: 21px !important;
+    line-height: 1.2 !important;
+  }
+
+  .home-page .home-quick-card p {
+    flex: 1 1 auto !important;
+    min-height: 48px !important;
+    margin: 0 0 14px !important;
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  .home-page .home-quick-card button,
+  .home-page .home-quick-card .btn {
+    display: flex !important;
+    width: 100% !important;
+    min-height: 46px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    position: static !important;
+    transform: none !important;
+    font-size: 15px !important;
+    padding: 10px 12px !important;
+  }
+
+  .app-version,
+  .sidebar-version,
+  .version-badge,
+  .peon-v9-version-only,
+  .peon-v9-teacher-card,
+  .peon-v9-badge {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+/* 진도 입력 팝업: 태블릿에서는 로그인바보다 위에 뜨는 전체 팝업 */
+  .progress-modal-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    z-index: 2147483000 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 96px 24px 28px 24px !important;
+    background: rgba(15, 23, 42, 0.48) !important;
+    overflow: hidden !important;
+  }
+
+  .progress-modal,
+  .progress-modal.peon-popup-modal,
+  .modal.progress-modal.peon-popup-modal {
+    position: relative !important;
+    width: min(94vw, 980px) !important;
+    max-width: min(94vw, 980px) !important;
+    height: calc(100dvh - 128px) !important;
+    max-height: calc(100dvh - 128px) !important;
+    min-height: 0 !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    border-radius: 22px !important;
+    background: #fff !important;
+  }
+
+  .progress-modal-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 2147483002 !important;
+    flex: 0 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+    padding: 18px 24px 14px !important;
+    margin: 0 !important;
+    background: #fff !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+  }
+
+  .progress-modal-header h2 {
+    margin: 0 !important;
+    font-size: 24px !important;
+    line-height: 1.25 !important;
+  }
+
+  .progress-modal-header .modal-close-x,
+  .progress-modal .modal-close-x {
+    position: static !important;
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    min-height: 46px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 999px !important;
+    z-index: 2147483003 !important;
+    font-size: 28px !important;
+    background: #fff !important;
+    box-shadow: 0 8px 22px rgba(15,23,42,.16) !important;
+  }
+
+  .progress-modal > :not(.progress-modal-header):not(.progress-modal-actions) {
+    flex: 0 0 auto !important;
+  }
+
+  .progress-modal label,
+  .progress-modal input,
+  .progress-modal textarea,
+  .progress-modal .copy-title,
+  .progress-modal .copy-class-row,
+  .progress-modal .edit-notice {
+    margin-left: 24px !important;
+    margin-right: 24px !important;
+  }
+
+  .progress-modal textarea {
+    min-height: 118px !important;
+    max-height: 160px !important;
+  }
+
+  .progress-modal-actions,
+  .progress-btn-row.progress-modal-actions {
+    position: sticky !important;
+    bottom: 0 !important;
+    z-index: 2147483002 !important;
+    flex: 0 0 auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    padding: 14px 24px 18px !important;
+    margin: auto 0 0 0 !important;
+    background: #fff !important;
+    border-top: 1px solid #e2e8f0 !important;
+  }
+
+  .progress-modal-actions button,
+  .progress-btn-row.progress-modal-actions button {
+    min-height: 52px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    font-size: 16px !important;
+  }
+}
+
+/* =========================================================
+   PE-ON V10.0 LTS FINAL STABILITY PASS
+   1) Tablet home: real visible height 기준으로 3×2 전체 + 두 번째 줄 버튼까지 표시
+   2) StudentCard: PC/Tablet/Mobile에서 수행평가·PAPS 기록이 절대 잘리지 않도록 재정리
+   3) Progress popup: tablet full modal 유지
+   ========================================================= */
+
+/* 태블릿/작은 노트북 높이 우선 보정: 기존 중복 규칙보다 맨 아래에서 최종 우선 적용 */
+@media (min-width: 900px) and (max-width: 1400px) and (max-height: 980px) {
+  .peon-v9-main {
+    padding-top: 8px !important;
+    padding-bottom: 10px !important;
+    overflow-x: hidden !important;
+  }
+
+  .peon-v9-main > .page.home-page,
+  .home-page {
+    padding-top: 0 !important;
+    padding-bottom: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  .home-page .home-brand-hero {
+    display: grid !important;
+    grid-template-columns: 58px minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin: 0 0 6px 0 !important;
+    padding: 0 !important;
+    min-height: 58px !important;
+    max-height: 62px !important;
+    overflow: hidden !important;
+  }
+
+  .home-page .home-brand-hero img {
+    width: 58px !important;
+    height: 58px !important;
+    object-fit: contain !important;
+  }
+
+  .home-page .home-brand-hero h1 {
+    font-size: 34px !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+  }
+
+  .home-page .home-brand-hero p {
+    font-size: 14px !important;
+    line-height: 1.15 !important;
+    margin: 4px 0 0 !important;
+  }
+
+  .home-page .select-row {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    margin: 0 0 8px 0 !important;
+  }
+
+  .home-page .select-row select {
+    min-height: 40px !important;
+    height: 40px !important;
+    padding: 0 12px !important;
+    font-size: 13px !important;
+    border-radius: 12px !important;
+  }
+
+  .home-page .date-card {
+    min-height: 54px !important;
+    height: 54px !important;
+    padding: 8px 18px !important;
+    margin: 0 !important;
+    border-radius: 16px !important;
+  }
+
+  .home-page .date-card strong,
+  .home-page .date-card h2 {
+    font-size: 23px !important;
+    line-height: 1.1 !important;
+  }
+
+  .home-page .date-card input,
+  .home-page .date-card select {
+    min-height: 38px !important;
+    height: 38px !important;
+    font-size: 13px !important;
+  }
+
+  .home-page .todo-section {
+    min-height: 62px !important;
+    height: 62px !important;
+    padding: 10px 18px !important;
+    margin: 0 0 8px 0 !important;
+    border-radius: 16px !important;
+    overflow: visible !important;
+  }
+
+  .home-page .todo-section .title-row {
+    min-height: 42px !important;
+    margin: 0 !important;
+  }
+
+  .home-page .todo-section h2,
+  .home-page .title-row h2 {
+    font-size: 24px !important;
+    line-height: 1.1 !important;
+    margin: 0 !important;
+  }
+
+  .home-page .circle-btn {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+    font-size: 28px !important;
+  }
+
+  .home-page .home-quick-cards,
+  .home-page .home-quick-cards-field {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-rows: repeat(2, 148px) !important;
+    gap: 10px !important;
+    margin: 0 !important;
+    align-items: stretch !important;
+    overflow: visible !important;
+  }
+
+  .home-page .home-quick-card,
+  .home-page .home-quick-cards-field .home-quick-card,
+  .home-page article.home-quick-card,
+  .home-page .mobile-field-card,
+  .home-page .pc-manage-card {
+    height: 148px !important;
+    min-height: 148px !important;
+    max-height: 148px !important;
+    padding: 10px 12px !important;
+    border-radius: 15px !important;
+    display: grid !important;
+    grid-template-rows: 34px 22px 32px 32px !important;
+    grid-template-columns: 1fr !important;
+    align-items: center !important;
+    justify-items: center !important;
+    text-align: center !important;
+    gap: 4px !important;
+    overflow: hidden !important;
+  }
+
+  .home-page .home-quick-icon {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+    margin: 0 !important;
+    font-size: 21px !important;
+    border-radius: 11px !important;
+  }
+
+  .home-page .home-quick-card h3 {
+    font-size: 17px !important;
+    line-height: 1.1 !important;
+    margin: 0 !important;
+  }
+
+  .home-page .home-quick-card p {
+    width: 100% !important;
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    margin: 0 !important;
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+    overflow: hidden !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+  }
+
+  .home-page .home-quick-card button,
+  .home-page .home-quick-card .btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+    margin: 0 !important;
+    padding: 0 8px !important;
+    border-radius: 9px !important;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+
+/* 태블릿에서 세로 사용 또는 브라우저 높이가 더 낮을 때: 더 압축 */
+@media (min-width: 900px) and (max-width: 1400px) and (max-height: 820px) {
+  .home-page .home-brand-hero { display: none !important; }
+  .home-page .select-row { margin-bottom: 6px !important; }
+  .home-page .date-card { height: 48px !important; min-height: 48px !important; padding: 6px 16px !important; }
+  .home-page .todo-section { height: 56px !important; min-height: 56px !important; padding: 8px 16px !important; }
+  .home-page .date-card strong,
+  .home-page .date-card h2,
+  .home-page .todo-section h2,
+  .home-page .title-row h2 { font-size: 21px !important; }
+  .home-page .home-quick-cards,
+  .home-page .home-quick-cards-field { grid-template-rows: repeat(2, 136px) !important; gap: 8px !important; }
+  .home-page .home-quick-card,
+  .home-page .home-quick-cards-field .home-quick-card,
+  .home-page article.home-quick-card,
+  .home-page .mobile-field-card,
+  .home-page .pc-manage-card {
+    height: 136px !important;
+    min-height: 136px !important;
+    max-height: 136px !important;
+    padding: 8px 10px !important;
+    grid-template-rows: 30px 20px 30px 30px !important;
+  }
+  .home-page .home-quick-icon { width: 30px !important; height: 30px !important; min-width: 30px !important; min-height: 30px !important; font-size: 19px !important; }
+  .home-page .home-quick-card h3 { font-size: 16px !important; }
+  .home-page .home-quick-card p { height: 30px !important; min-height: 30px !important; max-height: 30px !important; font-size: 10.5px !important; }
+  .home-page .home-quick-card button,
+  .home-page .home-quick-card .btn { height: 30px !important; min-height: 30px !important; max-height: 30px !important; font-size: 11.5px !important; }
+}
+
+/* 모바일 홈은 1열 카드 유지 */
+@media (max-width: 767px) {
+  .home-page .home-quick-cards,
+  .home-page .home-quick-cards-field { grid-template-columns: 1fr !important; }
+}
+
+/* 진도 입력 팝업 태블릿 전체창 최종 통일 */
+@media (min-width: 768px) and (max-width: 1400px) {
+  .progress-modal-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 2147482000 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 18px !important;
+    overflow: hidden !important;
+  }
+  .progress-modal.peon-popup-modal {
+    width: min(86vw, 760px) !important;
+    height: min(86dvh, 760px) !important;
+    max-height: min(86dvh, 760px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    border-radius: 22px !important;
+    padding: 0 !important;
+  }
+  .progress-modal.peon-popup-modal .progress-modal-header {
+    position: relative !important;
+    top: auto !important;
+    flex: 0 0 auto !important;
+    padding: 18px 22px 14px !important;
+    margin: 0 !important;
+    background: #fff !important;
+    z-index: 10 !important;
+  }
+  .progress-modal.peon-popup-modal > label,
+  .progress-modal.peon-popup-modal > textarea,
+  .progress-modal.peon-popup-modal > input,
+  .progress-modal.peon-popup-modal > .copy-title,
+  .progress-modal.peon-popup-modal > .copy-class-row,
+  .progress-modal.peon-popup-modal > .edit-notice {
+    margin-left: 22px !important;
+    margin-right: 22px !important;
+  }
+  .progress-modal.peon-popup-modal textarea {
+    min-height: 110px !important;
+    max-height: 150px !important;
+  }
+  .progress-modal.peon-popup-modal .progress-modal-actions,
+  .progress-modal.peon-popup-modal .progress-btn-row {
+    position: sticky !important;
+    bottom: 0 !important;
+    flex: 0 0 auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    padding: 14px 22px 18px !important;
+    margin-top: auto !important;
+    background: #fff !important;
+    border-top: 1px solid #e5e7eb !important;
+    z-index: 10 !important;
+  }
+}
+
+/* =========================================================
+   PE-ON V10.0 LTS FINAL POLISH PATCH
+   1) 홈 본문 중복 로고 완전 제거
+   2) PC 관리탭 카드 크기 복원
+   3) 모바일/태블릿 왼쪽 메뉴가 하단 관리까지 잘리지 않도록 보정
+   4) 학생카드 보기 버튼 유의사항 표시: 노란 대각선 유지
+   ========================================================= */
+
+/* PC 왼쪽 메뉴: 스크롤 없이 전체 표시, 너무 작지 않게 */
+@media (min-width: 901px){
+  .peon-v9-sidebar{
+    width: 218px !important;
+    min-width: 218px !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .peon-v9-side-top{
+    height: 58px !important;
+    min-height: 58px !important;
+    padding: 8px 12px !important;
+    flex: 0 0 auto !important;
+  }
+  .peon-v9-menu{
+    flex: 1 1 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    padding: 10px 12px 8px !important;
+    overflow: hidden !important;
+  }
+  .peon-v9-menu button{
+    height: 45px !important;
+    min-height: 45px !important;
+    padding: 0 14px !important;
+    border-radius: 14px !important;
+    font-size: 16px !important;
+    font-weight: 850 !important;
+    gap: 10px !important;
+  }
+  .peon-v9-menu-icon{
+    width: 28px !important;
+    min-width: 28px !important;
+    font-size: 22px !important;
+  }
+  .peon-v9-version-only{
+    flex: 0 0 auto !important;
+    padding: 7px 8px 10px !important;
+  }
+  .peon-v9-version-only .peon-v9-badge{
+    padding: 7px 11px !important;
+    font-size: 12px !important;
+    border-radius: 12px !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* 모바일/태블릿 왼쪽 메뉴: 하단 '관리'가 잘리지 않도록 메뉴만 압축, 스크롤바 없음 */
+@media (max-width: 900px){
+  .peon-v9-sidebar{
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .peon-v9-side-top{
+    height: 52px !important;
+    min-height: 52px !important;
+    padding: 7px 9px !important;
+    flex: 0 0 auto !important;
+  }
+  .peon-v9-menu{
+    flex: 1 1 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 5px !important;
+    padding: 8px 9px 8px !important;
+    overflow: hidden !important;
+  }
+  .peon-v9-menu button{
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 9px !important;
+    border-radius: 13px !important;
+    font-size: 14px !important;
+    font-weight: 850 !important;
+    gap: 8px !important;
+  }
+  .peon-v9-menu-icon{
+    width: 24px !important;
+    min-width: 24px !important;
+    font-size: 20px !important;
+  }
+  .peon-v9-version-only{
+    display: none !important;
+  }
+}
+@media (max-width: 520px){
+  .peon-v9-side-top{
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 6px 8px !important;
+  }
+  .peon-v9-menu{
+    gap: 4px !important;
+    padding: 7px 8px !important;
+  }
+  .peon-v9-menu button{
+    height: 39px !important;
+    min-height: 39px !important;
+    font-size: 13px !important;
+    border-radius: 12px !important;
+  }
+  .peon-v9-menu-icon{
+    font-size: 18px !important;
+    width: 22px !important;
+    min-width: 22px !important;
+  }
+}
+
+/* PC 관리탭: 카드가 작아지는 문제 최종 보정 */
+@media (min-width: 901px){
+  .settings-page{
+    max-width: 1120px !important;
+    margin: 0 auto !important;
+    padding: 22px 28px 44px !important;
+  }
+  .settings-page > h2{
+    font-size: 34px !important;
+    margin: 0 0 10px !important;
+  }
+  .settings-page .page-subtitle{
+    font-size: 16px !important;
+    margin-bottom: 20px !important;
+  }
+  .settings-numbered-list,
+  .settings-accordion-list{
+    gap: 16px !important;
+  }
+  .settings-accordion-row,
+  .settings-numbered-row,
+  .settings-simple-row{
+    width: 100% !important;
+    min-height: 96px !important;
+    padding: 0 !important;
+    border-radius: 22px !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 10px 28px rgba(15,23,42,.08) !important;
+    background: #fff !important;
+    overflow: hidden !important;
+  }
+  .settings-accordion-head{
+    width: 100% !important;
+    min-height: 96px !important;
+    padding: 22px 26px !important;
+    display: grid !important;
+    grid-template-columns: 54px minmax(0,1fr) auto !important;
+    align-items: center !important;
+    gap: 18px !important;
+    background: #fff !important;
+    border: 0 !important;
+    text-align: left !important;
+    cursor: pointer !important;
+  }
+  .settings-number-label{
+    width: 54px !important;
+    height: 54px !important;
+    min-width: 54px !important;
+    border-radius: 18px !important;
+    font-size: 25px !important;
+    font-weight: 950 !important;
+  }
+  .settings-accordion-titlebox strong,
+  .settings-number-content h3,
+  .settings-simple-main h3{
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-size: 24px !important;
+    line-height: 1.15 !important;
+    font-weight: 950 !important;
+    color: #0f172a !important;
+    margin: 0 0 8px !important;
+    word-break: keep-all !important;
+  }
+  .settings-accordion-titlebox em,
+  .settings-number-content p,
+  .settings-simple-main p{
+    display: block !important;
+    font-size: 16px !important;
+    line-height: 1.35 !important;
+    font-style: normal !important;
+    color: #64748b !important;
+    margin: 0 !important;
+  }
+  .settings-open-indicator{
+    min-width: 94px !important;
+    height: 44px !important;
+    padding: 0 14px !important;
+    border-radius: 999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #eff6ff !important;
+    color: #2563eb !important;
+    font-size: 15px !important;
+    font-weight: 900 !important;
+    white-space: nowrap !important;
+  }
+  .settings-accordion-body{
+    padding: 0 26px 24px 98px !important;
+    background: #fff !important;
+  }
+  .settings-action-panel,
+  .settings-inline-actions{
+    gap: 12px !important;
+  }
+  .settings-action-panel button,
+  .settings-inline-actions button,
+  .settings-page .save-btn,
+  .settings-page .setting-btn,
+  .settings-page .delete-btn,
+  .settings-page .file-label-btn{
+    min-height: 46px !important;
+    padding: 0 18px !important;
+    border-radius: 14px !important;
+    font-size: 15px !important;
+    font-weight: 900 !important;
+  }
+}
+
+/* 모바일 관리탭 배경/잘림 안정화 */
+@media (max-width: 900px){
+  .settings-page{
+    background: #fff !important;
+    padding-bottom: calc(96px + env(safe-area-inset-bottom)) !important;
+    overflow: visible !important;
+  }
+  .settings-accordion-row{
+    border-radius: 18px !important;
+    margin-bottom: 12px !important;
+  }
+  .settings-accordion-head{
+    min-height: 72px !important;
+    padding: 14px 15px !important;
+    display: grid !important;
+    grid-template-columns: 42px minmax(0,1fr) auto !important;
+    gap: 10px !important;
+    align-items: center !important;
+  }
+  .settings-number-label{
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    border-radius: 14px !important;
+    font-size: 19px !important;
+  }
+  .settings-accordion-titlebox strong{
+    font-size: 18px !important;
+    line-height: 1.15 !important;
+    margin-bottom: 4px !important;
+    white-space: normal !important;
+    word-break: keep-all !important;
+  }
+  .settings-accordion-titlebox em{
+    font-size: 13px !important;
+    line-height: 1.25 !important;
+  }
+  .settings-open-indicator{
+    min-width: 58px !important;
+    height: 34px !important;
+    padding: 0 8px !important;
+    border-radius: 999px !important;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+    background: #eff6ff !important;
+    color: #2563eb !important;
+    white-space: nowrap !important;
+  }
+  .settings-accordion-body{
+    padding: 0 15px 16px 15px !important;
+  }
+}
+
+/* 태블릿 관리탭 8번 잘림 최종 보정 */
+@media (pointer: coarse) and (min-width: 768px) {
+  .settings-page,
+  .settings-container,
+  .settings-content,
+  .management-page {
+    padding-bottom: 180px !important;
+    overflow: visible !important;
+  }
+
+  .settings-accordion,
+  .management-accordion {
+    padding-bottom: 180px !important;
+  }
+
+  .settings-card,
+  .management-card,
+  .accordion-card {
+    min-height: 86px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .settings-card-header,
+  .management-card-header,
+  .accordion-header {
+    min-height: 86px !important;
+    padding: 18px 26px !important;
+  }
+}
+.photo-studio-settings-card,
+.settings-card:has(.photo-studio-page),
+.management-card:has(.photo-studio-page),
+.accordion-card:has(.photo-studio-page) {
+  overflow: visible !important;
+  isolation: isolate !important;
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+/* 태블릿/작은 PC: 사진등록센터는 한 칸씩 세로 정렬하여 겹침 제거 */
+@media (pointer: coarse) and (max-width: 1366px), (max-width: 1180px) {
+  .photo-studio-page .photo-studio-layout,
+  .photo-studio-page .photo-studio-layout-wide,
+  .photo-studio-page .photo-register-layout,
+  .photo-studio-page .photo-workspace,
+  .photo-studio-page .photo-register-workspace {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .photo-studio-page .photo-studio-students,
+  .photo-studio-page .photo-student-sidebar,
+  .photo-studio-page .photo-student-list,
+  .photo-studio-page .photo-studio-student-list {
+    max-height: 300px !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* 모바일: 학생목록 1열, 내부 스크롤만 허용 */
+@media (max-width: 767px) {
+  .photo-studio-page .photo-studio-students,
+  .photo-studio-page .photo-student-sidebar,
+  .photo-studio-page .photo-student-list,
+  .photo-studio-page .photo-studio-student-list {
+    max-height: 260px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+}
+
+/* Assessment range modals: avoid top fixed bar and tablet bottom clipping */
+.assessment-rule-modal,
+.modal.peon-popup-modal:has(.student-table){
+  max-height:calc(100dvh - 120px) !important;
+  overflow:auto !important;
+  margin:70px auto 110px !important;
+  padding-bottom:88px !important;
+  position:relative !important;
+}
+.assessment-rule-modal .button-row,
+.modal.peon-popup-modal:has(.student-table) .button-row{
+  position:sticky !important;
+  bottom:0 !important;
+  z-index:20 !important;
+  background:linear-gradient(180deg,rgba(255,255,255,.8),#fff 35%) !important;
+  padding:14px 0 0 !important;
+  margin-top:12px !important;
+}
+@media (pointer:coarse) and (min-width:700px){
+  .assessment-rule-modal,
+  .modal.peon-popup-modal:has(.student-table){
+    width:min(92vw,980px) !important;
+    max-height:calc(100dvh - 150px) !important;
+    margin:86px auto 150px !important;
+    padding-bottom:110px !important;
+  }
+  .assessment-rule-modal .rule-row input,
+  .assessment-rule-modal .rule-row button,
+  .assessment-rule-modal .rule-preset-row button{
+    min-height:44px !important;
+  }
+}
+@media (max-width:640px){
+  .assessment-rule-modal,
+  .modal.peon-popup-modal:has(.student-table){
+    width:calc(100vw - 22px) !important;
+    max-height:calc(100dvh - 96px) !important;
+    margin:58px auto 120px !important;
+    padding:18px 14px 98px !important;
+  }
+}
+
+/* PE-ON tablet fix: keep assessment bottom save/delete buttons visible */
+@media (max-width: 1200px){
+  .assessment-page .assessment-setting-card{
+    overflow: visible !important;
+    padding-bottom: 18px !important;
+  }
+
+  .assessment-page .assessment-bottom-actions{
+    position: sticky !important;
+    bottom: 10px !important;
+    z-index: 30 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    display: grid !important;
+    grid-template-columns: minmax(150px, 1fr) minmax(140px, 1fr) !important;
+    gap: 10px !important;
+    justify-content: stretch !important;
+    align-items: center !important;
+    margin: 14px 0 0 0 !important;
+    padding: 10px !important;
+    background: rgba(255,255,255,.96) !important;
+    border: 1px solid #dbeafe !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(15,23,42,.12) !important;
+  }
+
+  .assessment-page .assessment-bottom-actions button{
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 54px !important;
+    white-space: nowrap !important;
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 768px){
+  .assessment-page .assessment-bottom-actions{
+    grid-template-columns: 1fr !important;
+    bottom: 76px !important;
+  }
+}
+
+/* 2026-07 tablet fix: keep Photo Studio student list fixed above the PDF workspace */
+.photo-studio-page .photo-studio-final-center{
+  position: relative !important;
+  overflow: visible !important;
+}
+.photo-studio-page .photo-studio-final-students,
+.photo-studio-page .photo-studio-students.photo-studio-final-students{
+  position: sticky !important;
+  top: 104px !important;
+  z-index: 60 !important;
+  background: rgba(255,255,255,.98) !important;
+  border: 1px solid #dbeafe !important;
+  border-radius: 18px !important;
+  box-shadow: 0 10px 24px rgba(15,23,42,.10) !important;
+  padding: 8px !important;
+  margin-bottom: 10px !important;
+}
+.photo-studio-page .photo-studio-final-students .photo-studio-fold{
+  position: relative !important;
+  z-index: 61 !important;
+  margin-bottom: 8px !important;
+}
+.photo-studio-page .photo-studio-final-students .photo-studio-student-list{
+  position: relative !important;
+  z-index: 61 !important;
+  max-height: 142px !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+  background: transparent !important;
+}
+.photo-studio-page .photo-studio-final-current{
+  position: sticky !important;
+  top: 298px !important;
+  z-index: 50 !important;
+  background: rgba(255,255,255,.98) !important;
+  border: 1px solid #dbeafe !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 20px rgba(15,23,42,.08) !important;
+}
+.photo-studio-page .photo-studio-final-pdf-panel,
+.photo-studio-page .photo-studio-final-pdf-panel .photo-studio-canvas-wrap{
+  position: relative !important;
+  z-index: 1 !important;
+}
+@media (min-width:768px) and (max-width:1180px){
+  .photo-studio-page .photo-studio-final-students,
+  .photo-studio-page .photo-studio-students.photo-studio-final-students{
+    top: 96px !important;
+  }
+  .photo-studio-page .photo-studio-final-students .photo-studio-student-list{
+    max-height: 128px !important;
+  }
+  .photo-studio-page .photo-studio-final-current{
+    top: 266px !important;
+  }
+}
+@media (max-width:767px){
+  .photo-studio-page .photo-studio-final-students,
+  .photo-studio-page .photo-studio-students.photo-studio-final-students,
+  .photo-studio-page .photo-studio-final-current{
+    position: sticky !important;
+    top: 76px !important;
+  }
+}
+
+/* 2026-07 real PhotoRegisterCenter tablet fix: pin the current student list/sidebar while PDF is scrolled */
+.photo-studio-page .photo-studio-layout{
+  align-items:start !important;
+}
+.photo-studio-page .photo-studio-sidebar{
+  position:sticky !important;
+  top:112px !important;
+  align-self:start !important;
+  z-index:80 !important;
+  max-height:calc(100vh - 128px) !important;
+  overflow:hidden !important;
+  background:rgba(255,255,255,.98) !important;
+}
+.photo-studio-page .photo-studio-sidebar-title{
+  position:sticky !important;
+  top:0 !important;
+  z-index:82 !important;
+  background:rgba(255,255,255,.98) !important;
+}
+.photo-studio-page .photo-student-list{
+  position:relative !important;
+  z-index:81 !important;
+  max-height:240px !important;
+  overflow-y:auto !important;
+  overscroll-behavior:contain !important;
+  background:rgba(255,255,255,.98) !important;
+  border-radius:16px !important;
+}
+.photo-studio-page .photo-student-list button{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  gap:10px !important;
+  white-space:nowrap !important;
+  word-break:keep-all !important;
+  overflow:hidden !important;
+}
+.photo-studio-page .photo-student-list button b,
+.photo-studio-page .photo-student-list button strong{
+  display:inline-flex !important;
+  align-items:center !important;
+  white-space:nowrap !important;
+  word-break:keep-all !important;
+  line-height:1.1 !important;
+}
+.photo-studio-page .photo-current-student{
+  position:relative !important;
+  z-index:81 !important;
+  background:rgba(255,255,255,.98) !important;
+}
+.photo-studio-page .photo-pdf-workspace,
+.photo-studio-page .photo-canvas-wrap{
+  position:relative !important;
+  z-index:1 !important;
+}
+@media (min-width:768px) and (max-width:1180px){
+  .photo-studio-page .photo-studio-layout{
+    grid-template-columns: minmax(300px, 340px) minmax(0, 1fr) minmax(260px, 320px) !important;
+    gap:16px !important;
+  }
+  .photo-studio-page .photo-studio-sidebar{
+    top:96px !important;
+    max-height:calc(100vh - 110px) !important;
+  }
+  .photo-studio-page .photo-student-list{
+    max-height:210px !important;
+  }
+}
+@media (max-width:767px){
+  .photo-studio-page .photo-studio-sidebar{
+    position:sticky !important;
+    top:76px !important;
+    max-height:none !important;
+    overflow:visible !important;
+  }
+  .photo-studio-page .photo-student-list{
+    max-height:180px !important;
+  }
+}
+
+/* PE-ON v9.0.2 태블릿 수행평가 하단 버튼 노출 고정 패치 */
+.assessment-page .assessment-setting-card{
+  overflow:visible !important;
+  height:auto !important;
+  min-height:auto !important;
+  padding-bottom:96px !important;
+}
+
+.assessment-page .assessment-bottom-actions{
+  position:sticky !important;
+  bottom:10px !important;
+  z-index:250 !important;
+  display:flex !important;
+  justify-content:flex-end !important;
+  align-items:center !important;
+  gap:10px !important;
+  width:100% !important;
+  margin-top:18px !important;
+  padding:10px !important;
+  background:rgba(255,255,255,.96) !important;
+  border:1px solid #dbeafe !important;
+  border-radius:18px !important;
+  box-shadow:0 8px 22px rgba(15,23,42,.12) !important;
+}
+
+.assessment-page .assessment-bottom-actions button{
+  min-width:140px !important;
+  min-height:46px !important;
+  padding:10px 16px !important;
+  border-radius:14px !important;
+  font-size:15px !important;
+  font-weight:900 !important;
+  white-space:nowrap !important;
+}
+
+@media(max-width:1200px){
+  .assessment-page .assessment-setting-card{
+    padding-bottom:118px !important;
+  }
+
+  .assessment-page .assessment-bottom-actions{
+    bottom:12px !important;
+    justify-content:center !important;
+  }
+
+  .assessment-page .assessment-bottom-actions button{
+    flex:1 1 0 !important;
+    max-width:220px !important;
+  }
+}
+
+@media(max-width:768px){
+  .assessment-page .assessment-bottom-actions{
+    gap:8px !important;
+    padding:8px !important;
+    border-radius:14px !important;
+  }
+
+  .assessment-page .assessment-bottom-actions button{
+    min-width:0 !important;
+    max-width:none !important;
+    min-height:42px !important;
+    font-size:13px !important;
+    padding:8px 10px !important;
+  }
+}
+
+/* PE-ON v9.0.4 FINAL MERGE: 수행평가 평가설정 저장/삭제 버튼 태블릿 강제 노출
+   이전 사진등록센터 패치와 같이 적용되는 최종 병합 패치입니다. */
+.assessment-page .assessment-setting-card{
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  overflow:visible !important;
+  padding-bottom:128px !important;
+}
+.assessment-page .assessment-setting-table,
+.assessment-page .student-table.assessment-setting-table{
+  margin-bottom:18px !important;
+}
+.assessment-page .assessment-bottom-actions{
+  display:flex !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap:12px !important;
+  width:100% !important;
+  max-width:100% !important;
+  min-height:70px !important;
+  margin:18px 0 0 0 !important;
+  padding:12px !important;
+  box-sizing:border-box !important;
+  background:rgba(255,255,255,.98) !important;
+  border:1px solid #dbeafe !important;
+  border-radius:18px !important;
+  box-shadow:0 10px 24px rgba(15,23,42,.12) !important;
+  z-index:999 !important;
+}
+.assessment-page .assessment-bottom-actions button{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:auto !important;
+  min-width:150px !important;
+  height:54px !important;
+  min-height:54px !important;
+  padding:0 18px !important;
+  white-space:nowrap !important;
+  word-break:keep-all !important;
+  flex:0 0 auto !important;
+}
+
+@media (pointer:coarse) and (min-width:768px) and (max-width:1366px),
+       (min-width:768px) and (max-width:1180px){
+  .assessment-page{
+    padding-bottom:120px !important;
+    overflow:visible !important;
+  }
+  .assessment-page .assessment-setting-card{
+    padding-bottom:140px !important;
+    overflow:visible !important;
+  }
+  .assessment-page .assessment-bottom-actions{
+    position:fixed !important;
+    left:auto !important;
+    right:24px !important;
+    bottom:18px !important;
+    width:min(440px, calc(100vw - 320px)) !important;
+    min-width:360px !important;
+    max-width:440px !important;
+    margin:0 !important;
+    justify-content:stretch !important;
+    z-index:9999 !important;
+  }
+  .assessment-page .assessment-bottom-actions button{
+    flex:1 1 0 !important;
+    min-width:0 !important;
+    width:100% !important;
+    height:56px !important;
+  }
+}
+
+@media (max-width:767px){
+  .assessment-page{
+    padding-bottom:120px !important;
+  }
+  .assessment-page .assessment-setting-card{
+    padding-bottom:132px !important;
+  }
+  .assessment-page .assessment-bottom-actions{
+    position:fixed !important;
+    left:12px !important;
+    right:12px !important;
+    bottom:12px !important;
+    width:auto !important;
+    min-width:0 !important;
+    max-width:none !important;
+    z-index:9999 !important;
+  }
+  .assessment-page .assessment-bottom-actions button{
+    flex:1 1 0 !important;
+    min-width:0 !important;
+    height:50px !important;
+    font-size:14px !important;
+  }
+}
+
+/* PE-ON v9.0.5 ONE-SHOT REAL FIX
+   1) 사진등록센터: 태블릿에서는 학생명단을 화면에 fixed로 고정하고 PDF 작업영역만 움직이게 분리
+   2) 수행평가: 저장/삭제 버튼을 어색한 floating fixed가 아니라 카드 하단 sticky 바 형태로 정리 */
+@media (min-width:768px) and (max-width:1180px){
+  .peon-v9-main .photo-studio-page,
+  .peon-v9-main .photo-studio-page .photo-studio-card{
+    overflow:visible !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-studio-layout{
+    display:grid !important;
+    grid-template-columns:minmax(0, 1fr) 280px !important;
+    gap:14px !important;
+    align-items:start !important;
+    position:relative !important;
+    padding-left:318px !important;
+    overflow:visible !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-studio-sidebar{
+    position:fixed !important;
+    left:18px !important;
+    top:148px !important;
+    width:300px !important;
+    height:calc(100vh - 168px) !important;
+    max-height:calc(100vh - 168px) !important;
+    overflow:hidden !important;
+    display:flex !important;
+    flex-direction:column !important;
+    z-index:5000 !important;
+    box-sizing:border-box !important;
+    background:#ffffff !important;
+    border:1px solid #bfdbfe !important;
+    border-radius:20px !important;
+    padding:12px !important;
+    box-shadow:0 14px 34px rgba(15,23,42,.16) !important;
+    transform:none !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-studio-sidebar-title{
+    flex:0 0 auto !important;
+    position:relative !important;
+    top:auto !important;
+    z-index:5001 !important;
+    margin:0 0 10px 0 !important;
+    padding:10px 12px !important;
+    border-radius:14px !important;
+    background:#eef2ff !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-student-list{
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    display:grid !important;
+    grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+    gap:8px !important;
+    padding:0 4px 0 0 !important;
+    overscroll-behavior:contain !important;
+    background:#fff !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-student-list button{
+    min-width:0 !important;
+    width:100% !important;
+    min-height:44px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:6px !important;
+    padding:9px 8px !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+    text-align:left !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-student-list button span,
+  .peon-v9-main .photo-studio-page .photo-student-list button b,
+  .peon-v9-main .photo-studio-page .photo-student-list button strong{
+    white-space:nowrap !important;
+    word-break:keep-all !important;
+    line-height:1.1 !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-current-student{
+    flex:0 0 auto !important;
+    margin-top:10px !important;
+    padding:10px !important;
+    border-radius:16px !important;
+    background:#f8fafc !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-current-student img{
+    max-height:92px !important;
+    object-fit:cover !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-pdf-workspace{
+    grid-column:1 !important;
+    min-width:0 !important;
+    position:relative !important;
+    z-index:1 !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-studio-preview-panel{
+    grid-column:2 !important;
+    min-width:0 !important;
+    position:sticky !important;
+    top:148px !important;
+    max-height:calc(100vh - 168px) !important;
+    overflow:auto !important;
+    z-index:2 !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-canvas-wrap{
+    max-height:calc(100vh - 300px) !important;
+    overflow:auto !important;
+    overscroll-behavior:contain !important;
+  }
+}
+
+@media (max-width:767px){
+  .peon-v9-main .photo-studio-page .photo-studio-layout{
+    display:flex !important;
+    flex-direction:column !important;
+    padding-left:0 !important;
+  }
+  .peon-v9-main .photo-studio-page .photo-studio-sidebar{
+    position:relative !important;
+    left:auto !important;
+    top:auto !important;
+    width:100% !important;
+    height:auto !important;
+    max-height:none !important;
+  }
+}
+
+.assessment-page .assessment-setting-card{
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  overflow:visible !important;
+  padding-bottom:20px !important;
+}
+
+.assessment-page .assessment-bottom-actions{
+  position:sticky !important;
+  left:auto !important;
+  right:auto !important;
+  bottom:10px !important;
+  width:100% !important;
+  min-width:0 !important;
+  max-width:none !important;
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:10px !important;
+  margin:18px 0 0 0 !important;
+  padding:10px !important;
+  box-sizing:border-box !important;
+  background:rgba(248,250,252,.98) !important;
+  border:1px solid #dbeafe !important;
+  border-radius:16px !important;
+  box-shadow:0 8px 20px rgba(15,23,42,.10) !important;
+  z-index:300 !important;
+}
+
+.assessment-page .assessment-bottom-actions button{
+  width:100% !important;
+  min-width:0 !important;
+  max-width:none !important;
+  height:48px !important;
+  min-height:48px !important;
+  padding:0 12px !important;
+  border-radius:14px !important;
+  font-size:14px !important;
+  font-weight:900 !important;
+  white-space:nowrap !important;
+}
+
+@media (min-width:768px) and (max-width:1180px){
+  .assessment-page{
+    padding-bottom:40px !important;
+    overflow:visible !important;
+  }
+  .assessment-page .assessment-bottom-actions{
+    position:sticky !important;
+    bottom:14px !important;
+    width:100% !important;
+    min-width:0 !important;
+    max-width:none !important;
+    margin-top:16px !important;
+  }
+}
+
+/* PE-ON v9.0.6 REAL TABLET FIX: 사진등록센터 학생명단을 실제 화면 좌표로 고정
+   기존 sticky가 부모 영역 끝에서 같이 밀려서, 태블릿에서는 fixed + JS 측정값으로 고정합니다. */
+@media (min-width:768px) and (max-width:1180px){
+  .peon-v9-main .photo-studio-page .photo-studio-final-center{
+    position:relative !important;
+    padding-top:214px !important;
+    overflow:visible !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-studio-final-students,
+  .peon-v9-main .photo-studio-page .photo-studio-students.photo-studio-final-students{
+    position:fixed !important;
+    left:var(--peon-photo-student-left, 330px) !important;
+    top:var(--peon-photo-student-top, 112px) !important;
+    width:var(--peon-photo-student-width, 520px) !important;
+    max-width:var(--peon-photo-student-width, 520px) !important;
+    height:196px !important;
+    max-height:196px !important;
+    margin:0 !important;
+    padding:10px !important;
+    box-sizing:border-box !important;
+    z-index:9998 !important;
+    overflow:hidden !important;
+    background:#ffffff !important;
+    border:2px solid #bfdbfe !important;
+    border-radius:20px !important;
+    box-shadow:0 16px 34px rgba(15,23,42,.18) !important;
+    transform:none !important;
+    will-change:auto !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-fold{
+    position:relative !important;
+    top:auto !important;
+    width:100% !important;
+    height:54px !important;
+    min-height:54px !important;
+    margin:0 0 10px 0 !important;
+    border-radius:14px !important;
+    z-index:10000 !important;
+    white-space:nowrap !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-student-list,
+  .peon-v9-main .photo-studio-page .photo-studio-student-list.photo-studio-student-box-list{
+    position:relative !important;
+    z-index:9999 !important;
+    height:112px !important;
+    max-height:112px !important;
+    min-height:0 !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    overscroll-behavior:contain !important;
+    display:grid !important;
+    grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+    gap:8px !important;
+    padding:0 4px 0 0 !important;
+    background:#ffffff !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-studio-final-students .photo-studio-student-list button{
+    min-width:0 !important;
+    width:100% !important;
+    min-height:48px !important;
+    height:48px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:8px !important;
+    padding:8px 10px !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+    text-align:left !important;
+    box-sizing:border-box !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-studio-final-current{
+    position:relative !important;
+    top:auto !important;
+    z-index:20 !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-studio-final-pdf-panel,
+  .peon-v9-main .photo-studio-page .photo-studio-final-pdf-panel .photo-studio-canvas-wrap{
+    position:relative !important;
+    z-index:1 !important;
+  }
+}
+
+/* 태블릿 폭: 학생명단은 좌측 고정, 사진 전/후 셀은 잘리지 않게 세로 배치 */
+@media (min-width:768px) and (max-width:1180px){
+  .photo-studio-page .photo-studio-final-layout,
+  .photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{
+    grid-template-columns:88px 240px minmax(360px,1fr) 226px !important;
+    gap:8px !important;
+    height:calc(100dvh - 150px) !important;
+    min-height:520px !important;
+    max-height:calc(100dvh - 150px) !important;
+  }
+  .photo-studio-page .photo-studio-fixed-student-panel,
+  .photo-studio-page .photo-studio-students.photo-studio-final-students.photo-studio-fixed-student-panel{
+    padding:8px !important;
+    border-radius:16px !important;
+  }
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-fold{
+    height:42px !important;
+    min-height:42px !important;
+    font-size:15px !important;
+    padding:0 8px !important;
+  }
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list button{
+    min-height:48px !important;
+    padding:8px 10px !important;
+    gap:8px !important;
+    font-size:14px !important;
+  }
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list button strong,
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list button b{
+    font-size:14px !important;
+  }
+  .photo-studio-page .photo-studio-preview-compare-final{
+    grid-template-columns:1fr !important;
+    gap:8px !important;
+  }
+  .photo-studio-page .photo-studio-preview-box{
+    min-height:120px !important;
+    aspect-ratio:4 / 3 !important;
+  }
+  .photo-studio-page .photo-studio-target-card{
+    padding:10px !important;
+  }
+  .photo-studio-page .photo-studio-side-confirm .photo-studio-save{
+    min-height:52px !important;
+    height:52px !important;
+    font-size:15px !important;
+  }
+}
+
+@media (max-width:767px){
+  .photo-studio-page .photo-studio-final-layout,
+  .photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{
+    display:flex !important;
+    flex-direction:column !important;
+    height:auto !important;
+    max-height:none !important;
+    overflow:visible !important;
+  }
+  .photo-studio-page .photo-studio-fixed-student-panel,
+  .photo-studio-page .photo-studio-students.photo-studio-final-students.photo-studio-fixed-student-panel{
+    height:240px !important;
+    max-height:240px !important;
+  }
+  .photo-studio-page .photo-studio-pdf-only-center .photo-studio-canvas-wrap{
+    height:56dvh !important;
+    min-height:360px !important;
+  }
+  .photo-studio-page .photo-studio-preview-compare-final{
+    grid-template-columns:1fr 1fr !important;
+  }
+}
+
+/* 수행평가 저장/삭제 버튼: 태블릿에서 어색한 떠있는 모양 대신 카드 하단 고정 바 */
+@media (max-width:1200px){
+  .assessment-page .assessment-setting-card{
+    height:auto !important;
+    min-height:0 !important;
+    overflow:visible !important;
+    padding-bottom:18px !important;
+  }
+  .assessment-page .assessment-bottom-actions{
+    position:static !important;
+    display:flex !important;
+    justify-content:flex-end !important;
+    align-items:center !important;
+    gap:12px !important;
+    width:100% !important;
+    margin:16px 0 0 0 !important;
+    padding:0 !important;
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+    border-radius:0 !important;
+  }
+  .assessment-page .assessment-bottom-actions button{
+    flex:0 0 auto !important;
+    min-width:150px !important;
+    height:54px !important;
+    white-space:nowrap !important;
+  }
+}
+
+/* PE-ON v9.0.8 사진등록센터 태블릿 최종 폭 조정
+   - 학생명단 셀/패널 폭을 줄여 PDF 파일창을 넓게 확보
+   - 사진 전/후 미리보기는 태블릿에서 세로 배치해 잘림 방지 */
+@media (min-width:768px) and (max-width:1180px){
+  .photo-studio-page .photo-studio-final-layout,
+  .photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{
+    grid-template-columns:80px 188px minmax(520px, 1fr) 244px !important;
+    gap:8px !important;
+    width:100% !important;
+    max-width:100% !important;
+  }
+
+  .photo-studio-page .photo-studio-final-tools{
+    width:80px !important;
+    min-width:80px !important;
+    padding:8px !important;
+  }
+
+  .photo-studio-page .photo-studio-final-tools button,
+  .photo-studio-page .photo-studio-final-tools .setting-btn,
+  .photo-studio-page .photo-studio-final-tools .save-btn,
+  .photo-studio-page .photo-studio-final-tools .delete-btn,
+  .photo-studio-page .photo-studio-final-tools label{
+    width:100% !important;
+    min-width:0 !important;
+    padding-left:4px !important;
+    padding-right:4px !important;
+    font-size:13px !important;
+  }
+
+  .photo-studio-page .photo-studio-fixed-student-panel,
+  .photo-studio-page .photo-studio-students.photo-studio-final-students.photo-studio-fixed-student-panel{
+    width:188px !important;
+    min-width:188px !important;
+    max-width:188px !important;
+    padding:8px !important;
+  }
+
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-fold{
+    height:40px !important;
+    min-height:40px !important;
+    font-size:14px !important;
+    padding:0 6px !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+  }
+
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list{
+    grid-template-columns:1fr !important;
+    gap:6px !important;
+    padding:0 2px 0 0 !important;
+  }
+
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list button{
+    min-height:42px !important;
+    height:42px !important;
+    padding:6px 8px !important;
+    gap:6px !important;
+    font-size:13px !important;
+    border-radius:12px !important;
+  }
+
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list button span{
+    flex:0 0 20px !important;
+    width:20px !important;
+    font-size:13px !important;
+  }
+
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list button strong{
+    flex:0 0 34px !important;
+    width:34px !important;
+    font-size:13px !important;
+  }
+
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list button b{
+    flex:1 1 auto !important;
+    min-width:0 !important;
+    font-size:13px !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+  }
+
+  .photo-studio-page .photo-studio-pdf-only-center,
+  .photo-studio-page .photo-studio-final-center.photo-studio-pdf-only-center{
+    min-width:520px !important;
+    padding:8px !important;
+  }
+
+  .photo-studio-page .photo-studio-pdf-only-center .photo-studio-final-pdf-panel,
+  .photo-studio-page .photo-studio-pdf-only-center .photo-studio-canvas-wrap{
+    width:100% !important;
+    min-width:0 !important;
+  }
+
+  .photo-studio-page .photo-studio-final-preview,
+  .photo-studio-page .photo-studio-preview-panel.photo-studio-final-preview{
+    width:244px !important;
+    min-width:244px !important;
+    max-width:244px !important;
+    padding:10px !important;
+  }
+
+  .photo-studio-page .photo-studio-preview-compare-final{
+    grid-template-columns:1fr !important;
+    gap:8px !important;
+  }
+
+  .photo-studio-page .photo-studio-preview-box{
+    min-height:104px !important;
+    max-height:142px !important;
+    aspect-ratio:4 / 3 !important;
+  }
+
+  .photo-studio-page .photo-studio-preview-label{
+    font-size:13px !important;
+  }
+}
+
+@media (min-width:1181px) and (max-width:1400px){
+  .photo-studio-page .photo-studio-final-layout,
+  .photo-studio-page .photo-studio-layout-with-tools.photo-studio-final-layout{
+    grid-template-columns:96px 230px minmax(600px, 1fr) 280px !important;
+    gap:10px !important;
+  }
+
+  .photo-studio-page .photo-studio-fixed-student-panel .photo-studio-student-list button{
+    min-height:46px !important;
+    height:46px !important;
+    padding:7px 10px !important;
+    font-size:14px !important;
+  }
+}
+
+/* PE-ON v9 records AI PRO one-line length selector + natural layout */
+.records-ai-pro-length{
+  display:flex !important;
+  flex-direction:row !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  flex-wrap:nowrap !important;
+  gap:10px !important;
+  min-height:74px !important;
+  overflow-x:auto !important;
+}
+.records-ai-pro-length span{
+  flex:0 0 auto !important;
+  white-space:nowrap !important;
+  min-width:92px !important;
+}
+.records-ai-pro-length label{
+  flex:0 0 auto !important;
+  min-width:92px !important;
+  width:auto !important;
+  white-space:nowrap !important;
+  word-break:keep-all !important;
+  writing-mode:horizontal-tb !important;
+  justify-content:center !important;
+  padding:12px 18px !important;
+}
+.records-ai-pro-length input{
+  flex:0 0 auto !important;
+}
+@media(max-width:900px){
+  .records-ai-pro-length{overflow-x:auto !important;}
+  .records-ai-pro-length label{min-width:88px !important;}
+}
+
+/* PE-ON v9.1 사진등록센터 실제 레이아웃 최종 정리
+   - 실제 컴포넌트 클래스(photo-studio-layout/sidebar/workspace/preview-panel)에 직접 적용
+   - PC: 학생명단은 좁게, PDF 작업창은 크게, 사진 전/후 패널은 적정 폭 유지
+   - 태블릿: 3열을 유지하되 학생명단 폭을 줄이고 PDF 폭을 최대 확보
+*/
+.peon-v9-main > .page.photo-studio-page,
+.peon-v9-main .page.photo-studio-page{
+  max-width:1680px !important;
+  width:100% !important;
+  margin:0 auto !important;
+}
+
+.peon-v9-main .photo-studio-page .photo-studio-card{
+  width:100% !important;
+  max-width:none !important;
+  overflow:visible !important;
+}
+
+.peon-v9-main .photo-studio-page .photo-studio-layout{
+  display:grid !important;
+  grid-template-columns:200px minmax(760px, 1fr) 280px !important;
+  gap:14px !important;
+  align-items:start !important;
+  width:100% !important;
+  max-width:100% !important;
+  overflow:visible !important;
+}
+
+.peon-v9-main .photo-studio-page .photo-studio-sidebar{
+  position:sticky !important;
+  top:150px !important;
+  z-index:50 !important;
+  width:200px !important;
+  min-width:200px !important;
+  max-width:200px !important;
+  max-height:calc(100vh - 170px) !important;
+  overflow:hidden !important;
+  display:flex !important;
+  flex-direction:column !important;
+  background:#fff !important;
+  border:1px solid #dbe4ef !important;
+  border-radius:18px !important;
+  padding:10px !important;
+  box-shadow:0 8px 24px rgba(15,23,42,.06) !important;
+}
+
+.peon-v9-main .photo-studio-page .photo-studio-sidebar-title{
+  flex:0 0 auto !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:6px !important;
+  margin-bottom:8px !important;
+}
+
+.peon-v9-main .photo-studio-page .photo-studio-sidebar-title strong,
+.peon-v9-main .photo-studio-page .photo-studio-sidebar-title button{
+  white-space:nowrap !important;
+}
+
+.peon-v9-main .photo-studio-page .photo-student-list{
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:6px !important;
+  padding-right:3px !important;
+}
+
+.peon-v9-main .photo-studio-page .photo-student-list button{
+  width:100% !important;
+  min-height:40px !important;
+  height:40px !important;
+  padding:6px 8px !important;
+  display:grid !important;
+  grid-template-columns:22px 42px minmax(0,1fr) !important;
+  align-items:center !important;
+  gap:5px !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+}
+
+.peon-v9-main .photo-studio-page .photo-student-list button span,
+.peon-v9-main .photo-studio-page .photo-student-list button b,
+.peon-v9-main .photo-studio-page .photo-student-list button strong{
+  min-width:0 !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+  white-space:nowrap !important;
+  font-size:13px !important;
+}
+
+.peon-v9-main .photo-studio-page .photo-current-student{
+  flex:0 0 auto !important;
+  margin-top:8px !important;
+  padding:8px !important;
+  border-radius:14px !important;
+  background:#f8fafc !important;
+}
+
+.peon-v9-main .photo-studio-page .photo-current-student img{
+  width:64px !important;
+  height:84px !important;
+  object-fit:cover !important;
+  border-radius:10px !important;
+}
+
+.peon-v9-main .photo-studio-page .photo-current-actions{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:6px !important;
+}
+
+.peon-v9-main .photo-studio-page .photo-current-actions button{
+  width:100% !important;
+  min-width:0 !important;
+  height:36px !important;
+  font-size:12px !important;
+  padding:0 6px !important;
+  white-space:nowrap !important;
+}
+
+.peon-v9-main .photo-studio-page .photo-pdf-workspace{
+  min-width:0 !important;
+  width:100% !important;
+  max-width:none !important;
+}
+
+.peon-v9-main .photo-studio-page .photo-canvas-wrap{
+  width:100% !important;
+  min-width:0 !important;
+  height:calc(100vh - 285px) !important;
+  min-height:610px !important;
+  overflow:auto !important;
+}
+
+.peon-v9-main .photo-studio-page .photo-canvas-stage{
+  min-width:max-content !important;
+}
+
+.peon-v9-main .photo-studio-page .photo-canvas-stage canvas{
+  max-width:none !important;
+}
+
+.peon-v9-main .photo-studio-page .photo-studio-preview-panel{
+  position:sticky !important;
+  top:150px !important;
+  width:280px !important;
+  min-width:280px !important;
+  max-width:280px !important;
+  max-height:calc(100vh - 170px) !important;
+  overflow:auto !important;
+}
+
+.peon-v9-main .photo-studio-page .photo-preview-box{
+  min-height:180px !important;
+}
+
+@media (min-width:1400px){
+  .peon-v9-main .photo-studio-page .photo-studio-layout{
+    grid-template-columns:210px minmax(900px, 1fr) 300px !important;
+    gap:16px !important;
+  }
+  .peon-v9-main .photo-studio-page .photo-studio-sidebar{
+    width:210px !important;
+    min-width:210px !important;
+    max-width:210px !important;
+  }
+  .peon-v9-main .photo-studio-page .photo-studio-preview-panel{
+    width:300px !important;
+    min-width:300px !important;
+    max-width:300px !important;
+  }
+}
+
+@media (min-width:768px) and (max-width:1180px){
+  .peon-v9-main > .page.photo-studio-page,
+  .peon-v9-main .page.photo-studio-page{
+    max-width:none !important;
+    padding-left:4px !important;
+    padding-right:4px !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-studio-card{
+    padding:12px !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-studio-layout{
+    grid-template-columns:170px minmax(500px, 1fr) 210px !important;
+    gap:8px !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-studio-sidebar{
+    top:126px !important;
+    width:170px !important;
+    min-width:170px !important;
+    max-width:170px !important;
+    max-height:calc(100vh - 140px) !important;
+    padding:8px !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-student-list button{
+    grid-template-columns:20px 34px minmax(0,1fr) !important;
+    height:38px !important;
+    min-height:38px !important;
+    padding:5px 6px !important;
+    gap:4px !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-student-list button span,
+  .peon-v9-main .photo-studio-page .photo-student-list button b,
+  .peon-v9-main .photo-studio-page .photo-student-list button strong{
+    font-size:12px !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-current-student{
+    display:none !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-canvas-wrap{
+    height:calc(100vh - 245px) !important;
+    min-height:560px !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-studio-preview-panel{
+    top:126px !important;
+    width:210px !important;
+    min-width:210px !important;
+    max-width:210px !important;
+    max-height:calc(100vh - 140px) !important;
+    padding:10px !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-preview-box{
+    min-height:120px !important;
+    aspect-ratio:4/3 !important;
+  }
+
+  .peon-v9-main .photo-studio-page .photo-studio-preview-panel .full{
+    height:40px !important;
+    min-height:40px !important;
+    font-size:13px !important;
+  }
+}
+
+@media (max-width:767px){
+  .peon-v9-main .photo-studio-page .photo-studio-layout{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:10px !important;
+  }
+  .peon-v9-main .photo-studio-page .photo-studio-sidebar,
+  .peon-v9-main .photo-studio-page .photo-studio-preview-panel{
+    position:static !important;
+    width:100% !important;
+    min-width:0 !important;
+    max-width:none !important;
+    max-height:none !important;
+  }
+  .peon-v9-main .photo-studio-page .photo-student-list{
+    max-height:260px !important;
+  }
+  .peon-v9-main .photo-studio-page .photo-canvas-wrap{
+    height:62vh !important;
+    min-height:420px !important;
+  }
+}
+
+/* 이전 패치의 삭제 버튼/사이드 PDF 도구가 남아도 화면에서 제거 */
+.peon-v9-main .photo-studio-page .photo-studio-delete-current-final,
+.peon-v9-main .photo-studio-page .photo-studio-final-tools,
+.peon-v9-main .photo-studio-page .photo-studio-pdf-tools-panel,
+.peon-v9-main .photo-studio-page .photo-studio-tools-toggle,
+.peon-v9-main .photo-studio-page .photo-studio-upload-line-side{
+  display:none!important;
+}
+@media (min-width: 1500px){
+  .peon-v9-main .photo-studio-page .photo-studio-v2-layout{
+    grid-template-columns: 160px minmax(760px, 1fr) 300px !important;
+    max-width: 1600px !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1180px){
+  .peon-v9-main .photo-studio-page .photo-studio-v2-toolbar{padding:8px!important;margin-bottom:8px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-class-row{gap:6px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-class-row .save-btn,
+  .peon-v9-main .photo-studio-page .photo-studio-v2-class-row .setting-btn,
+  .peon-v9-main .photo-studio-page .photo-studio-v2-class-row select,
+  .peon-v9-main .photo-studio-page .photo-studio-v2-status{height:30px!important;min-height:30px!important;font-size:11px!important;padding:0 7px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-layout{
+    grid-template-columns: 120px minmax(360px, 1fr) 215px !important;
+    gap:7px!important;
+    height: calc(100dvh - 210px) !important;
+    min-height: 555px !important;
+  }
+  .peon-v9-main .photo-studio-page .photo-studio-v2-students{padding:5px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-fold{height:30px!important;min-height:30px!important;flex-basis:30px!important;font-size:10px!important;border-radius:9px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-student-list{gap:4px!important;padding-top:5px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-student-list button{height:27px!important;min-height:27px!important;max-height:27px!important;grid-template-columns:14px 24px minmax(0,1fr)!important;padding:0 3px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-student-list button span,
+  .peon-v9-main .photo-studio-page .photo-studio-v2-student-list button strong,
+  .peon-v9-main .photo-studio-page .photo-studio-v2-student-list button b{font-size:10px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-pdf{padding:6px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-pdf-head{height:30px!important;min-height:30px!important;flex-basis:30px!important;margin-bottom:5px!important;padding:0 8px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-preview{padding:6px!important;gap:5px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-preview h3{height:28px!important;min-height:28px!important;flex-basis:28px!important;font-size:12px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-selected{height:38px!important;min-height:38px!important;flex-basis:38px!important;padding:4px 6px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-selected strong{font-size:12px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-small-actions{height:28px!important;flex-basis:28px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-small-actions .setting-btn{height:28px!important;min-height:28px!important;font-size:11px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-save{height:36px!important;min-height:36px!important;flex-basis:36px!important;font-size:12px!important;}
+}
+@media (max-width: 767px){
+  .peon-v9-main .photo-studio-page .photo-studio-v2-layout{
+    display:flex!important;
+    flex-direction:column!important;
+    height:auto!important;
+    min-height:0!important;
+    overflow:visible!important;
+  }
+  .peon-v9-main .photo-studio-page .photo-studio-v2-students,
+  .peon-v9-main .photo-studio-page .photo-studio-v2-pdf,
+  .peon-v9-main .photo-studio-page .photo-studio-v2-preview{height:auto!important;min-height:0!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-student-list{max-height:240px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-pdf-body{height:58dvh!important;min-height:360px!important;}
+  .peon-v9-main .photo-studio-page .photo-studio-v2-preview{min-height:520px!important;}
+}
+
+/* PE-ON photo studio v3.1: student list readability + reliable PDF picker */
+.peon-v9-main .photo-studio-page .photo-studio-v2-student-list button{
+  font-size:12px!important;
+  font-weight:900!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-student-list button span,
+.peon-v9-main .photo-studio-page .photo-studio-v2-student-list button strong,
+.peon-v9-main .photo-studio-page .photo-studio-v2-student-list button b{
+  font-size:12px!important;
+  line-height:1.1!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v2-fold{
+  font-size:13px!important;
+}
+.peon-v9-main .photo-studio-page .photo-studio-v3-hidden-file,
+.peon-v9-main .photo-studio-page input[type="file"].photo-studio-v3-hidden-file{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  opacity:0!important;
+  pointer-events:none!important;
+  left:-9999px!important;
+}
+@media (min-width: 768px) and (max-width: 1180px){
+  .peon-v9-main .photo-studio-page .photo-studio-v2-student-list button span,
+  .peon-v9-main .photo-studio-page .photo-studio-v2-student-list button strong,
+  .peon-v9-main .photo-studio-page .photo-studio-v2-student-list button b{
+    font-size:11px!important;
+  }
+}
+
+/* PE-ON v9.1 home card wording + responsive alignment */
+.home-page .home-quick-cards-field .home-quick-card,
+.home-page .home-quick-cards .home-quick-card{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  text-align:center!important;
+  min-height:196px!important;
+  height:100%!important;
+  padding:20px 16px!important;
+  gap:8px!important;
+}
+.home-page .home-quick-card p{
+  word-break:keep-all!important;
+  overflow-wrap:normal!important;
+  line-height:1.45!important;
+  min-height:44px!important;
+  margin:0 0 10px!important;
+}
+.home-page .home-quick-card button{margin-top:auto!important;}
+@media (min-width: 768px) and (max-width: 1366px){
+  .home-page .home-quick-cards-field,
+  .home-page .home-quick-cards{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:14px!important;
+  }
+  .home-page .home-quick-card p{font-size:13px!important;min-height:40px!important;}
+}
+@media (max-width: 767px){
+  .home-page .home-quick-cards-field .home-quick-card,
+  .home-page .home-quick-cards .home-quick-card{
+    display:grid!important;
+    grid-template-columns:48px minmax(0,1fr) 84px!important;
+    grid-template-areas:'icon title button' 'icon desc button'!important;
+    align-items:center!important;
+    text-align:left!important;
+    min-height:88px!important;
+    padding:14px!important;
+    gap:2px 10px!important;
+  }
+  .home-page .home-quick-card p{min-height:0!important;font-size:12px!important;line-height:1.35!important;margin:0!important;}
+}
+
+/* PE-ON v9.1 progress modal: keep note field visible above action buttons on tablet */
+@media (min-width: 768px) and (max-width: 1366px){
+  .progress-modal-overlay{
+    align-items:center!important;
+    padding:16px!important;
+    overflow:auto!important;
+  }
+  .progress-modal.peon-popup-modal{
+    width:min(760px, calc(100vw - 220px))!important;
+    max-height:calc(100dvh - 60px)!important;
+    display:grid!important;
+    grid-template-rows:auto 1fr auto!important;
+    overflow:hidden!important;
+    padding:0!important;
+  }
+  .progress-modal.peon-popup-modal .progress-modal-header{
+    grid-row:1!important;
+    position:static!important;
+    padding:16px 20px 12px!important;
+    margin:0!important;
+  }
+  .progress-modal.peon-popup-modal > label,
+  .progress-modal.peon-popup-modal > input,
+  .progress-modal.peon-popup-modal > textarea,
+  .progress-modal.peon-popup-modal > .edit-notice,
+  .progress-modal.peon-popup-modal > .copy-title,
+  .progress-modal.peon-popup-modal > .copy-class-row{
+    margin-left:20px!important;
+    margin-right:20px!important;
+  }
+  .progress-modal.peon-popup-modal{overflow-y:auto!important;}
+  .progress-modal.peon-popup-modal textarea{
+    min-height:96px!important;
+    max-height:150px!important;
+    resize:vertical!important;
+  }
+  .progress-modal.peon-popup-modal .progress-modal-actions{
+    position:sticky!important;
+    bottom:0!important;
+    margin:12px 0 0!important;
+    padding:12px 20px 16px!important;
+    background:#fff!important;
+    box-shadow:0 -8px 18px rgba(15,23,42,.08)!important;
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:8px!important;
+    z-index:20!important;
+  }
+  .progress-modal.peon-popup-modal .progress-modal-actions button{
+    min-height:46px!important;
+    height:46px!important;
+    font-size:14px!important;
+    white-space:nowrap!important;
+  }
+}
+@media (max-width: 900px) and (min-width: 768px){
+  .progress-modal.peon-popup-modal{
+    width:min(680px, calc(100vw - 40px))!important;
+  }
+  .progress-modal.peon-popup-modal .progress-modal-actions{
+    grid-template-columns:1fr!important;
+  }
+}
+
+/* =========================================================
+   PE-ON v9.1 실제 수정: 태블릿 진도 입력 팝업 본문/버튼 완전 분리
+   - 유의사항 입력칸이 하단 버튼에 가리지 않도록 스크롤 본문 생성
+   - 버튼은 하단 고정, 본문은 독립 스크롤
+   ========================================================= */
+.progress-modal.peon-popup-modal .progress-modal-body{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+@media (min-width: 768px) and (max-width: 1400px){
+  .progress-modal-overlay{
+    position:fixed !important;
+    inset:0 !important;
+    z-index:2147482000 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    padding:18px !important;
+    overflow:hidden !important;
+  }
+
+  .progress-modal.peon-popup-modal{
+    width:min(86vw, 860px) !important;
+    height:min(86dvh, 720px) !important;
+    max-height:min(86dvh, 720px) !important;
+    display:flex !important;
+    flex-direction:column !important;
+    overflow:hidden !important;
+    padding:0 !important;
+    border-radius:22px !important;
+    background:#fff !important;
+  }
+
+  .progress-modal.peon-popup-modal .progress-modal-header{
+    flex:0 0 auto !important;
+    padding:18px 22px 14px !important;
+    margin:0 !important;
+    background:#fff !important;
+    border-bottom:1px solid #eef2f7 !important;
+    z-index:5 !important;
+  }
+
+  .progress-modal.peon-popup-modal .progress-modal-body{
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    overflow-y:auto !important;
+    -webkit-overflow-scrolling:touch !important;
+    padding:18px 22px 26px !important;
+    margin:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    gap:10px !important;
+    box-sizing:border-box !important;
+  }
+
+  .progress-modal.peon-popup-modal .progress-modal-body > label,
+  .progress-modal.peon-popup-modal .progress-modal-body > input,
+  .progress-modal.peon-popup-modal .progress-modal-body > textarea,
+  .progress-modal.peon-popup-modal .progress-modal-body > .copy-title,
+  .progress-modal.peon-popup-modal .progress-modal-body > .copy-class-row,
+  .progress-modal.peon-popup-modal .progress-modal-body > .edit-notice{
+    margin-left:0 !important;
+    margin-right:0 !important;
+    width:100% !important;
+    box-sizing:border-box !important;
+  }
+
+  .progress-modal.peon-popup-modal .progress-content-input{
+    min-height:96px !important;
+    height:96px !important;
+    max-height:none !important;
+    resize:vertical !important;
+  }
+
+  .progress-modal.peon-popup-modal .progress-note-input{
+    min-height:132px !important;
+    height:132px !important;
+    max-height:none !important;
+    resize:vertical !important;
+    margin-bottom:12px !important;
+  }
+
+  .progress-modal.peon-popup-modal .copy-title{
+    margin-top:4px !important;
+  }
+
+  .progress-modal.peon-popup-modal .copy-class-row{
+    display:flex !important;
+    flex-wrap:wrap !important;
+    gap:8px !important;
+    padding-bottom:8px !important;
+  }
+
+  .progress-modal.peon-popup-modal .progress-modal-actions,
+  .progress-modal.peon-popup-modal .progress-btn-row{
+    position:static !important;
+    flex:0 0 auto !important;
+    display:grid !important;
+    grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
+    gap:10px !important;
+    padding:12px 22px 16px !important;
+    margin:0 !important;
+    background:#fff !important;
+    border-top:1px solid #e5e7eb !important;
+    box-shadow:0 -8px 20px rgba(15,23,42,.06) !important;
+    z-index:6 !important;
+  }
+
+  .progress-modal.peon-popup-modal .progress-modal-actions button,
+  .progress-modal.peon-popup-modal .progress-btn-row button{
+    min-height:46px !important;
+    height:46px !important;
+    border-radius:14px !important;
+    font-size:15px !important;
+    white-space:nowrap !important;
+  }
+}
+
+@media (max-width: 767px){
+  .progress-modal.peon-popup-modal{
+    display:flex !important;
+    flex-direction:column !important;
+    max-height:calc(100dvh - 24px) !important;
+    overflow:hidden !important;
+    padding:0 !important;
+  }
+  .progress-modal.peon-popup-modal .progress-modal-header{
+    flex:0 0 auto !important;
+    padding:16px 18px 12px !important;
+    border-bottom:1px solid #eef2f7 !important;
+  }
+  .progress-modal.peon-popup-modal .progress-modal-body{
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    overflow-y:auto !important;
+    padding:16px 18px 24px !important;
+  }
+  .progress-modal.peon-popup-modal .progress-modal-actions,
+  .progress-modal.peon-popup-modal .progress-btn-row{
+    position:static !important;
+    flex:0 0 auto !important;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:8px !important;
+    padding:10px 18px 14px !important;
+    border-top:1px solid #e5e7eb !important;
+    background:#fff !important;
+  }
+}
+
+/* PE-ON v10 progress history final cleanup */
+.progress-v10-history-top.left-filter{
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:flex-start;
+  gap:14px;
+  margin-bottom:18px;
+}
+.progress-v10-history-top.left-filter h2{
+  margin:0;
+  font-size:32px;
+  font-weight:950;
+  color:#0f172a;
+}
+.progress-v10-history-top.left-filter .progress-v10-history-filter{
+  order:0;
+}
+.progress-v10-history-top.left-filter select{
+  min-width:120px;
+}
+.progress-v10-history-actions{display:none!important;}
+@media(max-width:640px){
+  .progress-v10-history-top.left-filter h2{font-size:26px;}
+  .progress-v10-history-filter{width:100%;}
+  .progress-v10-history-filter select{flex:1;}
+}
+}

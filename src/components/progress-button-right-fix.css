@@ -1,0 +1,47 @@
+/* PE-ON 진도 입력 팝업 버튼 오른쪽 하단 정렬 패치 */
+/* src/styles/style.css 맨 아래에 그대로 붙여넣으세요. */
+
+.progress-v10-save-row,
+.progress-modal-actions,
+.progress-btn-row.progress-modal-actions {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 16px 32px 22px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.progress-v10-save-row .progress-delete-btn,
+.progress-v10-save-row .progress-save-btn,
+.progress-modal-actions .progress-delete-btn,
+.progress-modal-actions .progress-save-btn {
+  margin: 0 !important;
+  flex: 0 0 auto !important;
+}
+
+.progress-delete-btn {
+  min-width: 140px !important;
+  height: 52px !important;
+}
+
+.progress-save-btn {
+  min-width: 150px !important;
+  height: 52px !important;
+}
+
+@media (max-width: 768px) {
+  .progress-v10-save-row,
+  .progress-modal-actions,
+  .progress-btn-row.progress-modal-actions {
+    padding: 14px 18px 18px !important;
+    gap: 10px !important;
+  }
+
+  .progress-delete-btn,
+  .progress-save-btn {
+    min-width: 120px !important;
+    height: 48px !important;
+  }
+}

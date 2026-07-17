@@ -1,0 +1,81 @@
+/* PE-ON 홈 화면 스타일 */
+
+/* 홈 */
+
+.select-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-bottom:20px;
+}
+
+.date-card{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.date-card strong{
+  font-size:20px;
+  font-weight:700;
+}
+
+.date-card input{
+  width:220px;
+}
+
+.todo-count{
+  font-size:18px;
+  color:#555;
+  font-weight:600;
+}
+
+.circle-btn{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  font-size:24px;
+  padding:0;
+  background:#2563eb;
+  color:white;
+}
+
+.todo-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  margin-top:10px;
+  border-radius:12px;
+  background:#f8fafc;
+}
+
+.text-btn{
+  background:transparent;
+  color:#111;
+  font-size:22px;
+  padding:0 6px;
+}
+
+.grow{
+  flex:1;
+}
+
+.done{
+  opacity:.55;
+}
+
+/* 홈 본문 로고는 코드에서도 제거했지만, 캐시/기존 클래스 대비 강제 숨김 */
+.home-brand-hero,
+.home-page > .home-brand-hero,
+.home-page .home-logo,
+.home-page .brand-section,
+.home-page .logo-area {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}

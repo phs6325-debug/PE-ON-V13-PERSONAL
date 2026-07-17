@@ -1,0 +1,265 @@
+/* PE-ON 세특/AI PRO 스타일 */
+
+/* PE-ON v5.0 Stable Build 001 */
+.peon-version-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:8px;
+  padding:6px 12px;
+  border-radius:999px;
+  background:#fef3c7;
+  color:#92400e;
+  font-weight:900;
+  font-size:13px;
+}
+.records-page .records-toolbar{
+  display:grid;
+  grid-template-columns:120px 140px 140px 1fr 1fr;
+  gap:10px;
+  align-items:center;
+}
+.records-page .records-toolbar select,
+.records-page .records-toolbar button{
+  height:42px;
+  border-radius:12px;
+}
+.records-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.record-card{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.record-card-header{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:flex-start;
+}
+.record-card-header h3{
+  margin-bottom:4px;
+  color:#1e3a8a;
+}
+.record-card-header p{
+  color:#64748b;
+  line-height:1.5;
+}
+.record-actions{
+  display:flex;
+  gap:8px;
+  flex-shrink:0;
+}
+.record-card textarea{
+  width:100%;
+  min-height:120px;
+  resize:vertical;
+  border:1px solid #cbd5e1;
+  border-radius:14px;
+  padding:12px;
+  font-size:15px;
+  line-height:1.6;
+  box-sizing:border-box;
+  background:#fff;
+}
+.record-evidence{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.record-evidence span{
+  display:inline-flex;
+  padding:5px 8px;
+  border-radius:999px;
+  background:#eff6ff;
+  color:#1d4ed8;
+  font-size:12px;
+  font-weight:800;
+}
+.bottom-nav{
+  grid-template-columns:repeat(8, 1fr);
+}
+@media(max-width:1024px){
+  .records-page .records-toolbar{
+    grid-template-columns:1fr 1fr;
+  }
+  .record-card-header{
+    flex-direction:column;
+  }
+  .record-actions{
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+}
+@media(max-width:768px){
+  .peon-version-badge{
+    font-size:11px;
+    padding:4px 8px;
+  }
+  .records-page .records-toolbar{
+    grid-template-columns:1fr;
+  }
+  .record-card textarea{
+    min-height:150px;
+    font-size:14px;
+  }
+  .bottom-nav button{
+    font-size:10px;
+    padding-left:1px;
+    padding-right:1px;
+  }
+}
+
+/* 세특 바이트 드롭다운: 학생 이름과 같은 줄에서 튀지 않게 축소 */
+.record-byte-select{
+  width: auto !important;
+  min-width: 88px !important;
+  height: 34px !important;
+  padding: 0 8px !important;
+  font-size: 14px !important;
+  line-height: 1.2 !important;
+  border-radius: 12px !important;
+  font-weight: 800 !important;
+}
+
+.record-student-title-row h3{
+  font-size: 22px !important;
+  line-height: 1.2 !important;
+}
+
+/* 세특 AI PRO */
+.records-ai-pro-btn{
+  background:linear-gradient(135deg,#7c3aed,#2563eb) !important;
+}
+.records-ai-pro-panel{
+  border:1px solid #c4b5fd !important;
+  background:linear-gradient(180deg,#faf5ff,#ffffff) !important;
+  margin-bottom:18px !important;
+}
+.records-ai-pro-panel h3{
+  margin:0 0 8px !important;
+  color:#5b21b6 !important;
+  font-size:24px !important;
+}
+.records-ai-pro-panel p{
+  margin:0 0 14px !important;
+  color:#475569 !important;
+  line-height:1.55 !important;
+}
+.records-ai-pro-grid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:10px !important;
+}
+.records-ai-pro-grid label,
+.records-ai-pro-length{
+  display:flex !important;
+  align-items:center !important;
+  gap:8px !important;
+  padding:12px 14px !important;
+  border:1px solid #ddd6fe !important;
+  border-radius:14px !important;
+  background:#fff !important;
+  font-weight:800 !important;
+}
+.records-ai-pro-length{
+  grid-column:1 / -1 !important;
+  flex-wrap:wrap !important;
+}
+.records-ai-pro-length span{
+  color:#5b21b6 !important;
+  font-weight:900 !important;
+  margin-right:8px !important;
+}
+.records-ai-pro-actions{
+  display:flex !important;
+  justify-content:flex-end !important;
+  gap:10px !important;
+  margin-top:14px !important;
+}
+@media(max-width:900px){
+  .records-ai-pro-grid{grid-template-columns:1fr !important;}
+  .records-ai-pro-actions{flex-direction:column !important;}
+}
+
+/* Student record keyword compact + fixed action toolbar */
+.records-class-keyword-panel{padding:18px 22px !important;margin-bottom:12px !important;}
+.records-class-keyword-panel.collapsed{padding:14px 22px !important;}
+.records-class-keyword-header.compact{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;}
+.records-class-keyword-header.compact h3{font-size:24px;margin:0 0 4px;color:#0f172a;}
+.records-class-keyword-header.compact p{margin:0;color:#64748b;font-weight:700;}
+.record-keyword-panel.compact-lines{display:grid;gap:0 !important;border:1px solid #dbeafe;border-radius:16px;padding:10px 16px;background:white;}
+.record-keyword-group.keyword-row{display:grid !important;grid-template-columns:118px 1fr;gap:14px;align-items:center;padding:10px 0;border-bottom:1px dashed #dbe4ef;min-height:auto !important;}
+.record-keyword-group.keyword-row:last-child{border-bottom:0;}
+.record-keyword-group.keyword-row .record-keyword-group-title{font-size:18px;font-weight:900;color:#2563eb;background:transparent;padding:0;}
+.record-keyword-group.keyword-row .record-keyword-chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+.record-keyword-group.keyword-row label{height:38px;display:inline-flex;align-items:center;gap:6px;padding:0 12px;border:1px solid #cfe0f5;border-radius:999px;background:#fff;font-weight:800;}
+.record-custom-keyword-input.inline{flex:1;min-width:280px;height:40px;border-radius:12px;padding:0 14px;}
+.records-action-bar{display:flex !important;align-items:center !important;gap:20px !important;justify-content:flex-start !important;padding:14px 18px !important;background:#fff !important;border:1px solid #bfdbfe !important;border-radius:16px !important;margin:0 0 12px !important;box-shadow:0 8px 22px rgba(15,23,42,.08);}
+.records-action-bar > div{font-weight:900;color:#0f172a;}
+.records-action-buttons{margin-left:auto;display:flex;gap:10px;align-items:center;}
+.records-action-buttons button{height:44px;padding:0 18px;border-radius:12px;font-weight:900;}
+.records-table-card{padding:0 !important;overflow:hidden !important;}
+.records-table-wrap{max-height:calc(100vh - 250px);overflow:auto !important;border-radius:16px;}
+.records-class-table{min-width:1080px !important;table-layout:fixed !important;}
+.records-class-table th{top:0 !important;z-index:30 !important;}
+.records-class-table th:nth-child(1){width:46px !important}.records-class-table th:nth-child(2){width:58px !important}.records-class-table th:nth-child(3){width:90px !important}.records-class-table th:nth-child(4){width:230px !important}.records-class-table th:nth-child(5){width:250px !important}.records-class-table th:nth-child(6){width:420px !important}.records-class-table th:nth-child(7){width:90px !important}.records-class-table th:nth-child(8){width:90px !important}
+.record-evidence-cell strong{font-size:18px !important;color:#0f172a !important;line-height:1.35;}
+.record-evidence-cell div{font-size:13px !important;color:#64748b !important;line-height:1.35;}
+.record-result-textarea,.record-student-note{min-height:96px !important;max-height:130px !important;}
+
+/* 세특: 키워드와 생성/저장/복사/삭제 상태바 고정 */
+.peon-v9-main .records-class-keyword-panel{
+  position:sticky !important;
+  top:0 !important;
+  z-index:2520 !important;
+  background:rgba(248,250,252,.99) !important;
+  box-shadow:0 10px 24px rgba(15,23,42,.10) !important;
+}
+.peon-v9-main .records-summary-sticky,
+.peon-v9-main .records-action-bar{
+  position:sticky !important;
+  top:74px !important;
+  z-index:2510 !important;
+  background:rgba(255,255,255,.99) !important;
+  box-shadow:0 10px 24px rgba(15,23,42,.10) !important;
+}
+.peon-v9-main .records-class-keyword-panel.collapsed + .records-summary-sticky,
+.peon-v9-main .records-class-keyword-panel.collapsed + .records-action-bar{
+  top:58px !important;
+}
+
+/* Records final layout */
+.records-class-keyword-header.compact{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.record-keyword-group.keyword-row{display:grid!important;grid-template-columns:120px 1fr;align-items:center;gap:16px;padding:10px 0;border-bottom:1px dashed #e2e8f0;}
+.record-keyword-group-title{font-weight:900;color:#1d4ed8;}
+.records-table-wrap{overflow-x:auto;max-height:calc(100vh - 300px);}
+.records-class-table{table-layout:fixed;min-width:1280px;width:100%;}
+.records-class-table th,.records-class-table td{vertical-align:middle;}
+.records-class-table th:nth-child(1),.records-class-table td:nth-child(1){width:48px;}
+.records-class-table th:nth-child(2),.records-class-table td:nth-child(2){width:64px;}
+.records-class-table th:nth-child(3),.records-class-table td:nth-child(3){width:110px;}
+.records-class-table th:nth-child(4),.records-class-table td:nth-child(4){width:190px;font-size:14px;line-height:1.45;}
+.records-class-table th:nth-child(5),.records-class-table td:nth-child(5){width:230px;}
+.records-class-table th:nth-child(6),.records-class-table td:nth-child(6){width:620px;}
+.records-class-table th:nth-child(7),.records-class-table td:nth-child(7){width:90px;}
+.record-result-textarea{min-height:132px!important;font-size:16px!important;line-height:1.55!important;}
+.record-student-note{min-height:98px!important;}
+.record-byte-ok{color:#059669;font-weight:900;margin-top:8px;}
+.record-byte-over{color:#dc2626;font-weight:900;margin-top:8px;}
+.records-action-bar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.records-action-buttons{margin-left:auto;display:flex;gap:10px;}
+@media(max-width:900px){
+  .records-table-wrap{max-height:none;overflow:visible;}
+  .records-class-table,.records-class-table thead,.records-class-table tbody,.records-class-table tr,.records-class-table td{display:block;width:100%!important;min-width:0!important;}
+  .records-class-table thead{display:none;}
+  .records-class-table tr{margin:12px 0;border:1px solid #dbeafe;border-radius:18px;overflow:hidden;background:#fff;}
+  .records-class-table td{border:0!important;padding:10px 14px!important;}
+  .record-result-textarea,.record-student-note{width:100%!important;}
+  .records-action-buttons{width:100%;margin-left:0;}
+  .records-action-buttons button{flex:1;}
+}

@@ -1,0 +1,74 @@
+/* PE-ON 공통 기본 스타일: reset, body, 기본 카드/입력 공통 */
+
+/* Base: original preamble */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#f3f5f8;
+  font-family:"Noto Sans KR",system-ui,sans-serif;
+  color:#111827;
+}
+
+button{
+  border:none;
+  cursor:pointer;
+  font-family:inherit;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:14px;
+  border:1px solid #cbd5e1;
+  border-radius:14px;
+  font-size:16px;
+  font-family:inherit;
+}
+
+textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+.app-container{
+  max-width:1400px;
+  margin:0 auto;
+  min-height:100vh;
+  padding-bottom:90px;
+}
+
+.app-header{
+  text-align:center;
+  padding:30px 20px;
+}
+
+.app-header h1{
+  font-size:56px;
+  color:#2563eb;
+  font-weight:800;
+}
+
+.app-header p{
+  margin-top:10px;
+  font-size:18px;
+  color:#555;
+}
+
+.app-main{
+  padding:20px;
+}
+
+.page{
+  width:100%;
+}
+
+.card{
+  background:white;
+  border-radius:20px;
+  padding:20px;
+  margin-bottom:20px;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+}

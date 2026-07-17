@@ -1,0 +1,155 @@
+/* PE-ON 레이아웃: 헤더, 사이드바, 메뉴, 공통 화면 배치 */
+
+/* PE-ON v3.4.1 탭 안 파일 미리보기 */
+.shared-inline-preview{
+  margin-top:14px;
+  border:1px solid #bfdbfe;
+  border-radius:18px;
+  overflow:hidden;
+  background:#ffffff;
+}
+
+.shared-inline-preview-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:12px 14px;
+  background:#eff6ff;
+  border-bottom:1px solid #bfdbfe;
+}
+
+.shared-inline-preview-header > div:first-child{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  min-width:0;
+}
+
+.shared-inline-preview-header strong{
+  color:#1e3a8a;
+  word-break:break-all;
+}
+
+.shared-inline-preview-header span{
+  color:#475569;
+  font-size:13px;
+}
+
+.shared-inline-preview-actions{
+  display:flex;
+  gap:8px;
+  flex-shrink:0;
+}
+
+.shared-file-frame{
+  display:block;
+  width:100%;
+  height:72vh;
+  min-height:520px;
+  border:0;
+  background:white;
+}
+
+.shared-image-preview{
+  max-height:72vh;
+  overflow:auto;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding:12px;
+  background:#f8fafc;
+}
+
+.shared-image-preview img{
+  max-width:100%;
+  height:auto;
+  border-radius:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,.12);
+}
+
+.shared-file-no-preview{
+  padding:24px;
+  text-align:center;
+  background:#f8fafc;
+}
+
+.shared-file-no-preview h4{
+  margin-bottom:8px;
+  color:#1e3a8a;
+}
+
+.shared-file-no-preview p{
+  color:#475569;
+  line-height:1.6;
+}
+
+.shared-file-no-preview-actions{
+  margin-top:16px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+}
+
+@media(max-width:768px){
+  .shared-inline-preview-header{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .shared-inline-preview-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+  }
+
+  .shared-file-frame{
+    height:68vh;
+    min-height:420px;
+  }
+
+  .shared-file-no-preview-actions{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+}
+
+/* PE-ON v6.4 final polish: layout, sticky tabs, rectangular photo, compact controls */
+
+/* ===== PE-ON V10.0 LTS: STICKY LOCK FINAL =====
+   sticky가 풀리는 원인(브라우저 body 스크롤/부모 overflow 충돌)을 막기 위해
+   실제 스크롤 컨테이너를 peon-v9-main 하나로 고정합니다. */
+html, body, #root{
+  height:100% !important;
+  min-height:100% !important;
+  overflow:hidden !important;
+}
+.peon-v9-shell{
+  height:100vh !important;
+  min-height:100vh !important;
+  overflow:hidden !important;
+}
+.peon-v9-content{
+  height:100vh !important;
+  min-height:0 !important;
+  overflow:hidden !important;
+}
+.peon-v9-topbar{
+  flex:0 0 74px !important;
+  position:relative !important;
+  z-index:3000 !important;
+}
+.peon-v9-main{
+  flex:1 1 auto !important;
+  height:calc(100vh - 74px) !important;
+  min-height:0 !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  -webkit-overflow-scrolling:touch !important;
+  position:relative !important;
+  scroll-padding-top:150px !important;
+}
+.peon-v9-main > .page,
+.peon-v9-main .page,
+.peon-v9-main .card{
+  overflow:visible !important;
+}

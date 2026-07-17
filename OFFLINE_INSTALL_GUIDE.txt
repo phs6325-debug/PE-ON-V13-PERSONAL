@@ -1,0 +1,14 @@
+PE-ON V13 OFFLINE PWA
+
+1. On the PC, double-click 1_BUILD_AND_DEPLOY.cmd.
+2. On the Galaxy tablet, connect to the internet once and open:
+   https://pe-on-e6c7c.web.app
+3. Sign in once, then use Chrome menu > Add to Home screen / Install app.
+4. Open the installed PE-ON icon once while online and visit the screens you use.
+5. Turn Wi-Fi off and reopen PE-ON to test offline operation.
+
+Important:
+- The app shell works offline after the first successful online load.
+- Firebase login and cloud synchronization require internet.
+- Scores are also saved in the browser's local storage by the existing PE-ON code.
+- Do not clear Chrome site data or uninstall the app before exporting/backing up records.

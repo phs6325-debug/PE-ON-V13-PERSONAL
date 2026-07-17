@@ -1,0 +1,21 @@
+/*
+  PE-ON v10 LTS style split entry
+  기존 App.jsx/Main.jsx에서 import "./styles/style.css"를 유지하면 됩니다.
+  아래 파일들은 기능별로 분리되어 있으며, 수정할 때 해당 파일만 열어보면 됩니다.
+*/
+@import "./variables.css";
+@import "./base.css";
+@import "./layout.css";
+@import "./home.css";
+@import "./progress.css";
+@import "./roster.css";
+@import "./assessment.css";
+@import "./paps.css";
+@import "./seteuk.css";
+@import "./photoRegister.css";
+@import "./output.css";
+@import "./management.css";
+@import "./modal.css";
+@import "./forms-buttons.css";
+@import "./responsive.css";
+@import "./legacy.css";

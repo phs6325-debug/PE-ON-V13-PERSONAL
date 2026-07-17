@@ -1,0 +1,11 @@
+/* PE-ON 변수 파일: 필요 시 색상/간격 변수 추가 */
+:root{
+  --peon-primary:#2563eb;
+  --peon-danger:#ef4444;
+  --peon-bg:#f3f5f8;
+  --peon-text:#111827;
+  --peon-muted:#64748b;
+  --peon-border:#dbeafe;
+  --peon-radius:20px;
+  --peon-shadow:0 10px 30px rgba(15,23,42,.08);
+}

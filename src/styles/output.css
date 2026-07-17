@@ -1,0 +1,30 @@
+/* PE-ON 출력/PDF/인쇄 스타일 */
+
+/* PE-ON v3.2 출력센터 + 화면 최적화 */
+.bottom-nav{grid-template-columns:repeat(7,1fr)!important}
+.print-control-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:end}
+.print-control-grid label{display:flex;flex-direction:column;gap:8px;font-weight:800}
+.print-control-grid label span{color:#374151;font-size:15px}
+.print-check-panel{margin-top:16px;padding:14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;align-items:center}
+.print-check-panel strong{grid-column:1/-1;font-size:17px;color:#1d4ed8}
+.print-check-panel label{display:flex;align-items:center;gap:8px;font-weight:700;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:10px 12px}
+.print-check-panel input{width:auto;padding:0}
+.print-action-row{display:flex;justify-content:flex-end;gap:10px;margin-top:16px;flex-wrap:wrap}
+.print-preview-card p{line-height:1.6;color:#374151}
+.app-container{max-width:1480px!important}
+.card{padding:18px!important;margin-bottom:16px!important}
+.app-header{padding:18px 20px 12px!important}
+.app-header h1{font-size:42px!important}
+.app-header p{margin-top:4px!important}
+.app-main{padding:14px!important}
+input,select,textarea{padding:11px 12px!important;font-size:15px!important}
+.student-table th,.student-table td{padding:9px 8px!important;font-size:15px!important}
+.class-tabs{position:sticky;top:0;z-index:50;background:#f3f5f8;padding:8px 0;margin-bottom:12px!important}
+.class-tabs button{padding:11px 8px!important}
+.assessment-main-tabs,.paps-main-tabs{position:sticky;top:0;z-index:45;background:#f3f5f8;padding:8px 0}
+.assessment-tabs{position:sticky;top:54px;z-index:44;background:#f3f5f8;padding:8px 0}
+.view-btn-male,.view-btn-female,.setting-btn,.delete-btn,.danger,.save-btn,.cancel-btn{padding:7px 11px!important;border-radius:10px!important;font-size:14px!important}
+.assessment-row-actions{display:flex;gap:6px;justify-content:center;align-items:center}
+@media(max-width:1024px){.app-container{max-width:100%!important}.app-header{padding:12px 12px 6px!important}.app-header h1{font-size:34px!important}.app-header p{font-size:14px!important}.bottom-nav{height:64px!important}.bottom-nav button{font-size:15px!important}.class-grid{grid-template-columns:repeat(2,1fr)!important}.history-row{grid-template-columns:110px 1fr 130px!important}}
+@media(max-width:768px){.app-main{padding:8px!important}.card{border-radius:16px!important;padding:12px!important;margin-bottom:12px!important}.bottom-nav{height:58px!important;grid-template-columns:repeat(7,1fr)!important}.bottom-nav button{font-size:13px!important;letter-spacing:-.5px}.select-row{grid-template-columns:repeat(3,1fr)!important;gap:6px!important}.select-row select{padding:9px 6px!important;font-size:13px!important}.date-card{flex-direction:row!important;align-items:center!important;gap:8px!important}.date-card strong{font-size:15px!important}.date-card input{width:145px!important;font-size:13px!important}.class-tabs{grid-template-columns:repeat(5,1fr)!important;gap:6px!important;overflow-x:auto}.class-tabs button{min-width:58px;padding:10px 4px!important;border-radius:12px!important;font-size:15px!important}.student-input-row{grid-template-columns:70px 1fr 74px!important;gap:6px!important}.student-table{display:table!important;overflow:visible!important;white-space:normal!important;table-layout:fixed}.student-table th,.student-table td{padding:7px 4px!important;font-size:13px!important;word-break:keep-all}.assessment-row-actions{flex-direction:column;gap:4px}.view-btn-male,.view-btn-female,.setting-btn,.delete-btn,.danger,.save-btn,.cancel-btn{padding:6px 8px!important;font-size:12px!important;min-height:30px}.print-control-grid{grid-template-columns:1fr!important}.print-action-row{display:grid;grid-template-columns:1fr 1fr}.print-check-panel{grid-template-columns:1fr!important}.class-grid{grid-template-columns:repeat(2,1fr)!important;gap:8px!important}.class-card{min-height:92px!important;padding:12px!important}.class-card strong{font-size:22px!important}.class-card span{font-size:14px!important}.history-row{grid-template-columns:82px 1fr 78px!important;gap:6px!important;padding:8px!important}.progress-history-btns{display:flex;flex-direction:column;gap:4px}.modal{width:96%!important;padding:14px!important}}
+@media(max-width:420px){.bottom-nav button{font-size:12px!important}.student-table th,.student-table td{font-size:12px!important}.roster-table th:nth-child(4),.roster-table td:nth-child(4){display:none}}

@@ -1,0 +1,399 @@
+
+/* PE-ON 교과세특 클린 리빌드
+   기존 records-v10 CSS와 충돌하지 않도록 seteukClean* 클래스만 사용합니다. */
+
+.records-v10-header p{
+  display:none !important;
+}
+
+.seteukClean{
+  display:grid;
+  grid-template-columns:240px minmax(0,1fr);
+  gap:16px;
+  align-items:start;
+}
+
+.seteukCleanRoster{
+  position:sticky;
+  top:12px;
+  max-height:calc(100vh - 120px);
+  overflow:hidden;
+  padding:18px;
+}
+
+.seteukCleanRosterHead h3{
+  margin:0 0 6px;
+  font-size:19px;
+  line-height:1.25;
+  color:#111827;
+}
+
+.seteukCleanRosterHead p{
+  margin:0 0 12px;
+  color:#64748b;
+  font-size:12px;
+  font-weight:900;
+}
+
+.seteukCleanRosterList{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  max-height:calc(100vh - 220px);
+  overflow:auto;
+  padding-right:4px;
+}
+
+.seteukCleanRosterList button{
+  display:grid;
+  grid-template-columns:32px minmax(0,1fr) 22px;
+  gap:8px;
+  align-items:center;
+  min-height:46px;
+  padding:6px 8px;
+  border:1px solid #e2e8f0;
+  border-radius:14px;
+  background:#fff;
+  color:#111827;
+  text-align:left;
+  font-weight:900;
+}
+
+.seteukCleanRosterList button.active{
+  border-color:#2563eb;
+  background:#eff6ff;
+  color:#1d4ed8;
+}
+
+.seteukCleanRosterList button span{
+  width:30px;
+  height:30px;
+  border-radius:999px;
+  background:#e5e7eb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#475569;
+}
+
+.seteukCleanRosterList button.active span{
+  background:#2563eb;
+  color:#fff;
+}
+
+.seteukCleanRosterList button strong{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.seteukCleanRosterList button em{
+  font-style:normal;
+  color:#94a3b8;
+}
+
+.seteukCleanMain{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:12px;
+  align-items:stretch;
+}
+
+.seteukCleanCard{
+  padding:16px !important;
+  border-radius:20px !important;
+  min-width:0;
+  overflow:visible;
+}
+
+.seteukCleanTitle{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:10px;
+  min-width:0;
+}
+
+.seteukCleanTitle > span{
+  flex:0 0 32px;
+  width:32px;
+  height:32px;
+  border-radius:10px;
+  background:#2563eb;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+}
+
+.seteukCleanTitle h3{
+  margin:0;
+  font-size:18px;
+  color:#1d4ed8;
+  white-space:nowrap;
+}
+
+.seteukCleanStudentBadge{
+  margin-left:auto;
+  height:30px;
+  padding:0 11px;
+  border-radius:999px;
+  background:#eff6ff;
+  color:#1d4ed8;
+  font-size:13px;
+  font-weight:900;
+  display:inline-flex;
+  align-items:center;
+  white-space:nowrap;
+}
+
+.seteukCleanEvidenceTable{
+  width:100%;
+  table-layout:fixed;
+  border-collapse:collapse;
+}
+
+.seteukCleanEvidenceTable th,
+.seteukCleanEvidenceTable td{
+  border:1px solid #e2e8f0;
+  padding:8px 7px;
+  text-align:center;
+  line-height:1.25;
+}
+
+.seteukCleanEvidenceTable th{
+  width:70%;
+  background:#eff6ff;
+  color:#1d4ed8;
+  word-break:keep-all;
+}
+
+.seteukCleanEvidenceTable td{
+  width:30%;
+  white-space:nowrap;
+  font-weight:900;
+}
+
+.seteukCleanEmpty{
+  margin:0;
+  color:#64748b;
+  font-weight:800;
+}
+
+.seteukCleanGrowth{
+  display:grid;
+  gap:7px;
+}
+
+.seteukCleanGrowth label{
+  display:grid;
+  grid-template-columns:74px minmax(0,1fr);
+  gap:6px;
+  align-items:center;
+  font-weight:900;
+}
+
+.seteukCleanGrowth label span{
+  white-space:nowrap;
+  color:#334155;
+}
+
+.seteukCleanGrowth input{
+  height:38px;
+  min-height:38px;
+  padding:8px 10px;
+  font-size:13px;
+  border-radius:12px;
+}
+
+.seteukMemo textarea,
+.seteukCommon textarea{
+  width:100%;
+  min-height:98px;
+  height:98px;
+  line-height:1.45;
+  resize:vertical;
+}
+
+.seteukResult{
+  grid-column:1 / -1;
+  display:flex;
+  flex-direction:column;
+}
+
+.seteukResult textarea{
+  width:100%;
+  min-height:128px;
+  height:128px;
+  line-height:1.5;
+  resize:vertical;
+}
+
+.seteukCleanByte{
+  margin-top:6px;
+  text-align:right;
+  color:#64748b;
+  font-size:13px;
+  font-weight:900;
+}
+
+.seteukCleanActions{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:8px;
+  width:100%;
+  margin-top:10px;
+}
+
+.seteukCleanActions button{
+  width:100%;
+  min-width:0;
+  height:44px;
+  min-height:44px;
+  padding:0;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  white-space:nowrap;
+}
+
+.seteukCleanActions .save-btn{
+  background:#2563eb !important;
+  border:1.5px solid #2563eb !important;
+  color:#fff !important;
+}
+
+.seteukCleanActions .excel-btn{
+  background:#10b981 !important;
+  border:1.5px solid #10b981 !important;
+  color:#fff !important;
+}
+
+.seteukCleanActions .setting-btn{
+  background:#fff !important;
+  border:1.5px solid #cbd5e1 !important;
+  color:#475569 !important;
+}
+
+.seteukCleanActions .delete-btn{
+  background:#ef4444 !important;
+  border:1.5px solid #ef4444 !important;
+  color:#fff !important;
+}
+
+/* 태블릿: 전체 구조는 유지, 버튼 4개 한 줄이 카드 안에서 보이도록 강제 */
+@media (min-width:769px) and (max-width:1280px){
+  .seteukClean{
+    grid-template-columns:220px minmax(0,1fr);
+    gap:10px;
+  }
+
+  .seteukCleanRoster{
+    padding:14px;
+  }
+
+  .seteukCleanMain{
+    gap:10px;
+  }
+
+  .seteukCleanCard{
+    padding:14px !important;
+  }
+
+  .seteukCleanTitle{
+    margin-bottom:8px;
+  }
+
+  .seteukCleanTitle h3{
+    font-size:17px;
+  }
+
+  .seteukCleanStudentBadge{
+    font-size:12px;
+    padding:0 9px;
+  }
+
+  .seteukMemo textarea,
+  .seteukCommon textarea{
+    min-height:88px;
+    height:88px;
+  }
+
+  .seteukResult textarea{
+    min-height:108px;
+    height:108px;
+  }
+
+  .seteukCleanActions{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:6px;
+    margin-top:8px;
+  }
+
+  .seteukCleanActions button{
+    height:40px;
+    min-height:40px;
+    font-size:12px;
+    border-radius:11px;
+  }
+}
+
+/* 좁은 태블릿/모바일: 한 열 */
+@media (max-width:900px){
+  .seteukClean{
+    grid-template-columns:1fr;
+  }
+
+  .seteukCleanRoster{
+    position:static;
+    max-height:none;
+  }
+
+  .seteukCleanRosterList{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    max-height:none;
+  }
+
+  .seteukCleanMain{
+    grid-template-columns:1fr;
+  }
+
+  .seteukResult{
+    grid-column:auto;
+  }
+}
+
+/* 모바일: 버튼 2×2 */
+@media (max-width:768px){
+  .seteukCleanRosterList{
+    grid-template-columns:1fr;
+  }
+
+  .seteukMemo textarea,
+  .seteukCommon textarea{
+    min-height:120px;
+    height:120px;
+  }
+
+  .seteukResult textarea{
+    min-height:160px;
+    height:160px;
+  }
+
+  .seteukCleanActions{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+
+  .seteukCleanActions button{
+    height:54px;
+    min-height:54px;
+    font-size:16px;
+    border-radius:16px;
+  }
+}

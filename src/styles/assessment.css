@@ -1,0 +1,2687 @@
+/* PE-ON 수행평가 스타일 */
+
+/* 수행평가 */
+.assessment-add-row{
+  display:grid;
+  grid-template-columns:1fr 160px 140px;
+  gap:12px;
+  align-items:center;
+}
+
+.assessment-tabs{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  margin-bottom:20px;
+}
+
+.assessment-tabs button{
+  background:white;
+  color:#2563eb;
+  border:1px solid #2563eb;
+  border-radius:12px;
+  padding:12px 18px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.assessment-tabs button.active{
+  background:#2563eb;
+  color:white;
+}
+
+.file-name{
+  margin-top:12px;
+  color:#374151;
+}
+
+.assessment-quick-row{
+  display:grid;
+  grid-template-columns:minmax(180px,1fr) 140px 90px 130px 60px;
+  gap:10px;
+  margin:18px 0;
+  align-items:center;
+}
+
+.assessment-quick-row input,
+.assessment-quick-row select,
+.assessment-quick-row button{
+  height:48px;
+}
+
+.assessment-quick-row button{
+  border-radius:12px;
+  font-weight:700;
+  background:#2563eb;
+  color:white;
+}
+
+.rule-row{
+  display:grid;
+  grid-template-columns:1fr 120px 80px;
+  gap:10px;
+  margin-bottom:8px;
+}
+
+.activity-delete-row{
+  display:flex;
+  justify-content:flex-end;
+  margin-top:20px;
+}
+
+/* 수행평가 표 가운데 정렬 */
+.student-table th,
+.student-table td{
+  text-align:center;
+  vertical-align:middle;
+}
+
+/* 수행평가 입력칸 가운데 정렬 */
+.student-table input,
+.student-table select{
+  text-align:center;
+  margin:0 auto;
+}
+
+/* 수행평가 점수입력 평가점수 표시 */
+.assessment-score-result{
+  color:#2563eb !important;
+  font-size:20px;
+  font-weight:800;
+}
+
+/* 수행평가 안내 박스 */
+.assessment-guide-box{
+  margin-top:18px;
+  padding:14px 18px;
+  background:#eff6ff;
+  border:1px solid #bfdbfe;
+  border-radius:12px;
+  color:#1e40af;
+  font-weight:700;
+}
+
+/* 수행평가 점수입력 학생별 관리 버튼 */
+.assessment-row-actions{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  white-space:nowrap;
+}
+
+.assessment-row-actions button{
+  width:64px;
+  height:40px;
+  padding:0;
+  border-radius:10px;
+  font-size:15px;
+  font-weight:800;
+}
+
+.assessment-save-message{
+  display:inline-block;
+  margin:0 0 14px 0;
+  padding:10px 14px;
+  border-radius:12px;
+  background:#ecfdf5;
+  color:#047857;
+  font-weight:800;
+}
+
+.excel-menu-wrap{
+  position:relative;
+  display:inline-block;
+}
+
+.excel-menu{
+  position:absolute;
+  right:0;
+  top:58px;
+  z-index:100;
+  min-width:190px;
+  background:white;
+  border:1px solid #dbe2ea;
+  border-radius:14px;
+  box-shadow:0 8px 22px rgba(0,0,0,.12);
+  overflow:hidden;
+}
+
+.excel-menu button{
+  width:100%;
+  padding:14px 16px;
+  background:white;
+  color:#111827;
+  text-align:left;
+  font-weight:800;
+}
+
+.excel-menu button:hover{
+  background:#f8fafc;
+}
+
+/* 수행평가 전체 입력 관리 / 학생별 관리 버튼 */
+.assessment-row-actions{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:nowrap;
+}
+
+.assessment-row-actions button{
+  min-width:64px;
+  height:42px;
+  padding:0 12px;
+  border-radius:10px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.assessment-action-menu-wrap{
+  position:relative;
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.bulk-menu-btn{
+  height:54px;
+  min-width:150px;
+  border:1px solid #2563eb;
+  background:white;
+  color:#2563eb;
+  border-radius:14px;
+  font-weight:800;
+  padding:0 16px;
+  white-space:nowrap;
+}
+
+.bulk-menu-panel{
+  position:absolute;
+  top:62px;
+  right:0;
+  z-index:50;
+  width:260px;
+  background:white;
+  border:1px solid #e2e8f0;
+  border-radius:16px;
+  box-shadow:0 12px 28px rgba(15,23,42,.16);
+  padding:14px;
+  display:grid;
+  gap:10px;
+}
+
+.bulk-menu-panel button{
+  height:44px;
+  border-radius:10px;
+  font-weight:800;
+}
+
+.bulk-check-row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:800;
+  padding-bottom:10px;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.bulk-check-row input,
+.student-select-checkbox{
+  width:20px;
+  height:20px;
+  accent-color:#2563eb;
+}
+
+.bulk-menu-panel p{
+  font-size:14px;
+  color:#475569;
+  text-align:center;
+  font-weight:700;
+}
+
+.assessment-save-message{
+  margin:0 0 14px 0;
+  padding:12px 16px;
+  background:#ecfdf5;
+  border:1px solid #a7f3d0;
+  border-radius:12px;
+  color:#047857;
+  font-weight:800;
+}
+
+.excel-btn.secondary{
+  background:#059669;
+}
+
+.assessment-bottom-actions{
+  display:flex;
+  gap:10px;
+  justify-content:flex-end;
+  align-items:center;
+  margin-top:20px;
+}
+
+.assessment-bottom-actions button{
+  min-width:100px;
+  height:46px;
+  border-radius:12px;
+  font-weight:800;
+}
+
+@media(max-width:768px){
+  .assessment-row-actions{
+    flex-wrap:wrap;
+  }
+  .assessment-action-menu-wrap,
+  .assessment-action-menu-wrap button{
+    width:100%;
+  }
+  .bulk-menu-panel{
+    position:static;
+    width:100%;
+    margin-top:8px;
+  }
+}
+.bulk-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+.bulk-close{
+  width:40px;
+  height:40px;
+  border:none;
+  border-radius:10px;
+  background:#fff;
+  color:#ef4444;
+  font-size:24px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.bulk-close:hover{
+  background:#fee2e2;
+}
+
+/* 수행평가 점수입력 상단 정리: 반 선택 축소/가운데 정렬, 저장·수정·삭제 상단 고정 */
+.assessment-input-header-clean{
+  display:grid !important;
+  grid-template-columns: 130px minmax(220px, 1fr) auto minmax(220px, 1fr) 140px;
+  gap:12px;
+  align-items:center;
+}
+
+.assessment-class-select{
+  width:130px !important;
+  min-width:130px !important;
+  text-align:center !important;
+  text-align-last:center !important;
+  font-weight:800;
+}
+
+.assessment-activity-select,
+.assessment-excel-select{
+  min-width:220px;
+  text-align:center;
+  text-align-last:center;
+  font-weight:700;
+}
+
+.assessment-top-actions{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:center;
+  white-space:nowrap;
+}
+
+.assessment-top-actions button{
+  width:76px;
+  height:52px;
+  border-radius:14px;
+  font-size:17px;
+  font-weight:900;
+  padding:0;
+}
+
+.assessment-input-header-clean .excel-btn{
+  height:52px;
+  min-width:130px;
+  border-radius:14px;
+  font-size:17px;
+  font-weight:900;
+  padding:0 14px;
+}
+
+.assessment-guide-box.compact{
+  margin:0 0 16px 0;
+  padding:12px 16px;
+}
+
+.table-all-check{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-weight:900;
+}
+
+.table-all-check input{
+  width:20px !important;
+  height:20px !important;
+  margin:0 !important;
+}
+
+.student-select-checkbox{
+  width:20px !important;
+  height:20px !important;
+  margin:0 auto !important;
+}
+
+/* 엑셀 다운로드 체크박스 드롭다운 + 아이콘 버튼 */
+.assessment-input-header-clean{
+  grid-template-columns:130px minmax(220px,1fr) auto 86px !important;
+}
+
+.excel-check-wrap{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.excel-icon-only-btn{
+  width:64px;
+  height:52px;
+  border-radius:14px;
+  background:#10b981;
+  color:white;
+  font-size:26px;
+  font-weight:900;
+  box-shadow:0 4px 10px rgba(16,185,129,.18);
+}
+
+.excel-icon-only-btn:hover{
+  transform:translateY(-1px);
+}
+
+.excel-check-panel{
+  position:absolute;
+  right:0;
+  top:62px;
+  z-index:80;
+  width:260px;
+  background:white;
+  border:1px solid #dbe2ea;
+  border-radius:16px;
+  box-shadow:0 12px 28px rgba(15,23,42,.16);
+  padding:14px;
+}
+
+.excel-check-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 8px;
+  font-size:16px;
+  font-weight:800;
+  color:#111827;
+  border-radius:10px;
+}
+
+.excel-check-row:hover{
+  background:#f8fafc;
+}
+
+.excel-check-row input{
+  width:20px;
+  height:20px;
+  accent-color:#10b981;
+}
+
+.excel-panel-download-btn{
+  width:100%;
+  height:52px;
+  margin-top:10px;
+  border-radius:14px;
+  background:#10b981;
+  color:white;
+  font-size:26px;
+  font-weight:900;
+}
+
+@media(max-width:768px){
+  .assessment-input-header-clean{
+    grid-template-columns:1fr !important;
+  }
+
+  .excel-check-wrap,
+  .excel-icon-only-btn{
+    width:100%;
+  }
+
+  .excel-check-panel{
+    position:static;
+    width:100%;
+    margin-top:8px;
+  }
+}
+
+/* 학생카드 최종 정리: X버튼 고정 + 프로필/점수 화면 개선 */
+.student-card-modal{
+  position:relative;
+  overflow-y:auto;
+  padding-top:20px;
+}
+
+.student-card-title-row{
+  padding-right:72px;
+  margin-bottom:10px;
+}
+
+.card-close-fixed{
+  position:sticky;
+  top:12px;
+  float:right;
+  z-index:9999;
+  width:60px;
+  height:60px;
+  border:1px solid #dbe2ea;
+  border-radius:16px;
+  background:#fff;
+  color:#111827;
+  box-shadow:0 4px 16px rgba(15,23,42,.18);
+  font-size:36px;
+  font-weight:900;
+  line-height:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.card-close-fixed:hover{
+  background:#ef4444;
+  color:#fff;
+  border-color:#ef4444;
+  transform:scale(1.03);
+}
+
+.student-card-profile{
+  text-align:center;
+  padding-top:8px;
+}
+
+.student-card-profile input[type="file"]{
+  max-width:100%;
+  margin:10px auto 8px;
+}
+
+.student-card-profile h2{
+  margin-top:8px;
+  font-size:30px;
+}
+
+.student-card-profile h3{
+  margin-top:4px;
+  font-size:24px;
+}
+
+.student-card-modal .student-photo-large{
+  width:160px;
+  height:160px;
+  font-size:64px;
+  box-shadow:0 6px 18px rgba(37,99,235,.15);
+}
+
+.student-card-modal .card{
+  border:1px solid #eef2f7;
+}
+
+.student-score-row{
+  gap:16px;
+}
+
+.student-score-row span{
+  font-weight:800;
+  color:#374151;
+}
+
+.student-score-row strong{
+  color:#2563eb;
+  font-size:18px;
+}
+
+.student-score-total{
+  background:#eff6ff;
+  border:1px solid #bfdbfe;
+  border-radius:14px;
+  padding:14px 16px;
+  color:#1e40af;
+}
+
+.student-score-total strong{
+  font-size:22px;
+}
+
+@media(max-width:768px){
+  .student-card-modal{
+    width:95%;
+    max-height:88vh;
+    padding:16px;
+  }
+
+  .card-close-fixed{
+    top:8px;
+    width:54px;
+    height:54px;
+    font-size:32px;
+  }
+
+  .student-card-title-row{
+    padding-right:64px;
+  }
+
+  .student-card-modal .student-photo-large{
+    width:130px;
+    height:130px;
+    font-size:54px;
+  }
+}
+
+/* PAPS 탭/선택 영역 고정 */
+  .assessment-main-tabs,
+  .paps-sticky-controls{
+    position:sticky !important;
+    top:0 !important;
+    z-index:1150 !important;
+    background:#f1f4f8 !important;
+    padding:8px 0 !important;
+  }
+  .assessment-main-tabs{
+    display:grid !important;
+    grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
+    gap:6px !important;
+  }
+  .assessment-main-tabs button{
+    height:42px !important;
+    min-width:0 !important;
+    padding:4px !important;
+    border-radius:12px !important;
+    font-size:14px !important;
+  }
+  .assessment-tabs{
+    display:flex !important;
+    gap:8px !important;
+    overflow-x:auto !important;
+    padding-bottom:6px !important;
+  }
+  .assessment-tabs button{
+    height:42px !important;
+    padding:6px 14px !important;
+    border-radius:12px !important;
+    font-size:14px !important;
+    flex:0 0 auto !important;
+  }
+  .assessment-input-header-clean{
+    grid-template-columns:56px minmax(0, 1fr) !important;
+    gap:8px !important;
+    align-items:center !important;
+  }
+  .assessment-input-header-clean .assessment-top-actions{
+    grid-column:1 / -1 !important;
+    display:grid !important;
+    grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
+    gap:6px !important;
+  }
+  .assessment-class-select,
+  .assessment-activity-select{
+    height:42px !important;
+    min-width:0 !important;
+    font-size:14px !important;
+    padding:0 8px !important;
+  }
+  .assessment-top-actions button{
+    height:38px !important;
+    min-width:0 !important;
+    padding:4px !important;
+    font-size:13px !important;
+    border-radius:10px !important;
+  }
+
+/* PE-ON v3.4 공용 파일 시스템 */
+.shared-file-card,
+.assessment-file-card{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.shared-file-header,
+.assessment-file-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:16px;
+}
+
+.shared-file-header p,
+.assessment-file-header p{
+  margin-top:6px;
+  color:#64748b;
+  line-height:1.5;
+}
+
+.shared-file-upload-btn,
+.standard-file-upload-btn{
+  background:#2563eb;
+  color:#fff;
+  padding:10px 14px;
+  border-radius:12px;
+  font-weight:800;
+  white-space:nowrap;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.shared-file-upload-btn input,
+.standard-file-upload-btn input{
+  display:none;
+}
+
+.shared-file-list,
+.standard-file-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.shared-file-row,
+.standard-file-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:14px;
+  border:1px solid #dbeafe;
+  border-radius:16px;
+  background:#eff6ff;
+}
+
+.shared-file-info,
+.standard-file-info{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  min-width:0;
+}
+
+.shared-file-info strong,
+.standard-file-info strong{
+  color:#1e3a8a;
+  word-break:break-all;
+}
+
+.shared-file-info span,
+.standard-file-info span{
+  color:#475569;
+  font-size:13px;
+}
+
+.shared-file-actions,
+.standard-file-actions{
+  display:flex;
+  gap:8px;
+  flex-shrink:0;
+}
+
+@media(max-width:768px){
+  .shared-file-header,
+  .shared-file-row,
+  .assessment-file-header,
+  .standard-file-row{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .shared-file-actions,
+  .standard-file-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+  }
+
+  .shared-file-upload-btn,
+  .standard-file-upload-btn{
+    width:100%;
+  }
+}
+
+/* PE-ON v3.5 수행평가 안정화 */
+.assessment-page .assessment-main-tabs{
+  position:static !important;
+  top:auto !important;
+  z-index:auto !important;
+  display:grid !important;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;
+  margin-bottom:16px;
+}
+
+.assessment-page .assessment-main-tabs button{
+  min-height:58px !important;
+  border-radius:18px !important;
+  font-size:20px !important;
+}
+
+.assessment-page .assessment-activity-card{
+  display:grid;
+  grid-template-columns:1fr 180px 140px;
+  gap:10px;
+  align-items:center;
+}
+
+.assessment-page .assessment-activity-card input,
+.assessment-page .assessment-setting-table input,
+.assessment-page .assessment-setting-table select{
+  height:44px !important;
+  padding:8px 10px !important;
+  border-radius:12px !important;
+  box-sizing:border-box;
+}
+
+.assessment-page .assessment-setting-table{
+  table-layout:fixed;
+  width:100%;
+}
+
+.assessment-page .assessment-setting-table th:nth-child(1){width:22%;}
+.assessment-page .assessment-setting-table th:nth-child(2){width:15%;}
+.assessment-page .assessment-setting-table th:nth-child(3){width:13%;}
+.assessment-page .assessment-setting-table th:nth-child(4){width:34%;}
+.assessment-page .assessment-setting-table th:nth-child(5){width:16%;}
+
+.assessment-page .assessment-input-header-clean{
+  display:grid !important;
+  grid-template-columns:140px minmax(220px, 1fr) auto;
+  gap:10px !important;
+  align-items:center;
+}
+
+.assessment-page .assessment-top-actions{
+  display:flex !important;
+  gap:6px !important;
+  flex-wrap:nowrap !important;
+}
+
+.assessment-page .assessment-top-actions button{
+  min-width:82px !important;
+  padding:8px 10px !important;
+  font-size:14px !important;
+  border-radius:11px !important;
+}
+
+.assessment-page .assessment-input-card{
+  overflow-x:auto;
+}
+
+.assessment-page .assessment-input-table{
+  table-layout:fixed;
+  width:100%;
+  min-width:820px;
+}
+
+.assessment-page .assessment-input-table th,
+.assessment-page .assessment-input-table td{
+  vertical-align:middle !important;
+  text-align:center !important;
+  padding:8px 6px !important;
+}
+
+.assessment-page .assessment-input-table th:nth-child(1),
+.assessment-page .assessment-input-table td:nth-child(1){width:70px;}
+
+.assessment-page .assessment-input-table th:nth-child(2),
+.assessment-page .assessment-input-table td:nth-child(2){width:70px;}
+
+.assessment-page .assessment-input-table th:nth-child(3),
+.assessment-page .assessment-input-table td:nth-child(3){width:120px;}
+
+.assessment-page .assessment-input-table th:nth-last-child(2),
+.assessment-page .assessment-input-table td:nth-last-child(2){width:100px;}
+
+.assessment-page .assessment-input-table th:last-child,
+.assessment-page .assessment-input-table td:last-child{width:190px;}
+
+.assessment-page .assessment-input-table input,
+.assessment-page .assessment-input-table select{
+  width:100% !important;
+  height:40px !important;
+  padding:6px 8px !important;
+  text-align:center;
+  border-radius:10px !important;
+  box-sizing:border-box;
+}
+
+.assessment-page .assessment-input-table input[type="checkbox"],
+.assessment-page .assessment-input-table .student-select-checkbox{
+  width:20px !important;
+  height:20px !important;
+  padding:0 !important;
+}
+
+.assessment-page .assessment-row-actions{
+  display:grid !important;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:6px !important;
+  max-width:240px;
+  margin:0 auto;
+}
+
+.assessment-page .assessment-row-actions button{
+  width:100% !important;
+  min-width:0 !important;
+  padding:7px 6px !important;
+  font-size:13px !important;
+  border-radius:10px !important;
+}
+
+.assessment-page .assessment-bottom-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:14px;
+}
+
+.assessment-page .assessment-bottom-actions button{
+  min-width:110px;
+  padding:10px 14px;
+  border-radius:12px;
+}
+
+@media(max-width:768px){
+  .assessment-page .assessment-main-tabs{
+    gap:6px;
+  }
+
+  .assessment-page .assessment-main-tabs button{
+    min-height:48px !important;
+    font-size:15px !important;
+    border-radius:14px !important;
+  }
+
+  .assessment-page .assessment-activity-card{
+    grid-template-columns:1fr;
+  }
+
+  .assessment-page .assessment-input-header-clean{
+    grid-template-columns:1fr 1fr !important;
+    gap:7px !important;
+  }
+
+  .assessment-page .assessment-input-header-clean .assessment-top-actions{
+    grid-column:1 / -1;
+    display:grid !important;
+    grid-template-columns:1fr 1fr 1fr;
+  }
+
+  .assessment-page .assessment-top-actions button{
+    min-width:0 !important;
+    padding:7px 5px !important;
+    font-size:12px !important;
+  }
+
+  .assessment-page .assessment-input-table{
+    min-width:720px;
+  }
+
+  .assessment-page .assessment-input-table th,
+  .assessment-page .assessment-input-table td{
+    padding:5px 3px !important;
+    font-size:12px !important;
+  }
+
+  .assessment-page .assessment-input-table input,
+  .assessment-page .assessment-input-table select{
+    height:32px !important;
+    font-size:12px !important;
+    padding:4px !important;
+  }
+
+  .assessment-page .assessment-row-actions{
+    grid-template-columns:1fr;
+    max-width:64px;
+    gap:4px !important;
+  }
+
+  .assessment-page .assessment-row-actions button{
+    padding:5px 3px !important;
+    font-size:11px !important;
+  }
+}
+
+/* PE-ON v3.6.1 수행평가 실수정 안정화 */
+.assessment-page .assessment-main-tabs{
+  position:static !important;
+  display:grid !important;
+  grid-template-columns:repeat(3, 1fr) !important;
+  gap:10px !important;
+  margin-bottom:16px !important;
+}
+
+.assessment-page .assessment-main-tabs button{
+  min-height:54px !important;
+  border-radius:18px !important;
+  font-size:20px !important;
+}
+
+.assessment-page .assessment-activity-card{
+  display:grid !important;
+  grid-template-columns:minmax(220px, 1fr) 160px 130px !important;
+  gap:10px !important;
+  align-items:center !important;
+}
+
+.assessment-page .assessment-activity-card input,
+.assessment-page .assessment-setting-grid input,
+.assessment-page .assessment-setting-grid select,
+.assessment-page .assessment-input-header select{
+  height:44px !important;
+  padding:8px 12px !important;
+  border-radius:12px !important;
+  box-sizing:border-box !important;
+}
+
+.assessment-page .assessment-setting-grid{
+  display:grid !important;
+  grid-template-columns:minmax(180px, 1fr) 160px 130px 150px 140px auto !important;
+  gap:8px !important;
+  align-items:center !important;
+  margin-bottom:14px !important;
+}
+
+.assessment-page .assessment-setting-table,
+.assessment-page .assessment-input-table,
+.assessment-page .assessment-check-table{
+  table-layout:fixed !important;
+  width:100% !important;
+}
+
+.assessment-page .assessment-setting-table th,
+.assessment-page .assessment-setting-table td,
+.assessment-page .assessment-input-table th,
+.assessment-page .assessment-input-table td,
+.assessment-page .assessment-check-table th,
+.assessment-page .assessment-check-table td{
+  vertical-align:middle !important;
+  text-align:center !important;
+  padding:8px 6px !important;
+}
+
+.assessment-page .assessment-input-header-clean{
+  display:grid !important;
+  grid-template-columns:130px minmax(220px, 1fr) auto !important;
+  gap:10px !important;
+  align-items:center !important;
+}
+
+.assessment-page .assessment-top-actions{
+  display:flex !important;
+  gap:6px !important;
+  flex-wrap:nowrap !important;
+}
+
+.assessment-page .assessment-top-actions button{
+  min-width:82px !important;
+  padding:8px 10px !important;
+  font-size:14px !important;
+  border-radius:11px !important;
+}
+
+.assessment-page .assessment-input-card{
+  overflow-x:auto !important;
+}
+
+.assessment-page .assessment-input-table{
+  min-width:850px !important;
+}
+
+.assessment-page .assessment-input-table th:first-child,
+.assessment-page .assessment-input-table td:first-child{width:68px !important;}
+
+.assessment-page .assessment-input-table th:nth-child(2),
+.assessment-page .assessment-input-table td:nth-child(2){width:62px !important;}
+
+.assessment-page .assessment-input-table th:nth-child(3),
+.assessment-page .assessment-input-table td:nth-child(3){width:120px !important;}
+
+.assessment-page .assessment-input-table th:nth-last-child(2),
+.assessment-page .assessment-input-table td:nth-last-child(2){width:100px !important;}
+
+.assessment-page .assessment-input-table th:last-child,
+.assessment-page .assessment-input-table td:last-child{width:180px !important;}
+
+.assessment-page .assessment-input-table input,
+.assessment-page .assessment-input-table select{
+  width:100% !important;
+  height:38px !important;
+  padding:6px 8px !important;
+  text-align:center !important;
+  border-radius:10px !important;
+  box-sizing:border-box !important;
+  background:#fff !important;
+}
+
+.assessment-page .assessment-input-table input[type="checkbox"],
+.assessment-page .assessment-input-table .student-select-checkbox{
+  width:20px !important;
+  height:20px !important;
+  padding:0 !important;
+}
+
+.assessment-page .assessment-score-result{
+  color:#2563eb !important;
+  font-weight:900 !important;
+}
+
+.assessment-page .assessment-row-actions{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:6px !important;
+  max-width:160px !important;
+  margin:0 auto !important;
+}
+
+.assessment-page .assessment-row-actions .delete-btn{
+  grid-column:1 / -1;
+}
+
+.assessment-page .assessment-row-actions button{
+  width:100% !important;
+  min-width:0 !important;
+  padding:7px 6px !important;
+  font-size:13px !important;
+  border-radius:10px !important;
+}
+
+.assessment-page .assessment-bottom-actions{
+  display:flex !important;
+  justify-content:flex-end !important;
+  gap:10px !important;
+  margin-top:14px !important;
+}
+
+.assessment-page .assessment-bottom-actions button{
+  min-width:120px !important;
+  padding:10px 14px !important;
+  border-radius:12px !important;
+}
+
+.assessment-rule-modal{
+  max-width:760px !important;
+}
+
+.assessment-rule-modal .rule-header-row{
+  display:grid !important;
+  grid-template-columns:1fr 1fr 110px !important;
+  gap:8px !important;
+  margin:10px 0 6px !important;
+  font-weight:800 !important;
+  color:#334155 !important;
+}
+
+.assessment-rule-modal .rule-row{
+  display:grid !important;
+  gap:8px !important;
+  align-items:center !important;
+  margin-bottom:8px !important;
+}
+
+.assessment-rule-modal .rule-row.choice-rule{
+  grid-template-columns:1fr 1fr 110px !important;
+}
+
+.assessment-rule-modal .rule-row.number-rule{
+  grid-template-columns:1fr 1fr 1fr 110px !important;
+}
+
+.assessment-rule-modal .rule-row input{
+  height:42px !important;
+  padding:8px 10px !important;
+  border-radius:12px !important;
+}
+
+@media(max-width:1024px){
+  .assessment-page .assessment-setting-grid{
+    grid-template-columns:1fr 1fr !important;
+  }
+
+  .assessment-page .assessment-input-header-clean{
+    grid-template-columns:1fr 1fr !important;
+  }
+
+  .assessment-page .assessment-top-actions{
+    grid-column:1 / -1 !important;
+    display:grid !important;
+    grid-template-columns:1fr 1fr 1fr !important;
+  }
+}
+
+@media(max-width:768px){
+  .assessment-page .assessment-main-tabs{
+    gap:6px !important;
+  }
+
+  .assessment-page .assessment-main-tabs button{
+    min-height:46px !important;
+    font-size:15px !important;
+    border-radius:14px !important;
+  }
+
+  .assessment-page .assessment-activity-card,
+  .assessment-page .assessment-setting-grid,
+  .assessment-page .assessment-input-header-clean{
+    grid-template-columns:1fr !important;
+  }
+
+  .assessment-page .assessment-input-table{
+    min-width:720px !important;
+  }
+
+  .assessment-page .assessment-input-table th,
+  .assessment-page .assessment-input-table td{
+    font-size:12px !important;
+    padding:5px 3px !important;
+  }
+
+  .assessment-page .assessment-input-table input,
+  .assessment-page .assessment-input-table select{
+    height:32px !important;
+    font-size:12px !important;
+    padding:4px !important;
+  }
+
+  .assessment-rule-modal .rule-header-row,
+  .assessment-rule-modal .rule-row.choice-rule,
+  .assessment-rule-modal .rule-row.number-rule{
+    grid-template-columns:1fr !important;
+  }
+}
+
+/* PE-ON v4.2 수행평가 활동 관리 */
+.assessment-page .assessment-activity-card{
+  grid-template-columns:minmax(220px, 1fr) 150px 150px auto !important;
+}
+
+.assessment-page .assessment-activity-card.editing{
+  border:2px solid #2563eb !important;
+  background:#eff6ff !important;
+}
+
+.assessment-page .assessment-activity-card .cancel-btn{
+  min-height:42px !important;
+  white-space:nowrap !important;
+}
+
+.assessment-page .assessment-activity-tabs{
+  display:grid !important;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)) !important;
+  gap:10px !important;
+  overflow:visible !important;
+}
+
+.assessment-page .assessment-activity-tab-card{
+  border:1px solid #bfdbfe;
+  background:#ffffff;
+  border-radius:16px;
+  padding:8px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.assessment-page .assessment-activity-tab-card.active{
+  border-color:#2563eb;
+  background:#eff6ff;
+  box-shadow:0 4px 12px rgba(37,99,235,.12);
+}
+
+.assessment-page .activity-tab-main{
+  width:100%;
+  background:#ffffff;
+  color:#1e40af;
+  border:1px solid #93c5fd;
+  border-radius:12px;
+  padding:10px;
+  font-weight:900;
+}
+
+.assessment-page .assessment-activity-tab-card.active .activity-tab-main{
+  background:#2563eb;
+  color:#ffffff;
+}
+
+.assessment-page .activity-tab-actions{
+  display:grid;
+  grid-template-columns:1fr 38px 38px 1fr;
+  gap:5px;
+}
+
+.assessment-page .activity-tab-actions button{
+  min-width:0 !important;
+  padding:6px 4px !important;
+  font-size:12px !important;
+  border-radius:9px !important;
+}
+
+.assessment-page .activity-tab-actions button:disabled{
+  opacity:.35;
+  cursor:not-allowed;
+}
+
+@media(max-width:768px){
+  .assessment-page .assessment-activity-card{
+    grid-template-columns:1fr !important;
+  }
+
+  .assessment-page .assessment-activity-tabs{
+    grid-template-columns:1fr !important;
+  }
+
+  .assessment-page .activity-tab-actions{
+    grid-template-columns:1fr 34px 34px 1fr;
+  }
+
+  .assessment-page .activity-tab-actions button{
+    font-size:11px !important;
+    padding:5px 3px !important;
+  }
+}
+
+/* PC 수행평가 설정표 관리칸 */
+.assessment-page .assessment-setting-table{
+  table-layout:fixed !important;
+  width:100% !important;
+}
+
+.assessment-page .assessment-setting-table th:nth-child(1),
+.assessment-page .assessment-setting-table td:nth-child(1){
+  width:22% !important;
+}
+
+.assessment-page .assessment-setting-table th:nth-child(2),
+.assessment-page .assessment-setting-table td:nth-child(2){
+  width:16% !important;
+}
+
+.assessment-page .assessment-setting-table th:nth-child(3),
+.assessment-page .assessment-setting-table td:nth-child(3){
+  width:12% !important;
+}
+
+.assessment-page .assessment-setting-table th:nth-child(4),
+.assessment-page .assessment-setting-table td:nth-child(4){
+  width:32% !important;
+}
+
+.assessment-page .assessment-setting-table th:nth-child(5),
+.assessment-page .assessment-setting-table td:nth-child(5){
+  width:18% !important;
+  min-width:150px !important;
+  text-align:center !important;
+  vertical-align:middle !important;
+}
+
+/* 설정표의 수정/삭제 버튼은 PC에서 가로 2칸 정렬 */
+.assessment-page .assessment-setting-table td:last-child .assessment-row-actions{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:7px !important;
+  max-width:150px !important;
+  margin:0 auto !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+.assessment-page .assessment-setting-table td:last-child .assessment-row-actions .delete-btn{
+  grid-column:auto !important;
+}
+
+.assessment-page .assessment-setting-table td:last-child .assessment-row-actions button{
+  width:100% !important;
+  min-width:0 !important;
+  height:34px !important;
+  min-height:34px !important;
+  padding:0 8px !important;
+  font-size:13px !important;
+  line-height:1 !important;
+  border-radius:10px !important;
+  white-space:nowrap !important;
+}
+
+/* 점수입력표 관리칸은 좁게 세로 정렬 유지 */
+.assessment-page .assessment-input-table td:last-child .assessment-row-actions{
+  max-width:64px !important;
+  grid-template-columns:1fr !important;
+  gap:4px !important;
+}
+
+.assessment-page .assessment-input-table td:last-child .assessment-row-actions .delete-btn{
+  grid-column:auto !important;
+}
+
+.assessment-page .assessment-input-table td:last-child .assessment-row-actions button{
+  min-height:24px !important;
+  height:24px !important;
+  padding:2px 3px !important;
+  font-size:10.5px !important;
+  border-radius:7px !important;
+}
+
+/* PC에서 설정 입력줄 깨짐 방지 */
+.assessment-page .assessment-setting-grid{
+  display:grid !important;
+  grid-template-columns:minmax(180px, 1fr) 150px 120px 140px 130px auto !important;
+  gap:8px !important;
+  align-items:center !important;
+}
+
+.assessment-page .assessment-setting-grid input,
+.assessment-page .assessment-setting-grid select,
+.assessment-page .assessment-setting-grid button{
+  min-width:0 !important;
+  width:100% !important;
+  box-sizing:border-box !important;
+  height:42px !important;
+  border-radius:11px !important;
+  white-space:nowrap !important;
+}
+
+/* 수행평가/PAPS 큰 탭 고정: 이전 static !important 선언을 최종 덮어쓰기 */
+.assessment-page .assessment-main-tabs.sticky-section-tabs,
+.paps-page .assessment-main-tabs.sticky-section-tabs{
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 120 !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  padding: 10px 0 12px !important;
+  margin: 0 0 18px !important;
+  background: #f3f5f8 !important;
+  border-radius: 0 0 18px 18px !important;
+  box-shadow: 0 10px 22px rgba(15,23,42,.08) !important;
+}
+
+.assessment-page .assessment-main-tabs.sticky-section-tabs button,
+.paps-page .assessment-main-tabs.sticky-section-tabs button{
+  min-height: 52px !important;
+  border-radius: 16px !important;
+  font-size: 19px !important;
+  font-weight: 900 !important;
+}
+
+/* 팝스 기록: 21.4 등급 3 형태가 한눈에 보이도록 */
+.paps-card-row strong{
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  color: #2563eb !important;
+  font-size: 17px !important;
+  font-weight: 900 !important;
+}
+
+.student-score-row{
+  align-items: center !important;
+}
+
+.student-score-row span{
+  word-break: keep-all !important;
+}
+
+.student-score-total strong{
+  white-space: nowrap !important;
+}
+
+/* PE-ON v6.9: 학생카드 수행평가 등급 제거 + 교과세특 정리 */
+.records-page .records-toolbar{
+  grid-template-columns: 120px 130px 140px 1fr 1fr 150px !important;
+}
+
+.record-delete-all-btn,
+.record-delete-one-btn{
+  background:#fee2e2 !important;
+  color:#b91c1c !important;
+  border:1px solid #fecaca !important;
+  box-shadow:none !important;
+}
+
+.record-keyword-panel{
+  display:grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap:10px !important;
+  margin-top:12px !important;
+  padding:12px !important;
+  border:1px solid #dbeafe !important;
+  border-radius:18px !important;
+  background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%) !important;
+}
+
+.record-keyword-group{
+  display:block !important;
+  padding:10px !important;
+  border:1px solid #e5e7eb !important;
+  border-radius:16px !important;
+  background:#fff !important;
+}
+
+.record-keyword-group-title{
+  min-width:auto !important;
+  height:auto !important;
+  display:inline-flex !important;
+  margin-bottom:8px !important;
+  padding:5px 10px !important;
+  border-radius:999px !important;
+  background:#eef2ff !important;
+  color:#1e40af !important;
+  font-size:12px !important;
+  font-weight:900 !important;
+}
+
+.record-keyword-group .record-keyword-chips{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:7px !important;
+  margin:0 !important;
+}
+
+.record-keyword-chips label{
+  padding:7px 10px !important;
+  border-radius:12px !important;
+  background:#f8fafc !important;
+  border:1px solid #dbe3ef !important;
+  font-size:13px !important;
+  line-height:1 !important;
+}
+
+.record-keyword-chips label.active{
+  background:#dbeafe !important;
+  border-color:#60a5fa !important;
+  color:#1d4ed8 !important;
+}
+
+.record-custom-keyword-input{
+  width:100% !important;
+  max-width:760px !important;
+  box-sizing:border-box !important;
+}
+
+.record-actions{
+  display:grid !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
+  min-width:230px !important;
+}
+
+.record-actions button{
+  min-height:38px !important;
+  border-radius:12px !important;
+  font-size:14px !important;
+}
+
+.student-card-modal .card h3 + .student-score-row strong,
+.student-card-modal .student-score-total strong{
+  color:#2563eb !important;
+}
+
+@media(max-width:1024px){
+  .records-page .records-toolbar{
+    grid-template-columns:1fr 1fr 1fr !important;
+  }
+  .record-keyword-panel{
+    grid-template-columns:1fr !important;
+  }
+}
+
+@media(max-width:768px){
+  .records-page .records-toolbar{
+    grid-template-columns:1fr !important;
+  }
+  .record-keyword-panel{
+    padding:10px !important;
+  }
+  .record-actions{
+    width:100% !important;
+    min-width:0 !important;
+    grid-template-columns:1fr 1fr 1fr !important;
+  }
+  .record-actions button{
+    font-size:12px !important;
+    padding:8px 6px !important;
+  }
+}
+
+/* V10.0 LTS 수행점수 업로드 정렬/매칭 패치 */
+.assessment-input-header-clean{
+  display:grid !important;
+  grid-template-columns:minmax(120px, 180px) minmax(240px, 1fr) auto !important;
+  gap:12px !important;
+  align-items:center !important;
+  margin-bottom:18px !important;
+}
+.assessment-input-header-clean select{
+  width:100% !important;
+  min-height:52px !important;
+}
+.assessment-top-actions{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap:8px !important;
+  white-space:nowrap !important;
+}
+.assessment-upload-box-fixed{
+  display:grid !important;
+  grid-template-columns:minmax(0, 1fr) 220px !important;
+  gap:18px !important;
+  align-items:center !important;
+  padding:22px 24px !important;
+  margin:14px 0 22px !important;
+  border:1px solid #a7f3d0 !important;
+  border-radius:18px !important;
+  background:#ecfdf5 !important;
+  min-height:auto !important;
+  overflow:visible !important;
+}
+.assessment-upload-copy{min-width:0 !important;}
+.assessment-upload-box-fixed h3{
+  margin:0 0 8px !important;
+  color:#047857 !important;
+  font-size:1.25rem !important;
+}
+.assessment-upload-box-fixed p{
+  margin:4px 0 !important;
+  color:#334155 !important;
+  line-height:1.5 !important;
+}
+.assessment-upload-guide{
+  color:#2563eb !important;
+  font-weight:800 !important;
+}
+.assessment-upload-file-label{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:100% !important;
+  min-height:56px !important;
+  border-radius:14px !important;
+  border:1px solid #16a34a !important;
+  background:#ffffff !important;
+  color:#047857 !important;
+  font-weight:900 !important;
+  cursor:pointer !important;
+  box-shadow:0 8px 18px rgba(15,23,42,.06) !important;
+}
+.assessment-upload-file-label input{
+  width:1px !important;
+  height:1px !important;
+  opacity:0 !important;
+  position:absolute !important;
+  pointer-events:none !important;
+}
+@media (max-width: 900px){
+  .assessment-input-header-clean{grid-template-columns:1fr !important;}
+  .assessment-top-actions{justify-content:stretch !important;}
+  .assessment-top-actions button{flex:1 1 0 !important;}
+  .assessment-upload-box-fixed{grid-template-columns:1fr !important;}
+}
+
+/* =========================================================
+   PE-ON V10.0 LTS FINAL UI LOCK 2026-07-02
+   - 홈 상단 박쌤 이미지 + PE-ON
+   - 수행점수 업로드 박스 겹침 제거
+   - 파일 선택 input 실제 동작 보장
+   ========================================================= */
+.peon-v9-main > .page.home-page{
+  max-width:1280px !important;
+}
+.home-brand-hero{
+  display:flex !important;
+  align-items:center !important;
+  gap:18px !important;
+  margin:6px 0 28px !important;
+}
+.home-brand-hero img{
+  width:82px !important;
+  height:82px !important;
+  object-fit:contain !important;
+  flex:0 0 auto !important;
+}
+.home-brand-hero h1{
+  margin:0 !important;
+  color:#2563eb !important;
+  font-size:64px !important;
+  line-height:.95 !important;
+  font-weight:900 !important;
+  letter-spacing:-2px !important;
+}
+.home-brand-hero p{
+  margin:8px 0 0 !important;
+  color:#475569 !important;
+  font-size:22px !important;
+  line-height:1.25 !important;
+  font-weight:800 !important;
+}
+.assessment-page .assessment-input-card{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:18px !important;
+  padding:24px !important;
+  overflow:visible !important;
+  position:relative !important;
+}
+.assessment-page .assessment-input-header-clean{
+  order:1 !important;
+  position:static !important;
+  top:auto !important;
+  left:auto !important;
+  right:auto !important;
+  transform:none !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:grid !important;
+  grid-template-columns:180px minmax(260px,1fr) auto !important;
+  gap:12px !important;
+  align-items:center !important;
+  z-index:auto !important;
+  background:transparent !important;
+}
+.assessment-page .assessment-input-header-clean select{
+  height:56px !important;
+  min-height:56px !important;
+  width:100% !important;
+  margin:0 !important;
+  position:static !important;
+}
+.assessment-page .assessment-top-actions{
+  display:flex !important;
+  gap:8px !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  white-space:nowrap !important;
+  position:static !important;
+  transform:none !important;
+  margin:0 !important;
+}
+.assessment-page .assessment-top-actions button{
+  min-height:56px !important;
+  padding:0 22px !important;
+  border-radius:14px !important;
+}
+.assessment-page .assessment-upload-box-fixed{
+  order:2 !important;
+  position:static !important;
+  transform:none !important;
+  clear:both !important;
+  margin:0 0 6px !important;
+  padding:20px 22px !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) minmax(260px,360px) !important;
+  gap:18px !important;
+  align-items:center !important;
+  min-height:0 !important;
+  height:auto !important;
+  overflow:visible !important;
+  z-index:auto !important;
+  border:1px solid #86efac !important;
+  border-radius:18px !important;
+  background:#ecfdf5 !important;
+}
+.assessment-page .assessment-upload-copy,
+.assessment-page .assessment-upload-copy *{
+  position:static !important;
+  transform:none !important;
+}
+.assessment-page .assessment-upload-box-fixed h3{
+  margin:0 0 8px !important;
+  color:#047857 !important;
+  font-size:22px !important;
+  line-height:1.25 !important;
+}
+.assessment-page .assessment-upload-box-fixed p{
+  margin:4px 0 !important;
+  color:#334155 !important;
+  font-size:16px !important;
+  line-height:1.45 !important;
+}
+.assessment-page .assessment-upload-guide{
+  color:#1d4ed8 !important;
+  font-weight:900 !important;
+}
+.assessment-page .assessment-upload-control{
+  width:100% !important;
+  position:static !important;
+}
+.assessment-page .assessment-upload-input{
+  display:block !important;
+  width:100% !important;
+  height:56px !important;
+  opacity:1 !important;
+  position:static !important;
+  pointer-events:auto !important;
+  border:1px solid #cbd5e1 !important;
+  border-radius:14px !important;
+  background:#fff !important;
+  padding:12px !important;
+  color:#0f172a !important;
+  font-size:15px !important;
+}
+.assessment-page .assessment-guide-box.compact{
+  order:3 !important;
+  margin:0 !important;
+}
+.assessment-page .assessment-input-table,
+.assessment-page .assessment-all-input-table{
+  order:4 !important;
+  margin-top:0 !important;
+}
+@media(max-width:900px){
+  .home-brand-hero{gap:12px !important;margin:4px 0 20px !important;}
+  .home-brand-hero img{width:58px !important;height:58px !important;}
+  .home-brand-hero h1{font-size:44px !important;letter-spacing:-1px !important;}
+  .home-brand-hero p{font-size:16px !important;}
+  .assessment-page .assessment-input-header-clean,
+  .assessment-page .assessment-upload-box-fixed{grid-template-columns:1fr !important;}
+  .assessment-page .assessment-top-actions{justify-content:stretch !important;}
+  .assessment-page .assessment-top-actions button{flex:1 1 0 !important;}
+}
+
+/* V10.0 LTS final polish: popup X, assessment total, PAPS overall grade */
+.modal-bg{
+  align-items:center !important;
+  padding:18px !important;
+}
+.modal,
+.peon-popup-modal,
+.student-card-modal{
+  position:relative !important;
+  overflow-y:auto !important;
+  max-height:min(90vh, 920px) !important;
+}
+.modal-close-x,
+.card-close-fixed{
+  position:sticky !important;
+  top:10px !important;
+  right:auto !important;
+  left:auto !important;
+  float:none !important;
+  margin-left:auto !important;
+  margin-right:0 !important;
+  margin-bottom:-42px !important;
+  width:44px !important;
+  height:44px !important;
+  min-width:44px !important;
+  border-radius:999px !important;
+  z-index:10000 !important;
+  background:#fff !important;
+  color:#0f172a !important;
+  border:1px solid #d7e0ea !important;
+  box-shadow:0 6px 20px rgba(15,23,42,.18) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  font-size:24px !important;
+  font-weight:900 !important;
+  line-height:1 !important;
+}
+.modal-close-x:hover,
+.card-close-fixed:hover{
+  background:#ef4444 !important;
+  border-color:#ef4444 !important;
+  color:#fff !important;
+}
+.student-card-modal{
+  max-width:920px !important;
+  width:min(920px, calc(100vw - 36px)) !important;
+  padding-top:18px !important;
+}
+.student-card-title-row{
+  padding-right:0 !important;
+}
+.assessment-total-head,
+.assessment-total-cell{
+  background:#eff6ff !important;
+}
+.assessment-total-cell strong{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-width:72px !important;
+  padding:8px 12px !important;
+  border-radius:999px !important;
+  background:#dbeafe !important;
+  color:#1d4ed8 !important;
+  font-weight:900 !important;
+  font-size:20px !important;
+}
+.paps-overall-grade-cell{
+  background:#fff7ed !important;
+  text-align:center !important;
+}
+.paps-overall-grade-cell strong{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-width:54px !important;
+  padding:6px 10px !important;
+  border-radius:999px !important;
+  background:#ffedd5 !important;
+  color:#c2410c !important;
+  font-weight:900 !important;
+}
+.paps-all-check-table th:nth-child(3),
+.paps-all-check-table td:nth-child(3){
+  min-width:82px !important;
+}
+@media (max-width: 768px){
+  .modal-bg{padding:8px !important; align-items:center !important;}
+  .modal,
+  .peon-popup-modal,
+  .student-card-modal{
+    width:calc(100vw - 16px) !important;
+    max-width:calc(100vw - 16px) !important;
+    max-height:88vh !important;
+    border-radius:18px !important;
+  }
+  .modal-close-x,
+  .card-close-fixed{
+    top:8px !important;
+    width:40px !important;
+    height:40px !important;
+    min-width:40px !important;
+    margin-bottom:-38px !important;
+    font-size:22px !important;
+  }
+  .assessment-total-cell strong{
+    min-width:58px !important;
+    font-size:17px !important;
+    padding:6px 10px !important;
+  }
+}
+
+/* 수행 업로드 박스가 선택/저장 줄과 절대 겹치지 않도록 최종 고정 */
+.assessment-page .assessment-input-card{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:18px !important;
+  overflow:visible !important;
+}
+.assessment-page .assessment-input-header-clean{
+  order:1 !important;
+  margin:0 !important;
+}
+.assessment-page .assessment-upload-box-fixed{
+  order:2 !important;
+  position:relative !important;
+  top:auto !important;
+  left:auto !important;
+  right:auto !important;
+  margin:0 !important;
+  transform:none !important;
+  clear:both !important;
+  z-index:2 !important;
+}
+.assessment-page .assessment-guide-box,
+.assessment-page .assessment-input-table,
+.assessment-page .assessment-all-input-table{
+  order:3 !important;
+}
+
+/* 2단 고정: 반/영역/활동 선택 줄 */
+.peon-v9-main .assessment-tabs,
+.peon-v9-main .class-tabs,
+.peon-v9-main .paps-sticky-controls,
+.peon-v9-main .photo-pdf-toolbar{
+  position:sticky !important;
+  top:62px !important;
+  z-index:2400 !important;
+  background:rgba(248,250,252,.98) !important;
+  backdrop-filter:blur(10px) !important;
+  -webkit-backdrop-filter:blur(10px) !important;
+  box-shadow:0 8px 18px rgba(15,23,42,.08) !important;
+  padding-top:8px !important;
+  padding-bottom:8px !important;
+}
+
+/* Assessment score input alignment */
+.assessment-input-table{table-layout:fixed;width:100%;}
+.assessment-input-table th,.assessment-input-table td{text-align:center;vertical-align:middle;}
+.assessment-input-table .table-all-check{display:inline-flex!important;align-items:center;justify-content:center;gap:6px;white-space:nowrap;writing-mode:horizontal-tb!important;min-width:72px;}
+.assessment-input-table .table-all-check input{flex:0 0 auto;}
+.assessment-all-input-table th:nth-child(1),.assessment-all-input-table td:nth-child(1){width:76px;}
+.assessment-all-input-table th:nth-child(2),.assessment-all-input-table td:nth-child(2){width:72px;}
+.assessment-all-input-table th:nth-child(3),.assessment-all-input-table td:nth-child(3){width:130px;}
+.assessment-all-input-table th:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)):not(:last-child),
+.assessment-all-input-table td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)):not(:last-child){width:220px;}
+.assessment-all-input-table th:last-child,.assessment-all-input-table td:last-child{width:150px;}
+.assessment-total-cell{background:#eaf4ff!important;}
+.assessment-total-cell strong{display:inline-flex;align-items:center;justify-content:center;min-width:66px;padding:9px 14px;border-radius:999px;background:#dbeafe;color:#1d4ed8;font-weight:900;}
+
+/* PE-ON V10.0 LTS Final Stable - 학생카드 조회전용 정렬 */
+.student-card-backdrop{z-index:99999 !important;}
+.student-card-backdrop .student-card-modal{z-index:100000 !important;max-height:min(92vh, 920px) !important;overflow:auto !important;padding-bottom:24px !important;}
+.student-card-backdrop .student-card-bottom-actions{display:none !important;}
+.student-card-backdrop .student-card-summary-grid{display:grid !important;grid-template-columns:repeat(2, minmax(0, 1fr)) !important;gap:14px !important;align-items:stretch !important;margin-top:14px !important;}
+.student-card-backdrop .student-card-summary-grid .card{min-height:170px !important;display:flex !important;flex-direction:column !important;gap:8px !important;}
+.student-card-backdrop .student-score-row{display:grid !important;grid-template-columns:minmax(0, 1fr) auto !important;gap:10px !important;align-items:center !important;padding:7px 0 !important;border-bottom:1px solid rgba(15,23,42,.08) !important;}
+.student-card-backdrop .student-score-row span{min-width:0 !important;overflow:hidden !important;text-overflow:ellipsis !important;white-space:nowrap !important;}
+.student-card-backdrop .student-score-row strong{text-align:right !important;white-space:nowrap !important;font-variant-numeric:tabular-nums !important;}
+.student-card-backdrop .student-score-total{margin-top:auto !important;display:flex !important;justify-content:space-between !important;gap:12px !important;align-items:center !important;font-weight:900 !important;}
+.student-card-backdrop .student-card-clean-body{gap:18px !important;align-items:stretch !important;}
+.student-card-backdrop .card-close-fixed{position:absolute !important;top:18px !important;right:18px !important;z-index:100001 !important;}
+@media (max-width: 1199px){
+  .student-card-backdrop .student-card-modal{width:min(94vw, 860px) !important;}
+  .student-card-backdrop .student-card-summary-grid{grid-template-columns:repeat(2, minmax(0, 1fr)) !important;gap:12px !important;}
+}
+@media (max-width: 767px){
+  .student-card-backdrop .student-card-modal{width:94vw !important;max-height:90vh !important;padding:18px 14px 18px !important;}
+  .student-card-backdrop .student-card-clean-body{display:flex !important;flex-direction:column !important;gap:12px !important;}
+  .student-card-backdrop .student-card-summary-grid{grid-template-columns:1fr !important;gap:10px !important;}
+  .student-card-backdrop .student-card-summary-grid .card{min-height:auto !important;}
+  .student-card-backdrop .student-score-row{grid-template-columns:minmax(0, 1fr) auto !important;font-size:14px !important;}
+  .student-card-backdrop .student-score-row strong{font-size:13px !important;}
+}
+
+/* V11 수행평가 직관형 설정: 급간 팝업 + 다음 줄 최종환산표 */
+.assessment-setting-grid{align-items:center!important;}
+.assessment-measure-options{display:none!important;}
+.assessment-conversion-inline{
+  display:grid;grid-template-columns:minmax(260px,1fr) auto auto;gap:12px 16px;align-items:center;
+  margin:14px 0 18px;padding:18px 20px;border:1px solid #bfdbfe;border-radius:18px;background:#f8fbff;
+}
+.assessment-conversion-inline h3{margin:0 0 5px;color:#1d4ed8;font-size:22px;}
+.assessment-conversion-inline p{margin:0;color:#475569;font-weight:700;}
+.assessment-conversion-inline .conversion-toggle{display:flex;align-items:center;gap:8px;font-weight:900;white-space:nowrap;}
+.assessment-conversion-inline .conversion-toggle input{width:22px!important;height:22px!important;margin:0!important;}
+.assessment-conversion-inline .conversion-open-btn{min-width:160px;height:48px;}
+.assessment-conversion-inline .conversion-open-btn:disabled{opacity:.45;cursor:not-allowed;}
+.conversion-summary{grid-column:1/-1;color:#2563eb;font-weight:800;padding-top:4px;}
+.rule-measure-toolbar{display:grid;grid-template-columns:220px 250px 1fr;gap:12px;align-items:end;margin:10px 0 16px;padding:16px;border:1px solid #bfdbfe;border-radius:16px;background:#eff6ff;}
+.rule-measure-toolbar label{display:flex;flex-direction:column;gap:7px;font-weight:900;color:#1e3a8a;}
+.rule-measure-toolbar select{height:48px!important;}
+.rule-measure-toolbar p{margin:0 0 10px;color:#475569;font-weight:700;line-height:1.5;}
+.unit-input{display:grid;grid-template-columns:1fr auto;align-items:center;border:1px solid #cbd5e1;border-radius:14px;background:#fff;overflow:hidden;}
+.unit-input input{border:0!important;border-radius:0!important;min-width:0;}
+.unit-input span{padding:0 12px;font-weight:900;color:#1d4ed8;white-space:nowrap;}
+.time-range-input{display:grid;grid-template-columns:1fr auto 1fr auto;align-items:center;gap:4px;border:1px solid #cbd5e1;border-radius:14px;padding:4px 8px;background:#fff;}
+.time-range-input input{border:0!important;padding:8px 4px!important;text-align:center;min-width:0;}
+.time-range-input span{font-weight:900;color:#1d4ed8;}
+.assessment-conversion-modal{width:min(760px,calc(100vw - 28px))!important;}
+.conversion-modal-guide{padding:12px 14px;border-radius:12px;background:#eff6ff;color:#1e40af;font-weight:700;}
+.conversion-rule-list.modal-list{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
+.conversion-rule-row{display:grid!important;grid-template-columns:160px 1fr 28px 1fr!important;gap:10px!important;align-items:center!important;}
+.conversion-final-score{display:grid!important;grid-template-columns:1fr auto!important;align-items:center!important;border:2px solid #2563eb!important;border-radius:14px!important;overflow:hidden!important;background:#eff6ff!important;}
+.conversion-final-score input{border:0!important;border-radius:0!important;text-align:center!important;font-weight:900!important;color:#1d4ed8!important;}
+.conversion-final-score strong{padding:0 12px;color:#1d4ed8;white-space:nowrap;}
+@media(max-width:768px){
+ .assessment-conversion-inline{grid-template-columns:1fr auto!important;padding:14px!important;}
+ .assessment-conversion-inline .conversion-open-btn{grid-column:1/-1;width:100%;}
+ .rule-measure-toolbar{grid-template-columns:1fr!important;align-items:stretch!important;}
+ .conversion-rule-row{grid-template-columns:120px 1fr 20px 1fr!important;gap:6px!important;}
+ .time-range-input{grid-template-columns:1fr auto 1fr auto!important;}
+}
+
+/* PE-ON V11: 점수급간 팝업 상단 저장 버튼 */
+.assessment-rule-modal .rule-preset-row{
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  flex-wrap:wrap !important;
+}
+.assessment-rule-modal .rule-preset-row .rule-save-top-btn{
+  margin-left:auto !important;
+  min-width:96px !important;
+  height:44px !important;
+  padding:0 22px !important;
+  border-radius:12px !important;
+  background:#10b981 !important;
+  color:#fff !important;
+  font-size:16px !important;
+  font-weight:900 !important;
+  box-shadow:0 4px 12px rgba(16,185,129,.24) !important;
+}
+.assessment-rule-modal .rule-preset-row .rule-save-top-btn:hover{
+  background:#059669 !important;
+  transform:translateY(-1px);
+}
+.assessment-rule-modal .rule-modal-bottom-actions{
+  position:static !important;
+  justify-content:flex-end !important;
+  background:transparent !important;
+  padding-top:8px !important;
+}
+@media(max-width:640px){
+  .assessment-rule-modal .rule-preset-row{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+  }
+  .assessment-rule-modal .rule-preset-row .rule-save-top-btn{
+    margin-left:0 !important;
+    width:100% !important;
+  }
+}
+
+/* PE-ON V11.0.1: 모바일 점수급간 팝업 카드형 정리 (기능 변경 없음) */
+@media (max-width:640px){
+  .assessment-rule-modal{
+    width:calc(100vw - 24px) !important;
+    max-width:none !important;
+    max-height:calc(100dvh - 24px) !important;
+    margin:12px !important;
+    padding:22px 16px 24px !important;
+    border-radius:24px !important;
+    overflow-y:auto !important;
+    overscroll-behavior:contain !important;
+  }
+
+  .assessment-rule-modal h2{
+    margin:0 58px 18px 0 !important;
+    font-size:30px !important;
+    line-height:1.2 !important;
+  }
+
+  .assessment-rule-modal .modal-close-x{
+    position:sticky !important;
+    top:0 !important;
+    float:right !important;
+    margin:-8px -2px 0 0 !important;
+    z-index:20 !important;
+  }
+
+  .assessment-rule-modal .rule-measure-toolbar{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:12px !important;
+    margin-bottom:14px !important;
+  }
+
+  .assessment-rule-modal .rule-measure-toolbar label{
+    display:grid !important;
+    gap:6px !important;
+  }
+
+  .assessment-rule-modal .rule-measure-toolbar label > span{
+    font-size:16px !important;
+    font-weight:900 !important;
+    color:#1f2937 !important;
+  }
+
+  .assessment-rule-modal .rule-measure-toolbar select{
+    height:52px !important;
+    padding:0 14px !important;
+    font-size:17px !important;
+    border-radius:14px !important;
+  }
+
+  .assessment-rule-modal .rule-measure-toolbar p{
+    margin:0 !important;
+    padding:10px 12px !important;
+    border-radius:12px !important;
+    background:#eff6ff !important;
+    color:#1e40af !important;
+    font-size:14px !important;
+    line-height:1.45 !important;
+    font-weight:700 !important;
+  }
+
+  .assessment-rule-modal .rule-preset-row{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+    margin:0 0 16px !important;
+  }
+
+  .assessment-rule-modal .rule-preset-row button,
+  .assessment-rule-modal .rule-preset-row .rule-save-top-btn{
+    width:100% !important;
+    min-width:0 !important;
+    height:46px !important;
+    margin:0 !important;
+    padding:0 8px !important;
+    border-radius:12px !important;
+    font-size:14px !important;
+    white-space:nowrap !important;
+  }
+
+  .assessment-rule-modal .rule-header-row{
+    display:none !important;
+  }
+
+  .assessment-rule-modal .rule-row,
+  .assessment-rule-modal .rule-row.number-rule,
+  .assessment-rule-modal .rule-row.choice-rule{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+    gap:10px !important;
+    margin:0 0 12px !important;
+    padding:14px !important;
+    border:1px solid #bfdbfe !important;
+    border-radius:18px !important;
+    background:#f8fbff !important;
+    box-shadow:0 2px 8px rgba(37,99,235,.08) !important;
+  }
+
+  .assessment-rule-modal .rule-row.number-rule > :nth-child(1)::before,
+  .assessment-rule-modal .rule-row.number-rule > :nth-child(2)::before,
+  .assessment-rule-modal .rule-row.number-rule > :nth-child(3)::before{
+    display:block !important;
+    margin-bottom:6px !important;
+    font-size:13px !important;
+    line-height:1 !important;
+    font-weight:900 !important;
+    color:#475569 !important;
+  }
+
+  .assessment-rule-modal .rule-row.number-rule > :nth-child(1)::before{content:"최소";}
+  .assessment-rule-modal .rule-row.number-rule > :nth-child(2)::before{content:"최대";}
+  .assessment-rule-modal .rule-row.number-rule > :nth-child(3)::before{content:"점수";}
+
+  .assessment-rule-modal .rule-row.number-rule > :nth-child(3){
+    grid-column:1 / 2 !important;
+  }
+
+  .assessment-rule-modal .rule-row.number-rule > .delete-btn{
+    grid-column:2 / 3 !important;
+    align-self:end !important;
+  }
+
+  .assessment-rule-modal .time-range-input{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto !important;
+    gap:5px !important;
+    align-items:center !important;
+    min-width:0 !important;
+  }
+
+  .assessment-rule-modal .time-range-input::before{
+    grid-column:1 / -1 !important;
+  }
+
+  .assessment-rule-modal .time-range-input input{
+    width:100% !important;
+    min-width:0 !important;
+    height:46px !important;
+    padding:6px !important;
+    text-align:center !important;
+    font-size:16px !important;
+  }
+
+  .assessment-rule-modal .time-range-input > span{
+    font-size:14px !important;
+    font-weight:800 !important;
+    color:#334155 !important;
+  }
+
+  .assessment-rule-modal .unit-input{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) auto !important;
+    align-items:center !important;
+    gap:6px !important;
+    min-width:0 !important;
+  }
+
+  .assessment-rule-modal .unit-input::before{
+    grid-column:1 / -1 !important;
+  }
+
+  .assessment-rule-modal .unit-input input,
+  .assessment-rule-modal .rule-row.choice-rule input{
+    width:100% !important;
+    min-width:0 !important;
+    height:46px !important;
+    padding:8px 10px !important;
+    font-size:16px !important;
+    border-radius:12px !important;
+  }
+
+  .assessment-rule-modal .unit-input > span{
+    min-width:24px !important;
+    font-weight:900 !important;
+    color:#334155 !important;
+  }
+
+  .assessment-rule-modal .rule-row .delete-btn{
+    width:100% !important;
+    height:46px !important;
+    min-width:0 !important;
+    padding:0 10px !important;
+    border-radius:12px !important;
+    font-size:15px !important;
+  }
+
+  .assessment-rule-modal .rule-row.choice-rule > :first-child{
+    grid-column:1 / -1 !important;
+  }
+
+  .assessment-rule-modal .rule-modal-bottom-actions{
+    margin-top:4px !important;
+    padding:0 !important;
+  }
+
+  .assessment-rule-modal .rule-modal-bottom-actions .cancel-btn{
+    width:100% !important;
+    height:46px !important;
+  }
+}
+
+@media (max-width:390px){
+  .assessment-rule-modal{
+    width:calc(100vw - 14px) !important;
+    margin:7px !important;
+    padding:20px 12px 20px !important;
+  }
+
+  .assessment-rule-modal .rule-row,
+  .assessment-rule-modal .rule-row.number-rule,
+  .assessment-rule-modal .rule-row.choice-rule{
+    padding:11px !important;
+    gap:8px !important;
+  }
+
+  .assessment-rule-modal .rule-preset-row button,
+  .assessment-rule-modal .rule-preset-row .rule-save-top-btn{
+    font-size:13px !important;
+  }
+}
+
+/* PE-ON V11: 최종환산표 선택 영역 통합 스타일 */
+.assessment-conversion-inline{
+  width:100% !important;
+  box-sizing:border-box !important;
+  margin:12px 0 16px !important;
+  padding:14px 18px !important;
+  border:1px solid #dbeafe !important;
+  border-radius:14px !important;
+  background:#f8fbff !important;
+}
+.assessment-conversion-inline .conversion-left-group,
+.assessment-conversion-inline .conversion-right-group{
+  display:flex !important;
+  align-items:center !important;
+}
+.assessment-conversion-inline .conversion-left-group{gap:16px !important;}
+.assessment-conversion-inline .conversion-right-group{justify-content:flex-end !important;}
+.assessment-conversion-inline .conversion-mode-option{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:8px !important;
+  margin:0 !important;
+  min-width:max-content !important;
+  font-weight:800 !important;
+  color:#0f172a !important;
+  cursor:pointer !important;
+}
+.assessment-conversion-inline .conversion-mode-option input[type="checkbox"]{
+  width:20px !important;
+  height:20px !important;
+  margin:0 !important;
+  padding:0 !important;
+  flex:0 0 auto !important;
+  accent-color:#2563eb !important;
+}
+.assessment-conversion-inline .conversion-mode-option span{
+  display:inline-block !important;
+  margin:0 !important;
+  white-space:nowrap !important;
+}
+.assessment-conversion-inline .conversion-open-btn{
+  min-width:160px !important;
+  width:auto !important;
+  flex:0 0 auto !important;
+}
+.assessment-conversion-inline .conversion-open-btn:disabled{opacity:.45 !important;cursor:not-allowed !important;}
+
+/* PC / 태블릿: 한 줄, 두 선택 영역을 왼쪽 중심에 모아 배치 */
+@media (min-width:769px){
+  .assessment-conversion-inline{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:clamp(28px,4vw,64px) !important;
+  }
+  .assessment-conversion-inline .conversion-left-group{
+    flex:0 0 auto !important;
+  }
+  .assessment-conversion-inline .conversion-right-group{
+    flex:0 0 auto !important;
+    margin-left:0 !important;
+    justify-content:flex-start !important;
+  }
+}
+
+/* 모바일: 두 줄 */
+@media (max-width:768px){
+  .assessment-conversion-inline{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:12px !important;
+    padding:14px !important;
+  }
+  .assessment-conversion-inline .conversion-left-group{
+    display:grid !important;
+    grid-template-columns:1fr auto !important;
+    gap:10px !important;
+    align-items:center !important;
+  }
+  .assessment-conversion-inline .conversion-right-group{
+    justify-content:flex-start !important;
+    padding-top:12px !important;
+    border-top:1px solid #dbeafe !important;
+  }
+  .assessment-conversion-inline .conversion-open-btn{
+    min-width:128px !important;
+    width:auto !important;
+  }
+}
+@media (max-width:480px){
+  .assessment-conversion-inline .conversion-left-group{grid-template-columns:1fr !important;}
+  .assessment-conversion-inline .conversion-open-btn{width:100% !important;}
+}
+
+/* PE-ON V11: 모바일 점수확인표 가로 스크롤 및 번호·이름 고정 */
+.assessment-check-table-wrap{
+  width:100%;
+  max-width:100%;
+  overflow-x:auto;
+  overflow-y:visible;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-inline:contain;
+  border-radius:14px;
+}
+.assessment-check-scroll-hint{
+  display:none;
+}
+
+@media (max-width:768px){
+  .assessment-page .assessment-check-card{
+    min-width:0 !important;
+    max-width:100% !important;
+    overflow:hidden !important;
+  }
+  .assessment-page .assessment-check-table-wrap{
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    overflow-x:auto !important;
+    overflow-y:visible !important;
+    padding-bottom:8px !important;
+    scrollbar-gutter:stable;
+  }
+  .assessment-page .assessment-check-scroll-hint{
+    display:block !important;
+    margin:8px 0 6px !important;
+    padding:8px 12px !important;
+    border:1px solid #bfdbfe !important;
+    border-radius:10px !important;
+    background:#eff6ff !important;
+    color:#1d4ed8 !important;
+    font-size:13px !important;
+    font-weight:800 !important;
+    text-align:center !important;
+  }
+  .assessment-page .assessment-check-table{
+    width:max-content !important;
+    min-width:760px !important;
+    table-layout:auto !important;
+    margin:0 !important;
+  }
+  .assessment-page .assessment-check-table th,
+  .assessment-page .assessment-check-table td{
+    min-width:128px !important;
+    white-space:nowrap !important;
+    box-sizing:border-box !important;
+  }
+  .assessment-page .assessment-check-table th:first-child,
+  .assessment-page .assessment-check-table td:first-child{
+    position:sticky !important;
+    left:0 !important;
+    z-index:4 !important;
+    min-width:54px !important;
+    width:54px !important;
+    max-width:54px !important;
+    padding-left:6px !important;
+    padding-right:6px !important;
+    text-align:center !important;
+    background:#fff !important;
+  }
+  .assessment-page .assessment-check-table th:nth-child(2),
+  .assessment-page .assessment-check-table td:nth-child(2){
+    position:sticky !important;
+    left:54px !important;
+    z-index:4 !important;
+    min-width:92px !important;
+    width:92px !important;
+    max-width:92px !important;
+    padding-left:8px !important;
+    padding-right:8px !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+    white-space:nowrap !important;
+    background:#fff !important;
+    box-shadow:6px 0 10px -10px rgba(15,23,42,.55) !important;
+  }
+  .assessment-page .assessment-check-table thead th:first-child,
+  .assessment-page .assessment-check-table thead th:nth-child(2){
+    z-index:6 !important;
+    background:#f8fafc !important;
+  }
+}
+
+/* PE-ON V11.2: 체크형 과정중심 수행평가 */
+.checklist-setting-panel{
+  margin:16px 0;
+  padding:18px;
+  border:1px solid #bfdbfe;
+  border-radius:18px;
+  background:#f8fbff;
+}
+.checklist-setting-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:14px;
+}
+.checklist-setting-head h3{margin:0 0 5px;font-size:20px;color:#0f172a;}
+.checklist-setting-head p{margin:0;color:#64748b;font-weight:700;}
+.checklist-setting-actions{display:flex;gap:8px;flex:0 0 auto;}
+.checklist-criteria-list{display:grid;gap:8px;}
+.checklist-criterion-row{
+  display:grid;
+  grid-template-columns:42px minmax(0,1fr) 86px;
+  gap:10px;
+  align-items:center;
+}
+.checklist-criterion-row>span{
+  display:flex;align-items:center;justify-content:center;
+  min-height:46px;border-radius:12px;background:#dbeafe;color:#1d4ed8;font-weight:900;
+}
+.checklist-criterion-row input{width:100%;min-width:0;}
+.checklist-score-preview{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:8px;
+  margin-top:14px;
+}
+.checklist-score-preview>div{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:10px 12px;border:1px solid #dbeafe;border-radius:12px;background:#fff;
+}
+.checklist-score-preview strong{color:#1e3a8a;}
+.checklist-score-preview span{font-weight:900;color:#2563eb;}
+
+.checklist-evaluate-btn{
+  width:100%;min-width:110px;min-height:42px;
+  border:1px solid #bfdbfe;border-radius:12px;background:#eff6ff;
+  color:#1d4ed8;font-weight:900;cursor:pointer;
+}
+.checklist-evaluate-btn.completed{background:#dcfce7;border-color:#86efac;color:#166534;}
+
+.checklist-rule-guide,
+.checklist-evaluation-guide{
+  margin:0 0 14px;padding:12px 14px;border-radius:12px;
+  background:#eff6ff;color:#1e3a8a;font-weight:800;line-height:1.5;
+}
+.assessment-rule-modal .rule-row.checklist-rule,
+.assessment-rule-modal .rule-header-row:has(+ .rule-row.checklist-rule){
+  grid-template-columns:minmax(160px,1fr) minmax(160px,1fr) 100px !important;
+}
+.assessment-rule-modal .rule-row.checklist-rule{align-items:center;}
+
+.checklist-evaluation-modal{max-width:620px !important;}
+.checklist-evaluation-list{display:grid;gap:10px;}
+.checklist-evaluation-list label{
+  display:flex;align-items:center;gap:12px;
+  min-height:52px;padding:12px 14px;border:1px solid #dbeafe;border-radius:14px;
+  background:#fff;font-weight:850;cursor:pointer;
+}
+.checklist-evaluation-list label.checked{background:#ecfdf5;border-color:#86efac;color:#166534;}
+.checklist-evaluation-list input{width:22px;height:22px;flex:0 0 auto;accent-color:#22c55e;}
+.checklist-evaluation-result{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  margin-top:16px;padding:16px 18px;border-radius:14px;background:#eff6ff;
+  color:#1e3a8a;font-weight:900;
+}
+.checklist-evaluation-result strong{font-size:24px;color:#2563eb;}
+
+@media (max-width:768px){
+  .checklist-setting-head{display:grid;grid-template-columns:1fr;}
+  .checklist-setting-actions{display:grid;grid-template-columns:1fr 1fr;width:100%;}
+  .checklist-setting-actions button{width:100%;}
+  .checklist-criterion-row{grid-template-columns:38px minmax(0,1fr) 72px;gap:7px;}
+  .checklist-criterion-row .delete-btn{padding:0 8px;min-width:0;}
+  .checklist-score-preview{grid-template-columns:1fr 1fr;}
+  .checklist-evaluation-modal{width:calc(100vw - 24px) !important;max-height:90vh !important;}
+  .checklist-evaluation-result{position:sticky;bottom:0;z-index:2;}
+}
+
+/* PE-ON V11: 체크형 평가요소 설정 팝업 */
+.checklist-settings-modal{
+  position:relative;
+  width:min(920px,94vw);
+  max-height:90vh;
+  padding:26px 28px 24px;
+  overflow-y:auto;
+}
+.checklist-settings-close{
+  position:sticky !important;
+  top:0 !important;
+  float:right;
+  margin:-8px -8px 0 16px;
+  z-index:20;
+}
+.checklist-settings-title h2{margin:0 0 8px;font-size:26px;}
+.checklist-settings-title p{margin:0;color:#64748b;line-height:1.55;font-weight:650;}
+.checklist-settings-summary{
+  display:grid;
+  grid-template-columns:1fr 180px;
+  gap:12px;
+  margin:20px 0 16px;
+}
+.checklist-settings-summary>div{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  min-height:54px;
+  padding:12px 16px;
+  border:1px solid #dbeafe;
+  border-radius:14px;
+  background:#f8fbff;
+}
+.checklist-settings-summary span{color:#64748b;font-weight:800;}
+.checklist-settings-summary strong{color:#1e3a8a;font-size:18px;}
+.checklist-settings-section{
+  margin-top:16px;
+  padding:16px;
+  border:1px solid #e2e8f0;
+  border-radius:16px;
+  background:#fff;
+}
+.checklist-settings-section-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+.checklist-settings-section-head h3{margin:0;font-size:19px;}
+.checklist-criteria-modal-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;}
+.checklist-criteria-modal-list .checklist-criterion-row{
+  display:grid;
+  grid-template-columns:34px minmax(0,1fr) 68px;
+  gap:8px;
+  align-items:center;
+  margin:0;
+}
+.checklist-criteria-modal-list .checklist-criterion-row>span{
+  display:flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:50%;background:#dbeafe;color:#1d4ed8;font-weight:900;
+}
+.checklist-criteria-modal-list input{height:44px;min-width:0;}
+.checklist-criteria-modal-list button{height:40px;padding:0 10px;}
+.checklist-score-editor{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;}
+.checklist-score-editor-row{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr) 68px;
+  gap:8px;
+  align-items:center;
+  padding:10px;
+  border:1px solid #e2e8f0;
+  border-radius:13px;
+  background:#f8fafc;
+}
+.checklist-score-editor-row label{position:relative;display:block;}
+.checklist-score-editor-row input{height:44px;padding-right:58px !important;text-align:center;}
+.checklist-score-editor-row label span{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-weight:800;color:#64748b;pointer-events:none;white-space:nowrap;}
+.checklist-score-editor-row button{height:40px;padding:0 10px;}
+.checklist-settings-actions{
+  position:sticky;
+  bottom:-1px;
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin:20px -4px -6px;
+  padding:14px 4px 4px;
+  background:linear-gradient(to bottom,rgba(255,255,255,0),#fff 28%);
+  z-index:10;
+}
+.checklist-settings-actions button{min-width:104px;height:46px;}
+
+@media (max-width:900px){
+  .checklist-settings-modal{width:94vw;padding:22px 20px 20px;}
+  .checklist-criteria-modal-list,.checklist-score-editor{grid-template-columns:1fr;}
+}
+@media (max-width:600px){
+  .checklist-settings-modal{width:96vw;max-height:92vh;padding:18px 14px 16px;border-radius:18px;}
+  .checklist-settings-close{margin:-4px -2px 0 10px;}
+  .checklist-settings-title h2{font-size:22px;padding-right:50px;}
+  .checklist-settings-title p{font-size:14px;}
+  .checklist-settings-summary{grid-template-columns:1fr;gap:8px;margin-top:14px;}
+  .checklist-settings-summary>div{min-height:48px;padding:10px 12px;}
+  .checklist-settings-section{padding:12px;margin-top:12px;}
+  .checklist-settings-section-head{align-items:stretch;}
+  .checklist-settings-section-head h3{align-self:center;font-size:17px;}
+  .checklist-settings-section-head button{min-width:104px;}
+  .checklist-criteria-modal-list .checklist-criterion-row{grid-template-columns:30px minmax(0,1fr) 58px;gap:6px;}
+  .checklist-criteria-modal-list .checklist-criterion-row>span{width:28px;height:28px;}
+  .checklist-criteria-modal-list button,.checklist-score-editor-row button{padding:0 7px;font-size:12px;}
+  .checklist-score-editor-row{grid-template-columns:1fr 1fr 58px;gap:6px;padding:8px;}
+  .checklist-score-editor-row input{padding-right:44px !important;font-size:14px;}
+  .checklist-score-editor-row label span{right:8px;font-size:12px;}
+  .checklist-settings-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+  .checklist-settings-actions button{min-width:0;width:100%;height:44px;}
+}

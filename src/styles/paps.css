@@ -1,0 +1,274 @@
+/* PE-ON PAPS 스타일 */
+
+/* ================================
+   PAPS 추가 CSS 전용
+   기존 style.css를 지우지 말고 맨 아래에 붙여넣기
+   ================================ */
+
+/* PAPS 측정설정 업로드 화면 */
+.paps-setting-card{
+  overflow:visible;
+}
+
+.paps-help-text{
+  margin:10px 0 18px;
+  color:#475569;
+  line-height:1.6;
+  font-weight:600;
+}
+
+.paps-upload-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:16px;
+}
+
+.paps-upload-card{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  min-height:220px;
+  padding:18px;
+  border:1px solid #e2e8f0;
+  border-radius:18px;
+  background:#f8fafc;
+}
+
+.paps-upload-card h4{
+  font-size:20px;
+  margin:0 0 6px;
+  color:#111827;
+}
+
+.paps-upload-card p{
+  color:#64748b;
+  font-weight:600;
+  margin:0;
+}
+
+.paps-file-status{
+  margin-top:auto;
+  padding:12px;
+  border-radius:14px;
+  font-weight:800;
+}
+
+.paps-file-status span,
+.paps-file-status small{
+  display:block;
+  margin-top:4px;
+  font-weight:700;
+}
+
+.paps-file-status.applied{
+  background:#ecfdf5;
+  color:#047857;
+  border:1px solid #a7f3d0;
+}
+
+.paps-file-status.empty{
+  background:#fff7ed;
+  color:#9a3412;
+  border:1px solid #fed7aa;
+  text-align:center;
+}
+
+.paps-apply-row{
+  display:flex;
+  justify-content:flex-end;
+  margin-top:18px;
+}
+
+.paps-apply-row button{
+  min-width:150px;
+  height:52px;
+  border-radius:14px;
+  font-weight:800;
+}
+
+/* PAPS 등급 한 줄 표시 */
+.paps-grade-cell,
+.paps-grade-cell strong{
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  min-width: 72px !important;
+  text-align: center !important;
+}
+
+.student-table th:nth-child(8),
+.student-table td:nth-child(8){
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+}
+
+/* PAPS 결과확인 엑셀 다운로드 */
+.paps-excel-wrap{
+  margin-left:auto;
+}
+
+.paps-excel-panel{
+  width:280px;
+}
+
+.paps-excel-panel .excel-check-row{
+  font-size:17px;
+  font-weight:800;
+}
+
+/* 학생카드 PAPS 연동 표시 */
+.paps-card-row strong{
+  white-space:nowrap;
+  word-break:keep-all;
+}
+
+@media (max-width:768px){
+/* PAPS 종목 구성: 종목 컬럼 삭제 후 3칸 균등 */
+  .paps-config-table th,
+  .paps-config-table td{
+    height:38px !important;
+    font-size:13px !important;
+  }
+  .paps-config-table th:nth-child(1),
+  .paps-config-table td:nth-child(1){ width:30% !important; }
+  .paps-config-table th:nth-child(2),
+  .paps-config-table td:nth-child(2){ width:30% !important; }
+  .paps-config-table th:nth-child(3),
+  .paps-config-table td:nth-child(3){ width:40% !important; }
+
+/* PAPS 입력표: 관리열 숨김, 한 화면에 들어오도록 폭 조정 */
+  .paps-input-table th:nth-child(1),
+  .paps-input-table td:nth-child(1){ width:26px !important; }
+  .paps-input-table th:nth-child(2),
+  .paps-input-table td:nth-child(2){ width:30px !important; }
+  .paps-input-table th:nth-child(3),
+  .paps-input-table td:nth-child(3){ width:44px !important; }
+  .paps-input-table th:nth-child(n+4),
+  .paps-input-table td:nth-child(n+4){ width:36px !important; }
+  .paps-input-table th.paps-manage-col,
+  .paps-input-table td.paps-manage-col{
+    display:none !important;
+  }
+  .paps-input-table .table-all-check{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    font-size:0 !important;
+  }
+  .paps-input-table .table-all-check::after{
+    content:'전체';
+    font-size:10px;
+  }
+  .paps-input-table .student-select-checkbox{
+    max-width:18px !important;
+    height:18px !important;
+  }
+  .paps-input-table .paps-name-cell{
+    font-weight:800;
+  }
+  .paps-grade-cell strong{
+    font-size:12px !important;
+  }
+
+/* PAPS 결과확인 */
+  .paps-check-table th:nth-child(1),
+  .paps-check-table td:nth-child(1){ width:44px !important; }
+  .paps-check-table th:nth-child(2),
+  .paps-check-table td:nth-child(2){ width:70px !important; }
+  .paps-check-table th:nth-child(3),
+  .paps-check-table td:nth-child(3){ width:76px !important; }
+  .paps-check-table th:nth-child(4),
+  .paps-check-table td:nth-child(4){ width:76px !important; }
+
+/* 학생카드 X 버튼 크기/위치 통일 */
+  .card-close-fixed,
+  .card-close-btn{
+    position:fixed !important;
+    top:72px !important;
+    right:16px !important;
+    width:50px !important;
+    height:50px !important;
+    border-radius:14px !important;
+    font-size:34px !important;
+    line-height:1 !important;
+    z-index:99999 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    background:#fff !important;
+    border:1px solid #dbe2ea !important;
+    box-shadow:0 4px 14px rgba(15,23,42,.2) !important;
+  }
+
+  .paps-upload-grid{
+    grid-template-columns:1fr !important;
+    gap:10px !important;
+  }
+  .paps-apply-row .save-btn,
+  .excel-btn{
+    width:100% !important;
+    height:44px !important;
+    border-radius:14px !important;
+    font-size:14px !important;
+  }
+}
+
+/* PE-ON v3.4.4 업로드 형식 통일 + PAPS PC 정렬 */
+.shared-file-card{
+  overflow:visible;
+}
+
+.shared-file-header{
+  align-items:center;
+}
+
+.shared-file-header h3{
+  margin-bottom:6px;
+}
+
+.shared-file-upload-btn{
+  min-width:118px;
+  height:42px;
+}
+
+.shared-file-list{
+  margin-top:2px;
+}
+
+.shared-file-row{
+  min-height:64px;
+}
+
+.shared-file-actions button{
+  min-width:76px;
+}
+
+/* PE-ON v5.0 Build 004: PAPS 업로드 안정화 */
+.paps-import-card input[type="file"]{
+  width:100% !important;
+  padding:12px !important;
+  border:1px solid #bfdbfe !important;
+  border-radius:14px !important;
+  background:#eff6ff !important;
+  box-sizing:border-box !important;
+  font-weight:800 !important;
+}
+
+/* PAPS table recovery */
+.paps-input-table{table-layout:fixed !important;min-width:1080px !important;}
+.paps-input-table .paps-manage-col{width:210px !important;min-width:210px !important;}
+.paps-input-table .paps-manage-col > div,
+.paps-input-table td.paps-manage-col{
+  white-space:nowrap !important;
+}
+.paps-input-table td.paps-manage-col button,
+.paps-manage-col button{
+  display:inline-flex !important;
+  width:auto !important;
+  min-width:58px !important;
+  height:42px !important;
+  padding:0 14px !important;
+  margin:3px !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+.paps-best-cell,.paps-grade-cell{font-weight:900;color:#1d4ed8;}

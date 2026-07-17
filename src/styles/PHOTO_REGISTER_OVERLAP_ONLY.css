@@ -1,0 +1,116 @@
+/* =========================================================
+   PE-ON V10.0 LTS - 사진등록센터 학생목록 겹침 방지 전용 패치
+   적용 범위: 사진등록센터 내부 학생 목록/작업영역만
+   다른 화면/기능/JSX 영향 없음
+   ========================================================= */
+
+/* 사진등록센터가 펼쳐졌을 때 바깥 관리카드와 겹치지 않게 작업영역을 독립 배치 */
+.photo-studio-settings-card,
+.settings-card:has(.photo-studio-page),
+.management-card:has(.photo-studio-page),
+.accordion-card:has(.photo-studio-page) {
+  overflow: visible !important;
+  isolation: isolate !important;
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+/* 사진등록센터 내부는 3단 작업판으로만 정렬 */
+.photo-studio-page .photo-studio-layout,
+.photo-studio-page .photo-studio-layout-wide,
+.photo-studio-page .photo-register-layout,
+.photo-studio-page .photo-workspace,
+.photo-studio-page .photo-register-workspace {
+  display: grid !important;
+  grid-template-columns: 240px minmax(520px, 1fr) 300px !important;
+  gap: 16px !important;
+  align-items: start !important;
+  overflow: visible !important;
+}
+
+/* 학생목록은 절대 화면 위에 떠다니지 않고, 자기 칸 안에서만 스크롤 */
+.photo-studio-page .photo-studio-students,
+.photo-studio-page .photo-student-sidebar,
+.photo-studio-page .photo-student-list,
+.photo-studio-page .photo-studio-student-list {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  z-index: 1 !important;
+  max-height: 520px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  transform: none !important;
+  contain: layout paint !important;
+}
+
+/* 학생 버튼도 목록 안에서만 표시 */
+.photo-studio-page .photo-student-list button,
+.photo-studio-page .photo-studio-student-list button,
+.photo-studio-page .photo-student-item,
+.photo-studio-page .photo-studio-student-item {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  z-index: 1 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 0 8px 0 !important;
+  transform: none !important;
+}
+
+/* PDF/미리보기 영역이 학생목록 아래로 깔리지 않도록 분리 */
+.photo-studio-page .photo-pdf-area,
+.photo-studio-page .photo-pdf-panel,
+.photo-studio-page .photo-pdf-workspace,
+.photo-studio-page .photo-studio-pdf-panel,
+.photo-studio-page .photo-studio-preview-panel,
+.photo-studio-page .photo-side-preview,
+.photo-studio-page .photo-studio-side-confirm {
+  position: relative !important;
+  z-index: 1 !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  transform: none !important;
+}
+
+/* 태블릿/작은 PC: 사진등록센터는 한 칸씩 세로 정렬하여 겹침 제거 */
+@media (pointer: coarse) and (max-width: 1366px), (max-width: 1180px) {
+  .photo-studio-page .photo-studio-layout,
+  .photo-studio-page .photo-studio-layout-wide,
+  .photo-studio-page .photo-register-layout,
+  .photo-studio-page .photo-workspace,
+  .photo-studio-page .photo-register-workspace {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .photo-studio-page .photo-studio-students,
+  .photo-studio-page .photo-student-sidebar,
+  .photo-studio-page .photo-student-list,
+  .photo-studio-page .photo-studio-student-list {
+    max-height: 300px !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    overflow-y: auto !important;
+  }
+}
+
+/* 모바일: 학생목록 1열, 내부 스크롤만 허용 */
+@media (max-width: 767px) {
+  .photo-studio-page .photo-studio-students,
+  .photo-studio-page .photo-student-sidebar,
+  .photo-studio-page .photo-student-list,
+  .photo-studio-page .photo-studio-student-list {
+    max-height: 260px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+}

@@ -1,0 +1,913 @@
+/* =========================================================
+   PE-ON V10 · 교과세특 전용 스타일
+   StudentRecords.jsx 전용. 기존 전역 CSS와 충돌하지 않도록
+   .records-v10-page 아래에서만 적용합니다.
+   ========================================================= */
+
+.records-v10-page,
+.records-v10-page * {
+  box-sizing: border-box;
+}
+
+.records-v10-page {
+  --sr-blue: #2563eb;
+  --sr-blue-soft: #eff6ff;
+  --sr-green: #10b981;
+  --sr-red: #ef4444;
+  --sr-line: #dbe3ee;
+  --sr-text: #111827;
+  --sr-muted: #64748b;
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 18px 20px 40px;
+  color: var(--sr-text);
+}
+
+.records-v10-page button,
+.records-v10-page input,
+.records-v10-page select,
+.records-v10-page textarea {
+  font: inherit;
+}
+
+.records-v10-page button {
+  cursor: pointer;
+}
+
+.records-v10-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.records-v10-header h2 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.records-v10-toolbar {
+  display: grid !important;
+  grid-template-columns: 140px minmax(260px, 1fr) 150px 210px 180px;
+  gap: 12px;
+  align-items: center;
+  padding: 16px !important;
+  margin-bottom: 14px;
+  border: 1px solid var(--sr-line) !important;
+  border-radius: 22px !important;
+  background: #fff !important;
+}
+
+.records-v10-toolbar input,
+.records-v10-toolbar select {
+  width: 100%;
+  height: 48px;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  background: #fff;
+  color: var(--sr-text);
+}
+
+.records-v10-toolbar button {
+  width: 100%;
+  height: 48px;
+  min-height: 48px;
+  border: 0;
+  border-radius: 14px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.records-v10-toolbar .save-btn,
+.records-ai-pro-btn {
+  background: linear-gradient(90deg, #6d3df5, #2563eb) !important;
+  color: #fff !important;
+}
+
+.records-v10-toolbar .excel-btn {
+  background: var(--sr-green) !important;
+  color: #fff !important;
+}
+
+.records-v10-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #d9e5fb;
+  border-radius: 20px;
+  background: #f8fbff;
+}
+
+.records-v10-tabs button {
+  min-height: 58px;
+  border: 0;
+  border-radius: 16px;
+  background: #e5e7eb;
+  color: var(--sr-text);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.records-v10-tabs button.active {
+  background: var(--sr-blue);
+  color: #fff;
+}
+
+.assessment-save-message {
+  margin-bottom: 12px;
+}
+
+/* 학생별 작성 */
+.sr3-wrap {
+  display: grid !important;
+  grid-template-columns: 250px minmax(0, 1fr) !important;
+  gap: 16px !important;
+  align-items: start !important;
+}
+
+.sr3-roster {
+  position: sticky !important;
+  top: 12px !important;
+  min-width: 0;
+  max-height: calc(100vh - 120px);
+  overflow: hidden;
+  padding: 16px !important;
+  border: 1px solid var(--sr-line) !important;
+  border-radius: 22px !important;
+  background: #fff !important;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.07);
+}
+
+.sr3-roster-head h3 {
+  margin: 0 0 5px;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.sr3-roster-head p {
+  display: block !important;
+  margin: 0 0 12px !important;
+  color: var(--sr-muted) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+}
+
+.sr3-roster-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.sr3-roster-list button {
+  all: unset;
+  display: grid !important;
+  grid-template-columns: 34px minmax(0, 1fr) 22px !important;
+  align-items: center !important;
+  gap: 9px !important;
+  width: 100% !important;
+  min-height: 48px !important;
+  padding: 7px 9px !important;
+  border: 1px solid var(--sr-line) !important;
+  border-radius: 14px !important;
+  background: #fff !important;
+  color: var(--sr-text) !important;
+  cursor: pointer;
+}
+
+.sr3-roster-list button.active {
+  border-color: var(--sr-blue) !important;
+  background: var(--sr-blue-soft) !important;
+  color: #1d4ed8 !important;
+}
+
+.sr3-num {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 999px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #e5e7eb !important;
+  color: #475569 !important;
+  font-weight: 900 !important;
+}
+
+.sr3-roster-list button.active .sr3-num {
+  background: var(--sr-blue) !important;
+  color: #fff !important;
+}
+
+.sr3-roster-list strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 900;
+}
+
+.sr3-roster-list em {
+  width: 22px;
+  color: #94a3b8;
+  font-style: normal;
+  text-align: center;
+}
+
+.sr3-roster-list em.done {
+  color: #22c55e;
+}
+
+.sr3-main {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: 14px !important;
+  min-width: 0;
+  align-items: stretch;
+}
+
+.sr3-card {
+  min-width: 0;
+  padding: 16px !important;
+  border: 1px solid var(--sr-line) !important;
+  border-radius: 22px !important;
+  background: #fff !important;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.07);
+}
+
+.sr3-evidence { order: 1; }
+.sr3-growth { order: 2; }
+.sr3-memo { order: 3; }
+.sr3-common { order: 4; }
+.sr3-result {
+  order: 5;
+  grid-column: 1 / -1 !important;
+}
+
+.sr3-title {
+  display: flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  min-width: 0;
+  margin-bottom: 10px !important;
+}
+
+.sr3-title > span {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sr-blue);
+  color: #fff;
+  font-weight: 900;
+}
+
+.sr3-title h3 {
+  margin: 0;
+  color: #1d4ed8;
+  font-size: 19px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+.sr3-title-with-badge > strong {
+  margin-left: auto;
+  height: 30px;
+  padding: 0 11px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  background: var(--sr-blue-soft);
+  color: #1d4ed8;
+  font-size: 13px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.sr3-evidence-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.sr3-evidence-table th,
+.sr3-evidence-table td {
+  padding: 9px 8px;
+  border: 1px solid #dbe3ee;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.sr3-evidence-table th {
+  width: 70%;
+  background: var(--sr-blue-soft);
+  color: #1d4ed8;
+  font-weight: 900;
+  word-break: keep-all;
+}
+
+.sr3-evidence-table td {
+  width: 30%;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.sr3-empty {
+  margin: 0;
+  color: var(--sr-muted);
+  font-weight: 800;
+}
+
+.sr3-growth-grid {
+  display: grid !important;
+  gap: 8px !important;
+}
+
+.sr3-growth-grid label {
+  display: grid !important;
+  grid-template-columns: 78px minmax(0, 1fr) !important;
+  gap: 8px !important;
+  align-items: center !important;
+}
+
+.sr3-growth-grid b {
+  color: #334155;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.sr3-growth-grid input,
+.sr3-card textarea {
+  width: 100% !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 14px !important;
+  background: #fff !important;
+  color: var(--sr-text) !important;
+}
+
+.sr3-growth-grid input {
+  height: 40px !important;
+  min-height: 40px !important;
+  padding: 8px 11px !important;
+  font-size: 14px !important;
+}
+
+.sr3-memo textarea,
+.sr3-common textarea {
+  min-height: 112px !important;
+  height: 112px !important;
+  padding: 12px !important;
+  line-height: 1.5 !important;
+  resize: vertical !important;
+}
+
+.sr3-result textarea {
+  min-height: 190px !important;
+  height: 190px !important;
+  padding: 14px !important;
+  line-height: 1.55 !important;
+  resize: vertical !important;
+}
+
+.sr3-result-title .sr3-actions-title {
+  display: none !important;
+}
+
+.sr3-byte {
+  margin-top: 7px;
+  color: var(--sr-muted);
+  font-size: 13px;
+  font-weight: 900;
+  text-align: right;
+}
+
+.sr3-actions {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 9px !important;
+  width: 100% !important;
+  margin-top: 10px !important;
+}
+
+.sr3-actions button {
+  all: unset;
+  min-height: 46px !important;
+  border-radius: 13px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  font-size: 14px !important;
+  font-weight: 900 !important;
+  white-space: nowrap !important;
+  cursor: pointer;
+}
+
+.sr3-generate { background: var(--sr-blue) !important; color: #fff !important; border: 1px solid var(--sr-blue) !important; }
+.sr3-save { background: var(--sr-green) !important; color: #fff !important; border: 1px solid var(--sr-green) !important; }
+.sr3-cancel { background: #fff !important; color: #475569 !important; border: 1px solid #cbd5e1 !important; }
+.sr3-delete { background: var(--sr-red) !important; color: #fff !important; border: 1px solid var(--sr-red) !important; }
+
+/* 학급 전체 생성 */
+.records-v10-common-card {
+  padding: 16px !important;
+  margin-bottom: 14px;
+  border: 1px solid var(--sr-line) !important;
+  border-radius: 22px !important;
+  background: #fff !important;
+}
+
+.records-v10-section-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 10px;
+}
+
+.records-v10-section-title > span {
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sr-blue);
+  color: #fff;
+  font-weight: 900;
+}
+
+.records-v10-section-title h3 {
+  margin: 0;
+  color: #1d4ed8;
+  font-size: 19px;
+  font-weight: 900;
+}
+
+.records-v10-common-card textarea {
+  width: 100% !important;
+  min-height: 110px !important;
+  padding: 12px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 14px !important;
+  resize: vertical !important;
+}
+
+.score-summary-row-wide {
+  position: static !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, auto) minmax(300px, 1fr) !important;
+  gap: 12px !important;
+  align-items: center !important;
+  padding: 14px 16px !important;
+  margin-bottom: 14px !important;
+  border: 1px solid #bfdbfe !important;
+  border-radius: 18px !important;
+  background: #fff !important;
+}
+
+.score-summary-row-wide > div:not(.records-action-buttons) {
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.records-action-buttons {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+  justify-self: end;
+  width: min(100%, 360px);
+}
+
+.records-action-buttons button {
+  min-height: 44px !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  font-weight: 900 !important;
+  white-space: nowrap !important;
+}
+
+.records-action-buttons .save-btn { background: var(--sr-blue) !important; color: #fff !important; }
+.records-action-buttons .setting-btn { background: #e5e7eb !important; color: var(--sr-text) !important; }
+.records-action-buttons .delete-btn { background: var(--sr-red) !important; color: #fff !important; }
+
+.records-table-card {
+  overflow: hidden !important;
+  padding: 0 !important;
+  border: 1px solid var(--sr-line) !important;
+  border-radius: 20px !important;
+  background: #fff !important;
+}
+
+.records-table-wrap {
+  width: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.records-v10-class-table {
+  width: 1420px !important;
+  min-width: 1420px !important;
+  table-layout: fixed !important;
+  border-collapse: collapse !important;
+}
+
+.records-v10-class-table th,
+.records-v10-class-table td {
+  padding: 9px !important;
+  border: 1px solid #e2e8f0 !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+}
+
+.records-v10-class-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #f8fafc !important;
+  font-weight: 900;
+}
+
+.records-v10-class-table col.col-check { width: 42px; }
+.records-v10-class-table col.col-number { width: 54px; }
+.records-v10-class-table col.col-name { width: 86px; }
+.records-v10-class-table col.col-evidence { width: 130px; }
+.records-v10-class-table col.col-memo { width: 220px; }
+.records-v10-class-table col.col-growth { width: 190px; }
+.records-v10-class-table col.col-result { width: 570px; }
+.records-v10-class-table col.col-byte { width: 128px; }
+
+.record-student-note,
+.record-result-textarea {
+  width: 100% !important;
+  min-height: 104px !important;
+  padding: 10px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 12px !important;
+  resize: vertical !important;
+  line-height: 1.45 !important;
+}
+
+.records-v10-growth-mini {
+  display: grid !important;
+  gap: 7px !important;
+}
+
+.records-v10-growth-mini input {
+  width: 100% !important;
+  min-height: 34px !important;
+  padding: 6px 8px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 10px !important;
+}
+
+.record-byte-actions-row {
+  display: grid !important;
+  gap: 7px !important;
+}
+
+.record-byte-select.compact {
+  width: 100% !important;
+  min-height: 38px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 10px !important;
+}
+
+.record-row-mini-actions {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 5px !important;
+}
+
+.record-row-mini-actions button {
+  min-width: 0 !important;
+  min-height: 34px !important;
+  padding: 0 5px !important;
+  border: 0 !important;
+  border-radius: 9px !important;
+  font-size: 11px !important;
+  font-weight: 900 !important;
+  white-space: nowrap !important;
+}
+
+.mini-generate { background: var(--sr-blue) !important; color: #fff !important; }
+.mini-copy { background: #e5e7eb !important; color: var(--sr-text) !important; }
+.mini-delete { background: var(--sr-red) !important; color: #fff !important; }
+
+.record-byte-ok,
+.record-byte-over {
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 900;
+}
+.record-byte-ok { color: #059669; }
+.record-byte-over { color: #dc2626; }
+
+/* 태블릿 */
+@media (min-width: 769px) and (max-width: 1280px) {
+  .records-v10-page {
+    padding: 14px 14px 32px;
+  }
+
+  .records-v10-toolbar {
+    grid-template-columns: 110px minmax(180px, 1fr) 120px 160px 135px;
+    gap: 8px;
+    padding: 12px !important;
+  }
+
+  .records-v10-toolbar input,
+  .records-v10-toolbar select,
+  .records-v10-toolbar button {
+    height: 44px;
+    min-height: 44px;
+    font-size: 13px;
+  }
+
+  .sr3-wrap {
+    grid-template-columns: 220px minmax(0, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .sr3-roster {
+    padding: 13px !important;
+  }
+
+  .sr3-main {
+    gap: 10px !important;
+  }
+
+  .sr3-card {
+    padding: 13px !important;
+  }
+
+  .sr3-title h3 {
+    font-size: 17px;
+  }
+
+  .sr3-memo textarea,
+  .sr3-common textarea {
+    min-height: 96px !important;
+    height: 96px !important;
+  }
+
+  .sr3-result textarea {
+    min-height: 250px !important;
+    height: 250px !important;
+  }
+
+  .sr3-actions button {
+    min-height: 42px !important;
+    font-size: 12px !important;
+  }
+
+  .score-summary-row-wide {
+    grid-template-columns: repeat(4, auto) minmax(260px, 1fr) !important;
+    gap: 8px !important;
+    padding: 12px !important;
+  }
+
+  .records-v10-class-table col.col-evidence { width: 105px; }
+  .records-v10-class-table col.col-growth { width: 165px; }
+  .records-v10-class-table col.col-result { width: 620px; }
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .records-v10-page {
+    padding: 12px 12px 30px;
+  }
+
+  .records-v10-header h2 {
+    font-size: 26px;
+  }
+
+  .records-v10-toolbar {
+    grid-template-columns: 1fr !important;
+    gap: 9px !important;
+    padding: 13px !important;
+  }
+
+  .records-v10-toolbar input,
+  .records-v10-toolbar select,
+  .records-v10-toolbar button {
+    height: 48px;
+    min-height: 48px;
+  }
+
+  .records-v10-tabs {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .records-v10-tabs button {
+    min-height: 54px;
+    font-size: 17px;
+  }
+
+  .sr3-wrap {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .sr3-roster {
+    position: static !important;
+    max-height: none !important;
+    padding: 14px !important;
+  }
+
+  .sr3-roster-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    max-height: 280px !important;
+    gap: 7px !important;
+  }
+
+  .sr3-roster-list button {
+    grid-template-columns: 32px minmax(0, 1fr) 20px !important;
+    min-height: 48px !important;
+    padding: 6px 7px !important;
+    gap: 6px !important;
+  }
+
+  .sr3-main {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .sr3-result {
+    grid-column: auto !important;
+  }
+
+  .sr3-card {
+    padding: 14px !important;
+  }
+
+  .sr3-title-with-badge {
+    flex-wrap: wrap;
+  }
+
+  .sr3-title-with-badge > strong {
+    margin-left: 0;
+  }
+
+  .sr3-growth-grid label {
+    grid-template-columns: 1fr !important;
+    gap: 5px !important;
+  }
+
+  .sr3-memo textarea,
+  .sr3-common textarea {
+    min-height: 130px !important;
+    height: 130px !important;
+  }
+
+  .sr3-result textarea {
+    min-height: 260px !important;
+    height: 260px !important;
+  }
+
+  .sr3-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 9px !important;
+  }
+
+  .sr3-actions button {
+    min-height: 52px !important;
+    font-size: 15px !important;
+  }
+
+  .score-summary-row-wide {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 9px !important;
+  }
+
+  .score-summary-row-wide > div:not(.records-action-buttons) {
+    min-height: 48px;
+  }
+
+  .records-action-buttons {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  .records-action-buttons button {
+    min-height: 50px !important;
+  }
+
+  .records-table-card {
+    overflow: visible !important;
+    border: 0 !important;
+    background: transparent !important;
+  }
+
+  .records-table-wrap {
+    overflow: visible !important;
+  }
+
+  .records-v10-class-table,
+  .records-v10-class-table tbody,
+  .records-v10-class-table tr,
+  .records-v10-class-table td {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .records-v10-class-table {
+    table-layout: auto !important;
+    border-collapse: separate !important;
+    border-spacing: 0 12px !important;
+  }
+
+  .records-v10-class-table colgroup,
+  .records-v10-class-table thead {
+    display: none !important;
+  }
+
+  .records-v10-class-table tr {
+    padding: 14px !important;
+    border: 1px solid var(--sr-line) !important;
+    border-radius: 20px !important;
+    background: #fff !important;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+  }
+
+  .records-v10-class-table td {
+    padding: 7px 0 !important;
+    border: 0 !important;
+    text-align: left !important;
+  }
+
+  .record-check-cell,
+  .record-number-cell,
+  .record-name-cell {
+    display: inline-flex !important;
+    width: auto !important;
+    margin-right: 8px;
+    align-items: center;
+    font-weight: 900;
+  }
+
+  .record-evidence-cell {
+    margin-top: 6px;
+    padding: 10px !important;
+    border-radius: 12px !important;
+    background: #f8fafc !important;
+  }
+
+  .record-student-note,
+  .record-result-textarea {
+    min-height: 140px !important;
+  }
+
+  .record-byte-actions-row {
+    grid-template-columns: 104px minmax(0, 1fr) !important;
+    align-items: center;
+    gap: 8px !important;
+  }
+
+  .record-row-mini-actions button {
+    min-height: 42px !important;
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .sr3-roster-list {
+    grid-template-columns: 1fr !important;
+  }
+
+  .record-byte-actions-row {
+    grid-template-columns: 92px minmax(0, 1fr) !important;
+    gap: 6px !important;
+  }
+
+  .record-row-mini-actions {
+    gap: 4px !important;
+  }
+
+  .record-row-mini-actions button {
+    padding: 0 4px !important;
+    font-size: 11px !important;
+  }
+}

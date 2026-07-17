@@ -1,0 +1,706 @@
+
+/* PE-ON StudentRecords rebuild v3
+   Loaded directly from StudentRecords.jsx, isolated from old style.css cascade. */
+
+.records-v10-header p {
+  display: none !important;
+}
+
+/* Root */
+.sr3-wrap,
+.sr3-wrap * {
+  box-sizing: border-box;
+}
+
+.sr3-wrap {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+/* Roster */
+.sr3-roster {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, .08);
+  padding: 18px;
+  position: sticky;
+  top: 12px;
+  max-height: calc(100vh - 120px);
+  overflow: hidden;
+}
+
+.sr3-roster-head h3 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  line-height: 1.25;
+  color: #111827;
+  font-weight: 900;
+}
+
+.sr3-roster-head p {
+  display: block !important;
+  margin: 0 0 12px;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.sr3-roster-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.sr3-roster-list button {
+  all: unset;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) 24px;
+  gap: 9px;
+  align-items: center;
+  min-height: 48px;
+  padding: 7px 9px;
+  border: 1px solid #e2e8f0;
+  border-radius: 15px;
+  background: #fff;
+  color: #111827;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.sr3-roster-list button.active {
+  background: #eff6ff;
+  border-color: #2563eb;
+  color: #1d4ed8;
+}
+
+.sr3-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+
+.sr3-roster-list button.active .sr3-num {
+  background: #2563eb;
+  color: #fff;
+}
+
+.sr3-roster-list strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sr3-roster-list em {
+  font-style: normal;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.sr3-roster-list em.done {
+  color: #16a34a;
+}
+
+/* Main grid */
+.sr3-main {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+.sr3-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, .08);
+  padding: 16px;
+  min-width: 0;
+  overflow: visible;
+}
+
+.sr3-evidence { order: 1; }
+.sr3-growth { order: 2; }
+.sr3-memo { order: 3; }
+.sr3-common { order: 4; }
+.sr3-result {
+  order: 5;
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sr3-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 10px;
+  min-width: 0;
+}
+
+.sr3-title > span {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  background: #2563eb;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+
+.sr3-title h3 {
+  margin: 0;
+  font-size: 19px;
+  color: #1d4ed8;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.sr3-title-with-badge > strong {
+  margin-left: auto;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 13px;
+  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* Evidence */
+.sr3-evidence-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.sr3-evidence-table th,
+.sr3-evidence-table td {
+  border: 1px solid #e2e8f0;
+  padding: 9px 8px;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.sr3-evidence-table th {
+  width: 70%;
+  background: #eff6ff;
+  color: #1d4ed8;
+  word-break: keep-all;
+  font-weight: 900;
+}
+
+.sr3-evidence-table td {
+  width: 30%;
+  white-space: nowrap;
+  font-weight: 900;
+}
+
+.sr3-empty {
+  margin: 0;
+  color: #64748b;
+  font-weight: 800;
+}
+
+/* Inputs */
+.sr3-growth-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.sr3-growth-grid label {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+}
+
+.sr3-growth-grid b {
+  color: #334155;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.sr3-growth-grid input,
+.sr3-card textarea {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  font-family: inherit;
+  color: #111827;
+}
+
+.sr3-growth-grid input {
+  height: 40px;
+  min-height: 40px;
+  padding: 8px 11px;
+  font-size: 14px;
+}
+
+.sr3-memo textarea,
+.sr3-common textarea {
+  height: 100px;
+  min-height: 100px;
+  padding: 12px;
+  font-size: 15px;
+  line-height: 1.45;
+  resize: vertical;
+}
+
+.sr3-result textarea {
+  height: 130px;
+  min-height: 130px;
+  padding: 12px;
+  font-size: 15px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.sr3-byte {
+  margin-top: 6px;
+  text-align: right;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+/* Actions */
+.sr3-actions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.sr3-actions button {
+  all: unset;
+  height: 44px;
+  min-height: 44px;
+  border-radius: 13px;
+  font-size: 14px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  cursor: pointer;
+  text-align: center;
+}
+
+.sr3-generate {
+  background: #2563eb !important;
+  color: #fff !important;
+  border: 1.5px solid #2563eb !important;
+}
+
+.sr3-save {
+  background: #10b981 !important;
+  color: #fff !important;
+  border: 1.5px solid #10b981 !important;
+}
+
+.sr3-cancel {
+  background: #fff !important;
+  color: #475569 !important;
+  border: 1.5px solid #cbd5e1 !important;
+}
+
+.sr3-delete {
+  background: #ef4444 !important;
+  color: #fff !important;
+  border: 1.5px solid #ef4444 !important;
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1280px) {
+  .sr3-wrap {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .sr3-roster {
+    padding: 14px;
+  }
+
+  .sr3-roster-head h3 {
+    font-size: 18px;
+  }
+
+  .sr3-roster-head p {
+    font-size: 12px;
+  }
+
+  .sr3-roster-list button {
+    min-height: 45px;
+    padding: 6px 8px;
+  }
+
+  .sr3-main {
+    gap: 10px;
+  }
+
+  .sr3-card {
+    padding: 14px;
+  }
+
+  .sr3-title {
+    margin-bottom: 8px;
+  }
+
+  .sr3-title > span {
+    flex-basis: 32px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .sr3-title h3 {
+    font-size: 17px;
+  }
+
+  .sr3-title-with-badge > strong {
+    font-size: 12px;
+    padding: 0 9px;
+  }
+
+  .sr3-growth-grid {
+    gap: 7px;
+  }
+
+  .sr3-growth-grid label {
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .sr3-growth-grid b {
+    font-size: 13px;
+  }
+
+  .sr3-growth-grid input {
+    height: 37px;
+    min-height: 37px;
+    font-size: 13px;
+  }
+
+  .sr3-memo textarea,
+  .sr3-common textarea {
+    height: 88px;
+    min-height: 88px;
+    font-size: 14px;
+  }
+
+  .sr3-result textarea {
+    height: 108px;
+    min-height: 108px;
+    font-size: 14px;
+  }
+
+  .sr3-actions {
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .sr3-actions button {
+    height: 40px;
+    min-height: 40px;
+    font-size: 12px;
+    border-radius: 11px;
+  }
+}
+
+/* Narrow tablet */
+@media (max-width: 900px) {
+  .sr3-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .sr3-roster {
+    position: static;
+    max-height: none;
+  }
+
+  .sr3-roster-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-height: none;
+  }
+
+  .sr3-main {
+    grid-template-columns: 1fr;
+  }
+
+  .sr3-result {
+    grid-column: auto;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .sr3-roster-list {
+    grid-template-columns: 1fr;
+  }
+
+  .sr3-memo textarea,
+  .sr3-common textarea {
+    height: 120px;
+    min-height: 120px;
+  }
+
+  .sr3-result textarea {
+    height: 160px;
+    min-height: 160px;
+  }
+
+  .sr3-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .sr3-actions button {
+    height: 54px;
+    min-height: 54px;
+    font-size: 16px;
+    border-radius: 16px;
+  }
+}
+
+/* =========================================================
+   PE-ON 교과세특 v4 태블릿 버튼 보정
+   원인: 일부 삼성 태블릿/크롬은 화면 폭을 PC처럼 크게 잡아
+   일반 태블릿 media query가 안 먹고, 버튼이 5번 카드 아래로 밀립니다.
+   해결: 터치 태블릿에서는 5번 제목 오른쪽에 버튼 4개를 한 줄로 표시합니다.
+   ========================================================= */
+
+.sr3-actions-title{
+  display:none;
+}
+
+/* PC는 기존처럼 AI 결과 아래 버튼 유지 */
+@media (hover:hover) and (pointer:fine){
+  .sr3-actions-title{
+    display:none !important;
+  }
+
+  .sr3-result > .sr3-actions{
+    display:grid !important;
+  }
+}
+
+/* 터치 태블릿: 5번 제목 옆 버튼 한 줄 표시 */
+@media (hover:none) and (pointer:coarse) and (min-width:769px){
+  .sr3-result-title{
+    display:grid !important;
+    grid-template-columns:34px auto minmax(420px, 1fr) !important;
+    gap:10px !important;
+    align-items:center !important;
+  }
+
+  .sr3-result-title h3{
+    white-space:nowrap !important;
+  }
+
+  .sr3-actions-title{
+    display:grid !important;
+    grid-template-columns:repeat(4, minmax(0, 1fr)) !important;
+    gap:6px !important;
+    width:100% !important;
+    margin-left:auto !important;
+  }
+
+  .sr3-actions-title button{
+    all:unset;
+    height:40px !important;
+    min-height:40px !important;
+    border-radius:11px !important;
+    font-size:12px !important;
+    font-weight:900 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    text-align:center !important;
+    white-space:nowrap !important;
+    cursor:pointer !important;
+    box-sizing:border-box !important;
+  }
+
+  .sr3-actions-title .sr3-generate{
+    background:#2563eb !important;
+    color:#fff !important;
+    border:1.5px solid #2563eb !important;
+  }
+
+  .sr3-actions-title .sr3-save{
+    background:#10b981 !important;
+    color:#fff !important;
+    border:1.5px solid #10b981 !important;
+  }
+
+  .sr3-actions-title .sr3-cancel{
+    background:#fff !important;
+    color:#475569 !important;
+    border:1.5px solid #cbd5e1 !important;
+  }
+
+  .sr3-actions-title .sr3-delete{
+    background:#ef4444 !important;
+    color:#fff !important;
+    border:1.5px solid #ef4444 !important;
+  }
+
+  /* 태블릿에서는 아래 버튼을 숨겨 중복을 막고, 버튼이 안 보이는 문제를 원천 차단 */
+  .sr3-result > .sr3-actions{
+    display:none !important;
+  }
+
+  .sr3-result textarea{
+    height:120px !important;
+    min-height:120px !important;
+  }
+}
+
+/* 폭이 1100px 이하인 터치 태블릿은 제목 밑 한 줄로 버튼 표시 */
+@media (hover:none) and (pointer:coarse) and (min-width:769px) and (max-width:1100px){
+  .sr3-result-title{
+    grid-template-columns:34px auto !important;
+  }
+
+  .sr3-actions-title{
+    grid-column:1 / -1 !important;
+    margin-top:6px !important;
+  }
+}
+
+/* 모바일은 기존처럼 결과 아래 2×2 버튼 유지 */
+@media (max-width:768px){
+  .sr3-actions-title{
+    display:none !important;
+  }
+
+  .sr3-result > .sr3-actions{
+    display:grid !important;
+  }
+}
+
+
+
+/* v5 tablet large AI panel */
+@media (hover:none) and (pointer:coarse) and (min-width:769px){
+  .sr3-grid{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:18px!important;
+  }
+  .sr3-result{
+    grid-column:1 / -1!important;
+    min-height:420px!important;
+  }
+  .sr3-result textarea{
+    min-height:310px!important;
+    height:310px!important;
+    resize:none!important;
+  }
+}
+
+/* =========================================================
+   PE-ON 고정 해제 패치
+   - 모바일/태블릿에서 요약 박스와 버튼 박스가 화면에 고정되어
+     내용을 가리는 문제를 해결합니다.
+   - 모든 액션 영역은 문서 흐름 안에서 자연스럽게 표시됩니다.
+   ========================================================= */
+
+/* 교과세특 학급 전체 생성 상단 요약/버튼 고정 해제 */
+.records-summary-sticky,
+.records-action-bar,
+.score-summary-row.records-summary-sticky,
+.score-summary-row.records-action-bar,
+.score-summary-row-wide.records-summary-sticky,
+.score-summary-row-wide.records-action-bar{
+  position:static !important;
+  top:auto !important;
+  bottom:auto !important;
+  left:auto !important;
+  right:auto !important;
+  z-index:auto !important;
+  transform:none !important;
+}
+
+/* 예전에 만든 floating 버튼이 남아 있어도 무조건 숨김 */
+.records-v10-floating-actions,
+.records-v10-tablet-action-bar,
+.sr3-actions-title{
+  position:static !important;
+}
+
+/* 모바일/태블릿에서 고정형처럼 보이는 박스 제거 */
+@media (max-width:1280px){
+  .records-summary-sticky,
+  .records-action-bar,
+  .score-summary-row.records-summary-sticky,
+  .score-summary-row.records-action-bar,
+  .score-summary-row-wide.records-summary-sticky,
+  .score-summary-row-wide.records-action-bar{
+    position:static !important;
+    top:auto !important;
+    bottom:auto !important;
+    z-index:auto !important;
+    margin:14px 0 !important;
+  }
+
+  .records-action-buttons{
+    position:static !important;
+    display:flex !important;
+    flex-wrap:wrap !important;
+    gap:10px !important;
+  }
+
+  .records-action-buttons button{
+    position:static !important;
+  }
+}
+
+/* 모바일에서는 학급 전체 생성 요약을 일반 카드처럼 자연스럽게 */
+@media (max-width:768px){
+  .score-summary-row,
+  .score-summary-row-wide{
+    position:static !important;
+    display:grid !important;
+    grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+    gap:10px !important;
+    padding:16px !important;
+    margin:14px 0 !important;
+  }
+
+  .records-action-buttons{
+    grid-column:1 / -1 !important;
+    display:grid !important;
+    grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
+    gap:10px !important;
+    width:100% !important;
+  }
+
+  .records-action-buttons button{
+    width:100% !important;
+    min-width:0 !important;
+    height:52px !important;
+  }
+}
+
