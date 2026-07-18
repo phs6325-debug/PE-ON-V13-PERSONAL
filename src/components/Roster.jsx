@@ -97,6 +97,7 @@ const makeHealthSummary = (records = []) => {
 
 export default function Roster() {
   const [cls, setCls] = useState("2-1");
+  const [queryClass, setQueryClass] = useState("");
 
   const year = localStorage.getItem("peon_year") || "2026학년도";
   const semester = localStorage.getItem("peon_semester") || "1학기";
@@ -443,15 +444,33 @@ export default function Roster() {
         ☁️ 명렬표 클라우드 상태: {cloudStatus}
       </div>
 
-      <section className="card roster-control-bar roster-sticky-control-bar">
-        <label className="roster-class-select-wrap">
-          <span>학급(인원)</span>
-          <select value={cls} onChange={(e) => { setCls(e.target.value); setSearch(""); resetForm(); }}>
+      <section className="card roster-control-bar roster-sticky-control-bar roster-query-control">
+        <div className="roster-query-group">
+          <select
+            className="roster-class-query-select"
+            value={queryClass}
+            onChange={(e) => setQueryClass(e.target.value)}
+            aria-label="학년-반 선택"
+          >
+            <option value="">학년-반</option>
             {classes.map((c) => (
               <option key={c} value={c}>{c} ({(students[c] || []).length}명)</option>
             ))}
           </select>
-        </label>
+          <button
+            className="save-btn peon-query-button roster-query-button"
+            type="button"
+            onClick={() => {
+              if (!queryClass) {
+                showMessage("학년-반을 먼저 선택하세요.");
+                return;
+              }
+              setCls(queryClass);
+              setSearch("");
+              resetForm();
+            }}
+          >조회</button>
+        </div>
         <button className="save-btn roster-quick-add-btn" type="button" onClick={() => setIsAddOpen(true)}>학생추가</button>
         <input
           className="roster-inline-search"

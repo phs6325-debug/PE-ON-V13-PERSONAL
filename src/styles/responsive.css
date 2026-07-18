@@ -6249,3 +6249,117 @@ body, button, input, select, textarea { font-size: inherit; }
     grid-auto-flow: column !important;
   }
 }
+
+
+/* ==========================================================================\n   PE-ON V13.3 조회바 단일행 통일\n   - 명렬표: 학년-반 / 조회\n   - 수행·PAPS: 학년-반 / 전 영역 / 조회\n   - 세특: 학년-반 / 조회\n   - PC·Z Flip6·Galaxy Tab S8 모두 줄바꿈 없이 한 줄\n   ========================================================================== */
+.peon-query-bar,
+.assessment-query-bar,
+.paps-query-bar,
+.print-query-bar,
+.records-query-bar,
+.roster-query-group {
+  display: flex !important;
+  flex-flow: row nowrap !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 12px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  overflow: visible !important;
+}
+
+.peon-query-bar > select:first-of-type,
+.assessment-query-bar > select:first-of-type,
+.paps-query-bar > select:first-of-type,
+.print-query-bar > select:first-of-type,
+.records-query-bar > select:first-of-type,
+.roster-class-query-select {
+  flex: 0 0 190px !important;
+  width: 190px !important;
+  min-width: 170px !important;
+  max-width: 210px !important;
+}
+
+.assessment-query-bar > select:nth-of-type(2),
+.paps-query-bar > select:nth-of-type(2),
+.print-query-bar > select:nth-of-type(2) {
+  flex: 1 1 360px !important;
+  width: auto !important;
+  min-width: 260px !important;
+  max-width: none !important;
+}
+
+.peon-query-button,
+.roster-query-button {
+  flex: 0 0 112px !important;
+  width: 112px !important;
+  min-width: 112px !important;
+  max-width: 112px !important;
+}
+
+.records-query-bar > select:first-of-type {
+  flex: 1 1 auto !important;
+  width: auto !important;
+  max-width: 420px !important;
+}
+
+.records-query-bar .peon-query-button {
+  margin-left: 0 !important;
+}
+
+.peon-query-bar select,
+.peon-query-bar button,
+.records-query-bar select,
+.records-query-bar button,
+.roster-query-group select,
+.roster-query-group button {
+  height: 46px !important;
+  min-height: 46px !important;
+  padding: 0 14px !important;
+  border-radius: 12px !important;
+  font-size: clamp(14px, .92vw, 16px) !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+}
+
+.roster-query-control {
+  display: grid !important;
+  grid-template-columns: minmax(310px, 0.8fr) auto minmax(260px, 1.4fr) auto !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.roster-query-group {
+  width: auto !important;
+}
+
+@media (pointer: coarse), (hover: none) {
+  .peon-query-bar,
+  .assessment-query-bar,
+  .paps-query-bar,
+  .print-query-bar,
+  .records-query-bar,
+  .roster-query-group {
+    flex-wrap: nowrap !important;
+  }
+
+  .peon-query-bar > select:first-of-type,
+  .assessment-query-bar > select:first-of-type,
+  .paps-query-bar > select:first-of-type,
+  .print-query-bar > select:first-of-type,
+  .roster-class-query-select {
+    flex-basis: 190px !important;
+    width: 190px !important;
+  }
+
+  .assessment-query-bar > select:nth-of-type(2),
+  .paps-query-bar > select:nth-of-type(2),
+  .print-query-bar > select:nth-of-type(2) {
+    min-width: 320px !important;
+  }
+
+  .records-query-bar > select:first-of-type {
+    min-width: 320px !important;
+    max-width: 420px !important;
+  }
+}

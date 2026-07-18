@@ -1116,7 +1116,7 @@ export default function Assessment() {
           {classes.map((c) => <option key={c} value={c}>{c}</option>)}
         </select>
         <select value={queryArea} onChange={(e) => setQueryArea(e.target.value)} aria-label="평가영역 선택">
-          <option value="all">평가영역</option>
+          <option value="all">전 영역</option>
           {activities.map((activity) => <option key={activity.id} value={String(activity.id)}>{activity.name}</option>)}
         </select>
         <button type="button" className="save-btn peon-query-button" onClick={runAssessmentQuery}>조회</button>
