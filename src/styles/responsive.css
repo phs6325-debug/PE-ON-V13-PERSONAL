@@ -6075,3 +6075,177 @@ body, button, input, select, textarea { font-size: inherit; }
   .card { border-radius:16px !important; }
   button, select, input { max-width:100%; }
 }
+
+/* ==========================================================================\n   PE-ON V13.2 최종 화면 모드\n   - PC: 학년-반 / 영역 / 조회를 한 줄로 유지\n   - 휴대폰·태블릿: 1180px 작업 화면 전체를 축소 표시\n   - 두 손가락 확대·축소 및 상하좌우 이동 허용\n   - 모바일·태블릿에서 고정(sticky/fixed) UI 최소화\n   ========================================================================== */
+
+/* 모든 조회바는 기본적으로 한 줄 */
+.peon-query-bar,
+.assessment-query-bar,
+.paps-query-bar,
+.print-query-bar {
+  display: grid !important;
+  grid-template-columns: minmax(180px, 0.72fr) minmax(360px, 1.8fr) minmax(120px, 0.42fr) !important;
+  align-items: center !important;
+  gap: 14px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  overflow: visible !important;
+}
+
+.records-query-bar {
+  display: grid !important;
+  grid-template-columns: minmax(240px, 1fr) minmax(120px, 220px) !important;
+  align-items: center !important;
+  gap: 14px !important;
+  position: static !important;
+  top: auto !important;
+}
+
+.peon-query-bar > *,
+.records-query-bar > * {
+  min-width: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.peon-query-bar select,
+.peon-query-bar button,
+.records-query-bar select,
+.records-query-bar button {
+  height: 50px !important;
+  min-height: 50px !important;
+  font-size: clamp(15px, 1vw, 17px) !important;
+  white-space: nowrap !important;
+}
+
+/* 터치 기기에서는 PC형 작업 화면을 한 번에 보고 확대·이동 */
+@media (pointer: coarse), (hover: none) {
+  html,
+  body,
+  #root {
+    width: 100% !important;
+    min-width: 1180px !important;
+    max-width: none !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    touch-action: pan-x pan-y pinch-zoom !important;
+    overscroll-behavior: auto !important;
+  }
+
+  body {
+    position: static !important;
+    zoom: 1 !important;
+  }
+
+  .peon-v9-shell,
+  .peon-v9-content,
+  .peon-v9-main,
+  .page {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    overflow: visible !important;
+  }
+
+  /* 화면을 계속 차지하던 고정 요소 해제 */
+  .peon-v9-topbar,
+  .peon-query-bar,
+  .records-query-bar,
+  .assessment-main-tabs,
+  .paps-tabs,
+  .student-record-tabs,
+  .print-tabs,
+  [class*="sticky"],
+  [style*="position: sticky"] {
+    position: static !important;
+    top: auto !important;
+    bottom: auto !important;
+  }
+
+  .peon-v9-topbar {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  /* 사이드바는 필요할 때만 화면 위에 표시 */
+  .peon-v9-shell {
+    --sidebar-width: 0px !important;
+  }
+
+  .peon-v9-sidebar {
+    position: fixed !important;
+    inset: 0 auto 0 0 !important;
+    width: 280px !important;
+    min-width: 280px !important;
+    transform: translateX(-105%) !important;
+    transition: transform .2s ease !important;
+    z-index: 1200 !important;
+    overflow-y: auto !important;
+    box-shadow: 14px 0 36px rgba(15,23,42,.24) !important;
+  }
+
+  .peon-v9-shell.mobile-open .peon-v9-sidebar {
+    transform: translateX(0) !important;
+  }
+
+  .peon-v9-backdrop {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 1190 !important;
+  }
+
+  .peon-v9-content {
+    margin-left: 0 !important;
+  }
+
+  .peon-v9-open-mobile {
+    display: inline-flex !important;
+  }
+
+  .peon-v9-collapse {
+    display: none !important;
+  }
+
+  /* 조회 조건은 터치 기기에서도 한 줄 */
+  .peon-query-bar,
+  .assessment-query-bar,
+  .paps-query-bar,
+  .print-query-bar {
+    grid-template-columns: 220px minmax(520px, 1fr) 140px !important;
+  }
+
+  .records-query-bar {
+    grid-template-columns: minmax(520px, 1fr) 140px !important;
+  }
+
+  /* 페이지 전체를 브라우저가 이동하도록 내부 스크롤 고정 해제 */
+  .records-table-wrap,
+  .paps-all-check-wrap,
+  .assessment-table-wrap,
+  .table-scroll,
+  .table-responsive {
+    overflow: visible !important;
+    max-width: none !important;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    touch-action: manipulation !important;
+  }
+}
+
+/* PC에서는 넓이가 부족해도 조회바가 줄바꿈되지 않도록 보정 */
+@media (min-width: 1181px) {
+  .peon-query-bar,
+  .assessment-query-bar,
+  .paps-query-bar,
+  .print-query-bar,
+  .records-query-bar {
+    grid-auto-flow: column !important;
+  }
+}

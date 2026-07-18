@@ -183,7 +183,7 @@ export default function App() {
           </div>
           <h1>🔒 PE-ON</h1>
           <p>체육교사의 모든 기록을 ON</p>
-          <span className="peon-version-badge">PE-ON V13.0 PERSONAL</span>
+          <span className="peon-version-badge">PE-ON V13.2 PERSONAL</span>
           <p className="login-guide">Chrome 계정과 상관없이 PE-ON 계정으로 로그인할 수 있습니다.</p>
           <div className="email-login-form">
             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="이메일" autoComplete="username" />
@@ -216,7 +216,7 @@ export default function App() {
         </nav>
 
         <div className="peon-v9-teacher-card peon-v9-version-only">
-          <span className="peon-v9-badge">V13.0 PERSONAL</span>
+          <span className="peon-v9-badge">V13.2 PERSONAL</span>
         </div>
       </aside>
 
