@@ -5982,3 +5982,96 @@ body { -webkit-text-size-adjust:100%; }
   .progress-v10-history-filter select{flex:1;}
 }
 }
+
+
+/* PE-ON V13.1: 공통 조회바 + Z Flip6/Galaxy Tab S8 반응형 */
+:root {
+  --peon-fluid-body: clamp(14px, 1.05vw, 17px);
+  --peon-fluid-small: clamp(12px, .88vw, 15px);
+  --peon-fluid-title: clamp(24px, 2vw, 34px);
+  --peon-control-height: clamp(44px, 4.2vw, 54px);
+}
+html { font-size: var(--peon-fluid-body); -webkit-text-size-adjust: 100%; }
+body, button, input, select, textarea { font-size: inherit; }
+.page > h2, .records-v10-header h2 { font-size: var(--peon-fluid-title) !important; line-height:1.2; }
+.peon-query-bar {
+  display:grid;
+  grid-template-columns:minmax(160px, .7fr) minmax(240px, 1.6fr) minmax(110px, .45fr);
+  gap:12px;
+  align-items:center;
+  padding:16px 18px !important;
+  margin:14px 0 18px;
+  position:sticky;
+  top:76px;
+  z-index:35;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(10px);
+}
+.peon-query-bar select, .peon-query-bar button {
+  width:100%; min-width:0; height:var(--peon-control-height); border-radius:14px;
+  font-weight:800; padding:0 16px;
+}
+.records-query-bar { grid-template-columns:minmax(180px,1fr) minmax(110px,220px); }
+.assessment-input-header-clean, .check-input-header { grid-template-columns:1fr !important; }
+.assessment-input-header-clean .assessment-top-actions { width:100%; }
+
+@media (max-width: 1180px) {
+  .peon-v9-shell { --sidebar-width: 0px; }
+  .peon-v9-sidebar {
+    position:fixed !important; inset:0 auto 0 0; width:min(320px,82vw) !important;
+    transform:translateX(-105%); transition:transform .22s ease; z-index:1000 !important;
+    box-shadow:12px 0 32px rgba(15,23,42,.2);
+  }
+  .peon-v9-shell.mobile-open .peon-v9-sidebar { transform:translateX(0); }
+  .peon-v9-backdrop { display:block !important; opacity:0; pointer-events:none; position:fixed; inset:0; z-index:990; background:rgba(15,23,42,.42); transition:opacity .2s; }
+  .peon-v9-shell.mobile-open .peon-v9-backdrop { opacity:1; pointer-events:auto; }
+  .peon-v9-content { margin-left:0 !important; width:100% !important; min-width:0 !important; }
+  .peon-v9-open-mobile { display:inline-flex !important; }
+  .peon-v9-collapse { display:none !important; }
+  .peon-v9-menu button { min-height:52px; font-size:clamp(15px,2vw,18px); }
+  .peon-v9-topbar { padding-inline:12px !important; gap:8px !important; }
+  .peon-v9-login-bar > span:not(.peon-offline-status) { max-width:170px; overflow:hidden; text-overflow:ellipsis; }
+  .page { width:100%; max-width:100%; padding-inline:clamp(12px,2.2vw,24px) !important; overflow-x:hidden; }
+  .card { max-width:100%; }
+  table { font-size:clamp(13px,1.5vw,16px); }
+  .student-table, .records-class-table, .paps-check-table { min-width:720px; }
+  .records-table-wrap, .paps-all-check-wrap, .assessment-table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+}
+
+@media (max-width: 768px) {
+  :root { --peon-fluid-body: clamp(13px,3.7vw,16px); --peon-fluid-title:clamp(22px,7vw,30px); --peon-control-height:48px; }
+  .peon-v9-topbar { min-height:60px !important; }
+  .peon-v9-top-brand span { display:none; }
+  .peon-v9-top-brand strong { font-size:16px !important; }
+  .peon-v9-top-brand img { width:36px !important; height:36px !important; }
+  .peon-v9-home-quick { font-size:0 !important; width:44px; padding:0 !important; }
+  .peon-v9-home-quick::first-letter { font-size:20px; }
+  .peon-v9-login-bar { gap:5px !important; }
+  .peon-v9-login-bar > span:not(.peon-offline-status) { display:none; }
+  .peon-v9-login-bar button { min-height:40px !important; padding:0 10px !important; font-size:12px !important; }
+  .peon-offline-status { font-size:11px !important; padding:6px 8px !important; }
+  .peon-query-bar, .records-query-bar {
+    position:relative; top:auto; grid-template-columns:1fr !important; gap:10px; padding:12px !important;
+  }
+  .peon-query-bar select, .peon-query-bar button { width:100% !important; min-height:48px; font-size:16px !important; }
+  .assessment-main-tabs { display:grid !important; grid-template-columns:repeat(3,1fr); gap:8px; }
+  .assessment-main-tabs button { min-width:0 !important; padding:12px 4px !important; font-size:clamp(14px,4vw,17px) !important; }
+  .records-v10-toolbar { grid-template-columns:1fr !important; }
+  .records-v10-toolbar > * { width:100% !important; }
+  .sr3-wrap { grid-template-columns:1fr !important; }
+  .sr3-roster { max-height:280px; }
+  .print-action-row { display:grid !important; grid-template-columns:1fr !important; }
+  .print-action-row button { width:100% !important; }
+}
+
+@media (max-width: 430px) {
+  .page { padding-inline:10px !important; }
+  .peon-v9-sidebar { width:84vw !important; }
+  .peon-v9-topbar { padding:8px !important; }
+  .peon-v9-open-mobile, .peon-v9-home-quick { width:40px !important; min-width:40px !important; height:40px !important; }
+  .peon-v9-top-brand { margin-right:auto; }
+  .peon-v9-login-bar .peon-offline-status { display:none; }
+  .peon-query-bar { margin-top:10px; }
+  .card { border-radius:16px !important; }
+  button, select, input { max-width:100%; }
+}

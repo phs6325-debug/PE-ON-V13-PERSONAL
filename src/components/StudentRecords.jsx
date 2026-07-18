@@ -299,6 +299,7 @@ export default function StudentRecords() {
   const optionKey = `${recordKey}_options`;
 
   const [cls, setCls] = useState("2-1");
+  const [queryClass, setQueryClass] = useState("");
   const [unit, setUnit] = useState(localStorage.getItem(`${recordKey}_unit`) || "협동농구");
   const [length, setLength] = useState("500");
   const [mode, setMode] = useState("student");
@@ -661,6 +662,18 @@ const makeSentence = (student, className = cls) => {
   const selectedOption = selectedStudent ? getStudentOption(selectedStudent) : {};
   const selectedEvidence = selectedStudent ? getStudentEvidence(selectedStudent, cls) : null;
 
+
+  const runRecordsQuery = () => {
+    if (!queryClass) {
+      setMessage("학년-반을 먼저 선택하세요.");
+      return;
+    }
+    setCls(queryClass);
+    setSelectedStudentId("");
+    setSelectedRecordIds([]);
+    setMessage(`${queryClass} 교과세특을 조회했습니다.`);
+  };
+
   return (
     <div className="page records-page records-v10-page">
       <div className="records-v10-header">
@@ -673,11 +686,15 @@ const makeSentence = (student, className = cls) => {
 
       {message && <div className="assessment-save-message">{message}</div>}
 
-      <section className="card records-v10-toolbar">
-        <select value={cls} onChange={(e) => setCls(e.target.value)}>
-          {classes.map((c) => <option key={c}>{c}</option>)}
+      <section className="card peon-query-bar records-query-bar" aria-label="세특 조회 조건">
+        <select value={queryClass} onChange={(e) => setQueryClass(e.target.value)} aria-label="학년-반 선택">
+          <option value="">학년-반</option>
+          {classes.map((c) => <option key={c} value={c}>{c}</option>)}
         </select>
-        <input value={unit} onChange={(e) => setUnit(e.target.value)} placeholder="단원명 예) 협동농구, 티볼" />
+        <button type="button" className="save-btn peon-query-button" onClick={runRecordsQuery}>조회</button>
+      </section>
+
+      <section className="card records-v10-toolbar">
         <select value={length} onChange={(e) => setLength(e.target.value)}>
           {byteOptions.map((option) => <option key={option} value={option}>{option}byte</option>)}
         </select>

@@ -307,6 +307,8 @@ export default function Assessment() {
   const [scoreClass, setScoreClass] = useState("2-1");
   const [checkClass, setCheckClass] = useState("2-1");
   const [checkActivityId, setCheckActivityId] = useState("all");
+  const [queryClass, setQueryClass] = useState("");
+  const [queryArea, setQueryArea] = useState("all");
   const [showMissingOnly, setShowMissingOnly] = useState(false);
 
   const [activityName, setActivityName] = useState("");
@@ -1082,6 +1084,20 @@ export default function Assessment() {
     ? checkStudents.filter((student) => !activities.some((activity) => hasStudentInput(activity, student, checkClass)))
     : checkStudents;
 
+
+  const runAssessmentQuery = () => {
+    if (!queryClass) {
+      showMessage("학년-반을 먼저 선택하세요.");
+      return;
+    }
+    setScoreClass(queryClass);
+    setCheckClass(queryClass);
+    setInputActivityId(queryArea);
+    setCheckActivityId(queryArea);
+    setSelectedStudents([]);
+    setTab(queryArea === "all" ? "check" : "input");
+  };
+
   return (
     <div className="page assessment-page">
       <h2>📝 수행평가</h2>
@@ -1093,6 +1109,18 @@ export default function Assessment() {
       </div>
 
       {message && <div className="assessment-save-message">{message}</div>}
+
+      <section className="card peon-query-bar assessment-query-bar" aria-label="수행평가 조회 조건">
+        <select value={queryClass} onChange={(e) => setQueryClass(e.target.value)} aria-label="학년-반 선택">
+          <option value="">학년-반</option>
+          {classes.map((c) => <option key={c} value={c}>{c}</option>)}
+        </select>
+        <select value={queryArea} onChange={(e) => setQueryArea(e.target.value)} aria-label="평가영역 선택">
+          <option value="all">평가영역</option>
+          {activities.map((activity) => <option key={activity.id} value={String(activity.id)}>{activity.name}</option>)}
+        </select>
+        <button type="button" className="save-btn peon-query-button" onClick={runAssessmentQuery}>조회</button>
+      </section>
 
       {tab === "setting" && (
         <>
@@ -1277,17 +1305,6 @@ export default function Assessment() {
       {tab === "input" && (
         <section className="card assessment-input-card">
           <div className="assessment-input-header assessment-input-header-clean">
-            <select value={scoreClass} onChange={(e) => { setScoreClass(e.target.value); setSelectedStudents([]); }}>
-              {classes.map((c) => <option key={c}>{c}</option>)}
-            </select>
-
-            <select value={inputActivityId || "all"} onChange={(e) => { setInputActivityId(e.target.value); setSelectedStudents([]); }}>
-              <option value="all">전영역</option>
-              {activities.map((activity) => (
-                <option key={activity.id} value={String(activity.id)}>{activity.name} ({activity.score}점)</option>
-              ))}
-            </select>
-
             <div className="assessment-top-actions">
               <button className="save-btn" onClick={saveSelected}>저장({selectedStudents.length})</button>
               <button className="setting-btn" onClick={() => showMessage("수정할 학생을 체크한 뒤 점수를 바꾸면 됩니다.")}>수정({selectedStudents.length})</button>
@@ -1435,13 +1452,6 @@ export default function Assessment() {
       {tab === "check" && (
         <section className="card assessment-check-card">
           <div className="assessment-input-header check-input-header">
-            <select value={checkClass} onChange={(e) => setCheckClass(e.target.value)}>
-              {classes.map((c) => <option key={c}>{c}</option>)}
-            </select>
-            <select value={checkActivityId} onChange={(e) => setCheckActivityId(e.target.value)}>
-              <option value="all">전영역</option>
-              {activities.map((activity) => <option key={activity.id} value={String(activity.id)}>{activity.name}</option>)}
-            </select>
             <label className="missing-only-check">
               <input type="checkbox" checked={showMissingOnly} onChange={(e) => setShowMissingOnly(e.target.checked)} />
               미입력만 보기

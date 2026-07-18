@@ -38,4 +38,3 @@ dist-ssr
 backup/
 backups/
 *.backup
-.firebase/

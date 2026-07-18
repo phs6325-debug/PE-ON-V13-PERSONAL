@@ -111,8 +111,10 @@ export default function Paps() {
   const [scores, setScores] = useState(() => JSON.parse(localStorage.getItem(scoreKey) || "{}"));
   const [students, setStudents] = useState(() => JSON.parse(localStorage.getItem(studentKey) || "{}"));
 
-  const [selectedId, setSelectedId] = useState(items[0]?.id || "grip");
-  const [papsClass, setPapsClass] = useState("2-1");
+  const [selectedId, setSelectedId] = useState("all");
+  const [papsClass, setPapsClass] = useState("");
+  const [queryClass, setQueryClass] = useState("");
+  const [queryArea, setQueryArea] = useState("all");
   const [selectedStudents, setSelectedStudents] = useState([]);
   const [saveMessage, setSaveMessage] = useState("");
   const [standardFiles, setStandardFiles] = useState(() => {
@@ -866,6 +868,17 @@ export default function Paps() {
 
   const stats = getStats();
 
+  const runPapsQuery = () => {
+    if (!queryClass) {
+      showMessage("학년-반을 먼저 선택하세요.");
+      return;
+    }
+    setPapsClass(queryClass);
+    setSelectedId(queryArea);
+    setSelectedStudents([]);
+    setTab(queryArea === "all" ? "check" : "input");
+  };
+
   return (
     <div className="page paps-page">
       <h2>🏃 PAPS</h2>
@@ -877,6 +890,18 @@ export default function Paps() {
       </div>
 
       {saveMessage && <div className="assessment-save-message">{saveMessage}</div>}
+
+      <section className="card peon-query-bar paps-query-bar" aria-label="PAPS 조회 조건">
+        <select value={queryClass} onChange={(e) => setQueryClass(e.target.value)} aria-label="학년-반 선택">
+          <option value="">학년-반</option>
+          {classes.map((c) => <option key={c} value={c}>{c}</option>)}
+        </select>
+        <select value={queryArea} onChange={(e) => setQueryArea(e.target.value)} aria-label="PAPS 영역 선택">
+          <option value="all">전 영역</option>
+          {items.map((item) => <option key={item.id} value={String(item.id)}>{item.name}</option>)}
+        </select>
+        <button type="button" className="save-btn peon-query-button" onClick={runPapsQuery}>조회</button>
+      </section>
 
       {tab === "setting" && (
         <>
@@ -941,14 +966,6 @@ export default function Paps() {
       {tab === "input" && (
         <section className="card paps-input-card">
           <div className="assessment-input-header assessment-input-header-clean paps-sticky-controls">
-            <select className="assessment-class-select" value={papsClass} onChange={(e) => { setPapsClass(e.target.value); setSelectedStudents([]); }}>
-              {classes.map((c) => <option key={c}>{c}</option>)}
-            </select>
-
-            <select className="assessment-activity-select" value={selectedId} onChange={(e) => { setSelectedId(e.target.value); setSelectedStudents([]); }}>
-              {items.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}
-            </select>
-
             <div className="assessment-top-actions">
               <button className="save-btn" onClick={saveSelected}>저장({selectedStudents.length})</button>
               <button className="setting-btn" onClick={editSelected}>수정({selectedStudents.length})</button>

@@ -128,6 +128,8 @@ export default function PrintCenter() {
   const { year, semester } = info();
   const [kind, setKind] = useState("progress");
   const [selectedClass, setSelectedClass] = useState("전체");
+  const [queryKind, setQueryKind] = useState("");
+  const [queryClass, setQueryClass] = useState("");
   const [assessmentTargets, setAssessmentTargets] = useState(["all"]);
   const [papsTargets, setPapsTargets] = useState(["all"]);
   const [recordFilter, setRecordFilter] = useState("all");
@@ -235,25 +237,34 @@ export default function PrintCenter() {
   const titles = { roster:"명렬표", progress:"진도", assessment:"수행평가", paps:"PAPS", records:"교과세특" };
   const fileTitle = `${year}_${semester}_${selectedClass}_${titles[kind]}`;
 
+
+  const runPrintQuery = () => {
+    if (!queryClass || !queryKind) {
+      window.alert("학년-반과 영역을 모두 선택하세요.");
+      return;
+    }
+    setSelectedClass(queryClass);
+    setKind(queryKind);
+  };
+
   return (
     <div className="page print-center-page">
       <h2>🖨️ 출력센터</h2>
       <section className="card print-control-card">
-        <div className="print-control-grid">
-          <label><span>출력 종류</span>
-            <select value={kind} onChange={(e) => setKind(e.target.value)}>
-              <option value="progress">진도</option>
-              <option value="assessment">수행평가</option>
-              <option value="paps">PAPS</option>
-              <option value="roster">명렬표</option>
-              <option value="records">교과세특</option>
-            </select>
-          </label>
-          <label><span>학급</span>
-            <select value={selectedClass} onChange={(e) => setSelectedClass(e.target.value)}>
-              {classes.map((c) => <option key={c} value={c}>{c}</option>)}
-            </select>
-          </label>
+        <div className="peon-query-bar print-query-bar" aria-label="출력 조회 조건">
+          <select value={queryClass} onChange={(e) => setQueryClass(e.target.value)} aria-label="학년-반 선택">
+            <option value="">학년-반</option>
+            {classes.filter((c) => c !== "전체").map((c) => <option key={c} value={c}>{c}</option>)}
+          </select>
+          <select value={queryKind} onChange={(e) => setQueryKind(e.target.value)} aria-label="영역 선택">
+            <option value="">영역선택</option>
+            <option value="progress">진도</option>
+            <option value="assessment">수행평가</option>
+            <option value="paps">PAPS</option>
+            <option value="roster">명렬표</option>
+            <option value="records">교과세특</option>
+          </select>
+          <button type="button" className="save-btn peon-query-button" onClick={runPrintQuery}>조회</button>
         </div>
 
         {kind === "assessment" && (
