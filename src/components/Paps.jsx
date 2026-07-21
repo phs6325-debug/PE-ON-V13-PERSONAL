@@ -4,6 +4,8 @@ import SharedFileBox from "./SharedFileBox";
 import { doc, onSnapshot, setDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { evaluatePaps, getPapsUnit, PAPS_STANDARD_VERSION } from "../utils/papsStandards";
+import { readPdfRows } from "../utils/pdfTableRows";
 
 const classes = ["2-1", "2-2", "2-3", "2-4", "2-5"];
 
@@ -115,6 +117,7 @@ export default function Paps() {
   const [papsClass, setPapsClass] = useState("");
   const [queryClass, setQueryClass] = useState("");
   const [queryArea, setQueryArea] = useState("all");
+  const [hasQueried, setHasQueried] = useState(false);
   const [selectedStudents, setSelectedStudents] = useState([]);
   const [saveMessage, setSaveMessage] = useState("");
   const [standardFiles, setStandardFiles] = useState(() => {
@@ -267,6 +270,14 @@ export default function Paps() {
   };
 
   const readWorkbookRows = async (file) => {
+    if (/\.pdf$/i.test(file.name)) {
+      return readPdfRows(file, [
+        "학생성명", "학생명", "성명", "이름", "번호", "출석번호", "반", "반명",
+        "악력", "제자리멀리뛰기", "앉아윗몸", "셔틀런", "왕복오래달리기",
+        "신장", "키", "체중", "몸무게"
+      ]);
+    }
+
     const buffer = await file.arrayBuffer();
     const workbook = XLSX.read(buffer, { type: "array" });
     const rows = [];
@@ -448,7 +459,7 @@ export default function Paps() {
       showMessage(`PAPS 파일을 가져왔습니다. 명단 ${importedStudents}명 추가/갱신, 기록 ${importedRecords}건 반영`);
     } catch (error) {
       console.error("PAPS upload error", error);
-      showMessage("PAPS 업로드 중 오류가 발생했습니다. 엑셀 헤더 행 또는 파일 형식을 확인해 주세요.");
+      showMessage(error?.message === "PDF_TEXT_NOT_FOUND" ? "스캔 이미지 PDF는 자동 인식할 수 없습니다. 글자를 선택할 수 있는 PDF 또는 엑셀 파일을 사용해 주세요." : "PAPS 업로드 중 오류가 발생했습니다. 엑셀/PDF의 표 머리글과 파일 형식을 확인해 주세요.");
     }
 
     event.target.value = "";
@@ -475,7 +486,7 @@ export default function Paps() {
 
   const applyStandards = () => {
     localStorage.setItem(standardKey, JSON.stringify(standardFiles));
-    showMessage("PAPS 기준파일을 적용했습니다. 중2 남/여 기준으로 자동등급 계산이 적용됩니다.");
+    showMessage(`업로드 기준표를 적용했습니다. 1~3학년·남녀별 점수와 등급이 자동 계산됩니다. (${PAPS_STANDARD_VERSION})`);
   };
 
   const getStandardLabel = (type) => {
@@ -560,24 +571,31 @@ export default function Paps() {
     return "-";
   };
 
+  const getPapsResult = (record, student, item = selected) => {
+    if (!item) return null;
+    const value = item.name === "BMI" ? getBmi(record) : (() => {
+      const values = Array.from({ length: item.attempts })
+        .map((_, index) => Number(record[`try${index + 1}`]))
+        .filter((number) => Number.isFinite(number));
+      return values.length ? Math.max(...values) : "";
+    })();
+    if (value === "") return null;
+    return evaluatePaps({
+      grade: String(papsClass).split("-")[0],
+      gender: student?.gender,
+      itemName: item.name,
+      value,
+    });
+  };
+
   const getGradeLabel = (record, student) => {
-    if (!selected) return "-";
+    const result = getPapsResult(record, student);
+    return result?.gradeLabel || "-";
+  };
 
-    const gradeKey = getSchoolGradeKey();
-    const genderKey = getStudentGenderKey(student);
-    const rules = papsGradeStandards?.[gradeKey]?.[genderKey]?.[selected.name];
-
-    if (selected.name === "BMI") {
-      const bmi = getBmi(record);
-      if (bmi === "") return "-";
-      return findGradeByValue(rules, bmi);
-    }
-
-    const best = getBest(record);
-    if (best === "") return "-";
-
-    if (!rules) return "기준없음";
-    return findGradeByValue(rules, best);
+  const getScoreLabel = (record, student) => {
+    const result = getPapsResult(record, student);
+    return result ? `${result.score}점` : "-";
   };
 
   const getSimpleGrade = (record, student) => {
@@ -681,25 +699,29 @@ export default function Paps() {
     return Math.max(...values);
   };
 
-  const getGradeLabelForItem = (item, record, student) => {
-    if (!item) return "-";
-    const gradeKey = getSchoolGradeKey();
-    const genderKey = getStudentGenderKey(student);
-    const rules = papsGradeStandards?.[gradeKey]?.[genderKey]?.[item.name];
-
+  const getPapsResultForItem = (item, record, student) => {
+    if (!item) return null;
+    let value = "";
     if (item.name === "BMI") {
       const height = Number(record.height);
       const weight = Number(record.weight);
-      if (!height || !weight) return "-";
+      if (!height || !weight) return null;
       const meter = height / 100;
-      const bmi = (weight / (meter * meter)).toFixed(1);
-      return findGradeByValue(rules, bmi);
+      value = (weight / (meter * meter)).toFixed(1);
+    } else {
+      value = getBestForItem(item, record);
+      if (value === "") return null;
     }
+    return evaluatePaps({
+      grade: String(papsClass).split("-")[0],
+      gender: student?.gender,
+      itemName: item.name,
+      value,
+    });
+  };
 
-    const best = getBestForItem(item, record);
-    if (best === "") return "-";
-    if (!rules) return "기준없음";
-    return findGradeByValue(rules, best);
+  const getGradeLabelForItem = (item, record, student) => {
+    return getPapsResultForItem(item, record, student)?.gradeLabel || "-";
   };
 
   const makePapsExcelTable = (item) => {
@@ -801,11 +823,19 @@ export default function Paps() {
     items.forEach((item) => {
       const record = scores?.[String(item.id)]?.[papsClass]?.[student.id] || {};
       const value = item.name === "BMI" ? getBmi(record) : getBestForItem(item, record);
-      const grade = getGradeLabelForItem(item, record, student);
+      const result = value === "" ? null : evaluatePaps({
+        grade: String(papsClass).split("-")[0],
+        gender: student?.gender,
+        itemName: item.name,
+        value,
+      });
+      const grade = result?.gradeLabel || getGradeLabelForItem(item, record, student);
       row[item.id] = {
         name: item.name,
         value: value === "" ? "-" : value,
         grade: grade || "-",
+        score: result?.score ?? "",
+        resultLabel: result ? `${grade}(${result.score}점)` : "-",
       };
     });
 
@@ -874,6 +904,7 @@ export default function Paps() {
       return;
     }
     setPapsClass(queryClass);
+    setHasQueried(true);
     setSelectedId(queryArea);
     setSelectedStudents([]);
     setTab(queryArea === "all" ? "check" : "input");
@@ -891,17 +922,41 @@ export default function Paps() {
 
       {saveMessage && <div className="assessment-save-message">{saveMessage}</div>}
 
+      {tab !== "setting" && (
+      <>
       <section className="card peon-query-bar paps-query-bar" aria-label="PAPS 조회 조건">
-        <select value={queryClass} onChange={(e) => setQueryClass(e.target.value)} aria-label="학년-반 선택">
+        <select value={queryClass} onChange={(e) => { setQueryClass(e.target.value); setHasQueried(false); setPapsClass(""); }} aria-label="학년-반 선택">
           <option value="">학년-반</option>
           {classes.map((c) => <option key={c} value={c}>{c}</option>)}
         </select>
-        <select value={queryArea} onChange={(e) => setQueryArea(e.target.value)} aria-label="PAPS 영역 선택">
+        <select value={queryArea} onChange={(e) => { setQueryArea(e.target.value); setHasQueried(false); setPapsClass(""); }} aria-label="PAPS 영역 선택">
           <option value="all">전 영역</option>
           {items.map((item) => <option key={item.id} value={String(item.id)}>{item.name}</option>)}
         </select>
         <button type="button" className="save-btn peon-query-button" onClick={runPapsQuery}>조회</button>
       </section>
+
+      {tab === "input" && (
+        <section className="card assessment-upload-box paps-inline-upload-box assessment-upload-always-visible">
+          <div>
+            <h3>📥 PAPS 기록 가져오기</h3>
+            <p>엑셀(.xlsx, .xls, .csv) 또는 텍스트형 PDF를 선택하면 학생과 측정 기록을 자동 매칭합니다.</p>
+          </div>
+          <label className="shared-file-upload-btn assessment-import-button">
+            기록 업로드
+            <input type="file" accept=".xlsx,.xls,.csv,.pdf" multiple onChange={handlePapsRecordUpload} style={{ display: "none" }} />
+          </label>
+        </section>
+      )}
+
+      {!hasQueried && (
+        <section className="card peon-query-empty-state">
+          학년-반과 영역을 선택한 뒤 <strong>조회</strong>를 눌러 주세요.
+        </section>
+      )}
+
+      </>
+      )}
 
       {tab === "setting" && (
         <>
@@ -918,12 +973,12 @@ export default function Paps() {
           <section className="card paps-setting-card paps-import-card">
             <h3>📥 PAPS 측정파일 업로드</h3>
             <p className="paps-help-text">
-              나이스 PAPS에서 내려받은 반별 엑셀(.xlsx, .xls, .csv)을 올리면 명렬표와 PAPS 측정값을 함께 가져옵니다.
+              나이스 PAPS에서 내려받은 반별 엑셀(.xlsx, .xls, .csv) 또는 텍스트형 PDF를 올리면 명렬표와 PAPS 측정값을 함께 가져옵니다.
               파일명에 1반, 2반처럼 표시되어 있거나 엑셀 안에 학년/반/번호/학생성명 항목이 있으면 자동으로 반을 맞춥니다.
             </p>
             <input
               type="file"
-              accept=".xlsx,.xls,.csv"
+              accept=".xlsx,.xls,.csv,.pdf"
               multiple
               onChange={handlePapsRecordUpload}
             />
@@ -963,7 +1018,7 @@ export default function Paps() {
         </>
       )}
 
-      {tab === "input" && (
+      {tab === "input" && hasQueried && (
         <section className="card paps-input-card">
           <div className="assessment-input-header assessment-input-header-clean paps-sticky-controls">
             <div className="assessment-top-actions">
@@ -971,19 +1026,6 @@ export default function Paps() {
               <button className="setting-btn" onClick={editSelected}>수정({selectedStudents.length})</button>
               <button className="delete-btn" onClick={deleteSelected}>삭제({selectedStudents.length})</button>
             </div>
-          </div>
-
-          <div className="assessment-upload-box paps-inline-upload-box">
-            <div>
-              <h3>📥 PAPS 자료 업로드</h3>
-              <p>측정입력 화면에서도 엑셀(.xlsx, .xls, .csv)을 바로 올릴 수 있습니다. 업로드 후 PC·모바일·태블릿에 같은 계정으로 동기화됩니다.</p>
-            </div>
-            <input
-              type="file"
-              accept=".xlsx,.xls,.csv"
-              multiple
-              onChange={handlePapsRecordUpload}
-            />
           </div>
 
           {selected && (
@@ -1068,7 +1110,7 @@ export default function Paps() {
                         {selected.best && <td><strong>{getBest(record) || "-"}</strong></td>}
                         {selected.grade && (
                           <td className="paps-grade-cell">
-                            <strong>{getSimpleGrade(record, student)}</strong>
+                            <strong>{`${getSimpleGrade(record, student)}등급(${getScoreLabel(record, student)})`}</strong>
                           </td>
                         )}
                         <td className="paps-manage-col">
@@ -1088,7 +1130,7 @@ export default function Paps() {
         </section>
       )}
 
-      {tab === "check" && (
+      {tab === "check" && hasQueried && (
         <section className="card paps-check-card">
           <div className="assessment-input-header assessment-input-header-clean paps-sticky-controls">
             <select className="assessment-class-select" value={papsClass} onChange={(e) => setPapsClass(e.target.value)}>
@@ -1204,7 +1246,7 @@ export default function Paps() {
                           <td key={item.id}>
                             <div className="paps-all-cell">
                               <strong>{summary[item.id]?.value || "-"}</strong>
-                              <span>{summary[item.id]?.grade || "-"}</span>
+                              <span>{summary[item.id]?.resultLabel || "-"}</span>
                             </div>
                           </td>
                         ))}
@@ -1239,7 +1281,7 @@ export default function Paps() {
                       <td className="paps-name-cell">{student.name}</td>
                       <td>{selected?.name === "BMI" ? getBmi(record) || "-" : getBest(record) || "-"}</td>
                       <td className="paps-grade-cell">
-                        <strong>{getSimpleGrade(record, student)}</strong>
+                        <strong>{`${getSimpleGrade(record, student)}등급(${getScoreLabel(record, student)})`}</strong>
                       </td>
                     </tr>
                   );

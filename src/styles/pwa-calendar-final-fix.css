@@ -1,0 +1,132 @@
+/* PE-ON V13.9: PC·태블릿 설치 버튼 + 휴대폰 월간 달력 최종 보정 */
+.peon-v9-login-bar .peon-install-app-btn{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:38px !important;
+  padding:0 14px !important;
+  border:1px solid #93c5fd !important;
+  border-radius:11px !important;
+  background:#eff6ff !important;
+  color:#1d4ed8 !important;
+  font-weight:900 !important;
+  white-space:nowrap !important;
+  box-shadow:0 2px 8px rgba(37,99,235,.12) !important;
+}
+.peon-v9-login-bar .peon-install-app-btn:hover{background:#dbeafe !important;}
+
+/* 휴대폰에서는 설치 버튼 대신 브라우저의 홈 화면 추가 기능 사용 */
+@media (max-width:600px){
+  .peon-v9-login-bar .peon-install-app-btn{display:none !important;}
+
+  .progress-v13-page .progress-calendar-panel{
+    padding:8px !important;
+    overflow:visible !important;
+  }
+  .progress-v13-page .progress-calendar-toolbar{
+    margin-bottom:10px !important;
+    gap:8px !important;
+  }
+  .progress-v13-page .progress-month-nav{
+    width:100% !important;
+    gap:6px !important;
+  }
+  .progress-v13-page .progress-month-nav h2{
+    min-width:0 !important;
+    flex:1 1 auto !important;
+    font-size:clamp(18px,5.2vw,22px) !important;
+    white-space:nowrap !important;
+  }
+  .progress-v13-page .progress-month-nav button{
+    flex:0 0 36px !important;
+    width:36px !important;
+    min-width:36px !important;
+    height:36px !important;
+    font-size:24px !important;
+  }
+  .progress-v13-page .progress-calendar-shell{
+    width:100% !important;
+    min-width:0 !important;
+    overflow:visible !important;
+    border-radius:10px !important;
+  }
+  .progress-v13-page .progress-month-weekdays,
+  .progress-v13-page .progress-month-grid{
+    grid-template-columns:repeat(7,minmax(0,1fr)) !important;
+    width:100% !important;
+    min-width:0 !important;
+  }
+  .progress-v13-page .progress-month-weekdays span{
+    min-width:0 !important;
+    padding:8px 0 !important;
+    font-size:clamp(10px,3vw,12px) !important;
+    white-space:nowrap !important;
+    overflow:visible !important;
+  }
+  .progress-v13-page .progress-month-cell{
+    min-width:0 !important;
+    min-height:88px !important;
+    padding:3px 2px !important;
+    overflow:visible !important;
+  }
+  .progress-v13-page .progress-day-number{
+    width:23px !important;
+    height:23px !important;
+    font-size:clamp(10px,2.8vw,12px) !important;
+  }
+  .progress-v13-page .progress-day-lessons{
+    gap:3px !important;
+    margin-top:3px !important;
+    overflow:visible !important;
+  }
+  .progress-v13-page .progress-day-lessons .progress-calendar-lesson{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    gap:1px !important;
+    min-width:0 !important;
+    padding:3px 2px !important;
+    border-radius:5px !important;
+    font-size:clamp(8px,2.25vw,10px) !important;
+    line-height:1.15 !important;
+    white-space:normal !important;
+    overflow:visible !important;
+    word-break:keep-all !important;
+    overflow-wrap:anywhere !important;
+  }
+  .progress-v13-page .progress-calendar-lesson .calendar-lesson-main{
+    display:flex !important;
+    flex-direction:column !important;
+    width:100% !important;
+    min-width:0 !important;
+    gap:0 !important;
+  }
+  .progress-v13-page .progress-calendar-lesson b,
+  .progress-v13-page .progress-calendar-lesson .calendar-class-name,
+  .progress-v13-page .progress-calendar-lesson small{
+    display:block !important;
+    width:100% !important;
+    min-width:0 !important;
+    font-size:inherit !important;
+    line-height:1.15 !important;
+    white-space:normal !important;
+    overflow:visible !important;
+    text-overflow:clip !important;
+    word-break:keep-all !important;
+    overflow-wrap:anywhere !important;
+  }
+  .progress-v13-page .progress-calendar-add-basic{
+    min-height:30px !important;
+    margin-top:3px !important;
+    padding:2px 1px !important;
+    font-size:clamp(8px,2.2vw,10px) !important;
+    line-height:1.1 !important;
+    white-space:normal !important;
+  }
+}
+
+/* 태블릿에서도 오른쪽 상단 설치 버튼이 줄바꿈되지 않도록 유지 */
+@media (min-width:601px) and (max-width:1100px){
+  .peon-v9-login-bar{flex-wrap:nowrap !important;}
+  .peon-v9-login-bar .peon-install-app-btn{display:inline-flex !important; min-width:92px !important;}
+}

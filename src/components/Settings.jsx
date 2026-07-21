@@ -24,7 +24,7 @@ const makeClassSummary = (students = {}) => classes.map((className) => `${classN
 
 function SettingsSection({ number, icon, title, description, open, onToggle, children, accent = "blue" }) {
   return (
-    <section className={`card settings-accordion-row settings-accent-${accent} ${open ? "is-open" : ""}`}>
+    <section className={`card settings-accordion-row settings-accent-${accent} ${["①","②","③","④","⑦","⑧"].includes(number) ? "desktop-tablet-only" : ""} ${open ? "is-open" : ""}`}>
       <button type="button" className="settings-accordion-head" onClick={onToggle}>
         <span className="settings-number-label">{number}</span>
         <span className="settings-accordion-titlebox">
@@ -38,11 +38,23 @@ function SettingsSection({ number, icon, title, description, open, onToggle, chi
   );
 }
 
-export default function Settings() {
+export default function Settings({ onNavigate } = {}) {
   const [isPhotoStudioOpen, setIsPhotoStudioOpen] = useState(false);
   const [isPhotoFocusMode, setIsPhotoFocusMode] = useState(false);
-  const [openSection, setOpenSection] = useState("1");
+  const [openSection, setOpenSection] = useState("");
   const { year, semester } = getCurrentInfo();
+  const students = JSON.parse(localStorage.getItem(getStudentKey(year, semester)) || "{}");
+  const studentCount = countStudents(students);
+  const timetable = JSON.parse(localStorage.getItem(`peon_progress_timetable_${year}_${semester}`) || localStorage.getItem("peon_progress_timetable") || "[]");
+  const assessment = JSON.parse(localStorage.getItem(`peon_${year}_${semester}_assessment`) || "[]");
+  const papsItems = JSON.parse(localStorage.getItem(`peon_${year}_${semester}_paps_items`) || "[]");
+  const setupItems = [
+    { label: "시간표", icon: "📚", done: Array.isArray(timetable) && timetable.length > 0, detail: `${timetable.length || 0}개 수업`, tab: "progress" },
+    { label: "명렬표", icon: "👥", done: studentCount > 0, detail: `학생 ${studentCount}명`, tab: "roster" },
+    { label: "수행평가 기준", icon: "🏃", done: Array.isArray(assessment) && assessment.length > 0, detail: `${assessment.length || 0}개 영역`, tab: "assessment" },
+    { label: "PAPS 명단", icon: "💗", done: studentCount > 0 && Array.isArray(papsItems) && papsItems.length > 0, detail: `학생 ${studentCount}명`, tab: "paps" },
+  ];
+  const setupDone = setupItems.filter((item) => item.done).length;
 
   useEffect(() => {
     if (isPhotoStudioOpen && isPhotoFocusMode) document.body.classList.add("peon-photo-focus");
@@ -152,6 +164,14 @@ export default function Settings() {
     <div className={`page settings-page ${isPhotoStudioOpen && isPhotoFocusMode ? "settings-photo-focus" : ""}`}>
       <h2>⚙️ 관리</h2>
       <p className="page-subtitle">필요한 항목만 펼쳐서 관리할 수 있습니다.</p>
+
+      <section className="card settings-basic-dashboard desktop-tablet-only">
+        <div className="basic-status-head"><div><h2>🧰 기초작업 현황</h2><p>{year} · {semester}</p></div><strong>{setupDone} / 4 완료</strong></div>
+        <div className="basic-progress"><span style={{ width: `${setupDone * 25}%` }} /></div>
+        <div className="basic-status-grid">
+          {setupItems.map((item) => <button type="button" key={item.label} className={`basic-status-card ${item.done ? "done" : "missing"}`} onClick={() => onNavigate?.(item.tab)}><span className="basic-status-icon">{item.icon}</span><span><strong>{item.label}</strong><em>{item.done ? "저장 완료" : "미등록"} · {item.detail}</em></span><b>{item.done ? "수정" : "등록하기"}</b></button>)}
+        </div>
+      </section>
 
       <div className="settings-numbered-list settings-accordion-list">
         <SettingsSection number="①" icon="📋" title="명렬표 파일" description="학생 명렬표 Excel, PDF, HWP/HWPX 원본 파일" open={openSection === "1"} onToggle={() => toggleSection("1")}>

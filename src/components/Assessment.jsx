@@ -4,6 +4,7 @@ import { doc, onSnapshot, setDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import SharedFileBox from "./SharedFileBox";
+import { readPdfRows } from "../utils/pdfTableRows";
 
 const classes = ["2-1", "2-2", "2-3", "2-4", "2-5"];
 
@@ -122,6 +123,13 @@ const partsToSeconds = (minutes, seconds) => {
 
 
 const readExcelRows = async (file) => {
+  if (/\.pdf$/i.test(file.name)) {
+    return readPdfRows(file, [
+      "번호", "출석번호", "학생성명", "학생명", "성명", "이름", "반", "반명", "학년반",
+      "평가점수", "점수", "총점", "활동", "평가활동"
+    ]);
+  }
+
   const buffer = await file.arrayBuffer();
   const workbook = XLSX.read(buffer, { type: "array" });
   const rows = [];
@@ -304,16 +312,18 @@ export default function Assessment() {
 
   const [selectedId, setSelectedId] = useState("");
   const [inputActivityId, setInputActivityId] = useState("");
-  const [scoreClass, setScoreClass] = useState("2-1");
-  const [checkClass, setCheckClass] = useState("2-1");
+  const [scoreClass, setScoreClass] = useState("");
+  const [checkClass, setCheckClass] = useState("");
   const [checkActivityId, setCheckActivityId] = useState("all");
   const [queryClass, setQueryClass] = useState("");
   const [queryArea, setQueryArea] = useState("all");
+  const [hasQueried, setHasQueried] = useState(false);
   const [showMissingOnly, setShowMissingOnly] = useState(false);
 
   const [activityName, setActivityName] = useState("");
   const [activityScore, setActivityScore] = useState("");
   const [editingActivityId, setEditingActivityId] = useState(null);
+  const [draggedActivityId, setDraggedActivityId] = useState(null);
   const [itemName, setItemName] = useState("");
   const [itemType, setItemType] = useState("choice");
   const [itemScore, setItemScore] = useState("");
@@ -506,7 +516,23 @@ export default function Assessment() {
 
             let activityImported = false;
 
-            items.forEach((item) => {
+            // NEIS 수행평가 PDF는 활동별 합계점수만 제공하므로 활동명에 따라 열을 자동 연결합니다.
+            if (Array.isArray(row.__scoreValues) && row.__scoreValues.length) {
+              const activityText = normalize(activity.name);
+              let scoreIndex = targetActivities.indexOf(activity);
+              if (activityText.includes("체력")) scoreIndex = 0;
+              else if (activityText.includes("건강") || activityText.includes("사회적건강")) scoreIndex = 1;
+              else if (activityText.includes("전략") || activityText.includes("스포츠")) scoreIndex = 2;
+
+              const pdfValue = row.__scoreValues[scoreIndex];
+              if (pdfValue !== undefined && pdfValue !== null && pdfValue !== "") {
+                nextScores[activityId][className][student.id].directTotal = String(pdfValue);
+                imported += 1;
+                activityImported = true;
+              }
+            }
+
+            if (!row.__pdfFallback) items.forEach((item) => {
               const value = findColumnValueForItem(row, item);
               if (value === "" || value === undefined || value === null) return;
               const scoreValue = parseScoreNumber(value);
@@ -516,7 +542,7 @@ export default function Assessment() {
               activityImported = true;
             });
 
-            const directValue = findColumnValueForItem(row, activity) || findAnyScoreValue(row);
+            const directValue = row.__pdfFallback ? "" : (findColumnValueForItem(row, activity) || findAnyScoreValue(row));
             if (directValue !== "" && directValue !== undefined && directValue !== null) {
               const scoreValue = parseScoreNumber(directValue);
               if (!scoreValue) return;
@@ -533,7 +559,7 @@ export default function Assessment() {
       showMessage(`수행평가 점수 ${imported}건을 업로드했습니다.${skipped ? ` 미매칭 ${skipped}명` : ""}${rowCount ? ` · 읽은 행 ${rowCount}개` : ""}`);
     } catch (error) {
       console.error("Assessment upload error", error);
-      showMessage("수행평가 업로드 중 오류가 발생했습니다. 엑셀 헤더 행과 파일 형식을 확인해 주세요.");
+      showMessage(error?.message === "PDF_TEXT_NOT_FOUND" ? "스캔 이미지 PDF는 자동 인식할 수 없습니다. 글자를 선택할 수 있는 PDF 또는 엑셀 파일을 사용해 주세요." : "수행평가 업로드 중 오류가 발생했습니다. 엑셀/PDF의 표 머리글과 파일 형식을 확인해 주세요.");
     }
 
     event.target.value = "";
@@ -648,10 +674,42 @@ export default function Assessment() {
     showMessage("평가활동 순서를 변경했습니다.");
   };
 
+  const dropActivity = (targetActivityId) => {
+    if (!draggedActivityId || String(draggedActivityId) === String(targetActivityId)) {
+      setDraggedActivityId(null);
+      return;
+    }
+
+    setActivities((prev) => {
+      const fromIndex = prev.findIndex((activity) => String(activity.id) === String(draggedActivityId));
+      const toIndex = prev.findIndex((activity) => String(activity.id) === String(targetActivityId));
+      if (fromIndex < 0 || toIndex < 0) return prev;
+
+      const next = [...prev];
+      const [moved] = next.splice(fromIndex, 1);
+      next.splice(toIndex, 0, moved);
+      return next;
+    });
+
+    setDraggedActivityId(null);
+    showMessage("평가활동 순서를 변경했습니다.");
+  };
+
   const deleteActivity = (activityId) => {
     const target = activities.find((activity) => String(activity.id) === String(activityId));
-    const ok = window.confirm(`${target?.name || "평가활동"} 활동을 삭제하시겠습니까?\n\n학생 점수도 함께 삭제됩니다.`);
+    const activityLabel = target?.name || "평가활동";
+    const ok = window.confirm(`${activityLabel} 활동 전체를 삭제하시겠습니까?
+
+평가내용, 급간, 환산표와 학생 점수가 모두 삭제됩니다.
+평가내용 하나만 지우려면 아래 표의 '삭제' 버튼을 사용하세요.`);
     if (!ok) return;
+
+    const typed = window.prompt(`실수 방지를 위해 삭제할 활동명 '${activityLabel}'을 그대로 입력하세요.`);
+    if (typed === null) return;
+    if (String(typed).trim() !== String(activityLabel).trim()) {
+      showMessage("활동명이 일치하지 않아 삭제하지 않았습니다.");
+      return;
+    }
 
     setActivities((prev) => prev.filter((activity) => String(activity.id) !== String(activityId)));
 
@@ -1092,6 +1150,7 @@ export default function Assessment() {
     }
     setScoreClass(queryClass);
     setCheckClass(queryClass);
+    setHasQueried(true);
     setInputActivityId(queryArea);
     setCheckActivityId(queryArea);
     setSelectedStudents([]);
@@ -1110,17 +1169,39 @@ export default function Assessment() {
 
       {message && <div className="assessment-save-message">{message}</div>}
 
-      <section className="card peon-query-bar assessment-query-bar" aria-label="수행평가 조회 조건">
-        <select value={queryClass} onChange={(e) => setQueryClass(e.target.value)} aria-label="학년-반 선택">
-          <option value="">학년-반</option>
-          {classes.map((c) => <option key={c} value={c}>{c}</option>)}
-        </select>
-        <select value={queryArea} onChange={(e) => setQueryArea(e.target.value)} aria-label="평가영역 선택">
-          <option value="all">전 영역</option>
-          {activities.map((activity) => <option key={activity.id} value={String(activity.id)}>{activity.name}</option>)}
-        </select>
-        <button type="button" className="save-btn peon-query-button" onClick={runAssessmentQuery}>조회</button>
-      </section>
+      {tab !== "setting" && (
+        <section className="card peon-query-bar assessment-query-bar" aria-label="수행평가 조회 조건">
+          <select value={queryClass} onChange={(e) => { setQueryClass(e.target.value); setHasQueried(false); setScoreClass(""); setCheckClass(""); }} aria-label="학년-반 선택">
+            <option value="">학년-반</option>
+            {classes.map((c) => <option key={c} value={c}>{c}</option>)}
+          </select>
+          <select value={queryArea} onChange={(e) => { setQueryArea(e.target.value); setHasQueried(false); setScoreClass(""); setCheckClass(""); }} aria-label="평가영역 선택">
+            <option value="all">전 영역</option>
+            {activities.map((activity) => <option key={activity.id} value={String(activity.id)}>{activity.name}</option>)}
+          </select>
+          <button type="button" className="save-btn peon-query-button" onClick={runAssessmentQuery}>조회</button>
+        </section>
+      )}
+
+      {tab === "input" && (
+        <section className="card assessment-upload-box assessment-upload-box-fixed assessment-upload-always-visible">
+          <div className="assessment-upload-copy">
+            <h3>📥 수행평가 점수 가져오기</h3>
+            <p>엑셀(.xlsx, .xls, .csv) 또는 텍스트형 PDF를 선택하면 <strong>반/번호/이름</strong> 기준으로 자동 매칭합니다.</p>
+            <p className="assessment-upload-guide">학년-반과 평가영역을 먼저 선택하면 더 정확하게 반영됩니다.</p>
+          </div>
+          <label className="shared-file-upload-btn assessment-import-button">
+            점수 업로드
+            <input type="file" accept=".xlsx,.xls,.csv,.pdf" multiple onChange={handleAssessmentScoreUpload} style={{ display: "none" }} />
+          </label>
+        </section>
+      )}
+
+      {!hasQueried && tab !== "setting" && (
+        <section className="card peon-query-empty-state">
+          학년-반과 영역을 선택한 뒤 <strong>조회</strong>를 눌러 주세요.
+        </section>
+      )}
 
       {tab === "setting" && (
         <>
@@ -1156,12 +1237,24 @@ export default function Assessment() {
             )}
           </section>
 
+          {activities.length > 1 && (
+            <div className="activity-order-guide">
+              <strong>평가활동 순서 변경</strong> · PC에서는 카드를 끌어 놓거나, 휴대폰에서는 「앞으로·뒤로」 버튼을 누르세요.
+            </div>
+          )}
+
           <div className="assessment-tabs assessment-activity-tabs">
             {activities.map((activity, index) => (
               <div
                 key={activity.id}
-                className={`assessment-activity-tab-card ${String(selectedActivity?.id) === String(activity.id) ? "active" : ""}`}
+                draggable
+                onDragStart={() => setDraggedActivityId(String(activity.id))}
+                onDragEnd={() => setDraggedActivityId(null)}
+                onDragOver={(event) => event.preventDefault()}
+                onDrop={() => dropActivity(activity.id)}
+                className={`assessment-activity-tab-card ${String(selectedActivity?.id) === String(activity.id) ? "active" : ""} ${String(draggedActivityId) === String(activity.id) ? "dragging" : ""}`}
               >
+                <div className="activity-drag-handle" title="끌어서 순서 변경">☰ <span>{index + 1}번째</span></div>
                 <button
                   className="activity-tab-main"
                   onClick={() => setSelectedId(String(activity.id))}
@@ -1170,8 +1263,8 @@ export default function Assessment() {
                 </button>
                 <div className="activity-tab-actions">
                   <button className="setting-btn" onClick={() => startEditActivity(activity)}>수정</button>
-                  <button className="setting-btn" onClick={() => moveActivity(activity.id, -1)} disabled={index === 0}>↑</button>
-                  <button className="setting-btn" onClick={() => moveActivity(activity.id, 1)} disabled={index === activities.length - 1}>↓</button>
+                  <button className="setting-btn order-btn" onClick={() => moveActivity(activity.id, -1)} disabled={index === 0}>← 앞으로</button>
+                  <button className="setting-btn order-btn" onClick={() => moveActivity(activity.id, 1)} disabled={index === activities.length - 1}>뒤로 →</button>
                   <button className="delete-btn" onClick={() => deleteActivity(activity.id)}>삭제</button>
                 </div>
               </div>
@@ -1293,7 +1386,7 @@ export default function Assessment() {
 
               <div className="assessment-bottom-actions">
                 <button className="save-btn" onClick={saveCurrentActivity}>평가설정 저장</button>
-                <button className="delete-btn" onClick={() => deleteActivity(selectedActivity.id)}>활동 삭제</button>
+                <button className="delete-btn" onClick={() => deleteActivity(selectedActivity.id)} title="평가내용과 학생 점수를 포함한 활동 전체 삭제">평가활동 전체 삭제</button>
               </div>
             </section>
           ) : (
@@ -1302,30 +1395,13 @@ export default function Assessment() {
         </>
       )}
 
-      {tab === "input" && (
+      {tab === "input" && hasQueried && (
         <section className="card assessment-input-card">
           <div className="assessment-input-header assessment-input-header-clean">
             <div className="assessment-top-actions">
               <button className="save-btn" onClick={saveSelected}>저장({selectedStudents.length})</button>
               <button className="setting-btn" onClick={() => showMessage("수정할 학생을 체크한 뒤 점수를 바꾸면 됩니다.")}>수정({selectedStudents.length})</button>
               <button className="delete-btn" onClick={deleteSelected}>삭제({selectedStudents.length})</button>
-            </div>
-          </div>
-
-          <div className="assessment-upload-box assessment-upload-box-fixed">
-            <div className="assessment-upload-copy">
-              <h3>📥 수행점수 파일 업로드</h3>
-              <p>나이스에서 내려받은 수행평가 엑셀을 올리면 <strong>반/번호/이름</strong> 기준으로 학생을 자동 매칭합니다.</p>
-              <p className="assessment-upload-guide">권장 열: 반, 번호, 이름, 평가점수/점수/총점 또는 평가내용명 · 현재 선택: {scoreClass} / {inputActivityId === "all" ? "전영역" : inputActivity?.name || "선택 영역"}</p>
-            </div>
-            <div className="assessment-upload-control">
-              <input
-                className="assessment-upload-input"
-                type="file"
-                accept=".xlsx,.xls,.csv"
-                multiple
-                onChange={handleAssessmentScoreUpload}
-              />
             </div>
           </div>
 
@@ -1449,7 +1525,7 @@ export default function Assessment() {
         </section>
       )}
 
-      {tab === "check" && (
+      {tab === "check" && hasQueried && (
         <section className="card assessment-check-card">
           <div className="assessment-input-header check-input-header">
             <label className="missing-only-check">

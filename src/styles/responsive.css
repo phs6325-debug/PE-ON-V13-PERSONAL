@@ -6363,3 +6363,27 @@ body, button, input, select, textarea { font-size: inherit; }
     max-width: 420px !important;
   }
 }
+
+/* V13.11 PAPS 조회조건: 학년-반 / 전 영역 / 조회 한 줄 고정 */
+.paps-query-bar{
+  display:flex!important;
+  flex-flow:row nowrap!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:12px!important;
+}
+.paps-query-bar>select:first-of-type,
+.paps-query-bar>select:nth-of-type(2){
+  flex:0 0 220px!important;
+  width:220px!important;
+  min-width:220px!important;
+  max-width:220px!important;
+  height:48px!important;
+}
+.paps-query-bar>.peon-query-button{
+  flex:0 0 90px!important;
+  width:90px!important;
+  min-width:90px!important;
+  max-width:90px!important;
+  height:48px!important;
+}

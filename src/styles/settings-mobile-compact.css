@@ -1,0 +1,149 @@
+/* 관리 탭 모바일 전용: 모든 항목 표시 + 한 줄 목록형 아코디언 */
+@media (max-width: 768px) {
+  .settings-page {
+    padding: 14px 10px 32px !important;
+  }
+
+  .settings-page > h2 {
+    margin: 0 0 4px !important;
+    font-size: 28px !important;
+    line-height: 1.2 !important;
+  }
+
+  .settings-page > .page-subtitle {
+    margin: 0 0 12px !important;
+    font-size: 14px !important;
+    line-height: 1.35 !important;
+  }
+
+  /* 모바일에서도 ①~⑧ 전체 관리 메뉴를 표시 */
+  .settings-page .settings-accordion-row.desktop-tablet-only {
+    display: block !important;
+  }
+
+  /* 기초작업 현황 대시보드는 기존처럼 PC/태블릿에서만 표시 */
+  .settings-page .settings-basic-dashboard.desktop-tablet-only {
+    display: none !important;
+  }
+
+  .settings-numbered-list,
+  .settings-accordion-list {
+    gap: 8px !important;
+  }
+
+  .settings-accordion-row {
+    width: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 14px !important;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, .06) !important;
+    overflow: hidden !important;
+    background: #fff !important;
+  }
+
+  .settings-accordion-head {
+    width: 100% !important;
+    min-height: 64px !important;
+    padding: 9px 10px !important;
+    display: grid !important;
+    grid-template-columns: 38px minmax(0, 1fr) 28px !important;
+    align-items: center !important;
+    gap: 9px !important;
+    border: 0 !important;
+    background: #fff !important;
+    text-align: left !important;
+  }
+
+  .settings-number-label {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    flex-basis: 38px !important;
+    border-radius: 12px !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+  }
+
+  .settings-accordion-titlebox {
+    min-width: 0 !important;
+    display: block !important;
+  }
+
+  .settings-accordion-titlebox strong {
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    margin: 0 0 2px !important;
+    font-size: 16px !important;
+    line-height: 1.2 !important;
+    font-weight: 900 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .settings-section-icon {
+    flex: 0 0 auto !important;
+    font-size: 17px !important;
+  }
+
+  .settings-accordion-titlebox em {
+    display: block !important;
+    margin: 0 !important;
+    font-size: 11.5px !important;
+    line-height: 1.25 !important;
+    font-style: normal !important;
+    color: #64748b !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .settings-open-indicator {
+    width: 28px !important;
+    min-width: 28px !important;
+    height: 34px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: #2563eb !important;
+    font-size: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .settings-open-indicator::after {
+    content: "›";
+    font-size: 28px !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    transform: rotate(90deg);
+    transition: transform .2s ease;
+  }
+
+  .settings-accordion-row.is-open .settings-open-indicator::after {
+    transform: rotate(-90deg);
+  }
+
+  .settings-accordion-body {
+    padding: 12px !important;
+    border-top: 1px solid #e2e8f0 !important;
+    background: #f8fafc !important;
+  }
+
+  .settings-action-panel,
+  .settings-inline-actions {
+    gap: 8px !important;
+    margin-top: 0 !important;
+  }
+
+  .settings-action-panel button,
+  .settings-inline-actions button,
+  .settings-action-panel .file-label-btn {
+    min-height: 42px !important;
+    font-size: 14px !important;
+  }
+}

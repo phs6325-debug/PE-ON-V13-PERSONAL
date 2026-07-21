@@ -41,6 +41,10 @@ export default function App() {
   const [password, setPassword] = useState("");
   const [installPrompt, setInstallPrompt] = useState(null);
   const [isOnline, setIsOnline] = useState(() => navigator.onLine);
+  const [swRegistration, setSwRegistration] = useState(null);
+  const [updateAvailable, setUpdateAvailable] = useState(false);
+  const [checkingUpdate, setCheckingUpdate] = useState(false);
+  const [updateNotice, setUpdateNotice] = useState(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -51,9 +55,48 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    let registrationRef = null;
+    let updateTimer = null;
+    let reloading = false;
+
+    const watchRegistration = (registration) => {
+      registrationRef = registration;
+      setSwRegistration(registration);
+
+      if (registration.waiting && navigator.serviceWorker.controller) {
+        setUpdateAvailable(true);
+      }
+
+      registration.addEventListener("updatefound", () => {
+        const installingWorker = registration.installing;
+        if (!installingWorker) return;
+        installingWorker.addEventListener("statechange", () => {
+          if (installingWorker.state === "installed" && navigator.serviceWorker.controller) {
+            setUpdateAvailable(true);
+          }
+        });
+      });
+    };
+
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/sw.js").catch(() => {});
+      navigator.serviceWorker.register("/sw.js", { updateViaCache: "none" })
+        .then((registration) => {
+          watchRegistration(registration);
+          registration.update().catch(() => {});
+          updateTimer = window.setInterval(() => registration.update().catch(() => {}), 30 * 60 * 1000);
+        })
+        .catch(() => {});
+
+      navigator.serviceWorker.addEventListener("controllerchange", () => {
+        if (reloading) return;
+        reloading = true;
+        window.location.reload();
+      });
     }
+
+    const handleVisibility = () => {
+      if (document.visibilityState === "visible") registrationRef?.update().catch(() => {});
+    };
 
     const handleBeforeInstall = (event) => {
       event.preventDefault();
@@ -65,12 +108,59 @@ export default function App() {
     window.addEventListener("beforeinstallprompt", handleBeforeInstall);
     window.addEventListener("online", handleOnline);
     window.addEventListener("offline", handleOffline);
+    document.addEventListener("visibilitychange", handleVisibility);
     return () => {
       window.removeEventListener("beforeinstallprompt", handleBeforeInstall);
       window.removeEventListener("online", handleOnline);
       window.removeEventListener("offline", handleOffline);
+      document.removeEventListener("visibilitychange", handleVisibility);
+      if (updateTimer) window.clearInterval(updateTimer);
     };
   }, []);
+
+
+  const showUpdateNotice = (type, message) => {
+    setUpdateNotice({ type, message });
+    window.setTimeout(() => setUpdateNotice(null), 3500);
+  };
+
+  const handleCheckUpdate = async () => {
+    if (!isOnline) {
+      showUpdateNotice("error", "오프라인 상태에서는 업데이트를 확인할 수 없습니다.");
+      return;
+    }
+    if (!swRegistration) {
+      showUpdateNotice("error", "업데이트 기능을 준비하는 중입니다. 잠시 후 다시 눌러 주세요.");
+      return;
+    }
+
+    setCheckingUpdate(true);
+    showUpdateNotice("checking", "업데이트를 확인하고 있습니다.");
+    try {
+      await swRegistration.update();
+      await new Promise((resolve) => window.setTimeout(resolve, 1200));
+      if (swRegistration.waiting) {
+        setUpdateAvailable(true);
+        showUpdateNotice("available", "새로운 버전을 찾았습니다. 지금 업데이트를 눌러 적용해 주세요.");
+      } else {
+        showUpdateNotice("success", "확인 완료: 현재 최신 버전을 사용하고 있습니다.");
+      }
+    } catch (error) {
+      console.error("PE-ON update check failed", error);
+      showUpdateNotice("error", "업데이트 확인에 실패했습니다. 인터넷 연결을 확인해 주세요.");
+    } finally {
+      setCheckingUpdate(false);
+    }
+  };
+
+  const handleApplyUpdate = () => {
+    const waitingWorker = swRegistration?.waiting;
+    if (!waitingWorker) {
+      window.location.reload();
+      return;
+    }
+    waitingWorker.postMessage({ type: "SKIP_WAITING" });
+  };
 
   const handleInstallApp = async () => {
     if (!installPrompt) return;
@@ -158,7 +248,7 @@ export default function App() {
       case "paps": return <Paps />;
       case "print": return <PrintCenter />;
       case "records": return <StudentRecords />;
-      case "settings": return <Settings />;
+      case "settings": return <Settings onNavigate={moveTab} />;
       default: return <Home onNavigate={moveTab} />;
     }
   };
@@ -183,7 +273,7 @@ export default function App() {
           </div>
           <h1>🔒 PE-ON</h1>
           <p>체육교사의 모든 기록을 ON</p>
-          <span className="peon-version-badge">PE-ON V13.2 PERSONAL</span>
+          <span className="peon-version-badge">PE-ON V14.4 PERSONAL</span>
           <p className="login-guide">Chrome 계정과 상관없이 PE-ON 계정으로 로그인할 수 있습니다.</p>
           <div className="email-login-form">
             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="이메일" autoComplete="username" />
@@ -216,7 +306,10 @@ export default function App() {
         </nav>
 
         <div className="peon-v9-teacher-card peon-v9-version-only">
-          <span className="peon-v9-badge">V13.2 PERSONAL</span>
+          <span className="peon-v9-badge">V14.4 PERSONAL</span>
+          <button type="button" className="peon-sidebar-update-btn" onClick={handleCheckUpdate} disabled={!isOnline || checkingUpdate}>
+            {checkingUpdate ? "확인 중" : "↻ 업데이트 확인"}
+          </button>
         </div>
       </aside>
 
@@ -228,9 +321,9 @@ export default function App() {
           <button className="peon-v9-home-quick" type="button" onClick={() => moveTab("home")} title="홈으로">🏠 홈</button>
           <div className="peon-v9-top-brand" aria-label="PE-ON 브랜드">
             <img src={parksamTeacher} alt="체육교사 박쌤" />
-            <div>
+            <div className="peon-v9-brand-copy">
               <strong>PE-ON</strong>
-              <span>체육교사의 모든 기록을 ON</span>
+              <span className="peon-v9-brand-subtitle">체육교사의 모든 기록을 ON</span>
             </div>
           </div>
           <div className="peon-v9-login-bar">
@@ -242,6 +335,28 @@ export default function App() {
         </header>
         <main className="peon-v9-main">{renderPage()}</main>
       </section>
+
+
+      {updateNotice && (
+        <div className={`peon-update-toast ${updateNotice.type}`} role="status" aria-live="polite">
+          <span className="peon-update-toast-mark">{updateNotice.type === "success" ? "✓" : updateNotice.type === "error" ? "!" : "↻"}</span>
+          <span>{updateNotice.message}</span>
+        </div>
+      )}
+
+      {updateAvailable && (
+        <div className="peon-update-overlay" role="dialog" aria-modal="true" aria-labelledby="peon-update-title">
+          <div className="peon-update-card">
+            <div className="peon-update-icon">↻</div>
+            <h2 id="peon-update-title">새로운 버전이 있습니다</h2>
+            <p>업데이트하면 최신 수정사항이 바로 적용됩니다. 저장 중인 내용이 있다면 먼저 저장해 주세요.</p>
+            <div className="peon-update-actions">
+              <button type="button" className="later" onClick={() => setUpdateAvailable(false)}>나중에</button>
+              <button type="button" className="apply" onClick={handleApplyUpdate}>지금 업데이트</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

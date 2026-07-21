@@ -497,3 +497,452 @@
     padding:9px 4px !important;
   }
 }
+
+/* =========================================================
+   PE-ON V13.3 TODAY / STATUS / MONTHLY PROGRESS MANAGER
+   ========================================================= */
+.progress-v13-page .progress-v10-tabs{position:sticky;top:0;z-index:90;background:#f1f5f9!important}
+.progress-primary-btn{border:0;border-radius:14px;background:#2563eb;color:#fff;padding:12px 18px;font-weight:900;font-size:15px;cursor:pointer}
+.progress-today-mini-list{display:grid;gap:10px}.progress-today-mini{display:grid;grid-template-columns:90px 1fr 160px;gap:12px;align-items:center;border:1px solid #dbeafe;background:#f8fafc;border-radius:14px;padding:14px}.progress-today-mini.off{opacity:.55;text-decoration:line-through}.progress-today-mini strong{color:#2563eb;font-size:18px}.progress-today-mini span{font-weight:800}
+.progress-v13-status-table{display:grid;gap:10px}.progress-v13-status-header,.progress-v13-status-row{display:grid;grid-template-columns:80px 130px 110px 105px minmax(0,1fr);gap:12px;align-items:center}.progress-v13-status-header{padding:0 16px 6px;color:#64748b;font-weight:900}.progress-v13-status-row{width:100%;border:1px solid #dbeafe;background:#f8fafc;border-radius:15px;padding:15px 16px;text-align:left;cursor:pointer}.progress-v13-status-row strong{font-size:21px;color:#2563eb}.progress-gap-badge{display:inline-flex;justify-content:center;border-radius:999px;padding:7px 10px;font-weight:900;background:#e2e8f0;color:#475569}.progress-v13-status-row.ahead .progress-gap-badge{background:#dbeafe;color:#1d4ed8}.progress-v13-status-row.behind .progress-gap-badge{background:#fee2e2;color:#b91c1c}.progress-v13-status-row.same .progress-gap-badge{background:#dcfce7;color:#047857}
+.progress-calendar-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px}.progress-month-nav{display:flex;align-items:center;gap:12px}.progress-month-nav h2{min-width:190px;text-align:center}.progress-month-nav button{width:44px;height:44px;border:0;border-radius:12px;background:#eaf2ff;color:#2563eb;font-size:28px;font-weight:900;cursor:pointer}.progress-month-weekdays,.progress-month-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}.progress-month-weekdays span{text-align:center;padding:10px;font-weight:900;color:#475569}.progress-month-cell{min-height:145px;border:1px solid #e2e8f0;background:#fff;padding:9px;text-align:left;overflow:hidden;cursor:pointer}.progress-month-cell.blank{background:#f8fafc;cursor:default}.progress-month-cell.today{box-shadow:inset 0 0 0 3px #2563eb;background:#eff6ff}.progress-day-number{display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border-radius:50%;font-weight:900}.progress-month-cell.today .progress-day-number{background:#2563eb;color:#fff}.progress-day-lessons{display:grid;gap:5px;margin-top:6px}.progress-day-lessons div{background:#f1f5f9;border-radius:7px;padding:5px 6px;font-size:11px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.progress-day-lessons div.off{opacity:.55;text-decoration:line-through}.progress-day-lessons small{display:block;color:#64748b;margin-top:2px}.progress-day-lessons em{font-style:normal;color:#2563eb;font-weight:900}
+.progress-today-modal{width:min(760px,94vw)!important;max-height:90dvh!important;overflow:auto!important}.progress-modal-header p{margin:4px 0 0;color:#64748b;font-weight:800}.progress-today-list{display:grid;gap:12px;margin-top:14px}.progress-today-card{border:1px solid #dbeafe;border-radius:17px;padding:16px;background:#f8fafc}.progress-today-card.done{border-color:#86efac;background:#f0fdf4}.progress-today-card.off{opacity:.55}.progress-today-card-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.period-pill,.status-pill{border-radius:999px;padding:7px 11px;font-weight:900}.period-pill{background:#dbeafe;color:#1d4ed8}.status-pill{margin-left:auto;background:#e2e8f0;color:#475569}.progress-today-card.done .status-pill{background:#dcfce7;color:#047857}.progress-today-card-head strong{font-size:19px}.progress-today-card-actions{display:grid;grid-template-columns:1fr 130px;gap:10px;margin-top:14px}.progress-today-card-actions select,.progress-day-editor-row select,.progress-timetable-row select,.progress-v10-modal select{min-height:44px;border:1px solid #cbd5e1;border-radius:11px;background:#fff;padding:8px 10px;font-weight:800}.progress-today-card-actions button,.progress-row-input-btn{border:0;border-radius:11px;background:#2563eb;color:#fff;font-weight:900;cursor:pointer}
+.progress-day-modal,.progress-timetable-modal{width:min(1120px,96vw)!important;max-height:90dvh!important;overflow:auto!important}.progress-day-editor-list,.progress-timetable-list{display:grid;gap:9px;margin:16px 0}.progress-day-editor-row{display:grid;grid-template-columns:105px 120px 100px 150px 130px 70px 70px;gap:8px;align-items:center}.progress-timetable-row{display:grid;grid-template-columns:120px 105px 1fr 1fr 74px;gap:8px}.progress-row-delete-btn{border:0;border-radius:10px;background:#fee2e2;color:#b91c1c;font-weight:900;min-height:42px;cursor:pointer}.progress-day-footer{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap;border-top:1px solid #e2e8f0;padding-top:14px}.progress-day-footer>button:not(.progress-primary-btn){border:0;border-radius:12px;background:#e2e8f0;color:#334155;padding:11px 15px;font-weight:900;cursor:pointer}
+@media(max-width:900px){.progress-v13-status-header{display:none}.progress-v13-status-row{grid-template-columns:70px 95px 95px minmax(0,1fr)}.progress-v13-status-row>span:nth-child(2){display:none}.progress-month-cell{min-height:120px}.progress-day-editor-row{grid-template-columns:repeat(2,minmax(0,1fr))}.progress-timetable-row{grid-template-columns:repeat(2,minmax(0,1fr))}.progress-row-delete-btn{grid-column:auto}.progress-today-mini{grid-template-columns:76px 1fr 130px}}
+@media(max-width:640px){.progress-calendar-toolbar{align-items:stretch;flex-direction:column}.progress-month-nav{justify-content:center}.progress-month-grid,.progress-month-weekdays{min-width:760px}.progress-calendar-panel{overflow-x:auto}.progress-month-cell{min-height:115px}.progress-v13-status-row{grid-template-columns:55px 80px 76px minmax(0,1fr);padding:12px 10px;gap:6px}.progress-v13-status-row strong{font-size:18px}.progress-gap-badge,.progress-v10-lesson-badge{font-size:12px;padding:6px}.progress-today-mini{grid-template-columns:65px 1fr}.progress-today-mini span:last-child{grid-column:2}.progress-today-card-actions{grid-template-columns:1fr}.progress-day-editor-row,.progress-timetable-row{grid-template-columns:1fr}.progress-day-footer{display:grid;grid-template-columns:1fr}.progress-day-footer button{width:100%}}
+
+/* =========================================================
+   PE-ON V13.11 기본 시간표: 엑셀형 직접 입력 그리드
+   ========================================================= */
+.progress-timetable-grid-modal{
+  width:min(1180px,96vw)!important;
+  max-height:90dvh!important;
+  overflow:hidden!important;
+  display:flex!important;
+  flex-direction:column!important;
+}
+.progress-timetable-grid-header{flex:0 0 auto;align-items:flex-start!important;gap:18px}
+.progress-timetable-header-actions{display:flex;align-items:center;gap:10px;margin-left:auto}
+.progress-unified-action-btn{
+  width:112px!important;
+  min-width:112px!important;
+  height:48px!important;
+  min-height:48px!important;
+  padding:0 18px!important;
+  border-radius:12px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  font-size:16px!important;
+  line-height:1!important;
+}
+.progress-timetable-grid-wrap{overflow:auto;padding:4px 2px 2px}
+.progress-timetable-grid{width:100%;min-width:900px;border-collapse:separate;border-spacing:0;border:1px solid #dbe4f0;border-radius:14px;overflow:hidden;background:#fff}
+.progress-timetable-grid th,.progress-timetable-grid td{border-right:1px solid #dbe4f0;border-bottom:1px solid #dbe4f0;padding:0;text-align:center}
+.progress-timetable-grid tr:last-child th,.progress-timetable-grid tr:last-child td{border-bottom:0}
+.progress-timetable-grid th:last-child,.progress-timetable-grid td:last-child{border-right:0}
+.progress-timetable-grid thead th{height:50px;background:#f8fafc;color:#0f172a;font-size:17px;font-weight:900}
+.progress-timetable-grid tbody th{width:82px;background:#f8fafc;color:#0f172a;font-size:18px;font-weight:900}
+.progress-timetable-grid td{height:72px;padding:8px}
+.progress-timetable-grid input{width:100%;height:52px;border:1px solid transparent;border-radius:10px;background:#fff;padding:0 12px;text-align:center;font-size:17px;font-weight:850;color:#0f172a;outline:none}
+.progress-timetable-grid input::placeholder{color:#b4bfce;font-weight:700}
+.progress-timetable-grid input:hover{background:#f8fbff;border-color:#dbeafe}
+.progress-timetable-grid input:focus{background:#eff6ff;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+
+/* 수업 관리 팝업의 추가·삭제·확인 버튼 크기 통일 */
+.progress-day-modal .progress-day-footer>button,
+.progress-day-modal .progress-row-delete-btn,
+.progress-day-modal .progress-row-input-btn{
+  height:46px!important;
+  min-height:46px!important;
+  min-width:108px!important;
+  padding:0 16px!important;
+  border-radius:12px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  font-size:15px!important;
+  line-height:1!important;
+}
+@media(max-width:640px){
+  .progress-timetable-grid-modal{width:100%!important;max-width:100%!important;border-radius:18px 18px 0 0!important}
+  .progress-timetable-grid-header{align-items:flex-start!important}
+  .progress-timetable-grid-header p{font-size:13px!important;line-height:1.45}
+  .progress-unified-action-btn{width:92px!important;min-width:92px!important}
+  .progress-timetable-grid{min-width:820px}
+  .progress-timetable-grid td{height:64px;padding:6px}
+  .progress-timetable-grid input{height:48px;font-size:16px}
+}
+
+/* =========================================================
+   PE-ON V13.12 기본 시간표: 군더더기 제거 및 상단 버튼 간격
+   ========================================================= */
+.progress-timetable-grid-header{
+  align-items:center!important;
+  min-height:52px;
+  padding-right:2px;
+}
+.progress-timetable-grid-header>h2{
+  margin:0!important;
+  line-height:1.2;
+}
+.progress-timetable-header-actions{
+  gap:28px!important;
+  flex:0 0 auto;
+}
+.progress-timetable-header-actions .modal-close-x{
+  position:static!important;
+  top:auto!important;
+  right:auto!important;
+  margin:0!important;
+  flex:0 0 48px;
+}
+.progress-timetable-grid input::placeholder{color:transparent!important}
+.progress-save-toast{
+  position:fixed;
+  left:50%;
+  bottom:34px;
+  transform:translateX(-50%);
+  z-index:20000;
+  padding:13px 20px;
+  border-radius:12px;
+  background:rgba(15,23,42,.94);
+  color:#fff;
+  font-size:15px;
+  font-weight:900;
+  box-shadow:0 12px 28px rgba(15,23,42,.24);
+  pointer-events:none;
+}
+@media(max-width:640px){
+  .progress-timetable-grid-header{align-items:center!important}
+  .progress-timetable-header-actions{gap:18px!important}
+  .progress-save-toast{bottom:22px;white-space:nowrap}
+}
+
+/* V13.19 날짜별 수업 관리: 장소 직접 입력 + 변동사항 저장 */
+.progress-day-editor-row{
+  grid-template-columns:105px 120px 100px minmax(170px,1.25fr) minmax(150px,1fr) 70px 70px!important;
+  align-items:end!important;
+}
+.progress-day-field{display:grid;gap:6px;min-width:0}
+.progress-day-field>span{font-size:13px;font-weight:900;color:#475569;padding-left:3px;white-space:nowrap}
+.progress-day-editor-row .progress-day-field select,
+.progress-day-editor-row .progress-day-field input{
+  width:100%;min-width:0;min-height:48px;border:1px solid #cbd5e1;border-radius:12px;background:#fff;padding:9px 12px;font-size:15px;font-weight:800;color:#0f172a;outline:none;box-sizing:border-box
+}
+.progress-day-editor-row .progress-day-field input:focus,
+.progress-day-editor-row .progress-day-field select:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+@media(max-width:900px){
+  .progress-day-editor-row{grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:end!important}
+}
+@media(max-width:640px){
+  .progress-day-editor-row{grid-template-columns:1fr!important}
+}
+
+
+/* V13.21 날짜별 수업 관리 하단 버튼 정렬 */
+.progress-day-modal .progress-day-footer{
+  display:grid!important;
+  grid-template-columns:repeat(4, minmax(118px, 1fr))!important;
+  gap:10px!important;
+  width:min(620px, 100%)!important;
+  margin-left:auto!important;
+  padding-top:16px!important;
+}
+.progress-day-modal .progress-day-footer>button{
+  width:100%!important;
+  min-width:0!important;
+  height:48px!important;
+  min-height:48px!important;
+  margin:0!important;
+  padding:0 12px!important;
+  white-space:nowrap!important;
+}
+.progress-day-modal .progress-day-add-btn{background:#e0f2fe!important;color:#0369a1!important}
+.progress-day-modal .progress-day-clear-btn{background:#fee2e2!important;color:#b91c1c!important}
+.progress-day-modal .progress-day-reset-btn{background:#ede9fe!important;color:#6d28d9!important}
+@media(max-width:640px){
+  .progress-day-modal .progress-day-footer{
+    grid-template-columns:repeat(2, minmax(0,1fr))!important;
+    width:100%!important;
+  }
+  .progress-day-modal .progress-day-footer>button{font-size:14px!important}
+}
+
+
+/* V13.22 날짜별 수업 관리 하단 작업 버튼 - 강제 정렬/가시성 보완 */
+.progress-day-modal div.progress-day-footer[aria-label="수업 관리 버튼"]{
+  position:sticky!important;
+  bottom:0!important;
+  z-index:20!important;
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(120px,1fr))!important;
+  gap:10px!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:14px 0 0!important;
+  padding:14px 0 2px!important;
+  border-top:1px solid #dbe4f0!important;
+  background:#fff!important;
+  box-sizing:border-box!important;
+}
+.progress-day-modal div.progress-day-footer[aria-label="수업 관리 버튼"] > button{
+  appearance:none!important;
+  -webkit-appearance:none!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:100%!important;
+  min-width:0!important;
+  height:50px!important;
+  min-height:50px!important;
+  margin:0!important;
+  padding:0 12px!important;
+  border:0!important;
+  border-radius:12px!important;
+  box-sizing:border-box!important;
+  font-size:15px!important;
+  font-weight:900!important;
+  line-height:1!important;
+  white-space:nowrap!important;
+  cursor:pointer!important;
+  box-shadow:0 2px 7px rgba(15,23,42,.10)!important;
+}
+.progress-day-modal div.progress-day-footer[aria-label="수업 관리 버튼"] > .progress-day-save-btn{
+  background:#2563eb!important;color:#fff!important;
+}
+.progress-day-modal div.progress-day-footer[aria-label="수업 관리 버튼"] > .progress-day-add-btn{
+  background:#16a34a!important;color:#fff!important;
+}
+.progress-day-modal div.progress-day-footer[aria-label="수업 관리 버튼"] > .progress-day-clear-btn{
+  background:#ef4444!important;color:#fff!important;
+}
+.progress-day-modal div.progress-day-footer[aria-label="수업 관리 버튼"] > .progress-day-reset-btn{
+  background:#64748b!important;color:#fff!important;
+}
+@media(max-width:640px){
+  .progress-day-modal div.progress-day-footer[aria-label="수업 관리 버튼"]{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:8px!important;
+    padding-top:12px!important;
+  }
+  .progress-day-modal div.progress-day-footer[aria-label="수업 관리 버튼"] > button{
+    height:48px!important;
+    min-height:48px!important;
+    font-size:14px!important;
+  }
+}
+
+
+/* V13.23 날짜별 수업 관리: 행별 진도/삭제 버튼 균형 조정 */
+.progress-day-modal .progress-day-editor-row{
+  grid-template-columns:105px 120px 100px minmax(170px,1.25fr) minmax(150px,1fr) 142px!important;
+  column-gap:10px!important;
+  align-items:end!important;
+}
+.progress-day-modal .progress-row-actions{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:7px!important;
+  width:142px!important;
+  min-width:142px!important;
+  align-self:end!important;
+}
+.progress-day-modal .progress-row-actions .progress-row-input-btn,
+.progress-day-modal .progress-row-actions .progress-row-delete-btn{
+  width:auto!important;
+  min-width:0!important;
+  height:46px!important;
+  min-height:46px!important;
+  margin:0!important;
+  padding:0 13px!important;
+  border-radius:11px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  font-size:14px!important;
+  font-weight:900!important;
+  line-height:1!important;
+  white-space:nowrap!important;
+  box-sizing:border-box!important;
+  box-shadow:none!important;
+}
+.progress-day-modal .progress-row-actions .progress-row-input-btn{
+  flex:1 1 72px!important;
+  background:#2563eb!important;
+  color:#fff!important;
+}
+.progress-day-modal .progress-row-actions .progress-row-delete-btn{
+  flex:0 0 62px!important;
+  background:#fee2e2!important;
+  color:#b91c1c!important;
+}
+@media(max-width:900px){
+  .progress-day-modal .progress-day-editor-row{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  .progress-day-modal .progress-row-actions{
+    grid-column:1/-1!important;
+    justify-self:end!important;
+    width:142px!important;
+    min-width:142px!important;
+    margin-top:2px!important;
+  }
+}
+@media(max-width:640px){
+  .progress-day-modal .progress-day-editor-row{
+    grid-template-columns:1fr!important;
+  }
+  .progress-day-modal .progress-row-actions{
+    grid-column:1!important;
+    justify-self:end!important;
+    width:142px!important;
+    min-width:142px!important;
+    margin-top:0!important;
+  }
+}
+
+/* V13.24 수업 관리 최종 정리 */
+.progress-day-modal{
+  width:min(1440px,96vw)!important;
+  max-height:94dvh!important;
+  padding:24px 20px 14px!important;
+}
+.progress-day-modal .progress-modal-header h2{
+  margin:0!important;
+  font-size:30px!important;
+  line-height:1.2!important;
+  font-weight:1000!important;
+  color:#0f172a!important;
+}
+.progress-day-modal .progress-modal-header{margin-bottom:18px!important}
+.progress-day-modal .progress-day-editor-list{
+  gap:0!important;
+  border:1px solid #dbe4f0!important;
+  border-radius:0!important;
+  overflow:visible!important;
+  margin:0!important;
+}
+.progress-day-modal .progress-day-editor-row{
+  display:block!important;
+  padding:12px 10px!important;
+  border:0!important;
+  border-bottom:1px solid #dbe4f0!important;
+  border-radius:0!important;
+  background:#fff!important;
+}
+.progress-day-modal .progress-day-editor-row:nth-child(even){background:#f4f8ff!important}
+.progress-day-modal .progress-day-editor-row:last-child{border-bottom:0!important}
+.progress-day-modal .progress-day-editor-top{
+  display:grid!important;
+  grid-template-columns:120px 140px 120px minmax(180px,1.1fr) minmax(280px,2fr) 100px 82px!important;
+  gap:10px!important;
+  align-items:end!important;
+}
+.progress-day-modal .progress-day-editor-details{
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  gap:12px!important;
+  margin-top:10px!important;
+}
+.progress-day-modal .progress-day-field>span{
+  text-align:center!important;
+  font-size:14px!important;
+  font-weight:1000!important;
+  color:#334155!important;
+}
+.progress-day-modal .progress-day-editor-row .progress-day-field select,
+.progress-day-modal .progress-day-editor-row .progress-day-field input{
+  text-align:center!important;
+}
+.progress-inline-input{
+  display:flex!important;
+  align-items:center!important;
+  min-height:48px!important;
+  border:1px solid #cbd5e1!important;
+  border-radius:12px!important;
+  background:#fff!important;
+  padding:0 12px!important;
+  box-sizing:border-box!important;
+}
+.progress-inline-input strong{white-space:nowrap;font-size:15px;color:#0f172a}
+.progress-inline-input input{
+  flex:1!important;
+  border:0!important;
+  box-shadow:none!important;
+  min-height:44px!important;
+  padding:6px 8px!important;
+  text-align:left!important;
+  background:transparent!important;
+}
+.progress-day-modal .progress-row-delete-btn{
+  width:100%!important;
+  height:48px!important;
+  min-height:48px!important;
+  padding:0 8px!important;
+  font-size:14px!important;
+}
+.progress-byte-field{position:relative!important}
+.progress-byte-field textarea{
+  min-height:78px!important;
+  width:100%!important;
+  resize:vertical!important;
+  border:1px solid #cbd5e1!important;
+  border-radius:12px!important;
+  padding:12px 12px 25px!important;
+  box-sizing:border-box!important;
+  font-size:15px!important;
+}
+.progress-byte-field small{
+  position:absolute!important;
+  right:10px!important;
+  bottom:7px!important;
+  font-size:11px!important;
+  font-weight:800!important;
+  color:#64748b!important;
+  pointer-events:none!important;
+}
+.progress-day-modal div.progress-day-footer[aria-label="수업 관리 버튼"]{
+  grid-template-columns:1fr 1fr 1.35fr!important;
+}
+@media(max-width:1100px){
+  .progress-day-modal .progress-day-editor-top{
+    grid-template-columns:100px 120px 100px minmax(160px,1fr) minmax(220px,1.5fr) 80px 72px!important;
+  }
+}
+@media(max-width:900px){
+  .progress-day-modal .progress-day-editor-top{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .progress-day-modal .progress-day-editor-details{grid-template-columns:1fr!important}
+  .progress-day-modal .progress-row-delete-btn{grid-column:2!important}
+}
+@media(max-width:640px){
+  .progress-day-modal .progress-modal-header h2{font-size:22px!important}
+  .progress-day-modal .progress-day-editor-top{grid-template-columns:1fr!important}
+  .progress-day-modal .progress-row-delete-btn{grid-column:1!important}
+  .progress-day-modal div.progress-day-footer[aria-label="수업 관리 버튼"]{grid-template-columns:1fr!important}
+}
+
+/* V13.25 수업 관리 삭제 버튼 셀 맞춤 */
+.progress-day-modal .progress-day-editor-top{
+  grid-template-columns:120px 140px 120px minmax(180px,1.1fr) minmax(280px,2fr) 100px 92px!important;
+}
+.progress-day-modal .progress-day-editor-top > .progress-row-delete-btn{
+  justify-self:center!important;
+  align-self:end!important;
+  width:72px!important;
+  max-width:72px!important;
+  min-width:0!important;
+  height:48px!important;
+  padding:0 6px!important;
+  box-sizing:border-box!important;
+}
+@media(max-width:1100px){
+  .progress-day-modal .progress-day-editor-top{
+    grid-template-columns:100px 120px 100px minmax(160px,1fr) minmax(220px,1.5fr) 80px 82px!important;
+  }
+  .progress-day-modal .progress-day-editor-top > .progress-row-delete-btn{
+    width:68px!important;
+    max-width:68px!important;
+  }
+}

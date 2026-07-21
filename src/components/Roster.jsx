@@ -96,8 +96,9 @@ const makeHealthSummary = (records = []) => {
 };
 
 export default function Roster() {
-  const [cls, setCls] = useState("2-1");
+  const [cls, setCls] = useState("");
   const [queryClass, setQueryClass] = useState("");
+  const [hasQueried, setHasQueried] = useState(false);
 
   const year = localStorage.getItem("peon_year") || "2026학년도";
   const semester = localStorage.getItem("peon_semester") || "1학기";
@@ -109,6 +110,7 @@ export default function Roster() {
 
   const [form, setForm] = useState(emptyForm);
   const [search, setSearch] = useState("");
+  const [searchInput, setSearchInput] = useState("");
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [editId, setEditId] = useState(null);
   const [uploadMessage, setUploadMessage] = useState("");
@@ -406,29 +408,29 @@ export default function Roster() {
     event.target.value = "";
   };
 
-  const downloadRosterExcel = () => {
-    const rows = [];
-    classes.forEach((className) => {
-      (students[className] || []).forEach((student) => {
-        rows.push({
-          학급: className,
-          번호: student.number,
-          이름: student.name,
-          성별: student.gender,
-          유의사항: student.health || "",
-        });
+  const saveRosterData = async () => {
+    try {
+      localStorage.setItem(studentStorageKey, JSON.stringify(students));
+      const dataDoc = getUserDataDoc(year, semester);
+      if (!dataDoc) {
+        showMessage("로그인 정보를 확인할 수 없습니다.");
+        return;
+      }
+      await setDoc(dataDoc, {
+        students,
+        updatedAt: new Date().toISOString(),
+        year,
+        semester,
+        ownerEmail: auth.currentUser?.email || "",
       });
-    });
-
-    if (rows.length === 0) {
-      showMessage("다운로드할 명렬표 자료가 없습니다.");
-      return;
+      lastSavedJsonRef.current = JSON.stringify(students);
+      setCloudStatus("서버 저장됨");
+      showMessage("명렬표를 저장했습니다.");
+    } catch (error) {
+      console.error(error);
+      setCloudStatus("서버 저장 실패");
+      showMessage("명렬표 저장에 실패했습니다.");
     }
-
-    const worksheet = XLSX.utils.json_to_sheet(rows);
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "명렬표");
-    XLSX.writeFile(workbook, `${year}_${semester}_명렬표.xlsx`);
   };
 
   const list = (students[cls] || []).filter(
@@ -444,41 +446,53 @@ export default function Roster() {
         ☁️ 명렬표 클라우드 상태: {cloudStatus}
       </div>
 
-      <section className="card roster-control-bar roster-sticky-control-bar roster-query-control">
-        <div className="roster-query-group">
-          <select
-            className="roster-class-query-select"
-            value={queryClass}
-            onChange={(e) => setQueryClass(e.target.value)}
-            aria-label="학년-반 선택"
-          >
-            <option value="">학년-반</option>
-            {classes.map((c) => (
-              <option key={c} value={c}>{c} ({(students[c] || []).length}명)</option>
-            ))}
-          </select>
-          <button
-            className="save-btn peon-query-button roster-query-button"
-            type="button"
-            onClick={() => {
-              if (!queryClass) {
-                showMessage("학년-반을 먼저 선택하세요.");
-                return;
-              }
-              setCls(queryClass);
-              setSearch("");
-              resetForm();
-            }}
-          >조회</button>
-        </div>
-        <button className="save-btn roster-quick-add-btn" type="button" onClick={() => setIsAddOpen(true)}>학생추가</button>
+      <section className="card roster-control-bar roster-sticky-control-bar roster-query-control roster-one-line-toolbar">
+        <select
+          className="roster-class-query-select"
+          value={queryClass}
+          onChange={(e) => { setQueryClass(e.target.value); setHasQueried(false); setCls(""); }}
+          aria-label="학년-반 선택"
+        >
+          <option value="">학년-반</option>
+          {classes.map((c) => (
+            <option key={c} value={c}>{c} ({(students[c] || []).length}명)</option>
+          ))}
+        </select>
+
+        <button
+          className="save-btn peon-query-button roster-class-query-button"
+          type="button"
+          onClick={() => {
+            if (!queryClass) {
+              showMessage("학년-반을 먼저 선택하세요.");
+              return;
+            }
+            setCls(queryClass);
+            setHasQueried(true);
+            setSearch("");
+            setSearchInput("");
+            resetForm();
+          }}
+        >조회</button>
+
         <input
           className="roster-inline-search"
           placeholder="🔍 학생검색"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") setSearch(searchInput.trim());
+          }}
         />
-        <button className="excel-btn roster-download-btn" type="button" onClick={downloadRosterExcel}>엑셀 다운로드</button>
+
+        <button
+          className="setting-btn roster-search-query-button"
+          type="button"
+          onClick={() => setSearch(searchInput.trim())}
+        >조회</button>
+
+        <button className="save-btn roster-quick-add-btn" type="button" onClick={() => setIsAddOpen(true)}>학생추가</button>
+        <button className="save-btn roster-save-btn" type="button" onClick={saveRosterData}>저장</button>
       </section>
 
       <SharedFileBox
@@ -498,7 +512,6 @@ export default function Roster() {
             <h3>📂 명렬표 업로드</h3>
             <p>학생 명단을 실제로 가져올 때는 엑셀(.xlsx, .xls, .csv)을 사용합니다. PDF/HWP/HWPX/이미지는 위 파일/자료 영역에 보관하세요.</p>
           </div>
-          <button className="excel-btn" onClick={downloadRosterExcel}>엑셀 다운로드</button>
         </div>
         <input type="file" accept=".xlsx,.xls,.csv" multiple onChange={handleRosterUpload} />
         {uploadMessage && <div className="assessment-save-message">{uploadMessage}</div>}
@@ -615,6 +628,7 @@ export default function Roster() {
         )}
       </section>
 
+      {hasQueried ? (
       <section className="card roster-list-card">
         <table className="student-table roster-table">
           <thead>
@@ -663,6 +677,11 @@ export default function Roster() {
           </tbody>
         </table>
       </section>
+      ) : (
+        <section className="card peon-query-empty-state">
+          학년-반을 선택한 뒤 <strong>조회</strong>를 눌러 주세요.
+        </section>
+      )}
 
       {healthModalStudent && (
         <div className="modal-bg roster-health-modal-bg">

@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import * as XLSX from "xlsx";
 import "../styles/StudentRecordsV10Force.css";
+import "../styles/seteuk-rebuild-v3.css";
 
 const classes = ["2-1", "2-2", "2-3", "2-4", "2-5"];
 const byteOptions = ["300", "500", "700", "800"];
@@ -298,8 +299,9 @@ export default function StudentRecords() {
   const recordKey = `peon_${year}_${semester}_student_records_v10`;
   const optionKey = `${recordKey}_options`;
 
-  const [cls, setCls] = useState("2-1");
+  const [cls, setCls] = useState("");
   const [queryClass, setQueryClass] = useState("");
+  const [hasQueried, setHasQueried] = useState(false);
   const [unit, setUnit] = useState(localStorage.getItem(`${recordKey}_unit`) || "협동농구");
   const [length, setLength] = useState("500");
   const [mode, setMode] = useState("student");
@@ -669,6 +671,7 @@ const makeSentence = (student, className = cls) => {
       return;
     }
     setCls(queryClass);
+    setHasQueried(true);
     setSelectedStudentId("");
     setSelectedRecordIds([]);
     setMessage(`${queryClass} 교과세특을 조회했습니다.`);
@@ -687,27 +690,33 @@ const makeSentence = (student, className = cls) => {
       {message && <div className="assessment-save-message">{message}</div>}
 
       <section className="card peon-query-bar records-query-bar" aria-label="세특 조회 조건">
-        <select value={queryClass} onChange={(e) => setQueryClass(e.target.value)} aria-label="학년-반 선택">
+        <select value={queryClass} onChange={(e) => { setQueryClass(e.target.value); setHasQueried(false); setCls(""); }} aria-label="학년-반 선택">
           <option value="">학년-반</option>
           {classes.map((c) => <option key={c} value={c}>{c}</option>)}
         </select>
         <button type="button" className="save-btn peon-query-button" onClick={runRecordsQuery}>조회</button>
       </section>
 
-      <section className="card records-v10-toolbar">
+      {!hasQueried && (
+        <section className="card peon-query-empty-state">
+          학년-반을 선택한 뒤 <strong>조회</strong>를 눌러 주세요.
+        </section>
+      )}
+
+      {hasQueried && <section className="card records-v10-toolbar">
         <select value={length} onChange={(e) => setLength(e.target.value)}>
           {byteOptions.map((option) => <option key={option} value={option}>{option}byte</option>)}
         </select>
         <button className="save-btn records-ai-pro-btn" onClick={generateAll}>✨ AI 전체 생성</button>
         <button className="excel-btn" onClick={downloadExcel}>엑셀 저장</button>
-      </section>
+      </section>}
 
-      <section className="records-v10-tabs" role="tablist">
+      {hasQueried && <section className="records-v10-tabs" role="tablist">
         <button className={mode === "student" ? "active" : ""} onClick={() => setMode("student")}>학생별 작성</button>
         <button className={mode === "class" ? "active" : ""} onClick={() => setMode("class")}>학급 전체 생성</button>
-      </section>
+      </section>}
 
-      {mode === "student" && (
+      {hasQueried && mode === "student" && (
         <section className="sr3-wrap">
           <aside className="sr3-roster">
             <div className="sr3-roster-head">
@@ -860,7 +869,7 @@ const makeSentence = (student, className = cls) => {
         </section>
       )}
 
-      {mode === "class" && (
+      {hasQueried && mode === "class" && (
         <>
           <section className="card records-v10-common-card">
             <div className="records-v10-section-title"><span>1</span><h3>공통 수업 내용</h3></div>

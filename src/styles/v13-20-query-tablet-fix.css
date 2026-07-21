@@ -1,0 +1,107 @@
+/* V13.20 조회 전 명단 숨김 · 조회바 한 줄 · 태블릿 점수확인 전체 명단 */
+.peon-query-empty-state{
+  padding:28px 20px !important;
+  text-align:center !important;
+  color:#64748b !important;
+  font-size:16px !important;
+  border:1px dashed #cbd5e1 !important;
+  background:#f8fafc !important;
+}
+
+/* 모든 학급 조회바: 학년-반 → 전 영역 → 조회, 한 줄 */
+.assessment-query-bar,
+.paps-query-bar,
+.print-query-bar,
+.peon-query-bar.assessment-query-bar,
+.peon-query-bar.paps-query-bar,
+.peon-query-bar.print-query-bar{
+  display:grid !important;
+  grid-template-columns:minmax(220px, 1fr) minmax(260px, 1.35fr) 92px !important;
+  gap:12px !important;
+  align-items:center !important;
+  width:100% !important;
+  padding:18px 20px !important;
+}
+.records-query-bar{
+  display:grid !important;
+  grid-template-columns:minmax(260px, 1fr) 92px !important;
+  gap:12px !important;
+  align-items:center !important;
+}
+.assessment-query-bar > *, .paps-query-bar > *, .print-query-bar > *, .records-query-bar > *{
+  width:100% !important;
+  min-width:0 !important;
+  max-width:none !important;
+  height:48px !important;
+  margin:0 !important;
+}
+.assessment-query-bar .peon-query-button,
+.paps-query-bar .peon-query-button,
+.print-query-bar .peon-query-button,
+.records-query-bar .peon-query-button{
+  min-width:92px !important;
+  width:92px !important;
+}
+
+/* 명렬표 학급 조회도 선택 전에는 빈 상태, 조회줄 한 줄 */
+.roster-query-control{
+  display:grid !important;
+  grid-template-columns:minmax(220px, .75fr) 92px minmax(220px, 1fr) 92px auto auto !important;
+  gap:10px !important;
+  align-items:center !important;
+}
+.roster-query-control > *{min-width:0 !important; margin:0 !important;}
+
+/* 태블릿에서 점수확인 34명 전체가 세로로 모두 보이도록 내부 높이 제한 제거 */
+.assessment-check-card,
+.assessment-check-table-wrap{
+  max-height:none !important;
+  height:auto !important;
+  overflow-y:visible !important;
+}
+.assessment-check-table-wrap{
+  overflow-x:auto !important;
+  -webkit-overflow-scrolling:touch !important;
+}
+.assessment-check-table tbody{
+  display:table-row-group !important;
+}
+
+@media (max-width:1024px){
+  .assessment-query-bar,
+  .paps-query-bar,
+  .print-query-bar,
+  .peon-query-bar.assessment-query-bar,
+  .peon-query-bar.paps-query-bar,
+  .peon-query-bar.print-query-bar{
+    grid-template-columns:minmax(190px,.9fr) minmax(240px,1.2fr) 88px !important;
+    gap:10px !important;
+    padding:14px !important;
+  }
+  .records-query-bar{grid-template-columns:minmax(240px,1fr) 88px !important;}
+  .assessment-page .assessment-check-card{overflow:visible !important;}
+  .assessment-page .assessment-check-table-wrap{overflow-x:auto !important;overflow-y:visible !important;}
+}
+
+@media (max-width:600px){
+  /* 휴대폰에서도 요청 순서 유지, 가로 스크롤로 한 줄 */
+  .assessment-query-bar,
+  .paps-query-bar,
+  .print-query-bar,
+  .records-query-bar{
+    display:flex !important;
+    flex-flow:row nowrap !important;
+    overflow-x:auto !important;
+  }
+  .assessment-query-bar > select:first-of-type,
+  .paps-query-bar > select:first-of-type,
+  .print-query-bar > select:first-of-type,
+  .records-query-bar > select:first-of-type{flex:0 0 180px !important;}
+  .assessment-query-bar > select:nth-of-type(2),
+  .paps-query-bar > select:nth-of-type(2),
+  .print-query-bar > select:nth-of-type(2){flex:0 0 220px !important;}
+  .assessment-query-bar .peon-query-button,
+  .paps-query-bar .peon-query-button,
+  .print-query-bar .peon-query-button,
+  .records-query-bar .peon-query-button{flex:0 0 84px !important;}
+}

@@ -1,0 +1,114 @@
+/* PE-ON V13.9 홈 최종 정렬 보정
+   - PC: 조회 설정과 바로가기 카드 5개를 각각 한 줄 유지
+   - 바로가기 카드는 사용 가능 영역의 중앙에 배치
+*/
+
+@media (min-width: 1101px) {
+  .home-page .home-context-panel {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+    gap: 16px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 18px 22px !important;
+  }
+
+  .home-page .home-context-selects {
+    display: flex !important;
+    flex: 0 1 auto !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 12px !important;
+    margin: 0 !important;
+  }
+
+  .home-page .home-context-selects select {
+    width: 170px !important;
+    min-width: 150px !important;
+    height: 48px !important;
+  }
+
+  .home-page .home-context-actions {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+  }
+
+  .home-page .home-context-actions button {
+    height: 48px !important;
+  }
+
+  .home-page .home-context-status {
+    flex: 0 1 auto !important;
+    min-width: 270px !important;
+    max-width: 390px !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .home-page .home-quick-cards,
+  .home-page .home-quick-cards.home-quick-cards-field {
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(170px, 220px)) !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    gap: 24px !important;
+    width: min(100%, 1220px) !important;
+    max-width: 1220px !important;
+    margin: 24px auto 0 !important;
+  }
+
+  .home-page .home-quick-card,
+  .home-page .home-quick-cards-field .home-quick-card,
+  .home-page article.home-quick-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    min-width: 0 !important;
+    min-height: 220px !important;
+    padding: 24px 20px !important;
+    text-align: center !important;
+  }
+
+  .home-page .home-quick-card p {
+    min-height: 44px !important;
+  }
+
+  .home-page .home-quick-card button {
+    width: 100% !important;
+    margin-top: auto !important;
+  }
+}
+
+/* 폭이 부족한 소형 노트북에서는 카드 크기만 줄이고 5개 한 줄은 유지 */
+@media (min-width: 901px) and (max-width: 1100px) {
+  .home-page .home-quick-cards,
+  .home-page .home-quick-cards.home-quick-cards-field {
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(135px, 1fr)) !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin: 20px auto 0 !important;
+  }
+
+  .home-page .home-quick-card,
+  .home-page .home-quick-cards-field .home-quick-card {
+    min-width: 0 !important;
+  }
+}
+
+
+/* V13 기초작업 현황 */
+.basic-status-panel,.settings-basic-dashboard{margin-top:14px}
+.basic-status-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:10px}.basic-status-head h2{margin:0;font-size:19px}.basic-status-head p{margin:3px 0 0;color:#64748b;font-size:13px}.basic-status-head>strong{padding:7px 11px;border-radius:999px;background:#fff7ed;color:#c2410c;font-size:13px}.basic-status-head>strong.is-complete{background:#ecfdf5;color:#047857}
+.basic-progress{height:8px;background:#e5e7eb;border-radius:999px;overflow:hidden;margin-bottom:13px}.basic-progress span{display:block;height:100%;background:linear-gradient(90deg,#2563eb,#16a34a);transition:width .25s ease}
+.basic-status-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.basic-status-card{display:grid;grid-template-columns:auto 1fr auto;align-items:center;text-align:left;gap:9px;padding:13px;border:1px solid #dbe3ec;border-radius:14px;background:#fff;cursor:pointer}.basic-status-card.done{border-color:#bbf7d0;background:#f0fdf4}.basic-status-card.missing{border-color:#fecaca;background:#fff7f7}.basic-status-icon{font-size:22px}.basic-status-card span:nth-child(2){display:flex;flex-direction:column;gap:3px}.basic-status-card strong{font-size:14px}.basic-status-card em{font-style:normal;font-size:12px;color:#64748b}.basic-status-card b{font-size:12px;color:#2563eb;white-space:nowrap}
+@media(max-width:1050px) and (min-width:768px){.basic-status-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:767px){.basic-status-panel,.desktop-tablet-only{display:none!important}}

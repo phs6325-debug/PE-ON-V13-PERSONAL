@@ -1,0 +1,58 @@
+/* V13.10 명렬표 상단: 학년-반 조회 · 학생검색 조회 · 학생추가 · 저장 한 줄 */
+.roster-page .roster-one-line-toolbar {
+  display: grid !important;
+  grid-template-columns: minmax(190px, 230px) 92px minmax(260px, 1fr) 92px 124px 92px !important;
+  align-items: center !important;
+  gap: 12px !important;
+  width: 100% !important;
+  padding: 20px 22px !important;
+  box-sizing: border-box !important;
+  overflow-x: auto !important;
+  flex-wrap: nowrap !important;
+}
+
+.roster-page .roster-one-line-toolbar > * {
+  min-width: 0 !important;
+  height: 52px !important;
+  margin: 0 !important;
+  border-radius: 14px !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+}
+
+.roster-page .roster-one-line-toolbar .roster-class-query-select,
+.roster-page .roster-one-line-toolbar .roster-inline-search {
+  width: 100% !important;
+  padding: 0 16px !important;
+  font-size: 16px !important;
+  background: #fff !important;
+}
+
+.roster-page .roster-one-line-toolbar button {
+  width: 100% !important;
+  padding: 0 14px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+}
+
+.roster-page .roster-one-line-toolbar .roster-search-query-button {
+  background: #2563eb !important;
+  color: #fff !important;
+  border-color: #2563eb !important;
+}
+
+.roster-page .roster-one-line-toolbar .roster-save-btn {
+  background: #0f9f6e !important;
+  color: #fff !important;
+}
+
+/* PC/태블릿/모바일 모두 구성 순서와 한 줄을 유지하고, 좁으면 가로 이동 */
+@media (max-width: 1100px) {
+  .roster-page .roster-one-line-toolbar {
+    grid-template-columns: 190px 88px 250px 88px 116px 88px !important;
+    min-width: 890px !important;
+  }
+}

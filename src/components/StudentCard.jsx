@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { doc, onSnapshot, setDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { auth, db, storage } from "../firebase";
+import { evaluatePaps, getPapsUnit } from "../utils/papsStandards";
 
 const defaultPapsItems = [
   { id: "grip", name: "악력", attempts: 4, best: true, grade: true },
@@ -459,13 +460,13 @@ export default function StudentCard({ student, onClose, onUpdateHealth }) {
         if (item.name === "BMI") {
           value = getBmi(record);
           hasInput = Boolean(record.height || record.weight);
-          const rules = papsGradeStandards?.[gradeKey]?.[genderKey]?.BMI;
-          rawGrade = value ? findGradeByValue(rules, value) : "-";
+          const result = value ? evaluatePaps({ grade: gradeKey, gender: student.gender, itemName: item.name, value }) : null;
+          rawGrade = result?.gradeLabel || "-";
         } else {
           value = getBest(item, record);
           hasInput = Array.from({ length: item.attempts }).some((_, index) => record[`try${index + 1}`]);
-          const rules = papsGradeStandards?.[gradeKey]?.[genderKey]?.[item.name];
-          rawGrade = value === "" ? "-" : rules ? findGradeByValue(rules, value) : "기준없음";
+          const result = value === "" ? null : evaluatePaps({ grade: gradeKey, gender: student.gender, itemName: item.name, value });
+          rawGrade = result?.gradeLabel || (value === "" ? "-" : "기준없음");
         }
 
         return {
@@ -473,6 +474,8 @@ export default function StudentCard({ student, onClose, onUpdateHealth }) {
           name: item.name,
           value,
           grade: item.name === "BMI" ? rawGrade : simpleGrade(rawGrade),
+          score: value === "" ? "" : evaluatePaps({ grade: gradeKey, gender: student.gender, itemName: item.name, value })?.score ?? "",
+          unit: getPapsUnit(item.name),
           rawGrade,
           hasInput,
         };
@@ -591,7 +594,7 @@ export default function StudentCard({ student, onClose, onUpdateHealth }) {
                     {papsRows.map((row) => (
                       <div key={row.id} className="student-score-row paps-card-row">
                         <span>{row.name}</span>
-                        <strong>{row.name === "BMI" ? `${row.value} / ${row.grade}` : `${row.value} / 등급 ${row.grade}`}</strong>
+                        <strong>{`${row.value}${row.unit} · ${row.name === "BMI" ? row.grade : `${row.grade}등급`}(${row.score}점)`}</strong>
                       </div>
                     ))}
                     {overallGrade && <><hr /><div className="student-score-total">종합 <strong>등급 {overallGrade}</strong></div></>}

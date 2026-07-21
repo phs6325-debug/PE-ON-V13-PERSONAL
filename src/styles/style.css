@@ -21257,3 +21257,405 @@ button[title="사용 안내"]{
 
 /* PE-ON V13 offline/PWA status */
 .peon-offline-status{display:inline-flex;align-items:center;justify-content:center;min-width:62px;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:900;white-space:nowrap}.peon-offline-status.online{background:#dcfce7;color:#166534}.peon-offline-status.offline{background:#fef3c7;color:#92400e}@media(max-width:768px){.peon-v9-login-bar .peon-offline-status{position:absolute;top:6px;right:8px;min-width:auto;padding:3px 7px;font-size:10px}}
+
+/* =========================================================
+   PE-ON V13.14 기본 시간표: 저장/X 정렬 + 교시 한 줄 + 장소 직접 입력
+   ========================================================= */
+.progress-timetable-grid-modal{
+  width:min(1240px,96vw)!important;
+}
+.progress-timetable-grid-header{
+  position:relative!important;
+  display:flex!important;
+  align-items:center!important;
+  padding-right:0!important;
+}
+.progress-timetable-grid-header>h2{
+  margin:0!important;
+  white-space:nowrap!important;
+}
+.progress-timetable-header-actions{
+  margin-left:auto!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:22px!important;
+}
+.progress-timetable-header-actions .progress-unified-action-btn{
+  width:112px!important;
+  min-width:112px!important;
+  height:48px!important;
+  border-radius:12px!important;
+  background:#2563eb!important;
+  color:#fff!important;
+  font-size:16px!important;
+  font-weight:900!important;
+}
+.progress-timetable-header-actions .modal-close-x{
+  position:static!important;
+  width:48px!important;
+  min-width:48px!important;
+  height:48px!important;
+  margin:0!important;
+  flex:0 0 48px!important;
+}
+.progress-timetable-grid{
+  min-width:1080px!important;
+  border:0!important;
+  border-radius:0!important;
+  border-spacing:8px 10px!important;
+  background:transparent!important;
+}
+.progress-timetable-grid th,
+.progress-timetable-grid td{
+  border:0!important;
+  background:transparent!important;
+}
+.progress-timetable-grid thead th{
+  height:42px!important;
+  white-space:nowrap!important;
+  background:transparent!important;
+}
+.progress-timetable-grid thead th:first-child{
+  width:64px!important;
+  min-width:64px!important;
+  white-space:nowrap!important;
+}
+.progress-timetable-grid tbody th{
+  width:64px!important;
+  min-width:64px!important;
+  background:transparent!important;
+  white-space:nowrap!important;
+}
+.progress-timetable-grid td{
+  height:auto!important;
+  padding:0!important;
+}
+.progress-timetable-cell-editor{
+  display:grid!important;
+  gap:8px!important;
+}
+.progress-timetable-grid input{
+  box-sizing:border-box!important;
+}
+.progress-timetable-class-input{
+  width:100%!important;
+  height:52px!important;
+  border:1px solid #d7e0eb!important;
+  border-radius:16px!important;
+  background:#fff!important;
+  padding:0 16px!important;
+  text-align:left!important;
+  font-size:16px!important;
+  font-weight:700!important;
+}
+.progress-timetable-location-row{
+  display:grid!important;
+  grid-template-columns:auto minmax(0,1fr)!important;
+  align-items:center!important;
+  gap:10px!important;
+  height:42px!important;
+  padding:0 12px!important;
+  border:1px solid #d7e0eb!important;
+  border-radius:14px!important;
+  background:#fff!important;
+}
+.progress-timetable-location-row>span{
+  font-size:14px!important;
+  font-weight:900!important;
+  color:#0f172a!important;
+  white-space:nowrap!important;
+}
+.progress-timetable-location-input{
+  width:100%!important;
+  min-width:0!important;
+  height:38px!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  padding:0!important;
+  text-align:left!important;
+  font-size:14px!important;
+  font-weight:700!important;
+  box-shadow:none!important;
+}
+.progress-timetable-location-input::placeholder,
+.progress-timetable-class-input::placeholder{
+  color:transparent!important;
+}
+.progress-timetable-location-input:focus{
+  outline:none!important;
+  box-shadow:none!important;
+  background:transparent!important;
+}
+@media(max-width:640px){
+  .progress-timetable-header-actions{gap:14px!important}
+  .progress-timetable-header-actions .progress-unified-action-btn{width:88px!important;min-width:88px!important}
+  .progress-timetable-grid{min-width:980px!important}
+}
+
+/* =========================================================
+   PE-ON V13.14 기본 시간표: 저장/X 정렬 + 교시 한 줄 + 장소 직접 입력
+   ========================================================= */
+.progress-timetable-grid-modal{width:min(1240px,96vw)!important}
+.progress-timetable-grid-header{position:relative!important;display:flex!important;align-items:center!important;padding-right:0!important}
+.progress-timetable-grid-header>h2{margin:0!important;white-space:nowrap!important}
+.progress-timetable-header-actions{margin-left:auto!important;display:flex!important;align-items:center!important;gap:22px!important}
+.progress-timetable-header-actions .progress-unified-action-btn{width:112px!important;min-width:112px!important;height:48px!important;border-radius:12px!important;background:#2563eb!important;color:#fff!important;font-size:16px!important;font-weight:900!important}
+.progress-timetable-header-actions .modal-close-x{position:static!important;width:48px!important;min-width:48px!important;height:48px!important;margin:0!important;flex:0 0 48px!important}
+.progress-timetable-grid{min-width:1080px!important;border:0!important;border-radius:0!important;border-spacing:8px 10px!important;background:transparent!important}
+.progress-timetable-grid th,.progress-timetable-grid td{border:0!important;background:transparent!important}
+.progress-timetable-grid thead th{height:42px!important;white-space:nowrap!important;background:transparent!important}
+.progress-timetable-grid thead th:first-child{width:64px!important;min-width:64px!important;white-space:nowrap!important}
+.progress-timetable-grid tbody th{width:64px!important;min-width:64px!important;background:transparent!important;white-space:nowrap!important}
+.progress-timetable-grid td{height:auto!important;padding:0!important}
+.progress-timetable-cell-editor{display:grid!important;gap:8px!important}
+.progress-timetable-grid input{box-sizing:border-box!important}
+.progress-timetable-class-input{width:100%!important;height:52px!important;border:1px solid #d7e0eb!important;border-radius:16px!important;background:#fff!important;padding:0 16px!important;text-align:left!important;font-size:16px!important;font-weight:700!important}
+.progress-timetable-location-row{display:grid!important;grid-template-columns:auto minmax(0,1fr)!important;align-items:center!important;gap:10px!important;height:42px!important;padding:0 12px!important;border:1px solid #d7e0eb!important;border-radius:14px!important;background:#fff!important}
+.progress-timetable-location-row>span{font-size:14px!important;font-weight:900!important;color:#0f172a!important;white-space:nowrap!important}
+.progress-timetable-location-input{width:100%!important;min-width:0!important;height:38px!important;border:0!important;border-radius:0!important;background:transparent!important;padding:0!important;text-align:left!important;font-size:14px!important;font-weight:700!important;box-shadow:none!important}
+.progress-timetable-location-input::placeholder,.progress-timetable-class-input::placeholder{color:transparent!important}
+.progress-timetable-location-input:focus{outline:none!important;box-shadow:none!important;background:transparent!important}
+@media(max-width:640px){.progress-timetable-header-actions{gap:14px!important}.progress-timetable-header-actions .progress-unified-action-btn{width:88px!important;min-width:88px!important}.progress-timetable-grid{min-width:980px!important}}
+
+
+/* =========================================================
+   PE-ON V13.15 기본 시간표: 교시별 파스텔 행 색상 및 구분선
+   월~금 전체 셀과 교시 번호를 같은 색상으로 구분
+   ========================================================= */
+.progress-timetable-grid{
+  border-collapse:separate!important;
+  border-spacing:8px 10px!important;
+}
+.progress-timetable-grid tbody tr.progress-timetable-period-row > th,
+.progress-timetable-grid tbody tr.progress-timetable-period-row > td{
+  border-top:1px solid rgba(148,163,184,.28)!important;
+  border-bottom:1px solid rgba(148,163,184,.28)!important;
+}
+.progress-timetable-grid tbody tr.progress-timetable-period-row > th{
+  border-left:1px solid rgba(148,163,184,.28)!important;
+  border-radius:14px 0 0 14px!important;
+}
+.progress-timetable-grid tbody tr.progress-timetable-period-row > td:last-child{
+  border-right:1px solid rgba(148,163,184,.28)!important;
+  border-radius:0 14px 14px 0!important;
+}
+.progress-timetable-grid tbody tr.period-1 > th,
+.progress-timetable-grid tbody tr.period-1 > td{background:#eef6ff!important}
+.progress-timetable-grid tbody tr.period-2 > th,
+.progress-timetable-grid tbody tr.period-2 > td{background:#f6f1ff!important}
+.progress-timetable-grid tbody tr.period-3 > th,
+.progress-timetable-grid tbody tr.period-3 > td{background:#f2fbf2!important}
+.progress-timetable-grid tbody tr.period-4 > th,
+.progress-timetable-grid tbody tr.period-4 > td{background:#fffbe6!important}
+.progress-timetable-grid tbody tr.period-5 > th,
+.progress-timetable-grid tbody tr.period-5 > td{background:#ffefe3!important}
+.progress-timetable-grid tbody tr.period-6 > th,
+.progress-timetable-grid tbody tr.period-6 > td{background:#f1f5fb!important}
+.progress-timetable-grid tbody tr.progress-timetable-period-row > th,
+.progress-timetable-grid tbody tr.progress-timetable-period-row > td{
+  transition:filter .16s ease, box-shadow .16s ease!important;
+}
+.progress-timetable-grid tbody tr.progress-timetable-period-row:hover > th,
+.progress-timetable-grid tbody tr.progress-timetable-period-row:hover > td{
+  filter:saturate(1.08) brightness(.985);
+}
+.progress-timetable-grid tbody tr.progress-timetable-period-row .progress-timetable-class-input,
+.progress-timetable-grid tbody tr.progress-timetable-period-row .progress-timetable-location-row{
+  background:rgba(255,255,255,.92)!important;
+  border-color:rgba(148,163,184,.40)!important;
+}
+
+
+/* PE-ON V13 mobile/tablet progress record modal final fit */
+@media (max-width: 1400px) and (pointer: coarse) {
+  .progress-modal-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: clamp(8px, 2vw, 18px) !important;
+    overflow: hidden !important;
+  }
+
+  .progress-modal.peon-popup-modal.progress-v10-modal {
+    width: min(760px, calc(100vw - 20px)) !important;
+    height: auto !important;
+    max-height: calc(100dvh - 20px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    border-radius: 18px !important;
+  }
+
+  .progress-modal.peon-popup-modal .progress-modal-header {
+    flex: 0 0 auto !important;
+    padding: 14px 18px 12px !important;
+  }
+
+  .progress-modal.peon-popup-modal .progress-modal-body {
+    flex: 0 1 auto !important;
+    min-height: 0 !important;
+    max-height: calc(100dvh - 170px) !important;
+    overflow-y: auto !important;
+    padding: 14px 18px 18px !important;
+    gap: 8px !important;
+  }
+
+  .progress-modal.peon-popup-modal .progress-content-input,
+  .progress-modal.peon-popup-modal .progress-note-input {
+    min-height: 82px !important;
+    height: 82px !important;
+    max-height: 120px !important;
+  }
+
+  .progress-modal.peon-popup-modal .progress-modal-actions,
+  .progress-modal.peon-popup-modal .progress-btn-row.progress-modal-actions {
+    position: sticky !important;
+    bottom: 0 !important;
+    flex: 0 0 auto !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    padding: 10px 18px max(12px, env(safe-area-inset-bottom)) !important;
+    margin: 0 !important;
+    background: #fff !important;
+    border-top: 1px solid #e5e7eb !important;
+    box-shadow: 0 -6px 16px rgba(15,23,42,.08) !important;
+    z-index: 30 !important;
+  }
+
+  .progress-modal.peon-popup-modal .progress-modal-actions button,
+  .progress-modal.peon-popup-modal .progress-btn-row.progress-modal-actions button {
+    width: 100% !important;
+    min-height: 46px !important;
+    height: 46px !important;
+    font-size: 15px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .progress-modal-overlay {
+    align-items: flex-end !important;
+    padding: 0 !important;
+  }
+
+  .progress-modal.peon-popup-modal.progress-v10-modal {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 100dvh !important;
+    border-radius: 18px 18px 0 0 !important;
+  }
+
+  .progress-modal.peon-popup-modal .progress-modal-body {
+    max-height: calc(100dvh - 156px) !important;
+    padding: 12px 14px 14px !important;
+  }
+
+  .progress-modal.peon-popup-modal .progress-modal-header {
+    padding: 12px 14px 10px !important;
+  }
+
+  .progress-modal.peon-popup-modal .progress-content-input,
+  .progress-modal.peon-popup-modal .progress-note-input {
+    min-height: 74px !important;
+    height: 74px !important;
+  }
+
+  .progress-modal.peon-popup-modal .progress-modal-actions,
+  .progress-modal.peon-popup-modal .progress-btn-row.progress-modal-actions {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
+
+/* PE-ON V13.28 web update UI */
+.peon-update-check-btn:disabled { opacity: .55; cursor: default; }
+.peon-update-overlay {
+  position: fixed; inset: 0; z-index: 20000; display: grid; place-items: center;
+  padding: 20px; background: rgba(15, 23, 42, .58); backdrop-filter: blur(3px);
+}
+.peon-update-card {
+  width: min(430px, 100%); border-radius: 28px; background: #fff; padding: 30px 26px 24px;
+  text-align: center; box-shadow: 0 24px 70px rgba(15, 23, 42, .28);
+}
+.peon-update-icon {
+  width: 62px; height: 62px; margin: 0 auto 14px; border-radius: 50%; display: grid; place-items: center;
+  font-size: 38px; font-weight: 800; color: #2563eb; background: #eaf2ff;
+}
+.peon-update-card h2 { margin: 0 0 10px; font-size: 25px; color: #0f172a; }
+.peon-update-card p { margin: 0; font-size: 16px; line-height: 1.55; color: #475569; }
+.peon-update-actions { display: grid; grid-template-columns: 1fr 1.25fr; gap: 10px; margin-top: 24px; }
+.peon-update-actions button { min-height: 50px; border: 0; border-radius: 15px; font-size: 16px; font-weight: 800; cursor: pointer; }
+.peon-update-actions .later { background: #eef2f7; color: #334155; }
+.peon-update-actions .apply { background: #2563eb; color: #fff; }
+@media (max-width: 600px) {
+  .peon-update-card { border-radius: 24px; padding: 26px 20px 20px; }
+  .peon-update-card h2 { font-size: 22px; }
+  .peon-update-card p { font-size: 15px; }
+  .peon-update-actions button { min-height: 48px; }
+}
+
+/* PE-ON V13.30: 브랜드 아래 버전 및 업데이트 확인 배치 */
+.peon-v9-brand-copy{min-width:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.peon-v9-brand-update-row{display:flex;align-items:center;gap:6px;margin-top:4px;min-width:0}
+.peon-v9-brand-update-row small{font-size:10px;line-height:1;font-weight:900;color:#64748b;white-space:nowrap}
+.peon-v9-brand-update-row .peon-update-check-btn{min-height:24px!important;height:24px!important;padding:2px 8px!important;border-radius:8px!important;font-size:10px!important;line-height:1!important;white-space:nowrap}
+@media(max-width:900px){
+  .peon-v9-topbar{min-height:76px!important;height:auto!important;padding-top:5px!important;padding-bottom:5px!important;align-items:center!important;overflow:visible!important}
+  .peon-v9-top-brand{align-self:stretch!important;align-items:center!important}
+  .peon-v9-brand-copy{justify-content:center!important}
+  .peon-v9-brand-subtitle{display:none!important}
+  .peon-v9-brand-update-row{margin-top:3px!important;gap:4px!important}
+  .peon-v9-brand-update-row small{font-size:8px!important}
+  .peon-v9-brand-update-row .peon-update-check-btn{height:22px!important;min-height:22px!important;padding:1px 6px!important;font-size:9px!important}
+}
+@media(max-width:520px){
+  .peon-v9-top-brand{padding:0 2px!important;gap:5px!important}
+  .peon-v9-brand-update-row small{font-size:7px!important}
+  .peon-v9-brand-update-row .peon-update-check-btn{padding:1px 5px!important;font-size:8px!important}
+}
+
+/* PE-ON V14.4: 업데이트 확인 결과 알림 */
+.peon-update-toast{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  z-index:10050;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  max-width:min(440px,calc(100vw - 32px));
+  padding:14px 18px;
+  border:1px solid #bfdbfe;
+  border-radius:14px;
+  background:#fff;
+  color:#172033;
+  font-weight:800;
+  line-height:1.45;
+  box-shadow:0 14px 34px rgba(15,23,42,.2);
+}
+.peon-update-toast-mark{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:28px;
+  height:28px;
+  flex:0 0 28px;
+  border-radius:50%;
+  background:#2563eb;
+  color:#fff;
+  font-size:17px;
+}
+.peon-update-toast.success{border-color:#86efac;background:#f0fdf4;color:#166534}
+.peon-update-toast.success .peon-update-toast-mark{background:#16a34a}
+.peon-update-toast.error{border-color:#fecaca;background:#fef2f2;color:#991b1b}
+.peon-update-toast.error .peon-update-toast-mark{background:#dc2626}
+.peon-update-toast.available{border-color:#fde68a;background:#fffbeb;color:#92400e}
+.peon-update-toast.available .peon-update-toast-mark{background:#f59e0b}
+@media (max-width:600px){
+  .peon-update-toast{left:16px;right:16px;bottom:18px;max-width:none;padding:13px 14px;font-size:14px}
+}

@@ -1,0 +1,98 @@
+/* PE-ON V14: 모든 탭 PC·태블릿·휴대폰 화면 안전 보정 */
+html, body, #root { width:100%; min-width:0; max-width:100%; }
+html { touch-action: pan-x pan-y pinch-zoom; }
+body { overflow-x:auto; -webkit-text-size-adjust:100%; }
+*, *::before, *::after { box-sizing:border-box; }
+img, video, canvas, svg { max-width:100%; height:auto; }
+.peon-v9-shell, .peon-v9-content, .peon-v9-main, .page, .card { min-width:0 !important; max-width:100% !important; }
+.peon-v9-main { overflow-x:auto !important; overflow-y:visible !important; }
+.page { width:100% !important; overflow:visible !important; }
+
+/* 조회 영역은 언제나 버튼까지 한 화면에 표시 */
+.peon-query-bar,
+.assessment-query-bar,
+.paps-query-bar,
+.print-query-bar,
+.records-query-bar {
+  display:grid !important;
+  grid-template-columns:minmax(0, .9fr) minmax(0, 1.25fr) minmax(76px, 96px) !important;
+  gap:10px !important;
+  width:100% !important;
+  min-width:0 !important;
+  max-width:100% !important;
+  overflow:visible !important;
+  padding:14px !important;
+  align-items:center !important;
+}
+.records-query-bar { grid-template-columns:minmax(0, 1fr) minmax(76px, 96px) !important; }
+.peon-query-bar > *, .assessment-query-bar > *, .paps-query-bar > *, .print-query-bar > *, .records-query-bar > * {
+  width:100% !important; min-width:0 !important; max-width:100% !important; margin:0 !important;
+}
+.peon-query-bar select, .peon-query-bar button,
+.records-query-bar select, .records-query-bar button {
+  height:46px !important; min-height:46px !important; padding:0 10px !important; font-size:15px !important;
+}
+.peon-query-button { width:100% !important; min-width:0 !important; max-width:none !important; }
+
+/* 표·달력·점수 화면은 잘리지 않고 필요할 때 손가락으로 좌우 이동 */
+.table-wrap, [class*="table-wrap"], [class*="table-shell"],
+.progress-calendar-shell, .progress-timetable-grid-wrap,
+.assessment-check-table-wrap, .paps-check-table-wrap {
+  max-width:100% !important;
+  overflow-x:auto !important;
+  overflow-y:visible !important;
+  -webkit-overflow-scrolling:touch !important;
+  touch-action:pan-x pan-y pinch-zoom !important;
+}
+table { max-width:none; }
+
+/* 모든 팝업: 화면 안에 들어오고 본문만 스크롤 */
+.modal-bg, [class*="modal-overlay"] { padding:12px !important; overflow:auto !important; touch-action:pan-x pan-y pinch-zoom !important; }
+.modal, [class*="-modal"] {
+  max-width:calc(100vw - 24px) !important;
+  max-height:calc(100dvh - 24px) !important;
+}
+.progress-day-modal, .progress-record-modal, .progress-today-modal, .progress-timetable-modal {
+  width:min(980px, calc(100vw - 24px)) !important;
+  display:flex !important; flex-direction:column !important; overflow:hidden !important;
+}
+.progress-day-editor-list, .progress-today-list, .progress-modal-body, .progress-timetable-grid-wrap {
+  min-height:0 !important; overflow:auto !important; -webkit-overflow-scrolling:touch !important;
+}
+.progress-unified-record-form { grid-template-columns:repeat(2, minmax(0,1fr)) !important; }
+.progress-unified-wide { grid-column:1 / -1 !important; }
+
+/* 좌측 하단 버전/업데이트 */
+.peon-v9-version-only { display:flex !important; flex-direction:column !important; gap:7px !important; align-items:stretch !important; }
+.peon-v9-version-only .peon-update-check-btn { width:100% !important; min-height:36px !important; font-size:12px !important; }
+.peon-v9-brand-update-row { display:none !important; }
+
+@media (max-width:1024px) {
+  .peon-v9-main { padding-left:12px !important; padding-right:12px !important; }
+  .progress-unified-record-form { grid-template-columns:1fr !important; }
+  .progress-unified-wide { grid-column:auto !important; }
+  .progress-status-table { min-width:760px !important; }
+}
+
+@media (max-width:600px) {
+  .peon-v9-main { padding:10px 8px 84px !important; }
+  .page > h2 { font-size:22px !important; margin-bottom:10px !important; }
+  .assessment-main-tabs, .sticky-section-tabs, [class*="main-tabs"] {
+    display:grid !important; grid-template-columns:repeat(3, minmax(0,1fr)) !important; gap:6px !important; width:100% !important;
+  }
+  .assessment-main-tabs button, .sticky-section-tabs button { min-width:0 !important; padding:10px 4px !important; font-size:13px !important; white-space:nowrap !important; }
+  .peon-query-bar, .assessment-query-bar, .paps-query-bar, .print-query-bar {
+    grid-template-columns:minmax(0, .9fr) minmax(0, 1.15fr) 68px !important;
+    gap:6px !important; padding:8px !important;
+  }
+  .records-query-bar { grid-template-columns:minmax(0,1fr) 68px !important; }
+  .peon-query-bar select, .peon-query-bar button, .records-query-bar select, .records-query-bar button {
+    height:42px !important; min-height:42px !important; font-size:12px !important; padding:0 5px !important; border-radius:9px !important;
+  }
+  .modal-bg, [class*="modal-overlay"] { padding:0 !important; align-items:flex-end !important; }
+  .modal, [class*="-modal"] { max-width:100vw !important; max-height:100dvh !important; }
+  .progress-day-modal, .progress-record-modal, .progress-today-modal, .progress-timetable-modal {
+    width:100vw !important; max-width:100vw !important; max-height:100dvh !important; border-radius:16px 16px 0 0 !important;
+  }
+  .progress-day-footer, .progress-modal-actions { flex:0 0 auto !important; }
+}
