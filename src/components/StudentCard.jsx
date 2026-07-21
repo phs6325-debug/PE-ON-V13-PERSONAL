@@ -374,17 +374,25 @@ export default function StudentCard({ student, onClose, onUpdateHealth }) {
         let activityScore = 0;
         let hasInput = false;
 
-        const items = (activity.items || []).length
-          ? activity.items
-          : [{ id: "directTotal", name: "평가점수", type: "direct", score: activity.score, rules: [] }];
-
-        items.forEach((item) => {
-          const value = scores?.[activity.id]?.[className]?.[student.id]?.[item.id];
-          if (value === undefined || value === null || value === "") return;
-
+        // NEIS PDF/엑셀로 일괄 매칭한 점수는 항목(items) 유무와 상관없이
+        // activity.directTotal 자리에 저장되므로, 있으면 이 값을 우선 사용합니다.
+        const directTotal = scores?.[activity.id]?.[className]?.[student.id]?.directTotal;
+        if (directTotal !== undefined && directTotal !== null && directTotal !== "") {
+          activityScore = Number(directTotal) || 0;
           hasInput = true;
-          activityScore += getItemScore(item, value);
-        });
+        } else {
+          const items = (activity.items || []).length
+            ? activity.items
+            : [{ id: "directTotal", name: "평가점수", type: "direct", score: activity.score, rules: [] }];
+
+          items.forEach((item) => {
+            const value = scores?.[activity.id]?.[className]?.[student.id]?.[item.id];
+            if (value === undefined || value === null || value === "") return;
+
+            hasInput = true;
+            activityScore += getItemScore(item, value);
+          });
+        }
 
         return {
           id: activity.id,

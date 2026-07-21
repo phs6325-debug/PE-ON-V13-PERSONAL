@@ -730,7 +730,7 @@ export default function Paps() {
 
       {saveMessage && <div className="assessment-save-message">{saveMessage}</div>}
 
-      {tab !== "setting" && (
+      {tab !== "setting" && !(tab === "check" && hasQueried) && (
       <>
       <section className="card peon-query-bar paps-query-bar" aria-label="PAPS 조회 조건">
         <select value={queryClass} onChange={(e) => { setQueryClass(e.target.value); setHasQueried(false); setPapsClass(""); }} aria-label="학년-반 선택">
