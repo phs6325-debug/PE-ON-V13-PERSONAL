@@ -4,6 +4,7 @@ import { auth, db } from "../firebase";
 import PhotoStudio from "./PhotoStudio";
 import SharedFileBox from "./SharedFileBox";
 import { importAssessmentScores } from "../utils/assessmentScoreImport";
+import { importPapsRecords } from "../utils/papsRecordImport";
 
 const classes = ["2-1", "2-2", "2-3", "2-4", "2-5"];
 
@@ -191,6 +192,60 @@ export default function Settings({ onNavigate } = {}) {
     event.target.value = "";
   };
 
+  const [papsMatchBusy, setPapsMatchBusy] = useState(false);
+
+  const handleManagementPapsMatch = async (event) => {
+    const files = Array.from(event.target.files || []);
+    if (files.length === 0) return;
+
+    const papsItemKey = `peon_${year}_${semester}_paps_items`;
+    const papsScoreKey = `peon_${year}_${semester}_paps_scores`;
+
+    setPapsMatchBusy(true);
+    try {
+      const currentStudents = JSON.parse(localStorage.getItem(getStudentKey(year, semester)) || "{}");
+      const currentItems = JSON.parse(localStorage.getItem(papsItemKey) || "null") || [];
+      const existingScores = JSON.parse(localStorage.getItem(papsScoreKey) || "{}");
+
+      const { nextStudents, nextScores, importedStudents, importedRecords } = await importPapsRecords({
+        files,
+        students: currentStudents,
+        existingScores,
+        fallbackClass: classes[0],
+      });
+
+      localStorage.setItem(getStudentKey(year, semester), JSON.stringify(nextStudents));
+      localStorage.setItem(papsScoreKey, JSON.stringify(nextScores));
+
+      const user = auth.currentUser;
+      if (user) {
+        await setDoc(getStudentDoc(year, semester), {
+          students: nextStudents,
+          year,
+          semester,
+          ownerEmail: user.email || "",
+          updatedAt: new Date().toISOString(),
+        });
+        await setDoc(doc(db, "peonUsers", user.uid, "records", `${year}_${semester}_paps_data`), {
+          items: currentItems,
+          scores: nextScores,
+          year,
+          semester,
+          updatedAt: new Date().toISOString(),
+        });
+      }
+
+      alert(`PAPS 파일을 가져왔습니다.\n\n명단 ${importedStudents}명 추가/갱신 · 기록 ${importedRecords}건 반영\n\n'팝스' 탭에서 확인해 주세요.`);
+    } catch (error) {
+      console.error(error);
+      alert(error?.message === "PDF_TEXT_NOT_FOUND"
+        ? "스캔 이미지 PDF는 자동 인식할 수 없습니다. 글자를 선택할 수 있는 PDF 또는 엑셀 파일을 사용해 주세요."
+        : "PAPS 기록 매칭 중 오류가 발생했습니다. 파일 형식과 표 머리글을 확인해 주세요.");
+    }
+    setPapsMatchBusy(false);
+    event.target.value = "";
+  };
+
   const clearAllData = () => {
     if (!confirm("PE-ON 로컬 저장 자료를 모두 삭제할까요? 이 작업은 되돌릴 수 없습니다.")) return;
     Object.keys(localStorage).forEach((key) => {
@@ -230,6 +285,13 @@ export default function Settings({ onNavigate } = {}) {
         </SettingsSection>
 
         <SettingsSection number="③" icon="💗" title="PAPS" description="기준표 업로드 · 기록 업로드" open={openSection === "3"} onToggle={() => toggleSection("3")} accent="pink">
+          <div className="settings-action-panel">
+            <label className="file-label-btn">
+              {papsMatchBusy ? "매칭 중..." : "📥 측정기록 파일로 자동 매칭"}
+              <input type="file" accept=".xlsx,.xls,.csv,.pdf" multiple disabled={papsMatchBusy} onChange={handleManagementPapsMatch} />
+            </label>
+            <p className="settings-inline-hint">나이스 PAPS 반별 엑셀 또는 텍스트형 PDF를 올리면 명단과 측정값(악력·제자리멀리뛰기·앉아윗몸앞으로굽히기·왕복오래달리기·신장/체중)을 자동으로 채웁니다. (아래 파일함은 보관·열람 전용이며 이 매칭 기능과는 별개입니다)</p>
+          </div>
           <SharedFileBox title="PAPS 기준표 · 기록 업로드" description="PAPS 기준표, 측정 기록, 반별 Excel 자료를 보관합니다." category="paps" year={year} semester={semester} localKey={`peon_${year}_${semester}_paps_shared_files`} accept=".pdf,.hwp,.hwpx,.png,.jpg,.jpeg,.xlsx,.xls,.csv" />
         </SettingsSection>
 

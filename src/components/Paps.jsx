@@ -1,11 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import * as XLSX from "xlsx";
 import SharedFileBox from "./SharedFileBox";
 import { doc, onSnapshot, setDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { evaluatePaps, getPapsUnit, PAPS_STANDARD_VERSION } from "../utils/papsStandards";
-import { readPdfRows } from "../utils/pdfTableRows";
+import { importPapsRecords } from "../utils/papsRecordImport";
 
 const classes = ["2-1", "2-2", "2-3", "2-4", "2-5"];
 
@@ -228,119 +227,8 @@ export default function Paps() {
   };
 
 
-  const normalize = (value) => String(value ?? "").replace(/\s/g, "").toLowerCase();
+// (readWorkbookRows/getCell/inferClassFromRowOrFile 등은 src/utils/papsRecordImport.js 로 이동해 관리 탭과 공유합니다.)
 
-  const getCell = (row, candidates) => {
-    const entries = Object.entries(row || {});
-    for (const candidate of candidates) {
-      const target = normalize(candidate);
-      const exact = entries.find(([key]) => normalize(key) === target);
-      if (exact) return exact[1];
-    }
-    for (const candidate of candidates) {
-      const target = normalize(candidate);
-      const partial = entries.find(([key]) => normalize(key).includes(target));
-      if (partial) return partial[1];
-    }
-    return "";
-  };
-
-  const inferClassFromRowOrFile = (row, fileName) => {
-    const fullClass = getCell(row, ["학급", "반", "반명", "학년반", "className"]);
-    const grade = getCell(row, ["학년", "grade"]);
-    const ban = getCell(row, ["반명", "반", "class", "className"]);
-    const text = String(fullClass || ban || fileName || "");
-    const matched = text.match(/([1-3])\s*-?\s*([1-9])/);
-    if (matched) return `${matched[1]}-${matched[2]}`;
-
-    const fileBan = String(fileName || "").match(/([1-9])\s*반/);
-    const gradeNumber = String(grade || papsClass.split("-")[0] || "2").replace(/[^0-9]/g, "") || "2";
-    if (fileBan) return `${gradeNumber}-${fileBan[1]}`;
-
-    const classNumber = String(ban || "").replace(/[^0-9]/g, "");
-    if (classNumber) return `${gradeNumber}-${classNumber}`;
-    return papsClass;
-  };
-
-  const normalizeGender = (value) => {
-    const text = String(value ?? "").trim();
-    const compact = text.replace(/\s/g, "").toLowerCase();
-    if (compact === "2" || compact === "2.0" || compact.includes("여") || compact.includes("female") || compact === "f") return "여";
-    return "남";
-  };
-
-  const readWorkbookRows = async (file) => {
-    if (/\.pdf$/i.test(file.name)) {
-      return readPdfRows(file, [
-        "학생성명", "학생명", "성명", "이름", "번호", "출석번호", "반", "반명",
-        "악력", "제자리멀리뛰기", "앉아윗몸", "셔틀런", "왕복오래달리기",
-        "신장", "키", "체중", "몸무게"
-      ]);
-    }
-
-    const buffer = await file.arrayBuffer();
-    const workbook = XLSX.read(buffer, { type: "array" });
-    const rows = [];
-
-    const isUsefulHeader = (value) => {
-      const text = normalize(value);
-      return [
-        "학생성명", "학생명", "성명", "이름", "번호", "출석번호", "반", "반명",
-        "악력", "제자리멀리뛰기", "앉아윗몸", "셔틀런", "왕복오래달리기",
-        "신장", "키", "체중", "몸무게"
-      ].some((keyword) => text.includes(normalize(keyword)));
-    };
-
-    workbook.SheetNames.forEach((sheetName) => {
-      const sheet = workbook.Sheets[sheetName];
-      const matrix = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "", raw: false });
-
-      if (!matrix.length) return;
-
-      let headerIndex = matrix.findIndex((row) => {
-        const usefulCount = (row || []).filter(isUsefulHeader).length;
-        return usefulCount >= 2;
-      });
-
-      if (headerIndex < 0) headerIndex = 0;
-
-      const headers = (matrix[headerIndex] || []).map((header, index) => {
-        const text = String(header || "").trim();
-        return text || `열${index + 1}`;
-      });
-
-      matrix.slice(headerIndex + 1).forEach((line) => {
-        if (!line || line.every((cell) => String(cell ?? "").trim() === "")) return;
-
-        const row = {};
-        headers.forEach((header, index) => {
-          row[header] = line[index] ?? "";
-        });
-
-        row.__sheetName = sheetName;
-        row.__fileName = file.name;
-        rows.push(row);
-      });
-    });
-
-    return rows;
-  };
-
-  const getFirstValue = (row, candidates) => {
-    for (const candidate of candidates) {
-      const value = getCell(row, [candidate]);
-      if (value !== "" && value !== undefined && value !== null) return value;
-    }
-    return "";
-  };
-
-  const putTryValues = (record, values) => {
-    values.forEach((value, index) => {
-      if (value !== "" && value !== undefined && value !== null) {
-        record[`try${index + 1}`] = String(value);
-      }
-    });
-  };
 
   const saveStudentsToCloud = async (nextStudents) => {
     const user = currentUser || auth.currentUser;
@@ -360,96 +248,12 @@ export default function Paps() {
     if (files.length === 0) return;
 
     try {
-      const nextStudents = { ...students };
-      const nextScores = { ...scores };
-      let importedStudents = 0;
-      let importedRecords = 0;
-
-      const ensureItem = (itemId, className, studentId) => {
-        nextScores[itemId] = { ...(nextScores[itemId] || {}) };
-        nextScores[itemId][className] = { ...(nextScores[itemId][className] || {}) };
-        nextScores[itemId][className][studentId] = { ...(nextScores[itemId][className][studentId] || {}) };
-        return nextScores[itemId][className][studentId];
-      };
-
-      for (const file of files) {
-        const rows = await readWorkbookRows(file);
-        rows.forEach((row) => {
-          const name = String(getCell(row, ["학생성명", "학생명", "성명", "이름", "name"])).trim();
-          if (!name) return;
-
-          const className = inferClassFromRowOrFile(row, file.name);
-          const number = String(getCell(row, ["번호", "출석번호", "학번", "number"])).replace(/\.0$/, "").trim();
-          const gender = normalizeGender(getCell(row, ["성별", "남녀", "gender"]));
-          const health = String(getCell(row, ["유의사항", "건강상유의사항", "건강", "참고사항", "health"])).trim();
-
-          const list = [...(nextStudents[className] || [])];
-          let student = list.find((item) => String(item.number) === String(number) && item.name === name);
-          if (!student) {
-            student = {
-              id: `${className}-${number || list.length + 1}-${name}`,
-              className,
-              number: number || String(list.length + 1),
-              name,
-              gender,
-              health,
-            };
-            list.push(student);
-            importedStudents += 1;
-          } else {
-            student = { ...student, gender: student.gender || gender, health: student.health || health };
-            const idx = list.findIndex((item) => item.id === student.id);
-            list[idx] = student;
-          }
-
-          nextStudents[className] = list.sort((a, b) => Number(a.number) - Number(b.number));
-
-          const shuttle = getFirstValue(row, ["왕복오래달리기", "왕복오래달리기(회)", "오래달리기", "셔틀런", "20m왕복오래달리기"]);
-          const gripValues = [
-            getFirstValue(row, ["악력1", "악력 1", "악력1차", "악력 1차", "악력"]),
-            getFirstValue(row, ["악력2", "악력 2", "악력2차", "악력 2차"]),
-            getFirstValue(row, ["악력3", "악력 3", "악력3차", "악력 3차"]),
-            getFirstValue(row, ["악력4", "악력 4", "악력4차", "악력 4차"]),
-          ];
-          const longjumpValues = [
-            getFirstValue(row, ["제자리멀리뛰기1", "제자리 멀리뛰기1", "제자리멀리뛰기 1", "제자리멀리뛰기1차", "제자리멀리뛰기"]),
-            getFirstValue(row, ["제자리멀리뛰기2", "제자리 멀리뛰기2", "제자리멀리뛰기 2", "제자리멀리뛰기2차"]),
-          ];
-          const sitreachValues = [
-            getFirstValue(row, ["앉아윗몸앞으로굽히기1", "앉아윗몸 앞으로 굽히기1", "앉아윗몸1", "좌전굴1", "앉아윗몸앞으로굽히기", "앉아윗몸", "좌전굴"]),
-            getFirstValue(row, ["앉아윗몸앞으로굽히기2", "앉아윗몸 앞으로 굽히기2", "앉아윗몸2", "좌전굴2"]),
-          ];
-          const height = getFirstValue(row, ["신장", "키", "신장(cm)", "키(cm)", "height"]);
-          const weight = getFirstValue(row, ["체중", "몸무게", "체중(kg)", "몸무게(kg)", "weight"]);
-
-          if (shuttle !== "") {
-            ensureItem("shuttle", className, student.id).try1 = String(shuttle);
-            importedRecords += 1;
-          }
-
-          if (gripValues.some((value) => value !== "")) {
-            putTryValues(ensureItem("grip", className, student.id), gripValues);
-            importedRecords += gripValues.filter((value) => value !== "").length;
-          }
-
-          if (longjumpValues.some((value) => value !== "")) {
-            putTryValues(ensureItem("longjump", className, student.id), longjumpValues);
-            importedRecords += longjumpValues.filter((value) => value !== "").length;
-          }
-
-          if (sitreachValues.some((value) => value !== "")) {
-            putTryValues(ensureItem("sitreach", className, student.id), sitreachValues);
-            importedRecords += sitreachValues.filter((value) => value !== "").length;
-          }
-
-          if (height !== "" || weight !== "") {
-            const bmiRecord = ensureItem("bmi", className, student.id);
-            if (height !== "") bmiRecord.height = String(height);
-            if (weight !== "") bmiRecord.weight = String(weight);
-            importedRecords += 1;
-          }
-        });
-      }
+      const { nextStudents, nextScores, importedStudents, importedRecords } = await importPapsRecords({
+        files,
+        students,
+        existingScores: scores,
+        fallbackClass: papsClass || "2-1",
+      });
 
       localStorage.setItem(studentKey, JSON.stringify(nextStudents));
       localStorage.setItem(scoreKey, JSON.stringify(nextScores));
@@ -533,7 +337,7 @@ export default function Paps() {
   const getBmi = (record) => {
     const height = Number(record.height);
     const weight = Number(record.weight);
-    if (!height || !weight) return "";
+    if (!height || !weight) return record.bmiDirect || "";
 
     const meter = height / 100;
     return (weight / (meter * meter)).toFixed(1);
@@ -611,7 +415,7 @@ export default function Paps() {
 
   const hasInput = (record) => {
     if (!selected) return false;
-    if (selected.name === "BMI") return Boolean(record.height || record.weight);
+    if (selected.name === "BMI") return Boolean(record.height || record.weight || record.bmiDirect);
     return Array.from({ length: selected.attempts }).some((_, index) => record[`try${index + 1}`]);
   };
 
@@ -705,9 +509,13 @@ export default function Paps() {
     if (item.name === "BMI") {
       const height = Number(record.height);
       const weight = Number(record.weight);
-      if (!height || !weight) return null;
-      const meter = height / 100;
-      value = (weight / (meter * meter)).toFixed(1);
+      if (!height || !weight) {
+        if (!record.bmiDirect) return null;
+        value = String(record.bmiDirect);
+      } else {
+        const meter = height / 100;
+        value = (weight / (meter * meter)).toFixed(1);
+      }
     } else {
       value = getBestForItem(item, record);
       if (value === "") return null;
@@ -744,7 +552,7 @@ export default function Paps() {
         const bmi = height && weight ? (() => {
           const meter = Number(height) / 100;
           return (Number(weight) / (meter * meter)).toFixed(1);
-        })() : "";
+        })() : (record.bmiDirect || "");
         return [student.number, student.name, student.gender || "", height, weight, bmi, getGradeLabelForItem(item, record, student)];
       }
 
