@@ -3,6 +3,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import PhotoStudio from "./PhotoStudio";
 import SharedFileBox from "./SharedFileBox";
+import { importAssessmentScores } from "../utils/assessmentScoreImport";
 
 const classes = ["2-1", "2-2", "2-3", "2-4", "2-5"];
 
@@ -151,6 +152,45 @@ export default function Settings({ onNavigate } = {}) {
     event.target.value = "";
   };
 
+  const [scoreMatchBusy, setScoreMatchBusy] = useState(false);
+
+  const handleManagementScoreMatch = async (event) => {
+    const files = Array.from(event.target.files || []);
+    if (files.length === 0) return;
+
+    const scoreKey = `peon_${year}_${semester}_assessment_scores`;
+    const activities = JSON.parse(localStorage.getItem(`peon_${year}_${semester}_assessment`) || "[]");
+
+    if (!Array.isArray(activities) || activities.length === 0) {
+      alert("먼저 '수행' 탭 → 평가설정에서 평가활동을 만든 뒤 업로드해 주세요.");
+      event.target.value = "";
+      return;
+    }
+
+    setScoreMatchBusy(true);
+    try {
+      const existingScores = JSON.parse(localStorage.getItem(scoreKey) || "{}");
+      const { nextScores, imported, skipped, rowCount } = await importAssessmentScores({
+        files,
+        activities,
+        students,
+        existingScores,
+        targetActivityId: "all",
+        fallbackClass: classes[0],
+      });
+
+      localStorage.setItem(scoreKey, JSON.stringify(nextScores));
+      alert(`수행평가 점수 매칭이 끝났습니다.\n\n반영 ${imported}건 · 미매칭 ${skipped}명 · 읽은 행 ${rowCount}개\n\n'수행' 탭 → 점수확인에서 확인해 주세요.`);
+    } catch (error) {
+      console.error(error);
+      alert(error?.message === "PDF_TEXT_NOT_FOUND"
+        ? "스캔 이미지 PDF는 자동 인식할 수 없습니다. 글자를 선택할 수 있는 PDF 또는 엑셀 파일을 사용해 주세요."
+        : "점수 매칭 중 오류가 발생했습니다. 파일 형식과 표 머리글을 확인해 주세요.");
+    }
+    setScoreMatchBusy(false);
+    event.target.value = "";
+  };
+
   const clearAllData = () => {
     if (!confirm("PE-ON 로컬 저장 자료를 모두 삭제할까요? 이 작업은 되돌릴 수 없습니다.")) return;
     Object.keys(localStorage).forEach((key) => {
@@ -179,6 +219,13 @@ export default function Settings({ onNavigate } = {}) {
         </SettingsSection>
 
         <SettingsSection number="②" icon="🏃" title="수행평가" description="기준표 업로드 · 점수 업로드" open={openSection === "2"} onToggle={() => toggleSection("2")} accent="orange">
+          <div className="settings-action-panel">
+            <label className="file-label-btn">
+              {scoreMatchBusy ? "매칭 중..." : "📥 점수 파일로 자동 매칭"}
+              <input type="file" accept=".xlsx,.xls,.csv,.pdf" multiple disabled={scoreMatchBusy} onChange={handleManagementScoreMatch} />
+            </label>
+            <p className="settings-inline-hint">엑셀(.xlsx,.xls,.csv) 또는 텍스트형 PDF를 올리면 반/번호/이름 기준으로 학생을 찾아 점수를 바로 채워 넣습니다. (아래 파일함은 보관·열람 전용이며 이 매칭 기능과는 별개입니다)</p>
+          </div>
           <SharedFileBox title="수행평가 기준표 · 점수 업로드" description="수행평가 기준표, 점수 입력 파일, 활동별 자료를 보관합니다." category="assessment" year={year} semester={semester} localKey={`peon_${year}_${semester}_assessment_shared_files`} accept=".pdf,.hwp,.hwpx,.png,.jpg,.jpeg,.xlsx,.xls,.csv" />
         </SettingsSection>
 
