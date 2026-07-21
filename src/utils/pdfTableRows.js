@@ -60,6 +60,38 @@ const groupPageItems = (items) => {
     .filter((row) => row.length);
 };
 
+// NEIS 수행평가 강의실별 일람표처럼 "반/번호  학년  이름  점수 점수 점수  합계" 형태로
+// 한 줄에 여러 영역 점수가 함께 찍히는 PDF를 위한 전용 파서.
+// 표 위쪽의 "반/번호 성명 합계 비고" 같은 제목 줄이 일반 헤더 감지 로직에
+// 잘못 걸려서(단어 2개만 겹쳐도 헤더로 오인) 이 파서가 건너뛰어지는 문제가 있었기 때문에,
+// 항상 이 패턴을 먼저 시도하고, 실패할 때만 아래의 일반 헤더 기반 파서로 넘어가도록 순서를 바꿈.
+const parseNeisRoomSheetRows = (matrix, fileName) => {
+  const fallbackRows = [];
+  matrix.forEach(({ row, pageNumber }) => {
+    const text = clean(row.join(" "));
+    const match = text.match(/^(\d+)\s*[\/\-]\s*(\d+)\s+(?:[1-3]\s+)?([가-힣A-Za-z]{2,20})\s+(.+)$/);
+    if (!match) return;
+
+    const scoreTokens = (match[4].match(/(?:전출|-?\d+(?:\.\d+)?)/g) || []);
+    if (scoreTokens.length < 3 || scoreTokens.some((value) => value === "전출")) return;
+
+    const numericScores = scoreTokens
+      .map((value) => Number(String(value).replace(/,/g, "")))
+      .filter((value) => Number.isFinite(value));
+    if (numericScores.length < 3) return;
+
+    fallbackRows.push({
+      "반/번호": `${match[1]}/${match[2]}`,
+      "성명": match[3],
+      __scoreValues: numericScores.length >= 4 ? numericScores.slice(0, -1) : numericScores,
+      __pageNumber: pageNumber,
+      __fileName: fileName,
+      __pdfFallback: true,
+    });
+  });
+  return fallbackRows;
+};
+
 export const readPdfRows = async (file, usefulHeaderWords = []) => {
   const buffer = await file.arrayBuffer();
   const pdf = await pdfjsLib.getDocument({ data: buffer }).promise;
@@ -76,6 +108,9 @@ export const readPdfRows = async (file, usefulHeaderWords = []) => {
     throw new Error("PDF_TEXT_NOT_FOUND");
   }
 
+  const neisRows = parseNeisRoomSheetRows(matrix, file.name);
+  if (neisRows.length) return neisRows;
+
   const keywords = usefulHeaderWords.map(compact).filter(Boolean);
   const headerIndex = matrix.findIndex(({ row }) => {
     const joined = compact(row.join(" "));
@@ -83,32 +118,6 @@ export const readPdfRows = async (file, usefulHeaderWords = []) => {
   });
 
   if (headerIndex < 0) {
-    // NEIS 수행평가 일람표처럼 머리글이 여러 줄로 분리된 PDF를 위한 보조 파서입니다.
-    const fallbackRows = [];
-    matrix.forEach(({ row, pageNumber }) => {
-      const text = clean(row.join(" "));
-      const match = text.match(/^(\d+)\s*[\/\-]\s*(\d+)\s+(?:[1-3]\s+)?([가-힣A-Za-z]{2,20})\s+(.+)$/);
-      if (!match) return;
-
-      const scoreTokens = (match[4].match(/(?:전출|-?\d+(?:\.\d+)?)/g) || []);
-      if (scoreTokens.length < 3 || scoreTokens.some((value) => value === "전출")) return;
-
-      const numericScores = scoreTokens
-        .map((value) => Number(String(value).replace(/,/g, "")))
-        .filter((value) => Number.isFinite(value));
-      if (numericScores.length < 3) return;
-
-      fallbackRows.push({
-        "반/번호": `${match[1]}/${match[2]}`,
-        "성명": match[3],
-        __scoreValues: numericScores.length >= 4 ? numericScores.slice(0, -1) : numericScores,
-        __pageNumber: pageNumber,
-        __fileName: file.name,
-        __pdfFallback: true,
-      });
-    });
-
-    if (fallbackRows.length) return fallbackRows;
     throw new Error("PDF_HEADER_NOT_FOUND");
   }
 
